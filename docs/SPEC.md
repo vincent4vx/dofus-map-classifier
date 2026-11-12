@@ -76,14 +76,37 @@ Enums en anglais, tags et description en anglais.
 - Le résultat par map doit pouvoir être enrichi (area / sub area en étape 2). Les rendus PNG sont conservés pour l'étape 3.
 - Tests PHPUnit sans appel réseau.
 
+### Localisation et biome des sub areas
+
+- Source : lang `maps_{lang}_{version}.swf` (version la plus récente du dossier `DOFUS_LANG_DIR`), parsé avec ArakneSwf. Variables utilisées : `MA.m` (sub area de chaque map), `MA.sa` (nom, area), `MA.a` (nom, super area), `MA.sua`.
+- Le champ `tt` (type de terrain) des sub areas n'est pas utilisé : il n'existe pas dans les langs 1.29. Les coordonnées ne sont pas exportées.
+- La localisation est jointe au moment de l'export : `location: {sub_area: {id, name, biome}, area: {id, name}, super_area: {id, name}}`.
+- Biome d'une sub area : biome le plus fréquent parmi ses maps classées en extérieur (à défaut, toutes ses maps), les maps sans biome sont ignorées. Exporté dans `var/sub_areas.json` (votes, nombre de maps classées / total) et dans `location.sub_area.biome` de chaque map. Il permet de compléter le biome des maps qui n'en ont pas (intérieurs). Il se fiabilise au fur et à mesure que les maps de la sub area sont classées.
+
 ### Constats techniques
 
 - Toutes les maps du client sont chiffrées (`X.swf`). La clé dépend de la version de la map : une clé d'une autre version ne fonctionne pas.
 - 735 maps du client (~8 %) n'ont pas de clé correspondante dans MapKeys-DR : elles sont marquées `missing_key`.
 - Le rendu prend ~0,2 s par map (cache de sprites SQLite dans `var/cache`).
-- Les images sont envoyées en JPEG (qualité 90, ~100 Ko par requête) : le traitement complet représente ~920 Mo de fichiers batch, découpés en fichiers de 150 Mo max.
+- Les images sont envoyées en JPEG (qualité 90), agrandies x2 (1484x864, option `--image-scale`) : en taille native, le modèle manque de détails et confond certaines textures (ex : plaques d'herbe claire d'Incarnam vues comme de l'eau → `swamp`). Coût : ~2 700 tokens d'entrée par map au lieu de ~1 500. ~250 Ko par requête, soit ~2,3 Go de fichiers batch pour tout le client, découpés en fichiers de 150 Mo max.
 - Les maps sans ligne de résultat dans un batch (batch expiré…) restent non classées et seront resoumises.
 - Commande supplémentaire `report` : galerie HTML (rendu + classification) pour la validation visuelle.
+
+### Prompt
+
+- Le modèle remplit d'abord un champ `ground` (description du sol praticable), non stocké, qui sert d'étape de raisonnement avant le choix du biome.
+- Règles :
+  - juger le biome sur la map elle-même : ignorer le vide, les nuages et le paysage lointain ;
+  - `mountain` exige de la vraie roche (parois rocheuses, rochers, sol de pierre) : les falaises rocheuses qui traversent la zone jouable comptent, pas les simples talus de terre ou d'herbe entre deux niveaux ;
+  - l'eau prime sur le relief : niveaux bas ou grande partie de la map en eau → biome de l'eau ;
+  - `swamp` exige de l'eau stagnante (même trouble ou opaque) couvrant une part importante du sol, les variations de couleur de l'herbe ne sont pas de l'eau ;
+  - `forest` = beaucoup d'arbres même petits, `plain` = herbe avec quelques arbres isolés ;
+  - `wasteland` = herbe jaune sèche avec arbres morts ;
+  - `cemetery` dès que des tombes sont visibles.
+- Effort de raisonnement : aucun gain constaté (medium / high) sur les cas ambigus, non activé.
+- Stabilité mesurée sur deux passes : Incarnam 80/83, échantillon de 50 maps hors Incarnam 44/50 (instables : cas limites et intérieurs `null` / biome).
+- Détection de `swamp` vérifiée sur 25 maps des sub areas de marais : 39/50 `swamp`, le reste surtout `jungle` (marais tropicaux d'Otomaï / Koalak, ambigu) ou des maps sans eau visible.
+- Les maps d'Incarnam avec falaises rocheuses peuvent sortir en `mountain` (accepté).
 
 ### Validation
 

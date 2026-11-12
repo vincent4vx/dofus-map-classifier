@@ -25,6 +25,10 @@ final class Config
         public readonly ?string $openAiReasoningEffort = null,
         public readonly string $openAiBaseUrl = 'https://api.openai.com/v1',
         public readonly string $keysArchiveUrl = self::DEFAULT_KEYS_ARCHIVE_URL,
+        /** Directory of the lang swf files (e.g. maps_en_1251.swf) */
+        public readonly string $langDir = '/lang',
+        /** Lang to use for names */
+        public readonly string $lang = 'en',
     ) {}
 
     public string $keysDir { get => $this->varDir . '/keys'; }
@@ -46,6 +50,8 @@ final class Config
             openAiReasoningEffort: $env('OPENAI_REASONING_EFFORT'),
             openAiBaseUrl: rtrim($env('OPENAI_BASE_URL') ?? 'https://api.openai.com/v1', '/'),
             keysArchiveUrl: $env('MAP_KEYS_ARCHIVE_URL') ?? self::DEFAULT_KEYS_ARCHIVE_URL,
+            langDir: rtrim($env('LANG_DIR') ?? '/lang', '/'),
+            lang: $env('DOFUS_LANG') ?? 'en',
         );
     }
 }

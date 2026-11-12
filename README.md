@@ -24,32 +24,30 @@ Environment variables (container side):
 | `OPENAI_MODEL` | `luna` | Model used for classification |
 | `OPENAI_REASONING_EFFORT` | | Reasoning effort (`minimal`, `low`…), only for reasoning models |
 | `VAR_DIR` | `var/` | Data directory |
+| `LANG_DIR` | `/lang` | Lang swf files directory (mounted from `DOFUS_LANG_DIR`) |
+| `DOFUS_LANG` | `en` | Lang used for area names |
 
 ## Usage
 
+All commands are available through `make` (run `make help`), extra arguments are passed with `ARGS`:
+
 ```bash
-# 1. Download map keys (MapKeys-DR)
-make console ARGS="keys:download"
+make keys                                         # 1. download map keys (MapKeys-DR)
+make render ARGS="--super-area=3"                 # 2. render maps to var/renders/{id}.png (~0.2s per map)
+make classify ARGS="--super-area=3 --concurrency=10"   # 3. classify synchronously (Responses API)
+make export                                       # 4. var/maps.json + var/sub_areas.json
+make report                                       # 5. var/report.html (search and filters)
 
-# 2. Render maps to var/renders/{id}.png (~0.2s per map)
-make console ARGS="maps:render"              # all maps
-make console ARGS="maps:render 10000-10100"  # ids or ranges
+make pipeline ARGS="--area=18"                    # render + classify + export + report of a selection
 
-# 3. Submit to the OpenAI Batch API (asks confirmation)
-make console ARGS="classify:submit --limit=20"
-make console ARGS="classify:submit --dry-run"   # only build var/batches/input/*.jsonl
-
-# 3bis. Or classify synchronously (Responses API, parallel requests, retry on 429/5xx)
-make console ARGS="classify:run 10000-10100 --concurrency=5"
-
-# 4. Follow and import (batches complete within 24h)
-make console ARGS="classify:status"
-make console ARGS="classify:import"
-
-# 5. Export / visual check
-make console ARGS="export"                  # var/maps.json
-make console ARGS="report --biome=forest"   # var/report.html
+# Batch API (cheaper, asynchronous, up to 24h)
+make submit ARGS="--limit=1000"                   # asks confirmation, --dry-run to only build files
+make status
+make import
 ```
+
+Maps selection (render, classify, submit, report): ids or ranges (`10000 100-200`), `--super-area`, `--area`, `--sub-area`, `--limit`.
+`make pipeline` only accepts selection arguments.
 
 All commands are resumable: rendered / classified maps and maps in a pending batch are skipped.
 Use `--force` to process them again, `--retry-errors` to retry maps in error.
@@ -65,6 +63,7 @@ var/
   batches/input/*.jsonl       batch input files
   batches/output/*.jsonl      batch output files
   cache/sprites.db            rendering sprite cache
-  maps.json                   export
+  maps.json                   export of maps, with location (sub area, area, super area)
+  sub_areas.json              biome of each sub area, deduced from its classified maps
   report.html                 visual report
 ```

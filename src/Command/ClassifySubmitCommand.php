@@ -31,13 +31,14 @@ final class ClassifySubmitCommand extends Command
     #[Override]
     protected function configure(): void
     {
+        MapSelection::configure($this, 'Map ids or ranges (e.g. 10000 100-200). All rendered maps by default');
         $this
-            ->addArgument('ids', InputArgument::IS_ARRAY, 'Map ids or ranges (e.g. 10000 100-200). All rendered maps by default')
             ->addOption('limit', 'l', InputOption::VALUE_REQUIRED, 'Maximum number of maps to submit')
             ->addOption('retry-errors', null, InputOption::VALUE_NONE, 'Submit again maps with a classification error')
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Submit again already classified maps')
             ->addOption('dry-run', null, InputOption::VALUE_NONE, 'Only build the batch input files, without submitting them')
             ->addOption('image-format', null, InputOption::VALUE_REQUIRED, 'Image format sent to the model (jpeg or png)', ImageEncoder::JPEG)
+            ->addOption('image-scale', null, InputOption::VALUE_REQUIRED, 'Scale factor applied to the rendered image before sending it', (string) ImageEncoder::DEFAULT_SCALE)
             ->addOption('max-file-size', null, InputOption::VALUE_REQUIRED, 'Maximum size of a batch input file, in MB', '150')
         ;
     }
@@ -48,7 +49,7 @@ final class ClassifySubmitCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $config = $this->kernel->config;
         $todo = $this->kernel->mapsToClassify->select(
-            MapSelection::parse($input->getArgument('ids')),
+            MapSelection::fromInput($input, $this->kernel->locations),
             force: (bool) $input->getOption('force'),
             retryErrors: (bool) $input->getOption('retry-errors'),
             limit: $input->getOption('limit') !== null ? (int) $input->getOption('limit') : null,
@@ -62,6 +63,7 @@ final class ClassifySubmitCommand extends Command
 
         $service = $this->kernel->batchService(
             (string) $input->getOption('image-format'),
+            (float) $input->getOption('image-scale'),
             (int) $input->getOption('max-file-size') * 1024 * 1024,
         );
 

@@ -45,7 +45,7 @@ final class WorkflowTest extends TestCase
             $this->markTestSkipped('Dofus client not available');
         }
 
-        $this->config = new Config($dofusPath, $this->tempDir(), openAiModel: 'luna');
+        $this->config = new Config($dofusPath, $this->tempDir(), openAiModel: 'luna', langDir: __DIR__ . '/../Fixtures/lang');
         mkdir($this->config->keysDir, 0755, true);
         copy(__DIR__ . '/../Fixtures/keys/10000_0706131721.txt', $this->config->keysDir . '/10000_0706131721.txt');
 
@@ -98,6 +98,22 @@ final class WorkflowTest extends TestCase
         $export = json_decode((string) file_get_contents($this->config->varDir . '/maps.json'), true);
         $this->assertSame(['10000', '10001'], array_map('strval', array_keys($export)));
         $this->assertSame('snow', $export[10000]['biome']);
+        $this->assertSame(['id', 'version', 'location', 'status'], array_slice(array_keys($export[10000]), 0, 4));
+        $this->assertSame(['id' => 320, 'name' => 'Kwismas Island', 'biome' => 'snow'], $export[10000]['location']['sub_area']);
+
+        $subAreas = json_decode((string) file_get_contents($this->config->varDir . '/sub_areas.json'), true);
+        $this->assertSame([
+            'id' => 320,
+            'name' => 'Kwismas Island',
+            'area' => ['id' => 42, 'name' => 'Arctic Area'],
+            'biome' => 'snow',
+            'votes' => ['snow' => 1],
+            'outdoor_only' => true,
+            'total_maps' => $subAreas[320]['total_maps'],
+            'classified_maps' => 1,
+        ], $subAreas[320]);
+        $this->assertNull($subAreas[95]['biome']);
+        $this->assertSame('Arctic Area', $export[10000]['location']['area']['name']);
 
         $this->assertStringContainsString('1 maps exported', $this->exec('export', ['--only-ok' => true]));
 
@@ -106,9 +122,11 @@ final class WorkflowTest extends TestCase
         $html = (string) file_get_contents($this->config->varDir . '/report.html');
         $this->assertStringContainsString('src="renders/10000.png"', $html);
         $this->assertStringContainsString('A forest crossed by a river.', $html);
-        $this->assertStringContainsString('data-status="ok" data-biome="snow" data-location="wild" data-indoor="outdoor" data-search="10000  trees river a forest crossed by a river. "', $html);
+        $this->assertStringContainsString('data-status="ok" data-biome="snow" data-location="wild" data-indoor="outdoor" data-area="Arctic Area" data-search="10000 arctic area kwismas island  trees river a forest crossed by a river. "', $html);
         $this->assertStringContainsString('<option value="lake_river">lake_river</option>', $html);
         $this->assertStringContainsString('<option value="dungeon">dungeon</option>', $html);
+        $this->assertStringContainsString('<option value="Arctic Area">Arctic Area</option>', $html);
+        $this->assertStringContainsString('Arctic Area › Kwismas Island <small>(sub area: snow)</small>', $html);
     }
 
     public function testResubmitErrors(): void
@@ -138,7 +156,7 @@ final class WorkflowTest extends TestCase
         $http = new MockHttpClient(static fn () => new JsonMockResponse(
             json_decode(BatchFixtures::successLine(10000, BatchFixtures::classification('snow')), true)['response']['body'],
         ));
-        $this->app = (new Kernel(new Config($this->config->dofusPath, $this->config->varDir, 'sk-test'), $this->api, $http))->application();
+        $this->app = (new Kernel(new Config($this->config->dofusPath, $this->config->varDir, 'sk-test', langDir: $this->config->langDir), $this->api, $http))->application();
 
         $this->exec('maps:render', ['ids' => ['10000']]);
         $this->exec('classify:submit');
@@ -151,6 +169,17 @@ final class WorkflowTest extends TestCase
         $this->assertSame('snow', $this->mapResult(10000)['biome']);
 
         $this->assertStringContainsString('Nothing to classify', $this->exec('classify:run', ['--include-pending' => true]));
+    }
+
+    public function testLocationFilter(): void
+    {
+        // 10000 is in sub area 320 (Kwismas Island), area 42, super area 0
+        $this->assertStringContainsString('Nothing to render', $this->exec('maps:render', ['ids' => ['10000'], '--super-area' => '3']));
+        $this->assertStringContainsString('Nothing to render', $this->exec('maps:render', ['ids' => ['10000'], '--sub-area' => '95']));
+        $this->assertStringContainsString('1 maps rendered', $this->exec('maps:render', ['ids' => ['10000-10001'], '--super-area' => '0', '--area' => '42', '--sub-area' => '320', '--limit' => '1']));
+
+        $this->assertStringContainsString('Nothing to submit', $this->exec('classify:submit', ['--area' => '18']));
+        $this->assertStringContainsString('submitted as batch_1', $this->exec('classify:submit', ['--area' => '42']));
     }
 
     public function testDryRun(): void

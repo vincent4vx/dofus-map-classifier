@@ -20,6 +20,7 @@ use MapClassifier\Command\ExportCommand;
 use MapClassifier\Command\KeysDownloadCommand;
 use MapClassifier\Command\MapsRenderCommand;
 use MapClassifier\Command\ReportCommand;
+use MapClassifier\Lang\MapLocationRepository;
 use MapClassifier\Map\MapFileRepository;
 use MapClassifier\MapKey\MapKeyDownloader;
 use MapClassifier\MapKey\MapKeyRepository;
@@ -66,6 +67,10 @@ final class Kernel
         get => $this->mapsToClassify ??= new MapsToClassify($this->maps, $this->results, $this->batches, $this->config->rendersDir);
     }
 
+    public MapLocationRepository $locations {
+        get => $this->locations ??= new MapLocationRepository($this->config->langDir, $this->config->lang);
+    }
+
     public BatchApiInterface $batchApi {
         get => $this->batchApi ??= new OpenAIClient(
             $this->httpClient,
@@ -88,14 +93,14 @@ final class Kernel
         }
     }
 
-    public function batchService(string $imageFormat = ImageEncoder::JPEG, int $maxFileSize = 150 * 1024 * 1024): BatchService
+    public function batchService(string $imageFormat = ImageEncoder::JPEG, float $imageScale = ImageEncoder::DEFAULT_SCALE, int $maxFileSize = 150 * 1024 * 1024): BatchService
     {
         return new BatchService(
             // Lazy: the API (and API key) is only required when actually calling it
             new LazyBatchApi(fn () => $this->batchApi),
             new BatchFileBuilder(
                 $this->prompt(),
-                new ImageEncoder($imageFormat),
+                new ImageEncoder($imageFormat, $imageScale),
                 $maxFileSize,
             ),
             $this->batches,
@@ -107,7 +112,7 @@ final class Kernel
         );
     }
 
-    public function syncClassifier(string $imageFormat = ImageEncoder::JPEG): SyncClassifier
+    public function syncClassifier(string $imageFormat = ImageEncoder::JPEG, float $imageScale = ImageEncoder::DEFAULT_SCALE): SyncClassifier
     {
         return new SyncClassifier(
             // Retry on 429 and 5xx errors with exponential backoff, respecting Retry-After header
@@ -115,7 +120,7 @@ final class Kernel
             fn () => $this->config->openAiApiKey ?? throw new RuntimeException('OPENAI_API_KEY is not set'),
             $this->config->openAiBaseUrl,
             $this->prompt(),
-            new ImageEncoder($imageFormat),
+            new ImageEncoder($imageFormat, $imageScale),
             new BatchResultParser(),
             $this->results,
             $this->config->rendersDir,
@@ -133,13 +138,13 @@ final class Kernel
         $app = new Application('map-classifier', '0.1.0');
 
         $app->addCommand(new KeysDownloadCommand(new MapKeyDownloader($this->httpClient), $this->config));
-        $app->addCommand(new MapsRenderCommand($this->maps, $this->renderer, $this->results, $this->config));
+        $app->addCommand(new MapsRenderCommand($this->maps, $this->renderer, $this->locations, $this->results, $this->config));
         $app->addCommand(new ClassifySubmitCommand($this));
         $app->addCommand(new ClassifyRunCommand($this));
         $app->addCommand(new ClassifyStatusCommand($this));
         $app->addCommand(new ClassifyImportCommand($this));
-        $app->addCommand(new ExportCommand($this->results, $this->config));
-        $app->addCommand(new ReportCommand($this->results, $this->config));
+        $app->addCommand(new ExportCommand($this->results, $this->locations, $this->config));
+        $app->addCommand(new ReportCommand($this->results, $this->locations, $this->config));
 
         return $app;
     }

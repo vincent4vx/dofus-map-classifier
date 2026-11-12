@@ -71,10 +71,17 @@ final readonly class ClassificationPrompt
             You receive the rendered image of one map (a single screen of the game world, without characters or monsters).
             Analyze the whole image and answer with the requested JSON.
 
-            Fields:
+            Fields (fill them in this order):
+            - ground: first, describe precisely what covers the walkable ground (grass, dirt, sand, rock, snow, wood, stone tiles, water…) and how much of the map each covers. Only mention water if you see actual water (reflections, ripples, blue/brown liquid surface). Color variations of the grass are not water.
             - biome: the natural environment of the map, or null if it cannot be determined from the image.
             {$biomes}
               Rules:
+              - Judge the biome on the map itself, not on what surrounds it: ignore the void, clouds and the distant landscape visible below or behind the map. A flat grassy area whose only rock is the cliff edge at the border of the map is not a mountain.
+              - Relief inside the map counts: large rock walls, rocky cliffs or rocky slopes crossing the playable area make it a mountain. "mountain" requires actual rock (grey or pale stone walls, boulders, rock floor): small earth or grass ledges, terraces or banks between ground levels are not mountains.
+              - Water takes precedence over relief: if the lower levels or a large part of the map are filled with water, use the water biome (swamp, lake_river, sea, beach).
+              - Trees look small in this isometric top-down view: count them. A map covered by many trees is a forest, even if grass is visible between them.
+              - "swamp" requires stagnant water: it may be murky, green or opaque, but it must cover a significant part of the ground (pools, flooded areas between vegetation). Simple color variations of the grass (yellowish, olive, darker or paler patches), tall grass or reeds-like plants alone are not water: they are grassland (plain).
+              - Dry yellow grass with dead or leafless trees is a wasteland, not a plain.
               - Outdoor maps: choose the closest value. For towns and villages, use the natural environment visible around the buildings (vegetation, ground, water).
               - Indoor maps (buildings, ships, …): only set a biome if the environment is clearly recognizable from the walls, floor or decoration (e.g. bamboo walls: jungle, ice walls: snow, raw rock walls: cave). Otherwise (plain wooden or stone interior, furniture only), use null.
               - Never use "other" to describe a building, a town or an interior: use null instead.
@@ -101,8 +108,9 @@ final readonly class ClassificationPrompt
         return [
             'type' => 'object',
             'additionalProperties' => false,
-            'required' => ['biome', 'biome_other', 'indoor', 'location_type', 'tags', 'description'],
+            'required' => ['ground', 'biome', 'biome_other', 'indoor', 'location_type', 'tags', 'description'],
             'properties' => [
+                'ground' => ['type' => 'string'],
                 'biome' => [
                     'anyOf' => [
                         ['type' => 'string', 'enum' => array_map(static fn (Biome $biome) => $biome->value, Biome::cases())],

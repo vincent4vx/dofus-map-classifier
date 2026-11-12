@@ -64,16 +64,29 @@ final class BatchFileBuilderTest extends TestCase
         $image = $lines[0]['body']['input'][0]['content'][1]['image_url'];
         $this->assertStringStartsWith('data:image/jpeg;base64,', $image);
         $size = getimagesizefromstring(base64_decode(explode(',', $image)[1]));
+        $this->assertSame([1484, 864], [$size[0], $size[1]]);
+    }
+
+    public function testNativeScale(): void
+    {
+        $files = (new BatchFileBuilder(new ClassificationPrompt('luna'), new ImageEncoder(ImageEncoder::JPEG, 1.0)))
+            ->build([$this->maps[0]], $this->renderPath(...), $this->tempDir() . '/out', 'test');
+
+        $image = json_decode(file($files[0]->path)[0], true)['body']['input'][0]['content'][1]['image_url'];
+        $size = getimagesizefromstring(base64_decode(explode(',', $image)[1]));
         $this->assertSame([742, 432], [$size[0], $size[1]]);
     }
 
     public function testPngFormat(): void
     {
-        $files = (new BatchFileBuilder(new ClassificationPrompt('luna'), new ImageEncoder(ImageEncoder::PNG)))
+        $files = (new BatchFileBuilder(new ClassificationPrompt('luna'), new ImageEncoder(ImageEncoder::PNG, 1.5)))
             ->build([$this->maps[0]], $this->renderPath(...), $this->tempDir() . '/out', 'test');
 
         $line = json_decode(file($files[0]->path)[0], true);
-        $this->assertStringStartsWith('data:image/png;base64,', $line['body']['input'][0]['content'][1]['image_url']);
+        $image = $line['body']['input'][0]['content'][1]['image_url'];
+        $this->assertStringStartsWith('data:image/png;base64,', $image);
+        $size = getimagesizefromstring(base64_decode(explode(',', $image)[1]));
+        $this->assertSame([1113, 648], [$size[0], $size[1]]);
     }
 
     public function testSplitByRequestCount(): void

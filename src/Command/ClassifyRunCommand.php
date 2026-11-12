@@ -32,14 +32,15 @@ final class ClassifyRunCommand extends Command
     #[Override]
     protected function configure(): void
     {
+        MapSelection::configure($this, 'Map ids or ranges (e.g. 10000 100-200). All rendered maps by default');
         $this
-            ->addArgument('ids', InputArgument::IS_ARRAY, 'Map ids or ranges (e.g. 10000 100-200). All rendered maps by default')
             ->addOption('limit', 'l', InputOption::VALUE_REQUIRED, 'Maximum number of maps to classify')
             ->addOption('concurrency', 'c', InputOption::VALUE_REQUIRED, 'Number of parallel requests', '5')
             ->addOption('retry-errors', null, InputOption::VALUE_NONE, 'Classify again maps with a classification error')
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Classify again already classified maps')
             ->addOption('include-pending', null, InputOption::VALUE_NONE, 'Also classify maps which are part of a running batch')
             ->addOption('image-format', null, InputOption::VALUE_REQUIRED, 'Image format sent to the model (jpeg or png)', ImageEncoder::JPEG)
+            ->addOption('image-scale', null, InputOption::VALUE_REQUIRED, 'Scale factor applied to the rendered image before sending it', (string) ImageEncoder::DEFAULT_SCALE)
         ;
     }
 
@@ -48,7 +49,7 @@ final class ClassifyRunCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
         $todo = $this->kernel->mapsToClassify->select(
-            MapSelection::parse($input->getArgument('ids')),
+            MapSelection::fromInput($input, $this->kernel->locations),
             force: (bool) $input->getOption('force'),
             retryErrors: (bool) $input->getOption('retry-errors'),
             includePending: (bool) $input->getOption('include-pending'),
@@ -70,13 +71,13 @@ final class ClassifyRunCommand extends Command
         $progress->setMessage('');
         $progress->start();
 
-        $this->kernel->syncClassifier((string) $input->getOption('image-format'))->classify(
+        $this->kernel->syncClassifier((string) $input->getOption('image-format'), (float) $input->getOption('image-scale'))->classify(
             $todo,
             max(1, (int) $input->getOption('concurrency')),
             static function (MapResult $result) use ($io, $output, $progress, &$ok, &$errors) {
                 if ($result->ok) {
                     ++$ok;
-                    $message = sprintf('map %d: %s', $result->id, $result->classification->biome->value);
+                    $message = sprintf('map %d: %s', $result->id, $result->classification->biome->value ?? 'no biome');
                 } else {
                     ++$errors;
                     $message = sprintf('<comment>map %d: %s (%s)</comment>', $result->id, $result->error?->value, $result->errorMessage);

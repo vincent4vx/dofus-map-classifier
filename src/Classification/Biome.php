@@ -33,13 +33,13 @@ enum Biome: string
     public function description(): string
     {
         return match ($this) {
-            self::Forest => 'temperate woods, dense trees',
+            self::Forest => 'woods: many trees spread over the map (even small trees, even with grass between them)',
             self::Jungle => 'tropical vegetation, palm trees, lianas',
-            self::Plain => 'open grassland, meadows, few trees',
+            self::Plain => 'open grassland, meadows: grass with only a few isolated trees (around 5 or less)',
             self::Field => 'cultivated land: crops, wheat, farmland',
             self::Desert => 'sand, dunes, arid land',
-            self::Mountain => 'rocky terrain, cliffs, rocky paths',
-            self::Swamp => 'marsh, bog, muddy water with vegetation',
+            self::Mountain => 'rocky relief inside the map: rocky cliffs, stone walls, rocky slopes, boulders, rock floor, mountain paths (requires actual rock)',
+            self::Swamp => 'marsh or bog: stagnant water (murky, brown or green, even opaque) covering a significant part of the ground, pools between vegetation, mangroves',
             self::Snow => 'snow or ice covered land',
             self::Beach => 'sandy shore next to the sea',
             self::Sea => 'mostly open water, islands, boats',
@@ -47,8 +47,8 @@ enum Biome: string
             self::Cave => 'natural cave, rock walls in darkness',
             self::Underground => 'man-made underground: mine, sewer, crypt, cellar',
             self::Volcanic => 'lava, volcanic rocks, ashes',
-            self::Wasteland => 'dead, corrupted or desolate land: dead trees, cracked ground',
-            self::Cemetery => 'graveyard, tombs',
+            self::Wasteland => 'dead, dry, corrupted or desolate land: dead or leafless trees, dry yellow grass, cracked ground',
+            self::Cemetery => 'graveyard: tombstones, graves, crosses, tombs (even small ones)',
             self::Other => 'natural environment not listed above (fill biome_other)',
         };
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MapClassifier\Command;
 
 use MapClassifier\Config;
+use MapClassifier\Lang\MapLocationRepository;
 use MapClassifier\Map\MapFileRepository;
 use MapClassifier\Render\MapImageRenderer;
 use MapClassifier\Render\RenderException;
@@ -30,6 +31,7 @@ final class MapsRenderCommand extends Command
     public function __construct(
         private readonly MapFileRepository $maps,
         private readonly MapImageRenderer $renderer,
+        private readonly MapLocationRepository $locations,
         private readonly ResultStorage $results,
         private readonly Config $config,
     ) {
@@ -39,8 +41,8 @@ final class MapsRenderCommand extends Command
     #[Override]
     protected function configure(): void
     {
+        MapSelection::configure($this, 'Map ids or ranges (e.g. 10000 100-200). All maps by default');
         $this
-            ->addArgument('ids', InputArgument::IS_ARRAY, 'Map ids or ranges (e.g. 10000 100-200). All maps by default')
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Render again already rendered maps')
             ->addOption('limit', 'l', InputOption::VALUE_REQUIRED, 'Maximum number of maps to render')
             ->addOption('retry-errors', null, InputOption::VALUE_NONE, 'Retry maps previously failed to render')
@@ -55,7 +57,7 @@ final class MapsRenderCommand extends Command
         $retry = (bool) $input->getOption('retry-errors');
         $todo = [];
 
-        foreach (MapSelection::parse($input->getArgument('ids'))->filter($this->maps->all()) as $map) {
+        foreach (MapSelection::fromInput($input, $this->locations)->filter($this->maps->all()) as $map) {
             if (!$force && is_file($this->target($map->id))) {
                 continue;
             }

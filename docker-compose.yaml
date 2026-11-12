@@ -7,6 +7,9 @@ services:
             DOFUS_PATH: /dofus
             OPENAI_API_KEY: ${OPENAI_API_KEY:-}
             OPENAI_MODEL: ${OPENAI_MODEL:-luna}
+            LANG_DIR: /lang
+            DOFUS_LANG: ${DOFUS_LANG:-en}
         volumes:
             - .:/app
             - ${DOFUS_CLIENT_DIR:-../arakneweb/Dofus}:/dofus:ro
+            - ${DOFUS_LANG_DIR:-../arakneweb/lang/swf}:/lang:ro
