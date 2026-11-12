@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use MapClassifier\Config;
+use MapClassifier\Kernel;
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+exit((new Kernel(Config::fromEnv(dirname(__DIR__))))->application()->run());
