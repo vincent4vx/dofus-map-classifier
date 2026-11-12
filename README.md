@@ -47,6 +47,7 @@ make pipeline ARGS="--area=18"                    # render + classify + export +
 make submit ARGS="--limit=1000"                   # asks confirmation, --dry-run to only build files
 make status
 make import
+make discard ARGS="batch_xxx"                   # never import a batch (cancelled, obsolete prompt…)
 ```
 
 Maps selection (render, classify, submit, report): ids or ranges (`10000 100-200`), `--super-area`, `--area`, `--sub-area`, `--limit`.

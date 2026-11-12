@@ -62,7 +62,7 @@ final class ClassifyStatusCommand extends Command
                 sprintf('%d/%d', $record->info->completed, $record->info->total),
                 $record->info->failed,
                 $record->submittedAt->format('Y-m-d H:i'),
-                $record->importedAt?->format('Y-m-d H:i') ?? '-',
+                ($record->importedAt?->format('Y-m-d H:i') ?? '-') . ($record->discarded ? ' (discarded)' : ''),
             ], $records),
         );
 

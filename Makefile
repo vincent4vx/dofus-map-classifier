@@ -5,7 +5,7 @@ CONSOLE = $(RUN) bin/console
 # Extra arguments passed to the command, e.g. make render ARGS="--super-area=3"
 ARGS ?=
 
-.PHONY: help build shell install test console keys render classify submit status import export report objects objects-classify pipeline
+.PHONY: help build shell install test console keys render classify submit status import discard export report objects objects-classify pipeline
 
 help: ## Display this help
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  \033[36m%-17s\033[0m %s\n", $$1, $$2}'
@@ -51,6 +51,9 @@ status: ## Display the state of submitted batches (--all)
 
 import: ## Import the results of terminated batches
 	$(CONSOLE) classify:import $(ARGS)
+
+discard: ## Discard batches, their results will never be imported: make discard ARGS="batch_xxx"
+	$(CONSOLE) classify:discard $(ARGS)
 
 export: ## Export results to var/maps.json and var/sub_areas.json (--only-ok)
 	$(CONSOLE) export $(ARGS)

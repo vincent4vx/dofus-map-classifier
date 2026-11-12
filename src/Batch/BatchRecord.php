@@ -25,7 +25,10 @@ final class BatchRecord
         public readonly array $maps,
         public readonly BatchInfo $info,
         public readonly DateTimeImmutable $submittedAt,
+        /** Date of import, or of discard */
         public readonly ?DateTimeImmutable $importedAt = null,
+        /** The batch was discarded: its results are never imported */
+        public readonly bool $discarded = false,
     ) {}
 
     public bool $imported {
@@ -34,7 +37,15 @@ final class BatchRecord
 
     public function withInfo(BatchInfo $info): self
     {
-        return new self($this->id, $this->inputFile, $this->model, $this->maps, $info, $this->submittedAt, $this->importedAt);
+        return new self($this->id, $this->inputFile, $this->model, $this->maps, $info, $this->submittedAt, $this->importedAt, $this->discarded);
+    }
+
+    /**
+     * Mark the batch as discarded: it is considered as done, but its results are not imported
+     */
+    public function discard(): self
+    {
+        return new self($this->id, $this->inputFile, $this->model, $this->maps, $this->info, $this->submittedAt, new DateTimeImmutable(), true);
     }
 
     public function markImported(): self
@@ -62,6 +73,7 @@ final class BatchRecord
             'errors' => $this->info->errors,
             'submitted_at' => $this->submittedAt->format(DateTimeInterface::ATOM),
             'imported_at' => $this->importedAt?->format(DateTimeInterface::ATOM),
+            'discarded' => $this->discarded,
             'maps' => $this->maps,
         ];
     }
@@ -92,6 +104,7 @@ final class BatchRecord
             ]),
             submittedAt: new DateTimeImmutable(is_string($data['submitted_at'] ?? null) ? $data['submitted_at'] : 'now'),
             importedAt: is_string($data['imported_at'] ?? null) ? new DateTimeImmutable($data['imported_at']) : null,
+            discarded: ($data['discarded'] ?? false) === true,
         );
     }
 }

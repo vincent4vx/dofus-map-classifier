@@ -12,6 +12,7 @@ use MapClassifier\Batch\ImageEncoder;
 use MapClassifier\Classification\ClassificationPrompt;
 use MapClassifier\Classification\MapsToClassify;
 use MapClassifier\Classification\SyncClassifier;
+use MapClassifier\Command\ClassifyDiscardCommand;
 use MapClassifier\Command\ClassifyImportCommand;
 use MapClassifier\Command\ClassifyRunCommand;
 use MapClassifier\Command\ClassifyStatusCommand;
@@ -180,6 +181,7 @@ final class Kernel
         $app->addCommand(new ClassifyRunCommand($this));
         $app->addCommand(new ClassifyStatusCommand($this));
         $app->addCommand(new ClassifyImportCommand($this));
+        $app->addCommand(new ClassifyDiscardCommand($this->batches));
         $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->objectTypes, $this->config));
         $app->addCommand(new ObjectsSpritesCommand(new SpriteExporter($this->config->dofusPath, $this->sprites), $this->config));
         $app->addCommand(new ObjectsClassifyCommand($this));

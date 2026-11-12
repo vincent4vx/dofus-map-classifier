@@ -61,6 +61,17 @@ final readonly class BatchRegistry
         return $records;
     }
 
+    public function get(string $id): ?BatchRecord
+    {
+        foreach ($this->all() as $record) {
+            if ($record->id === $id) {
+                return $record;
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Batches not yet imported
      *

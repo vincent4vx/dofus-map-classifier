@@ -265,6 +265,27 @@ final class WorkflowTest extends TestCase
         $this->assertNull($objects['objects'][array_key_last($objects['objects'])]['type'] ?? null);
     }
 
+    public function testDiscard(): void
+    {
+        $this->exec('maps:render', ['ids' => ['10000']]);
+        $this->exec('classify:submit');
+        $this->api->complete('batch_1', BatchFixtures::successLine(10000, BatchFixtures::classification('snow')) . "\n");
+
+        $this->assertStringContainsString('batch_1 discarded (1 maps)', $this->exec('classify:discard', ['batches' => ['batch_1']]));
+        $this->assertMatchesRegularExpression('/batch_1.*\(discarded\)/', $this->exec('classify:status', ['--all' => true]));
+
+        // Results are never imported, and the map can be submitted again
+        $this->assertStringContainsString('0 batch(es) imported, 0 still running', $this->exec('classify:import'));
+        $this->assertFileDoesNotExist($this->config->resultsDir . '/10000.json');
+        $this->assertStringContainsString('submitted as batch_2', $this->exec('classify:submit'));
+
+        $tester = new CommandTester($this->app->find('classify:discard'));
+        $tester->execute(['batches' => ['batch_1', 'batch_unknown']]);
+        $this->assertSame(1, $tester->getStatusCode());
+        $this->assertStringContainsString('already discarded', $tester->getDisplay());
+        $this->assertStringContainsString('batch_unknown not found', $tester->getDisplay());
+    }
+
     public function testDryRun(): void
     {
         $this->exec('maps:render', ['ids' => ['10000']]);
