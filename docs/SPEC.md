@@ -83,6 +83,25 @@ Enums en anglais, tags et description en anglais.
 - La localisation est jointe au moment de l'export : `location: {sub_area: {id, name, biome}, area: {id, name}, super_area: {id, name}}`.
 - Biome d'une sub area : biome le plus fréquent parmi ses maps classées en extérieur (à défaut, toutes ses maps), les maps sans biome sont ignorées. Exporté dans `var/sub_areas.json` (votes, nombre de maps classées / total) et dans `location.sub_area.biome` de chaque map. Il permet de compléter le biome des maps qui n'en ont pas (intérieurs). Il se fiabilise au fur et à mesure que les maps de la sub area sont classées.
 
+### Analyse des objets (étape 3, partie 1)
+
+Commande `objects:analyze` (`make objects`) → `var/objects.json`.
+
+- Parcourt toutes les maps décodables (sans rendu) et relève les sprites utilisés : `background` et `ground` (sprites de sol, `g*.swf`), `layer1` et `layer2` (sprites d'objets, `o*.swf`). Les numéros des deux ensembles sont indépendants : la sortie est séparée en `grounds` et `objects`.
+- Pour chaque sprite :
+  - `layer` : uniquement le layer le plus courant (en nombre de cellules) ;
+  - `occurrences` (cellules), `maps` (maps qui l'utilisent), `classified_maps` ;
+  - `areas`, `sub_areas` (id, nom, nombre de maps) : depuis la lang, pour toutes les maps ;
+  - `biomes` : biome de la map, ou à défaut celui de sa sub area (maps non classées ou sans biome) ;
+  - `indoor` (`indoor` / `outdoor`) et `location_types` : uniquement depuis les maps classées.
+- Les attributs sont comptés une fois par map (pas par cellule).
+- Les valeurs bien moins fréquentes que la valeur principale sont considérées comme du bruit et ignorées : une valeur est gardée si son nombre de maps est ≥ 10 % de celui de la valeur principale (`--min-ratio`).
+- Pas d'agrégation par super area (jugée non pertinente).
+- `objects:sprites` : export SVG des sprites utilisés dans `var/sprites/{grounds|objects}/{id}.svg` (via ArakneSwf, ~20 s pour ~4 800 sprites, ~220 Mo).
+- `objects:report` : galerie HTML `var/objects.html` (sprite + données agrégées), filtres : recherche (id, area, sub area), set, layer, biome, area, intérieur, type de lieu, nombre minimum de maps, tri ; pagination par 200.
+- `make objects` enchaîne les trois commandes.
+- À faire : classifier le type d'objet (house, tree…) à partir du rendu du sprite.
+
 ### Constats techniques
 
 - Toutes les maps du client sont chiffrées (`X.swf`). La clé dépend de la version de la map : une clé d'une autre version ne fonctionne pas.

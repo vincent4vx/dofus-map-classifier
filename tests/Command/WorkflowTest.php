@@ -15,10 +15,12 @@ use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;
 
+use function array_key_first;
 use function array_keys;
 use function array_map;
 use function array_slice;
 use function copy;
+use function count;
 use function file_get_contents;
 use function getenv;
 use function getimagesize;
@@ -180,6 +182,54 @@ final class WorkflowTest extends TestCase
 
         $this->assertStringContainsString('Nothing to submit', $this->exec('classify:submit', ['--area' => '18']));
         $this->assertStringContainsString('submitted as batch_1', $this->exec('classify:submit', ['--area' => '42']));
+    }
+
+    public function testObjectsAnalyze(): void
+    {
+        $this->exec('maps:render', ['ids' => ['10000']]);
+        $this->exec('classify:submit');
+        $this->api->complete('batch_1', BatchFixtures::successLine(10000, BatchFixtures::classification('snow')) . "\n");
+        $this->exec('classify:import');
+
+        $output = $this->exec('objects:analyze', ['ids' => ['10000-10001']]);
+        $this->assertStringContainsString('1 maps skipped: missing_key', $output);
+        $this->assertMatchesRegularExpression('/1 maps analyzed: \d+ ground sprites and \d+ object sprites/', $output);
+
+        $objects = json_decode((string) file_get_contents($this->config->varDir . '/objects.json'), true);
+        $this->assertSame(['grounds', 'objects'], array_keys($objects));
+        $this->assertNotEmpty($objects['objects']);
+
+        foreach ([...$objects['grounds'], ...$objects['objects']] as $profile) {
+            $this->assertSame(1, $profile['maps']);
+            $this->assertSame(1, $profile['classified_maps']);
+            $this->assertSame(['snow' => 1], $profile['biomes']);
+            $this->assertSame(['outdoor' => 1], $profile['indoor']);
+            $this->assertSame([['id' => 320, 'name' => 'Kwismas Island', 'maps' => 1]], $profile['sub_areas']);
+            $this->assertContains($profile['layer'], ['background', 'ground', 'layer1', 'layer2']);
+            $this->assertArrayNotHasKey('super_areas', $profile);
+        }
+
+        // Export used sprites to SVG
+        $sprites = $this->exec('objects:sprites');
+        $this->assertMatchesRegularExpression('/grounds: \d+ exported, 0 already exported, 0 failed/', $sprites);
+        $this->assertMatchesRegularExpression('/objects: \d+ exported, 0 already exported, 0 failed/', $sprites);
+
+        foreach (['grounds', 'objects'] as $set) {
+            foreach ($objects[$set] as $id => $_) {
+                $this->assertFileExists($this->config->varDir . '/sprites/' . $set . '/' . $id . '.svg');
+            }
+        }
+
+        $this->assertStringContainsString('<svg xmlns="http://www.w3.org/2000/svg"', (string) file_get_contents($this->config->varDir . '/sprites/objects/' . array_key_first($objects['objects']) . '.svg'));
+        $this->assertMatchesRegularExpression('/objects: 0 exported, \d+ already exported/', $this->exec('objects:sprites'));
+
+        // HTML report
+        $count = count($objects['grounds']) + count($objects['objects']);
+        $this->assertStringContainsString('Report of ' . $count . ' sprites', $this->exec('objects:report'));
+        $html = (string) file_get_contents($this->config->varDir . '/objects.html');
+        $this->assertStringContainsString('<option value="Arctic Area">Arctic Area</option>', $html);
+        $this->assertStringContainsString('["Kwismas Island",1]', $html);
+        $this->assertStringContainsString('&quot;sprites&quot;', $html);
     }
 
     public function testDryRun(): void

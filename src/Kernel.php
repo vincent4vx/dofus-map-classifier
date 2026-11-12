@@ -19,11 +19,16 @@ use MapClassifier\Command\ClassifySubmitCommand;
 use MapClassifier\Command\ExportCommand;
 use MapClassifier\Command\KeysDownloadCommand;
 use MapClassifier\Command\MapsRenderCommand;
+use MapClassifier\Command\ObjectsAnalyzeCommand;
+use MapClassifier\Command\ObjectsReportCommand;
+use MapClassifier\Command\ObjectsSpritesCommand;
 use MapClassifier\Command\ReportCommand;
 use MapClassifier\Lang\MapLocationRepository;
 use MapClassifier\Map\MapFileRepository;
 use MapClassifier\MapKey\MapKeyDownloader;
 use MapClassifier\MapKey\MapKeyRepository;
+use MapClassifier\Objects\MapObjectExtractor;
+use MapClassifier\Objects\SpriteSvgExporter;
 use MapClassifier\OpenAI\BatchApiInterface;
 use MapClassifier\OpenAI\OpenAIClient;
 use MapClassifier\Render\MapImageRenderer;
@@ -143,6 +148,9 @@ final class Kernel
         $app->addCommand(new ClassifyRunCommand($this));
         $app->addCommand(new ClassifyStatusCommand($this));
         $app->addCommand(new ClassifyImportCommand($this));
+        $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->config));
+        $app->addCommand(new ObjectsSpritesCommand(new SpriteSvgExporter($this->config->dofusPath), $this->config));
+        $app->addCommand(new ObjectsReportCommand($this->config));
         $app->addCommand(new ExportCommand($this->results, $this->locations, $this->config));
         $app->addCommand(new ReportCommand($this->results, $this->locations, $this->config));
 
