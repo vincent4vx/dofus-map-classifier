@@ -4,21 +4,14 @@ declare(strict_types=1);
 
 namespace MapClassifier\Classification;
 
-use Closure;
 use MapClassifier\Batch\BatchResultParser;
 use MapClassifier\Batch\ImageEncoder;
 use MapClassifier\Map\MapFile;
+use MapClassifier\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\Storage\ErrorCode;
 use MapClassifier\Storage\MapResult;
 use MapClassifier\Storage\ResultStorage;
-use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
-use Symfony\Contracts\HttpClient\ResponseInterface;
-
-use function array_shift;
-use function count;
-use function is_array;
-use function spl_object_id;
+use Throwable;
 
 /**
  * Classify maps by calling directly the Responses API, with concurrent requests
@@ -26,18 +19,13 @@ use function spl_object_id;
 final readonly class SyncClassifier
 {
     public function __construct(
-        /** Should handle retries (e.g. RetryableHttpClient) */
-        private HttpClientInterface $httpClient,
-        /** @var Closure(): string */
-        private Closure $apiKey,
-        private string $baseUrl,
+        private ConcurrentResponsesClient $client,
         private ClassificationPrompt $prompt,
         private ImageEncoder $encoder,
         private BatchResultParser $parser,
         private ResultStorage $results,
         private string $rendersDir,
         private string $model,
-        private float $timeout = 300,
     ) {}
 
     /**
@@ -49,59 +37,22 @@ final readonly class SyncClassifier
      */
     public function classify(array $maps, int $concurrency = 5, ?callable $onResult = null): void
     {
-        $apiKey = ($this->apiKey)();
-
-        /** @var array<int, ResponseInterface> $active */
-        $active = [];
-
-        while ($maps || $active) {
-            while ($maps && count($active) < $concurrency) {
-                $map = array_shift($maps);
-                $response = $this->httpClient->request('POST', $this->baseUrl . '/responses', [
-                    'auth_bearer' => $apiKey,
-                    'json' => $this->prompt->requestBody($map->id, $this->encoder->dataUrl($this->rendersDir . '/' . $map->id . '.png')),
-                    'timeout' => $this->timeout,
-                    'user_data' => $map,
-                ]);
-                $active[spl_object_id($response)] = $response;
+        $requests = (function () use ($maps) {
+            foreach ($maps as $map) {
+                yield $map => fn () => $this->prompt->requestBody($map->id, $this->encoder->dataUrl($this->rendersDir . '/' . $map->id . '.png'));
             }
+        })();
 
-            // Wait for the first completed response, then fill the pool again
-            foreach ($this->httpClient->stream($active) as $response => $chunk) {
-                try {
-                    // Read the status code to mark it as checked: errors are handled by the parser
-                    if ($chunk->isFirst()) {
-                        $response->getStatusCode();
-                    }
+        $this->client->run($requests, $concurrency, function (MapFile $map, int $status, array $body, ?Throwable $error) use ($onResult) {
+            $result = $error !== null
+                ? MapResult::failure($map->id, $map->version, ErrorCode::ClassificationFailed, $error->getMessage(), $this->model)
+                : $this->parser->parseResponse($map->id, $map->version, $status, $body, $this->model);
 
-                    if (!$chunk->isLast()) {
-                        continue;
-                    }
+            $this->results->save($result);
 
-                    $result = $this->result($response);
-                } catch (ExceptionInterface $e) {
-                    $map = $response->getInfo('user_data');
-                    $result = MapResult::failure($map->id, $map->version, ErrorCode::ClassificationFailed, $e->getMessage(), $this->model);
-                }
-
-                unset($active[spl_object_id($response)]);
-                $this->results->save($result);
-
-                if ($onResult) {
-                    $onResult($result);
-                }
-
-                break;
+            if ($onResult) {
+                $onResult($result);
             }
-        }
-    }
-
-    private function result(ResponseInterface $response): MapResult
-    {
-        /** @var MapFile $map */
-        $map = $response->getInfo('user_data');
-        $body = $response->toArray(false);
-
-        return $this->parser->parseResponse($map->id, $map->version, $response->getStatusCode(), is_array($body) ? $body : [], $this->model);
+        });
     }
 }

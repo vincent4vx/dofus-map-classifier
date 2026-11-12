@@ -10,6 +10,8 @@ use MapClassifier\Map\MapFileRepository;
 use MapClassifier\Objects\MapObjectExtractor;
 use MapClassifier\Objects\ObjectAnalyzer;
 use MapClassifier\Objects\ObjectProfile;
+use MapClassifier\Objects\SpriteSet;
+use MapClassifier\ObjectType\ObjectTypeStorage;
 use MapClassifier\Render\RenderException;
 use MapClassifier\Storage\ResultStorage;
 use MapClassifier\SubArea\SubAreaBiomeResolver;
@@ -34,6 +36,7 @@ final class ObjectsAnalyzeCommand extends Command
         private readonly MapObjectExtractor $extractor,
         private readonly MapLocationRepository $locations,
         private readonly ResultStorage $results,
+        private readonly ObjectTypeStorage $types,
         private readonly Config $config,
     ) {
         parent::__construct();
@@ -85,10 +88,18 @@ final class ObjectsAnalyzeCommand extends Command
         $profiles = $analyzer->profiles();
         $file = (string) $input->getOption('output');
 
-        file_put_contents($file, ResultStorage::encode(array_map(
-            static fn (array $sprites) => (object) array_map(static fn (ObjectProfile $profile) => $profile->toArray(), $sprites),
-            $profiles,
-        )) . "\n");
+        $export = [];
+
+        foreach ($profiles as $set => $sprites) {
+            $types = $this->types->all(SpriteSet::from($set));
+
+            $export[$set] = (object) array_map(
+                static fn (ObjectProfile $profile) => $profile->toArray() + ['type' => ($types[$profile->id] ?? null)?->classification?->toArray()],
+                $sprites,
+            );
+        }
+
+        file_put_contents($file, ResultStorage::encode($export) . "\n");
 
         foreach ($errors as $code => $count) {
             $io->text(sprintf('%d maps skipped: %s', $count, $code));

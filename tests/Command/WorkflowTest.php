@@ -17,6 +17,8 @@ use Symfony\Component\HttpClient\Response\JsonMockResponse;
 
 use function array_key_first;
 use function array_keys;
+use function array_key_last;
+use function json_encode;
 use function array_map;
 use function array_slice;
 use function copy;
@@ -216,11 +218,14 @@ final class WorkflowTest extends TestCase
 
         foreach (['grounds', 'objects'] as $set) {
             foreach ($objects[$set] as $id => $_) {
-                $this->assertFileExists($this->config->varDir . '/sprites/' . $set . '/' . $id . '.svg');
+                $this->assertFileExists($this->config->varDir . '/sprites/' . $set . '/' . $id . '.png');
             }
+
+            $sizes = json_decode((string) file_get_contents($this->config->varDir . '/sprites/' . $set . '/sizes.json'), true);
+            $this->assertSameSize($objects[$set], $sizes);
         }
 
-        $this->assertStringContainsString('<svg xmlns="http://www.w3.org/2000/svg"', (string) file_get_contents($this->config->varDir . '/sprites/objects/' . array_key_first($objects['objects']) . '.svg'));
+        $this->assertSame('image/png', getimagesize($this->config->varDir . '/sprites/objects/' . array_key_first($objects['objects']) . '.png')['mime']);
         $this->assertMatchesRegularExpression('/objects: 0 exported, \d+ already exported/', $this->exec('objects:sprites'));
 
         // HTML report
@@ -230,6 +235,34 @@ final class WorkflowTest extends TestCase
         $this->assertStringContainsString('<option value="Arctic Area">Arctic Area</option>', $html);
         $this->assertStringContainsString('["Kwismas Island",1]', $html);
         $this->assertStringContainsString('&quot;sprites&quot;', $html);
+
+        // Classify sprite types
+        $http = new MockHttpClient(static fn (string $method, string $url, array $options) => new JsonMockResponse([
+            'model' => 'luna',
+            'output' => [['type' => 'message', 'content' => [['type' => 'output_text', 'text' => json_encode([
+                'category' => 'tree',
+                'name' => 'snowy pine',
+                'keywords' => ['pine', 'snow'],
+                'description' => 'A snowy pine.',
+            ])]]]],
+        ]));
+        $this->app = (new Kernel(new Config($this->config->dofusPath, $this->config->varDir, 'sk-test', langDir: $this->config->langDir), $this->api, $http))->application();
+
+        $firstObject = array_key_first($objects['objects']);
+        $this->assertStringContainsString('1 sprites classified', $this->exec('objects:classify', ['ids' => ['o' . $firstObject]]));
+        $this->assertStringContainsString('Nothing to classify', $this->exec('objects:classify', ['ids' => ['o' . $firstObject]]));
+        $this->assertStringContainsString('1 sprites classified', $this->exec('objects:classify', ['ids' => ['o' . $firstObject], '--force' => true]));
+        $this->assertStringContainsString('2 sprites classified', $this->exec('objects:classify', ['--set' => 'grounds', '--limit' => '2']));
+
+        // Type is displayed in the report, and joined in objects.json
+        $this->exec('objects:report');
+        $this->assertStringContainsString('["tree","snowy pine",["pine","snow"],"A snowy pine."]', (string) file_get_contents($this->config->varDir . '/objects.html'));
+        $this->assertStringContainsString('<option value="tree">tree</option>', (string) file_get_contents($this->config->varDir . '/objects.html'));
+
+        $this->exec('objects:analyze', ['ids' => ['10000-10001']]);
+        $objects = json_decode((string) file_get_contents($this->config->varDir . '/objects.json'), true);
+        $this->assertSame(['category' => 'tree', 'name' => 'snowy pine', 'keywords' => ['pine', 'snow'], 'description' => 'A snowy pine.'], $objects['objects'][$firstObject]['type']);
+        $this->assertNull($objects['objects'][array_key_last($objects['objects'])]['type'] ?? null);
     }
 
     public function testDryRun(): void

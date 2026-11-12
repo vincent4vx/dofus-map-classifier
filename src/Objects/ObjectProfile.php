@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace MapClassifier\Objects;
 
+use function array_map;
+use function array_values;
+use function is_array;
+
 /**
  * Aggregated data of a sprite, deduced from the maps using it
  *
@@ -34,6 +38,34 @@ final readonly class ObjectProfile
         /** @var array<string, int> */
         public array $locationTypes,
     ) {}
+
+    /**
+     * Create from the array of {@see toArray()}
+     *
+     * @param array<array-key, mixed> $data
+     */
+    public static function fromArray(SpriteSet $set, array $data): self
+    {
+        $named = static fn (mixed $values) => array_values(array_map(
+            static fn (array $value) => ['id' => (int) $value['id'], 'name' => isset($value['name']) ? (string) $value['name'] : null, 'maps' => (int) $value['maps']],
+            is_array($values) ? $values : [],
+        ));
+        $counts = static fn (mixed $values) => array_map('intval', is_array($values) ? $values : []);
+
+        return new self(
+            set: $set,
+            id: (int) ($data['id'] ?? 0),
+            layer: Layer::from((string) ($data['layer'] ?? '')),
+            occurrences: (int) ($data['occurrences'] ?? 0),
+            maps: (int) ($data['maps'] ?? 0),
+            classifiedMaps: (int) ($data['classified_maps'] ?? 0),
+            areas: $named($data['areas'] ?? null),
+            subAreas: $named($data['sub_areas'] ?? null),
+            biomes: $counts($data['biomes'] ?? null),
+            indoor: $counts($data['indoor'] ?? null),
+            locationTypes: $counts($data['location_types'] ?? null),
+        );
+    }
 
     /**
      * @return array<string, mixed>

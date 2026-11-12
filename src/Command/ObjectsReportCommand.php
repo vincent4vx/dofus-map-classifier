@@ -9,6 +9,9 @@ use MapClassifier\Classification\Biome;
 use MapClassifier\Classification\LocationType;
 use MapClassifier\Config;
 use MapClassifier\Objects\Layer;
+use MapClassifier\Objects\SpriteSet;
+use MapClassifier\ObjectType\ObjectCategory;
+use MapClassifier\ObjectType\ObjectTypeStorage;
 use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -49,6 +52,7 @@ final class ObjectsReportCommand extends Command
 {
     public function __construct(
         private readonly Config $config,
+        private readonly ObjectTypeStorage $types,
     ) {
         parent::__construct();
     }
@@ -82,12 +86,17 @@ final class ObjectsReportCommand extends Command
             return self::FAILURE;
         }
 
-        // Compact list for the page: [set, id, layer, occurrences, maps, classified maps, areas, sub areas, biomes, indoor, location types]
+        // Compact list for the page: [set, id, layer, occurrences, maps, classified maps, areas, sub areas, biomes, indoor, location types, type]
         $items = [];
         $areas = [];
 
         foreach (is_array($data) ? $data : [] as $set => $sprites) {
+            // Use stored types to display them even if objects:analyze was not run again
+            $types = $this->types->all(SpriteSet::from($set));
+
             foreach ($sprites as $id => $profile) {
+                $type = ($types[(int) $id] ?? null)?->classification?->toArray() ?? $profile['type'] ?? null;
+
                 $items[] = [
                     $set,
                     (int) $id,
@@ -100,6 +109,7 @@ final class ObjectsReportCommand extends Command
                     $profile['biomes'],
                     $profile['indoor'],
                     $profile['location_types'],
+                    $type === null ? null : [$type['category'], $type['name'], $type['keywords'], $type['description']],
                 ];
 
                 foreach ($profile['areas'] as $area) {
@@ -146,6 +156,7 @@ final class ObjectsReportCommand extends Command
         $layers = $options(array_column(Layer::cases(), 'value'));
         $biomes = $options(array_column(Biome::cases(), 'value'));
         $locations = $options(array_column(LocationType::cases(), 'value'));
+        $categories = $options(array_column(ObjectCategory::cases(), 'value'));
         $areaOptions = $options($areas);
         // Avoid closing the script tag from the data
         $json = str_replace('</', '<\/', $json);
@@ -169,8 +180,7 @@ final class ObjectsReportCommand extends Command
                 #count { margin-left: auto; color: #555; }
                 main { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
                 article { background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 3px #0002; font-size: 13px; }
-                .sprite { height: 160px; display: flex; align-items: center; justify-content: center; padding: 8px;
-                    background: repeating-conic-gradient(#e8e8e8 0 25%, #fff 0 50%) 0 0 / 16px 16px; }
+                .sprite { height: 160px; display: flex; align-items: center; justify-content: center; background: #a0a0a0; }
                 .sprite img { max-width: 100%; max-height: 100%; image-rendering: auto; }
                 .info { padding: 8px 10px; }
                 h2 { margin: 0 0 4px; font-size: 15px; }
@@ -180,13 +190,18 @@ final class ObjectsReportCommand extends Command
                 .chip b { font-weight: 600; }
                 .label { color: #666; }
                 #more { display: block; margin: 16px auto; }
+                .type { font-size: 14px; }
+                .cat { background: #333; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
+                .kw { display: inline-block; background: #fff3d6; border: 0; border-radius: 3px; padding: 0 5px; margin: 1px; font: inherit; cursor: pointer; }
+                .kw:hover { background: #ffe3a0; }
             </style>
             </head>
             <body>
             <header>
                 <h1>Map objects</h1>
                 <form id="filters" onsubmit="return false">
-                    <input type="search" name="q" placeholder="Search id, area, sub area…" autofocus>
+                    <input type="search" name="q" placeholder="Search id, name, category, keyword…" autofocus>
+                    <select name="category"><option value="">All categories</option>{$categories}<option value="none">(not classified)</option></select>
                     <select name="set"><option value="">All sets</option><option value="grounds">grounds</option><option value="objects">objects</option></select>
                     <select name="layer"><option value="">All layers</option>{$layers}</select>
                     <select name="biome"><option value="">All biomes</option>{$biomes}</select>
@@ -208,8 +223,9 @@ final class ObjectsReportCommand extends Command
                 const PAGE = 200;
                 const items = JSON.parse(document.getElementById('data').textContent).map(i => ({
                     set: i[0], id: i[1], layer: i[2], occurrences: i[3], maps: i[4], classified: i[5],
-                    areas: i[6], subAreas: i[7], biomes: i[8], indoor: i[9], locations: i[10],
-                    search: (i[1] + ' ' + i[6].map(a => a[0]).join(' ') + ' ' + i[7].map(a => a[0]).join(' ')).toLowerCase(),
+                    areas: i[6], subAreas: i[7], biomes: i[8], indoor: i[9], locations: i[10], type: i[11],
+                    // Search only on the sprite identity and type: other attributes have their own filter
+                    search: ((i[0] === 'grounds' ? 'g' : 'o') + i[1] + ' ' + i[1] + (i[11] ? ' ' + i[11][0] + ' ' + i[11][1] + ' ' + i[11][2].join(' ') : '')).toLowerCase(),
                 }));
                 const form = document.getElementById('filters');
                 const main = document.querySelector('main');
@@ -224,8 +240,10 @@ final class ObjectsReportCommand extends Command
                     + (values.length > max ? ' <span class="label">+' + (values.length - max) + '</span>' : '');
 
                 function card(i) {
-                    return '<article><div class="sprite"><img loading="lazy" src="' + esc(SPRITES + '/' + i.set + '/' + i.id + '.svg') + '" alt="' + i.id + '"></div>'
+                    return '<article><div class="sprite"><img loading="lazy" src="' + esc(SPRITES + '/' + i.set + '/' + i.id + '.png') + '" alt="' + i.id + '"></div>'
                         + '<div class="info"><h2>' + (i.set === 'grounds' ? 'g' : 'o') + i.id + ' <small>' + i.layer + ' · ' + i.maps + ' maps · ' + i.occurrences + ' uses</small></h2>'
+                        + (i.type ? '<p class="type"><b>' + esc(i.type[1]) + '</b> <span class="cat">' + esc(i.type[0]) + '</span></p>'
+                            + '<p>' + i.type[2].map(k => '<button type="button" class="kw">' + esc(k) + '</button>').join('') + '</p>' : '')
                         + (Object.keys(i.biomes).length ? '<p><span class="label">Biomes</span> ' + chips(i.biomes) + '</p>' : '')
                         + (i.areas.length ? '<p><span class="label">Areas</span> ' + list(i.areas, 4) + '</p>' : '')
                         + (i.subAreas.length ? '<p><span class="label">Sub areas</span> ' + list(i.subAreas, 4) + '</p>' : '')
@@ -246,6 +264,7 @@ final class ObjectsReportCommand extends Command
 
                     matching = items.filter(i => (!f.set || i.set === f.set)
                         && (!f.layer || i.layer === f.layer)
+                        && (!f.category || (f.category === 'none' ? !i.type : i.type && i.type[0] === f.category))
                         && (!f.biome || f.biome in i.biomes)
                         && (!f.area || i.areas.some(a => a[0] === f.area))
                         && (!f.indoor || f.indoor in i.indoor)
@@ -275,6 +294,13 @@ final class ObjectsReportCommand extends Command
                 form.addEventListener('input', apply);
                 form.addEventListener('reset', () => setTimeout(apply));
                 more.addEventListener('click', showMore);
+                main.addEventListener('click', e => {
+                    if (e.target.classList.contains('kw')) {
+                        form.q.value = e.target.textContent;
+                        apply();
+                        window.scrollTo({ top: 0 });
+                    }
+                });
                 new IntersectionObserver(entries => entries[0].isIntersecting && !more.hidden && showMore()).observe(more);
                 apply();
             })();

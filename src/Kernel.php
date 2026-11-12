@@ -20,6 +20,7 @@ use MapClassifier\Command\ExportCommand;
 use MapClassifier\Command\KeysDownloadCommand;
 use MapClassifier\Command\MapsRenderCommand;
 use MapClassifier\Command\ObjectsAnalyzeCommand;
+use MapClassifier\Command\ObjectsClassifyCommand;
 use MapClassifier\Command\ObjectsReportCommand;
 use MapClassifier\Command\ObjectsSpritesCommand;
 use MapClassifier\Command\ReportCommand;
@@ -28,8 +29,13 @@ use MapClassifier\Map\MapFileRepository;
 use MapClassifier\MapKey\MapKeyDownloader;
 use MapClassifier\MapKey\MapKeyRepository;
 use MapClassifier\Objects\MapObjectExtractor;
-use MapClassifier\Objects\SpriteSvgExporter;
+use MapClassifier\Objects\SpriteExporter;
+use MapClassifier\Objects\SpriteFiles;
+use MapClassifier\ObjectType\ObjectTypeClassifier;
+use MapClassifier\ObjectType\ObjectTypePrompt;
+use MapClassifier\ObjectType\ObjectTypeStorage;
 use MapClassifier\OpenAI\BatchApiInterface;
+use MapClassifier\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\OpenAI\OpenAIClient;
 use MapClassifier\Render\MapImageRenderer;
 use MapClassifier\Storage\ResultStorage;
@@ -76,6 +82,14 @@ final class Kernel
         get => $this->locations ??= new MapLocationRepository($this->config->langDir, $this->config->lang);
     }
 
+    public SpriteFiles $sprites {
+        get => $this->sprites ??= new SpriteFiles($this->config->varDir . '/sprites');
+    }
+
+    public ObjectTypeStorage $objectTypes {
+        get => $this->objectTypes ??= new ObjectTypeStorage($this->config->varDir . '/object_types');
+    }
+
     public BatchApiInterface $batchApi {
         get => $this->batchApi ??= new OpenAIClient(
             $this->httpClient,
@@ -120,15 +134,33 @@ final class Kernel
     public function syncClassifier(string $imageFormat = ImageEncoder::JPEG, float $imageScale = ImageEncoder::DEFAULT_SCALE): SyncClassifier
     {
         return new SyncClassifier(
-            // Retry on 429 and 5xx errors with exponential backoff, respecting Retry-After header
-            new RetryableHttpClient($this->httpClient, maxRetries: 5),
-            fn () => $this->config->openAiApiKey ?? throw new RuntimeException('OPENAI_API_KEY is not set'),
-            $this->config->openAiBaseUrl,
+            $this->responsesClient(),
             $this->prompt(),
             new ImageEncoder($imageFormat, $imageScale),
             new BatchResultParser(),
             $this->results,
             $this->config->rendersDir,
+            $this->config->openAiModel,
+        );
+    }
+
+    public function responsesClient(): ConcurrentResponsesClient
+    {
+        return new ConcurrentResponsesClient(
+            // Retry on 429 and 5xx errors with exponential backoff, respecting Retry-After header
+            new RetryableHttpClient($this->httpClient, maxRetries: 5),
+            fn () => $this->config->openAiApiKey ?? throw new RuntimeException('OPENAI_API_KEY is not set'),
+            $this->config->openAiBaseUrl,
+        );
+    }
+
+    public function objectTypeClassifier(): ObjectTypeClassifier
+    {
+        return new ObjectTypeClassifier(
+            $this->responsesClient(),
+            new ObjectTypePrompt($this->config->openAiModel, $this->config->openAiReasoningEffort),
+            $this->sprites,
+            $this->objectTypes,
             $this->config->openAiModel,
         );
     }
@@ -148,9 +180,10 @@ final class Kernel
         $app->addCommand(new ClassifyRunCommand($this));
         $app->addCommand(new ClassifyStatusCommand($this));
         $app->addCommand(new ClassifyImportCommand($this));
-        $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->config));
-        $app->addCommand(new ObjectsSpritesCommand(new SpriteSvgExporter($this->config->dofusPath), $this->config));
-        $app->addCommand(new ObjectsReportCommand($this->config));
+        $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->objectTypes, $this->config));
+        $app->addCommand(new ObjectsSpritesCommand(new SpriteExporter($this->config->dofusPath, $this->sprites), $this->config));
+        $app->addCommand(new ObjectsClassifyCommand($this));
+        $app->addCommand(new ObjectsReportCommand($this->config, $this->objectTypes));
         $app->addCommand(new ExportCommand($this->results, $this->locations, $this->config));
         $app->addCommand(new ReportCommand($this->results, $this->locations, $this->config));
 

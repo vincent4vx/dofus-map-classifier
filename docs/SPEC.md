@@ -97,10 +97,23 @@ Commande `objects:analyze` (`make objects`) → `var/objects.json`.
 - Les attributs sont comptés une fois par map (pas par cellule).
 - Les valeurs bien moins fréquentes que la valeur principale sont considérées comme du bruit et ignorées : une valeur est gardée si son nombre de maps est ≥ 10 % de celui de la valeur principale (`--min-ratio`).
 - Pas d'agrégation par super area (jugée non pertinente).
-- `objects:sprites` : export SVG des sprites utilisés dans `var/sprites/{grounds|objects}/{id}.svg` (via ArakneSwf, ~20 s pour ~4 800 sprites, ~220 Mo).
+- `objects:sprites` : rendu direct des sprites utilisés en PNG, tel qu'envoyé au modèle, dans `var/sprites/{grounds|objects}/{id}.png` (extraction SVG en mémoire via ArakneSwf, puis rendu : marges transparentes retirées, agrandi à ~512 px (x16 max), fond gris neutre `#a0a0a0`). La taille visible en pixels du jeu est stockée dans `var/sprites/{set}/sizes.json`. ~5 min et ~440 Mo pour ~4 800 sprites.
 - `objects:report` : galerie HTML `var/objects.html` (sprite + données agrégées), filtres : recherche (id, area, sub area), set, layer, biome, area, intérieur, type de lieu, nombre minimum de maps, tri ; pagination par 200.
 - `make objects` enchaîne les trois commandes.
-- À faire : classifier le type d'objet (house, tree…) à partir du rendu du sprite.
+
+### Type des objets (étape 3, partie 2)
+
+Commande `objects:classify` (`make objects-classify`), via l'API Responses en synchrone (requêtes parallèles).
+
+- Le PNG exporté par `objects:sprites` est envoyé tel quel.
+- Contexte donné au modèle : taille visible en pixels du jeu (une cellule = 53 x 27 px), layer principal et son rôle, nombre de maps, biomes, areas, sub areas, intérieur / extérieur, types de lieu. Les sprites connus comme marqueurs de téléportation (1029, 1030) sont signalés.
+- Réponse :
+  - `category` : liste fermée pour faciliter la recherche (tree, bush, grass, flower, plant, crop, mushroom, rock, cliff, water, ground, path, floor, building, wall, roof, door, window, stairs, bridge, fence, furniture, container, light, statue, tomb, sign, tool, vehicle, decoration, remains, creature, shadow, effect, marker, other) ;
+  - `name` : nom libre court (ex : "pine tree") ;
+  - `keywords` : mots-clés libres décrivant le sprite (pas de biome ni de lieu, déjà connus) ;
+  - `description`.
+- Stockage : `var/object_types/{grounds|objects}/{id}.json`. Le type est joint dans `objects.json` (`type`) par `objects:analyze` et affiché dans `objects.html` (filtre par catégorie, recherche sur nom et mots-clés, mots-clés cliquables).
+- Sélection : ids préfixés (`o345`, `g10-20`), `--set`, `--layer`, `--min-maps`, `--limit` (les plus utilisés d'abord), `--force`, `--retry-errors`.
 
 ### Constats techniques
 

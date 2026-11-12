@@ -5,10 +5,10 @@ CONSOLE = $(RUN) bin/console
 # Extra arguments passed to the command, e.g. make render ARGS="--super-area=3"
 ARGS ?=
 
-.PHONY: help build shell install test console keys render classify submit status import export report objects pipeline
+.PHONY: help build shell install test console keys render classify submit status import export report objects objects-classify pipeline
 
 help: ## Display this help
-	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  \033[36m%-17s\033[0m %s\n", $$1, $$2}'
 	@echo ""
 	@echo "Pass arguments with ARGS, e.g.:"
 	@echo "  make render ARGS=\"--super-area=3\""
@@ -58,7 +58,10 @@ export: ## Export results to var/maps.json and var/sub_areas.json (--only-ok)
 report: ## Generate the HTML report var/report.html (ids, --area, --biome…)
 	$(CONSOLE) report $(ARGS)
 
-objects: ## Analyze sprites (var/objects.json), export them to SVG and generate var/objects.html (selection, --min-ratio)
+objects-classify: ## Find the type of sprites (ids like o345 g10-20, --set, --layer, --min-maps, --limit, --concurrency…)
+	$(CONSOLE) objects:classify $(ARGS)
+
+objects: ## Analyze sprites (var/objects.json), render them to PNG and generate var/objects.html (selection, --min-ratio)
 	$(CONSOLE) objects:analyze $(ARGS)
 	$(CONSOLE) objects:sprites
 	$(CONSOLE) objects:report

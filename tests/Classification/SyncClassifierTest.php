@@ -9,6 +9,7 @@ use MapClassifier\Batch\ImageEncoder;
 use MapClassifier\Classification\ClassificationPrompt;
 use MapClassifier\Classification\SyncClassifier;
 use MapClassifier\Map\MapFile;
+use MapClassifier\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\Storage\ErrorCode;
 use MapClassifier\Storage\MapResult;
 use MapClassifier\Storage\ResultStorage;
@@ -123,9 +124,7 @@ final class SyncClassifierTest extends TestCase
     private function classifier(MockHttpClient $http): SyncClassifier
     {
         return new SyncClassifier(
-            $http,
-            static fn () => 'sk-test',
-            'https://api.test/v1',
+            new ConcurrentResponsesClient($http, static fn () => 'sk-test', 'https://api.test/v1'),
             new ClassificationPrompt('luna'),
             new ImageEncoder(),
             new BatchResultParser(),

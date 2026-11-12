@@ -37,7 +37,9 @@ make render ARGS="--super-area=3"                 # 2. render maps to var/render
 make classify ARGS="--super-area=3 --concurrency=10"   # 3. classify synchronously (Responses API)
 make export                                       # 4. var/maps.json + var/sub_areas.json
 make report                                       # 5. var/report.html (search and filters)
-make objects                                      # 6. var/objects.json (layer, areas, biomes… of each sprite), SVG sprites, var/objects.html
+make objects                                      # 6. var/objects.json (layer, areas, biomes… of each sprite), PNG sprites, var/objects.html
+make objects-classify ARGS="--limit=500"          # 7. type of each sprite (category, name, keywords), most used first
+make objects                                      #    then run again to join types in var/objects.json
 
 make pipeline ARGS="--area=18"                    # render + classify + export + report of a selection
 
@@ -67,7 +69,8 @@ var/
   maps.json                   export of maps, with location (sub area, area, super area)
   sub_areas.json              biome of each sub area, deduced from its classified maps
   objects.json                data of each sprite (layer, areas, biomes…), aggregated from the maps
-  sprites/{grounds|objects}/  sprites exported as SVG
+  sprites/{grounds|objects}/  sprites rendered as PNG (as sent to the model), with sizes.json
   objects.html                visual report of sprites, with filters
+  object_types/{set}/{id}.json  type of each sprite (category, name, keywords)
   report.html                 visual report
 ```

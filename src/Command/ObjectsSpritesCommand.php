@@ -7,7 +7,7 @@ namespace MapClassifier\Command;
 use JsonException;
 use MapClassifier\Config;
 use MapClassifier\Objects\SpriteSet;
-use MapClassifier\Objects\SpriteSvgExporter;
+use MapClassifier\Objects\SpriteExporter;
 use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -25,11 +25,11 @@ use function sprintf;
 
 use const JSON_THROW_ON_ERROR;
 
-#[AsCommand('objects:sprites', 'Export the ground and object sprites to SVG files')]
+#[AsCommand('objects:sprites', 'Render the ground and object sprites to the PNG files sent to the model')]
 final class ObjectsSpritesCommand extends Command
 {
     public function __construct(
-        private readonly SpriteSvgExporter $exporter,
+        private readonly SpriteExporter $exporter,
         private readonly Config $config,
     ) {
         parent::__construct();
@@ -69,8 +69,6 @@ final class ObjectsSpritesCommand extends Command
             }
         }
 
-        $dir = $this->config->varDir . '/sprites';
-
         foreach (SpriteSet::cases() as $set) {
             $only = $used === null ? null : (is_array($used[$set->value] ?? null) ? $used[$set->value] : []);
             $progress = $io->createProgressBar($only !== null ? count($only) : 0);
@@ -78,7 +76,6 @@ final class ObjectsSpritesCommand extends Command
 
             $report = $this->exporter->export(
                 $set,
-                $dir,
                 $only,
                 (bool) $input->getOption('force'),
                 static fn () => $progress->advance(),
@@ -95,7 +92,7 @@ final class ObjectsSpritesCommand extends Command
             }
         }
 
-        $io->success('Sprites exported to ' . $dir);
+        $io->success('Sprites exported to ' . $this->config->varDir . '/sprites');
 
         return self::SUCCESS;
     }
