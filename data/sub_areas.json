@@ -1,0 +1,4011 @@
+{
+    "0": {
+        "id": 0,
+        "name": "Amakna",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 26,
+        "classified_maps": 0
+    },
+    "1": {
+        "id": 1,
+        "name": "Madrestam Harbour",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "sea",
+        "votes": {
+            "sea": 16,
+            "plain": 4,
+            "beach": 4,
+            "desert": 3,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 68,
+        "classified_maps": 66
+    },
+    "2": {
+        "id": 2,
+        "name": "Crackler Mountain",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 18,
+            "plain": 2,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 40,
+        "classified_maps": 31
+    },
+    "3": {
+        "id": 3,
+        "name": "The Ingalsses' Fields",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 24,
+            "field": 7,
+            "forest": 1,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 39,
+        "classified_maps": 37
+    },
+    "4": {
+        "id": 4,
+        "name": "The Amakna Forest",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 44,
+            "plain": 12,
+            "lake_river": 10,
+            "swamp": 2,
+            "jungle": 1,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 86,
+        "classified_maps": 78
+    },
+    "5": {
+        "id": 5,
+        "name": "Gobball Corner",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 19,
+            "plain": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 23,
+        "classified_maps": 23
+    },
+    "6": {
+        "id": 6,
+        "name": "The Cemetery",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 4,
+            "cemetery": 2,
+            "swamp": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 27,
+        "classified_maps": 8
+    },
+    "7": {
+        "id": 7,
+        "name": "The Crypts",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 11,
+        "classified_maps": 8
+    },
+    "8": {
+        "id": 8,
+        "name": "The Bwork Camp",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "wasteland",
+        "votes": {
+            "wasteland": 5,
+            "mountain": 1,
+            "snow": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 19,
+        "classified_maps": 12
+    },
+    "9": {
+        "id": 9,
+        "name": "The Evil Forest",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 71,
+            "plain": 5
+        },
+        "outdoor_only": true,
+        "total_maps": 80,
+        "classified_maps": 77
+    },
+    "10": {
+        "id": 10,
+        "name": "The Village",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 21,
+            "forest": 10,
+            "lake_river": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 113,
+        "classified_maps": 102
+    },
+    "11": {
+        "id": 11,
+        "name": "Porco Territory",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 6,
+            "wasteland": 4,
+            "lake_river": 3,
+            "sea": 2,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 33,
+        "classified_maps": 32
+    },
+    "12": {
+        "id": 12,
+        "name": "The Jelly Peninsula",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 10,
+            "forest": 4,
+            "lake_river": 2,
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 18,
+        "classified_maps": 17
+    },
+    "13": {
+        "id": 13,
+        "name": "The Temple of Feca",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 4,
+        "classified_maps": 4
+    },
+    "14": {
+        "id": 14,
+        "name": "The Temple of Osamodas",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 4,
+        "classified_maps": 4
+    },
+    "15": {
+        "id": 15,
+        "name": "The Temple of Enutrof",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 4,
+        "classified_maps": 4
+    },
+    "16": {
+        "id": 16,
+        "name": "The Temple of Sram",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 3,
+        "classified_maps": 2
+    },
+    "17": {
+        "id": 17,
+        "name": "The Temple of Xelor",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 7
+    },
+    "18": {
+        "id": 18,
+        "name": "The Temple of Ecaflip",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 4,
+        "classified_maps": 4
+    },
+    "19": {
+        "id": 19,
+        "name": "The Temple of Iop",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 5,
+        "classified_maps": 3
+    },
+    "20": {
+        "id": 20,
+        "name": "The Temple of Cra",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 7
+    },
+    "21": {
+        "id": 21,
+        "name": "The Temple of Sadida",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 1,
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 4,
+        "classified_maps": 3
+    },
+    "22": {
+        "id": 22,
+        "name": "Edge of the Evil Forest",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 19
+        },
+        "outdoor_only": true,
+        "total_maps": 21,
+        "classified_maps": 21
+    },
+    "23": {
+        "id": 23,
+        "name": "The Dreggon Peninsula",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 19,
+            "forest": 16,
+            "beach": 5,
+            "plain": 3,
+            "sea": 3,
+            "mountain": 1,
+            "swamp": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 49,
+        "classified_maps": 48
+    },
+    "25": {
+        "id": 25,
+        "name": "Wabbit Tunnels",
+        "area": {
+            "id": 1,
+            "name": "Wabbit Island"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 3,
+            "plain": 1,
+            "wasteland": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 49,
+        "classified_maps": 47
+    },
+    "26": {
+        "id": 26,
+        "name": "The Temple of Eniripsa",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 3,
+        "classified_maps": 2
+    },
+    "27": {
+        "id": 27,
+        "name": "Asse Coast",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 3,
+            "sea": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 6,
+        "classified_maps": 6
+    },
+    "28": {
+        "id": 28,
+        "name": "Amakna Garrison",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 2,
+            "forest": 1,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 13,
+        "classified_maps": 5
+    },
+    "29": {
+        "id": 29,
+        "name": "Tunnel",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 73,
+        "classified_maps": 69
+    },
+    "30": {
+        "id": 30,
+        "name": "The Cradle",
+        "area": {
+            "id": 4,
+            "name": "Tainela"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 21,
+            "forest": 7,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 31,
+        "classified_maps": 29
+    },
+    "31": {
+        "id": 31,
+        "name": "The Swamp",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 7,
+            "plain": 1,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 9,
+        "classified_maps": 9
+    },
+    "32": {
+        "id": 32,
+        "name": "Sufokia",
+        "area": {
+            "id": 5,
+            "name": "Sufokia"
+        },
+        "biome": "sea",
+        "votes": {
+            "sea": 24,
+            "lake_river": 14
+        },
+        "outdoor_only": true,
+        "total_maps": 150,
+        "classified_maps": 142
+    },
+    "33": {
+        "id": 33,
+        "name": "Treechnid Forest",
+        "area": {
+            "id": 6,
+            "name": "Treechnid Forest"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 50,
+            "plain": 2,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 56,
+        "classified_maps": 56
+    },
+    "34": {
+        "id": 34,
+        "name": "Prison",
+        "area": {
+            "id": 3,
+            "name": "Jail"
+        },
+        "biome": "underground",
+        "votes": {
+            "underground": 4
+        },
+        "outdoor_only": false,
+        "total_maps": 6,
+        "classified_maps": 6
+    },
+    "35": {
+        "id": 35,
+        "name": "Sufokia Gate",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "37": {
+        "id": 37,
+        "name": "Bonta",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 49,
+            "lake_river": 14,
+            "field": 2,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 445,
+        "classified_maps": 429
+    },
+    "38": {
+        "id": 38,
+        "name": "Cania Plain",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 304,
+            "mountain": 74,
+            "forest": 54,
+            "lake_river": 4,
+            "field": 2,
+            "swamp": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 449,
+        "classified_maps": 444
+    },
+    "39": {
+        "id": 39,
+        "name": "The Rogues' Hideout",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 1,
+            "underground": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 5,
+        "classified_maps": 2
+    },
+    "41": {
+        "id": 41,
+        "name": "The Temple of Sacrier",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 5,
+        "classified_maps": 5
+    },
+    "42": {
+        "id": 42,
+        "name": "Road to Bonta",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "43": {
+        "id": 43,
+        "name": "Fortification of Bonta",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 29,
+            "forest": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 68,
+        "classified_maps": 67
+    },
+    "44": {
+        "id": 44,
+        "name": "Bakers' Quarter",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 7
+        },
+        "outdoor_only": true,
+        "total_maps": 76,
+        "classified_maps": 73
+    },
+    "45": {
+        "id": 45,
+        "name": "Militia District",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 6,
+            "lake_river": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 39,
+        "classified_maps": 34
+    },
+    "46": {
+        "id": 46,
+        "name": "Butchers' Quarter",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 5
+        },
+        "outdoor_only": true,
+        "total_maps": 69,
+        "classified_maps": 67
+    },
+    "47": {
+        "id": 47,
+        "name": "Smiths' Quarter",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 9
+        },
+        "outdoor_only": true,
+        "total_maps": 156,
+        "classified_maps": 156
+    },
+    "48": {
+        "id": 48,
+        "name": "Lumberjacks' Quarter",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 6
+        },
+        "outdoor_only": true,
+        "total_maps": 58,
+        "classified_maps": 58
+    },
+    "49": {
+        "id": 49,
+        "name": "Handymen's Quarter",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 17,
+        "classified_maps": 17
+    },
+    "50": {
+        "id": 50,
+        "name": "Tailors' Quarter",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 7
+        },
+        "outdoor_only": true,
+        "total_maps": 69,
+        "classified_maps": 69
+    },
+    "51": {
+        "id": 51,
+        "name": "Jewellers' Quarter",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 36,
+        "classified_maps": 36
+    },
+    "53": {
+        "id": 53,
+        "name": "Brakmar",
+        "area": {
+            "id": 11,
+            "name": "Brakmar"
+        },
+        "biome": "wasteland",
+        "votes": {
+            "wasteland": 66,
+            "volcanic": 25,
+            "plain": 10,
+            "cemetery": 8,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 617,
+        "classified_maps": 586
+    },
+    "54": {
+        "id": 54,
+        "name": "Cania Massif",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 176,
+            "mountain": 73,
+            "forest": 45,
+            "lake_river": 7,
+            "field": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 328,
+        "classified_maps": 303
+    },
+    "55": {
+        "id": 55,
+        "name": "The Crow's Domain",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 9
+        },
+        "outdoor_only": true,
+        "total_maps": 9,
+        "classified_maps": 9
+    },
+    "56": {
+        "id": 56,
+        "name": "Cania Forest",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 13,
+            "plain": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 18,
+        "classified_maps": 17
+    },
+    "57": {
+        "id": 57,
+        "name": "Sidimote Moor",
+        "area": {
+            "id": 12,
+            "name": "Sidimote Moor"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 98,
+            "wasteland": 70,
+            "forest": 35,
+            "cemetery": 27,
+            "mountain": 7,
+            "volcanic": 6,
+            "field": 1,
+            "other": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 269,
+        "classified_maps": 253
+    },
+    "59": {
+        "id": 59,
+        "name": "Bonta Cemetery",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 38,
+            "plain": 6,
+            "forest": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 58,
+        "classified_maps": 47
+    },
+    "61": {
+        "id": 61,
+        "name": "Cemetery of the Tortured",
+        "area": {
+            "id": 12,
+            "name": "Sidimote Moor"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 105,
+            "forest": 4,
+            "wasteland": 4,
+            "plain": 1,
+            "volcanic": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 118,
+        "classified_maps": 116
+    },
+    "62": {
+        "id": 62,
+        "name": "Dopple Village",
+        "area": {
+            "id": 13,
+            "name": "Dopple Territory"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 8,
+            "mountain": 2,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 11,
+        "classified_maps": 11
+    },
+    "63": {
+        "id": 63,
+        "name": "Dopple Prism",
+        "area": {
+            "id": 13,
+            "name": "Dopple Territory"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "64": {
+        "id": 64,
+        "name": "First Hall of the Prism",
+        "area": {
+            "id": 13,
+            "name": "Dopple Territory"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "65": {
+        "id": 65,
+        "name": "Second Hall of the Prism",
+        "area": {
+            "id": 13,
+            "name": "Dopple Territory"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "66": {
+        "id": 66,
+        "name": "Third Hall of the Prism",
+        "area": {
+            "id": 13,
+            "name": "Dopple Territory"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 0
+    },
+    "67": {
+        "id": 67,
+        "name": "Fourth Hall of the Prism",
+        "area": {
+            "id": 13,
+            "name": "Dopple Territory"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "68": {
+        "id": 68,
+        "name": "The Cania Fields",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 137,
+            "forest": 17,
+            "field": 6,
+            "mountain": 6
+        },
+        "outdoor_only": true,
+        "total_maps": 171,
+        "classified_maps": 167
+    },
+    "69": {
+        "id": 69,
+        "name": "Eltneg Wood",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 33,
+            "plain": 15
+        },
+        "outdoor_only": true,
+        "total_maps": 48,
+        "classified_maps": 48
+    },
+    "70": {
+        "id": 70,
+        "name": "Rocky Plains",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 35,
+            "mountain": 27
+        },
+        "outdoor_only": true,
+        "total_maps": 72,
+        "classified_maps": 63
+    },
+    "71": {
+        "id": 71,
+        "name": "Gisgoul, the Devastated Village",
+        "area": {
+            "id": 12,
+            "name": "Sidimote Moor"
+        },
+        "biome": "wasteland",
+        "votes": {
+            "wasteland": 13,
+            "plain": 9,
+            "cemetery": 7,
+            "forest": 3,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 57,
+        "classified_maps": 36
+    },
+    "72": {
+        "id": 72,
+        "name": "Brakmar Frontage",
+        "area": {
+            "id": 12,
+            "name": "Sidimote Moor"
+        },
+        "biome": "volcanic",
+        "votes": {
+            "volcanic": 71,
+            "wasteland": 14,
+            "cemetery": 8,
+            "plain": 6,
+            "forest": 1,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 122,
+        "classified_maps": 111
+    },
+    "73": {
+        "id": 73,
+        "name": "Bonta Sewers",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 7,
+            "wasteland": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 83,
+        "classified_maps": 83
+    },
+    "74": {
+        "id": 74,
+        "name": "Dopple Training",
+        "area": {
+            "id": 13,
+            "name": "Dopple Territory"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 4,
+            "mountain": 3,
+            "forest": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 9,
+        "classified_maps": 9
+    },
+    "75": {
+        "id": 75,
+        "name": "Brakmar Sewers",
+        "area": {
+            "id": 11,
+            "name": "Brakmar"
+        },
+        "biome": "wasteland",
+        "votes": {
+            "wasteland": 8,
+            "plain": 6,
+            "swamp": 4,
+            "cemetery": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 85,
+        "classified_maps": 84
+    },
+    "76": {
+        "id": 76,
+        "name": "Imp Village",
+        "area": {
+            "id": 14,
+            "name": "Imp Village"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 16,
+            "plain": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 19,
+        "classified_maps": 19
+    },
+    "77": {
+        "id": 77,
+        "name": "The Jellith Dimension",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 3,
+            "plain": 1,
+            "desert": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 22,
+        "classified_maps": 5
+    },
+    "79": {
+        "id": 79,
+        "name": "First Platform",
+        "area": {
+            "id": 14,
+            "name": "Imp Village"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "80": {
+        "id": 80,
+        "name": "Second Platform",
+        "area": {
+            "id": 14,
+            "name": "Imp Village"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "81": {
+        "id": 81,
+        "name": "Imp Prism",
+        "area": {
+            "id": 14,
+            "name": "Imp Village"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "82": {
+        "id": 82,
+        "name": "Gobball Dungeon",
+        "area": {
+            "id": 4,
+            "name": "Tainela"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 11,
+        "classified_maps": 11
+    },
+    "83": {
+        "id": 83,
+        "name": "Tutorial",
+        "area": {
+            "id": 17,
+            "name": "Tainela"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 4,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 6
+    },
+    "84": {
+        "id": 84,
+        "name": "Trool Fair",
+        "area": {
+            "id": 15,
+            "name": "Trool Fair"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 20,
+            "field": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 30,
+        "classified_maps": 27
+    },
+    "85": {
+        "id": 85,
+        "name": "Gobball Game",
+        "area": {
+            "id": 16,
+            "name": "Trool Fair"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "86": {
+        "id": 86,
+        "name": "Gladiatrool",
+        "area": {
+            "id": 15,
+            "name": "Trool Fair"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 52,
+        "classified_maps": 1
+    },
+    "87": {
+        "id": 87,
+        "name": "Amakna South",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "88": {
+        "id": 88,
+        "name": "Tainela",
+        "area": {
+            "id": 17,
+            "name": "Tainela"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 4,
+        "classified_maps": 0
+    },
+    "89": {
+        "id": 89,
+        "name": "MDJ",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1,
+            "field": 1,
+            "mountain": 1,
+            "sea": 1,
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 13,
+        "classified_maps": 6
+    },
+    "91": {
+        "id": 91,
+        "name": "Mysterious Tunnel",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "underground",
+        "votes": {
+            "underground": 12,
+            "cave": 6
+        },
+        "outdoor_only": false,
+        "total_maps": 18,
+        "classified_maps": 18
+    },
+    "92": {
+        "id": 92,
+        "name": "Surroundings of Astrub",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 20,
+            "forest": 18,
+            "field": 5,
+            "cemetery": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 46,
+        "classified_maps": 45
+    },
+    "93": {
+        "id": 93,
+        "name": "Moon Beach",
+        "area": {
+            "id": 2,
+            "name": "Moon Island"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 16,
+            "plain": 6,
+            "sea": 6,
+            "forest": 1,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 53,
+        "classified_maps": 30
+    },
+    "94": {
+        "id": 94,
+        "name": "Bworker Dungeon",
+        "area": {
+            "id": 12,
+            "name": "Sidimote Moor"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 19,
+        "classified_maps": 0
+    },
+    "95": {
+        "id": 95,
+        "name": "Astrub City",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 46,
+            "forest": 9,
+            "lake_river": 4,
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 265,
+        "classified_maps": 222
+    },
+    "96": {
+        "id": 96,
+        "name": "Astrub Mines",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 4,
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 14,
+        "classified_maps": 13
+    },
+    "97": {
+        "id": 97,
+        "name": "Astrub Forest",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 36,
+            "plain": 6
+        },
+        "outdoor_only": true,
+        "total_maps": 44,
+        "classified_maps": 44
+    },
+    "98": {
+        "id": 98,
+        "name": "Astrub Fields",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 19,
+            "forest": 5,
+            "field": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 27,
+        "classified_maps": 26
+    },
+    "99": {
+        "id": 99,
+        "name": "Astrub Tunnel",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 5,
+            "underground": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 6,
+        "classified_maps": 6
+    },
+    "100": {
+        "id": 100,
+        "name": "Astrub Deep Tunnel",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 5,
+            "underground": 3
+        },
+        "outdoor_only": false,
+        "total_maps": 8,
+        "classified_maps": 8
+    },
+    "101": {
+        "id": 101,
+        "name": "Tofu Corner",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 11,
+            "plain": 10,
+            "field": 2,
+            "mountain": 1,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 29,
+        "classified_maps": 26
+    },
+    "102": {
+        "id": 102,
+        "name": "Cemetery of Heroes",
+        "area": {
+            "id": 25,
+            "name": "Cemetery of Heroes"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 19,
+            "forest": 2,
+            "plain": 1,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 23,
+        "classified_maps": 23
+    },
+    "103": {
+        "id": 103,
+        "name": "Bandit Territory",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 10,
+            "lake_river": 7,
+            "beach": 6,
+            "plain": 5,
+            "sea": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 37,
+        "classified_maps": 36
+    },
+    "105": {
+        "id": 105,
+        "name": "Neutral Pandala",
+        "area": {
+            "id": 19,
+            "name": "Neutral Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 7,
+            "lake_river": 7,
+            "sea": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 19,
+        "classified_maps": 19
+    },
+    "106": {
+        "id": 106,
+        "name": "Border of Akwadala",
+        "area": {
+            "id": 20,
+            "name": "Water Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 33,
+            "swamp": 9,
+            "lake_river": 9,
+            "sea": 2,
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 56,
+        "classified_maps": 54
+    },
+    "107": {
+        "id": 107,
+        "name": "Border of Feudala",
+        "area": {
+            "id": 22,
+            "name": "Fire Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 6,
+            "wasteland": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 12,
+        "classified_maps": 9
+    },
+    "108": {
+        "id": 108,
+        "name": "Border of Aerdala",
+        "area": {
+            "id": 23,
+            "name": "Air Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 18,
+            "swamp": 10,
+            "lake_river": 7,
+            "sea": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 36,
+        "classified_maps": 36
+    },
+    "109": {
+        "id": 109,
+        "name": "Border of Terrdala",
+        "area": {
+            "id": 21,
+            "name": "Earth Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 16,
+            "lake_river": 7,
+            "sea": 3,
+            "cemetery": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 29,
+        "classified_maps": 29
+    },
+    "110": {
+        "id": 110,
+        "name": "Amakna past",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 8,
+        "classified_maps": 0
+    },
+    "111": {
+        "id": 111,
+        "name": "Aerdala Gate",
+        "area": {
+            "id": 23,
+            "name": "Air Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "112": {
+        "id": 112,
+        "name": "Feudala Gate",
+        "area": {
+            "id": 22,
+            "name": "Fire Pandala"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 0
+    },
+    "113": {
+        "id": 113,
+        "name": "Akwadala Gate",
+        "area": {
+            "id": 20,
+            "name": "Water Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "114": {
+        "id": 114,
+        "name": "Terrdala Gate",
+        "area": {
+            "id": 21,
+            "name": "Earth Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "115": {
+        "id": 115,
+        "name": "Aerdala Village",
+        "area": {
+            "id": 23,
+            "name": "Air Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 8,
+            "lake_river": 6
+        },
+        "outdoor_only": true,
+        "total_maps": 29,
+        "classified_maps": 27
+    },
+    "116": {
+        "id": 116,
+        "name": "Feudala Village",
+        "area": {
+            "id": 22,
+            "name": "Fire Pandala"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 5,
+            "jungle": 2,
+            "wasteland": 1,
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 27,
+        "classified_maps": 26
+    },
+    "117": {
+        "id": 117,
+        "name": "Akwadala Village",
+        "area": {
+            "id": 20,
+            "name": "Water Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 8,
+            "swamp": 5,
+            "plain": 2,
+            "lake_river": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 35,
+        "classified_maps": 34
+    },
+    "118": {
+        "id": 118,
+        "name": "Terrdala Village",
+        "area": {
+            "id": 21,
+            "name": "Earth Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 15
+        },
+        "outdoor_only": true,
+        "total_maps": 29,
+        "classified_maps": 29
+    },
+    "119": {
+        "id": 119,
+        "name": "Pandala Village",
+        "area": {
+            "id": 19,
+            "name": "Neutral Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 36,
+            "sea": 6,
+            "lake_river": 2,
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 155,
+        "classified_maps": 152
+    },
+    "120": {
+        "id": 120,
+        "name": "Aerdala Prism",
+        "area": {
+            "id": 23,
+            "name": "Air Pandala"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "121": {
+        "id": 121,
+        "name": "Feudala Prism",
+        "area": {
+            "id": 22,
+            "name": "Fire Pandala"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "122": {
+        "id": 122,
+        "name": "Akwadala Prism",
+        "area": {
+            "id": 20,
+            "name": "Water Pandala"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "123": {
+        "id": 123,
+        "name": "Terrdala Prism",
+        "area": {
+            "id": 21,
+            "name": "Earth Pandala"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "124": {
+        "id": 124,
+        "name": "Bulb Cavern",
+        "area": {
+            "id": 24,
+            "name": "Pandala Dungeon"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 5
+        },
+        "outdoor_only": true,
+        "total_maps": 9,
+        "classified_maps": 9
+    },
+    "125": {
+        "id": 125,
+        "name": "Pandikazes' Hideout",
+        "area": {
+            "id": 24,
+            "name": "Pandala Dungeon"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 7,
+            "swamp": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 12,
+        "classified_maps": 10
+    },
+    "133": {
+        "id": 133,
+        "name": "Kitsou Dungeon",
+        "area": {
+            "id": 24,
+            "name": "Pandala Dungeon"
+        },
+        "biome": "wasteland",
+        "votes": {
+            "wasteland": 4,
+            "plain": 3,
+            "jungle": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 12,
+        "classified_maps": 11
+    },
+    "143": {
+        "id": 143,
+        "name": "Pandala Bridge",
+        "area": {
+            "id": 19,
+            "name": "Neutral Pandala"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 3,
+            "sea": 2,
+            "beach": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 6
+    },
+    "144": {
+        "id": 144,
+        "name": "Firefoux Dungeon",
+        "area": {
+            "id": 24,
+            "name": "Pandala Dungeon"
+        },
+        "biome": "volcanic",
+        "votes": {
+            "volcanic": 8,
+            "underground": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 10,
+        "classified_maps": 9
+    },
+    "152": {
+        "id": 152,
+        "name": "Nolifis Island",
+        "area": {
+            "id": 19,
+            "name": "Neutral Pandala"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 9,
+            "cemetery": 6,
+            "lake_river": 4,
+            "jungle": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 23,
+        "classified_maps": 22
+    },
+    "154": {
+        "id": 154,
+        "name": "Pig Dungeon",
+        "area": {
+            "id": 43,
+            "name": "Dragon Pig Dungeon"
+        },
+        "biome": "wasteland",
+        "votes": {
+            "wasteland": 2,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 10,
+        "classified_maps": 10
+    },
+    "161": {
+        "id": 161,
+        "name": "Wabbit Island",
+        "area": {
+            "id": 1,
+            "name": "Wabbit Island"
+        },
+        "biome": "field",
+        "votes": {
+            "field": 10,
+            "plain": 8,
+            "sea": 7,
+            "lake_river": 4,
+            "forest": 3,
+            "jungle": 2,
+            "beach": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 35,
+        "classified_maps": 35
+    },
+    "162": {
+        "id": 162,
+        "name": "Small Wabbit Island",
+        "area": {
+            "id": 1,
+            "name": "Wabbit Island"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 4,
+            "field": 1,
+            "mountain": 1,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 7
+    },
+    "163": {
+        "id": 163,
+        "name": "Skeleton Wabbit Island",
+        "area": {
+            "id": 1,
+            "name": "Wabbit Island"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 2,
+            "sea": 2,
+            "lake_river": 1,
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 6
+    },
+    "164": {
+        "id": 164,
+        "name": "Wabbit Castle Island",
+        "area": {
+            "id": 1,
+            "name": "Wabbit Island"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 5,
+            "sea": 2,
+            "lake_river": 2,
+            "field": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 29,
+        "classified_maps": 26
+    },
+    "165": {
+        "id": 165,
+        "name": "The Deep Moon Jungle",
+        "area": {
+            "id": 2,
+            "name": "Moon Island"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 11,
+            "plain": 9,
+            "jungle": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 27,
+        "classified_maps": 23
+    },
+    "166": {
+        "id": 166,
+        "name": "The Road to Moon",
+        "area": {
+            "id": 2,
+            "name": "Moon Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 3,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 4,
+        "classified_maps": 4
+    },
+    "167": {
+        "id": 167,
+        "name": "The Pirate Boat",
+        "area": {
+            "id": 2,
+            "name": "Moon Island"
+        },
+        "biome": "sea",
+        "votes": {
+            "sea": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 9,
+        "classified_maps": 9
+    },
+    "168": {
+        "id": 168,
+        "name": "Dark Treechnid Forest",
+        "area": {
+            "id": 6,
+            "name": "Treechnid Forest"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 62,
+            "plain": 4,
+            "jungle": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 74,
+        "classified_maps": 68
+    },
+    "169": {
+        "id": 169,
+        "name": "Edge of the Treechnid Forest",
+        "area": {
+            "id": 6,
+            "name": "Treechnid Forest"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 49,
+            "plain": 12,
+            "cemetery": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 73,
+        "classified_maps": 72
+    },
+    "170": {
+        "id": 170,
+        "name": "Scaraleaf Plain",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 25,
+            "plain": 20,
+            "field": 8,
+            "lake_river": 6,
+            "sea": 3,
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 88,
+        "classified_maps": 80
+    },
+    "171": {
+        "id": 171,
+        "name": "Pandala Forest",
+        "area": {
+            "id": 19,
+            "name": "Neutral Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 38,
+            "swamp": 6,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 45,
+        "classified_maps": 45
+    },
+    "173": {
+        "id": 173,
+        "name": "Astrub Meadows",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 19,
+            "plain": 18,
+            "field": 8,
+            "lake_river": 5,
+            "sea": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 55,
+        "classified_maps": 53
+    },
+    "174": {
+        "id": 174,
+        "name": "Camp of the One-armed Bandits",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "175": {
+        "id": 175,
+        "name": "Treechnid Dungeon",
+        "area": {
+            "id": 27,
+            "name": "Treechnid Dungeon"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 7,
+            "wasteland": 5,
+            "plain": 3,
+            "swamp": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 31,
+        "classified_maps": 24
+    },
+    "177": {
+        "id": 177,
+        "name": "Blop Meadow",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 28,
+            "forest": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 32,
+        "classified_maps": 32
+    },
+    "178": {
+        "id": 178,
+        "name": "Lousy Pig Plain",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 42,
+            "forest": 2,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 45,
+        "classified_maps": 45
+    },
+    "179": {
+        "id": 179,
+        "name": "Mushd Corner",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 3,
+            "beach": 3,
+            "sea": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 7
+    },
+    "180": {
+        "id": 180,
+        "name": "Amakna Castle",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 11,
+            "lake_river": 5
+        },
+        "outdoor_only": true,
+        "total_maps": 89,
+        "classified_maps": 71
+    },
+    "181": {
+        "id": 181,
+        "name": "Amakna Castle Tunnel",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 24,
+            "underground": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 26,
+        "classified_maps": 25
+    },
+    "182": {
+        "id": 182,
+        "name": "Breeder Village",
+        "area": {
+            "id": 28,
+            "name": "Koalak Mountain"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 18,
+            "plain": 13,
+            "mountain": 6,
+            "cemetery": 2,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 80,
+        "classified_maps": 78
+    },
+    "200": {
+        "id": 200,
+        "name": "The Dragon Pig's Maze",
+        "area": {
+            "id": 26,
+            "name": "The Dragon Pig's Maze"
+        },
+        "biome": "wasteland",
+        "votes": {
+            "wasteland": 6,
+            "cemetery": 5,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 28,
+        "classified_maps": 23
+    },
+    "201": {
+        "id": 201,
+        "name": "Tofu Dungeon",
+        "area": {
+            "id": 29,
+            "name": "Tofu Dungeon"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 17,
+        "classified_maps": 17
+    },
+    "209": {
+        "id": 209,
+        "name": "Minotoror Island",
+        "area": {
+            "id": 30,
+            "name": "Minotoror Island"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 10,
+            "jungle": 5,
+            "desert": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 16,
+        "classified_maps": 16
+    },
+    "210": {
+        "id": 210,
+        "name": "Labyrinth of the Minotoror",
+        "area": {
+            "id": 31,
+            "name": "Labyrinth of the Minotoror"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 6,
+            "wasteland": 3,
+            "desert": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 28,
+        "classified_maps": 19
+    },
+    "211": {
+        "id": 211,
+        "name": "Lord Crow's Library",
+        "area": {
+            "id": 32,
+            "name": "Lord Crow's Library"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 18,
+        "classified_maps": 17
+    },
+    "212": {
+        "id": 212,
+        "name": "Canidae Dungeon",
+        "area": {
+            "id": 33,
+            "name": "Canidae Dungeon"
+        },
+        "biome": "underground",
+        "votes": {
+            "underground": 13,
+            "cave": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 20,
+        "classified_maps": 16
+    },
+    "223": {
+        "id": 223,
+        "name": "Koolich Cavern",
+        "area": {
+            "id": 34,
+            "name": "Koolich Cavern"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 16,
+        "classified_maps": 16
+    },
+    "230": {
+        "id": 230,
+        "name": "Primitive Cemetery",
+        "area": {
+            "id": 28,
+            "name": "Koalak Mountain"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 39
+        },
+        "outdoor_only": true,
+        "total_maps": 43,
+        "classified_maps": 42
+    },
+    "231": {
+        "id": 231,
+        "name": "Enchanted Lakes",
+        "area": {
+            "id": 28,
+            "name": "Koalak Mountain"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 45,
+            "jungle": 14,
+            "plain": 3,
+            "swamp": 3,
+            "sea": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 85,
+        "classified_maps": 80
+    },
+    "232": {
+        "id": 232,
+        "name": "Nauseating Swamps",
+        "area": {
+            "id": 28,
+            "name": "Koalak Mountain"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 42,
+            "jungle": 7,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 51,
+        "classified_maps": 50
+    },
+    "233": {
+        "id": 233,
+        "name": "Bottomless Swamps",
+        "area": {
+            "id": 28,
+            "name": "Koalak Mountain"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 16,
+            "jungle": 6
+        },
+        "outdoor_only": true,
+        "total_maps": 22,
+        "classified_maps": 22
+    },
+    "234": {
+        "id": 234,
+        "name": "Kaliptus Forest",
+        "area": {
+            "id": 28,
+            "name": "Koalak Mountain"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 25,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 27,
+        "classified_maps": 26
+    },
+    "235": {
+        "id": 235,
+        "name": "Wild Dragoturkey Territory",
+        "area": {
+            "id": 28,
+            "name": "Koalak Mountain"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 49,
+            "mountain": 19,
+            "forest": 11,
+            "plain": 7
+        },
+        "outdoor_only": true,
+        "total_maps": 93,
+        "classified_maps": 88
+    },
+    "236": {
+        "id": 236,
+        "name": "Pet Sanctuary",
+        "area": {
+            "id": 36,
+            "name": "Pet Sanctuary"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 3,
+            "forest": 2,
+            "mountain": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 8,
+        "classified_maps": 7
+    },
+    "243": {
+        "id": 243,
+        "name": "Crackler Dungeon",
+        "area": {
+            "id": 37,
+            "name": "Crackler Dungeon"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 7,
+            "mountain": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 12,
+        "classified_maps": 10
+    },
+    "253": {
+        "id": 253,
+        "name": "Wild Canyon",
+        "area": {
+            "id": 28,
+            "name": "Koalak Mountain"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 24,
+            "mountain": 9,
+            "plain": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 45,
+        "classified_maps": 43
+    },
+    "254": {
+        "id": 254,
+        "name": "Skeunk's Hideout",
+        "area": {
+            "id": 35,
+            "name": "Skeunk's Hideout"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 7,
+            "cemetery": 2,
+            "plain": 1,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 14,
+        "classified_maps": 14
+    },
+    "275": {
+        "id": 275,
+        "name": "Agony V'Helley",
+        "area": {
+            "id": 28,
+            "name": "Koalak Mountain"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 6,
+            "wasteland": 5,
+            "swamp": 2,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 19,
+        "classified_maps": 19
+    },
+    "276": {
+        "id": 276,
+        "name": "The Goblin Camp",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 11,
+        "classified_maps": 1
+    },
+    "277": {
+        "id": 277,
+        "name": "Bwork Village",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 1,
+            "underground": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 13,
+        "classified_maps": 2
+    },
+    "278": {
+        "id": 278,
+        "name": "Amakna Castle Gobball Breeding Station",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 4,
+            "forest": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 7
+    },
+    "279": {
+        "id": 279,
+        "name": "Edge of Bonta",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 19,
+            "plain": 10,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 44,
+        "classified_maps": 30
+    },
+    "280": {
+        "id": 280,
+        "name": "Edge of Brakmar",
+        "area": {
+            "id": 11,
+            "name": "Brakmar"
+        },
+        "biome": "wasteland",
+        "votes": {
+            "wasteland": 23,
+            "cemetery": 2,
+            "volcanic": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 38,
+        "classified_maps": 26
+    },
+    "284": {
+        "id": 284,
+        "name": "Bwork Dungeon",
+        "area": {
+            "id": 39,
+            "name": "Bwork Dungeon"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 8,
+            "underground": 4
+        },
+        "outdoor_only": false,
+        "total_maps": 15,
+        "classified_maps": 12
+    },
+    "297": {
+        "id": 297,
+        "name": "Scaraleaf Dungeon",
+        "area": {
+            "id": 40,
+            "name": "Scaraleaf Dungeon"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 8,
+            "wasteland": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 10,
+        "classified_maps": 9
+    },
+    "306": {
+        "id": 306,
+        "name": "Field Dungeon",
+        "area": {
+            "id": 41,
+            "name": "Field Dungeon"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 8,
+        "classified_maps": 0
+    },
+    "314": {
+        "id": 314,
+        "name": "The Dreggons' Sanctuary",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 52,
+        "classified_maps": 51
+    },
+    "315": {
+        "id": 315,
+        "name": "Dreggon Village",
+        "area": {
+            "id": 49,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 3,
+            "lake_river": 2,
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 27,
+        "classified_maps": 24
+    },
+    "316": {
+        "id": 316,
+        "name": "Dreggon Tunnel",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "underground",
+        "votes": {
+            "underground": 11,
+            "cave": 7,
+            "lake_river": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 19,
+        "classified_maps": 19
+    },
+    "318": {
+        "id": 318,
+        "name": "Alkatraz",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 0
+    },
+    "319": {
+        "id": 319,
+        "name": "Labyrinth of the Minotoror",
+        "area": {
+            "id": 31,
+            "name": "Labyrinth of the Minotoror"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 3,
+            "plain": 1,
+            "desert": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 5
+    },
+    "320": {
+        "id": 320,
+        "name": "Kwismas Island",
+        "area": {
+            "id": 42,
+            "name": "Arctic Area"
+        },
+        "biome": "snow",
+        "votes": {
+            "snow": 82,
+            "sea": 13,
+            "lake_river": 13
+        },
+        "outdoor_only": true,
+        "total_maps": 108,
+        "classified_maps": 108
+    },
+    "321": {
+        "id": 321,
+        "name": "Kwismas Dungeon",
+        "area": {
+            "id": 42,
+            "name": "Arctic Area"
+        },
+        "biome": "snow",
+        "votes": {
+            "snow": 7,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 30,
+        "classified_maps": 24
+    },
+    "325": {
+        "id": 325,
+        "name": "Dreggon Dungeon",
+        "area": {
+            "id": 44,
+            "name": "Dreggon Dungeon"
+        },
+        "biome": "underground",
+        "votes": {
+            "underground": 5,
+            "cave": 4
+        },
+        "outdoor_only": false,
+        "total_maps": 10,
+        "classified_maps": 9
+    },
+    "334": {
+        "id": 334,
+        "name": "Cania Bay",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 17,
+            "plain": 5,
+            "forest": 2,
+            "mountain": 2,
+            "lake_river": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 31,
+        "classified_maps": 28
+    },
+    "335": {
+        "id": 335,
+        "name": "Astrub Rocky Inlet",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 16,
+            "jungle": 8
+        },
+        "outdoor_only": true,
+        "total_maps": 24,
+        "classified_maps": 24
+    },
+    "336": {
+        "id": 336,
+        "name": "Sand Dungeon",
+        "area": {
+            "id": 18,
+            "name": "Astrub"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 9
+        },
+        "outdoor_only": true,
+        "total_maps": 10,
+        "classified_maps": 9
+    },
+    "337": {
+        "id": 337,
+        "name": "Bonta Rat Dungeon",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "underground",
+        "votes": {
+            "underground": 9,
+            "swamp": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 10,
+        "classified_maps": 10
+    },
+    "338": {
+        "id": 338,
+        "name": "Brakmar Rat Dungeon",
+        "area": {
+            "id": 11,
+            "name": "Brakmar"
+        },
+        "biome": "volcanic",
+        "votes": {
+            "volcanic": 10
+        },
+        "outdoor_only": false,
+        "total_maps": 11,
+        "classified_maps": 10
+    },
+    "339": {
+        "id": 339,
+        "name": "Amakna Castle Rat Dungeon",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "underground",
+        "votes": {
+            "underground": 7
+        },
+        "outdoor_only": false,
+        "total_maps": 10,
+        "classified_maps": 10
+    },
+    "440": {
+        "id": 440,
+        "name": "Rocky Peaks",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 26
+        },
+        "outdoor_only": true,
+        "total_maps": 26,
+        "classified_maps": 26
+    },
+    "441": {
+        "id": 441,
+        "name": "Clearing",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "442": {
+        "id": 442,
+        "name": "Lake",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 4,
+            "mountain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 5,
+        "classified_maps": 5
+    },
+    "443": {
+        "id": 443,
+        "name": "Forest",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 3,
+            "plain": 2,
+            "mountain": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 7,
+        "classified_maps": 7
+    },
+    "444": {
+        "id": 444,
+        "name": "Fields",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 4,
+            "mountain": 4,
+            "field": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 13,
+        "classified_maps": 13
+    },
+    "445": {
+        "id": 445,
+        "name": "Meadow",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 5,
+            "plain": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 10,
+        "classified_maps": 9
+    },
+    "446": {
+        "id": 446,
+        "name": "Temple",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "447": {
+        "id": 447,
+        "name": "Dungeon",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 7
+        },
+        "outdoor_only": false,
+        "total_maps": 7,
+        "classified_maps": 7
+    },
+    "448": {
+        "id": 448,
+        "name": "Miscellaneous",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 2,
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 6,
+        "classified_maps": 5
+    },
+    "449": {
+        "id": 449,
+        "name": "Cemetery",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 3,
+        "classified_maps": 3
+    },
+    "450": {
+        "id": 450,
+        "name": "Exit of the Temple",
+        "area": {
+            "id": 45,
+            "name": "Incarnam"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 4,
+            "forest": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 6,
+        "classified_maps": 6
+    },
+    "451": {
+        "id": 451,
+        "name": "Castaways Island",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 13,
+            "jungle": 3,
+            "sea": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 22,
+        "classified_maps": 17
+    },
+    "452": {
+        "id": 452,
+        "name": "Sea",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "sea",
+        "votes": {
+            "sea": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 5,
+        "classified_maps": 4
+    },
+    "453": {
+        "id": 453,
+        "name": "Coral Beach",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 69,
+            "beach": 63,
+            "desert": 6,
+            "sea": 3,
+            "forest": 2,
+            "wasteland": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 150,
+        "classified_maps": 148
+    },
+    "454": {
+        "id": 454,
+        "name": "Grass Plains",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 57,
+            "plain": 9
+        },
+        "outdoor_only": true,
+        "total_maps": 74,
+        "classified_maps": 73
+    },
+    "455": {
+        "id": 455,
+        "name": "Dark Jungle",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 57,
+            "swamp": 6
+        },
+        "outdoor_only": true,
+        "total_maps": 64,
+        "classified_maps": 64
+    },
+    "457": {
+        "id": 457,
+        "name": "Bottomless Peat Bog",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 26,
+            "jungle": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 27,
+        "classified_maps": 27
+    },
+    "459": {
+        "id": 459,
+        "name": "Kimbo's Canopy",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 8,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 9,
+        "classified_maps": 9
+    },
+    "460": {
+        "id": 460,
+        "name": "Grotto Hesque",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 5,
+            "jungle": 2,
+            "wasteland": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 8,
+        "classified_maps": 8
+    },
+    "461": {
+        "id": 461,
+        "name": "Otomai's Ark",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 6,
+        "classified_maps": 6
+    },
+    "462": {
+        "id": 462,
+        "name": "Floramor's Clearing",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 7
+        },
+        "outdoor_only": true,
+        "total_maps": 8,
+        "classified_maps": 7
+    },
+    "463": {
+        "id": 463,
+        "name": "Tynril Laboratory",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 8,
+        "classified_maps": 8
+    },
+    "464": {
+        "id": 464,
+        "name": "Tree Keeholo Trunk",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 34,
+        "classified_maps": 33
+    },
+    "465": {
+        "id": 465,
+        "name": "The Breeder Village",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 13,
+            "plain": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 112,
+        "classified_maps": 87
+    },
+    "466": {
+        "id": 466,
+        "name": "The Coastal Village",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 17,
+            "beach": 6,
+            "sea": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 92,
+        "classified_maps": 87
+    },
+    "467": {
+        "id": 467,
+        "name": "Otomai Island Cemetery",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "468": {
+        "id": 468,
+        "name": "Zoth Village",
+        "area": {
+            "id": 47,
+            "name": "The Zoth Village"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 15,
+            "forest": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 16,
+        "classified_maps": 16
+    },
+    "469": {
+        "id": 469,
+        "name": "Canopy Village",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 56,
+            "forest": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 327,
+        "classified_maps": 323
+    },
+    "470": {
+        "id": 470,
+        "name": "Bherb's Gully",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 8
+        },
+        "outdoor_only": true,
+        "total_maps": 8,
+        "classified_maps": 8
+    },
+    "471": {
+        "id": 471,
+        "name": "Putrid Peat Bog",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 12,
+            "jungle": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 14,
+        "classified_maps": 14
+    },
+    "472": {
+        "id": 472,
+        "name": "Tree Keeholo Foliage",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 27,
+            "swamp": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 29,
+        "classified_maps": 29
+    },
+    "473": {
+        "id": 473,
+        "name": "Hidden Laboratory",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 2
+        },
+        "outdoor_only": false,
+        "total_maps": 5,
+        "classified_maps": 5
+    },
+    "474": {
+        "id": 474,
+        "name": "Hold of Otomai's Ark",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 8,
+        "classified_maps": 8
+    },
+    "476": {
+        "id": 476,
+        "name": "Nolifis Bridge",
+        "area": {
+            "id": 19,
+            "name": "Neutral Pandala"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 2,
+            "jungle": 1,
+            "sea": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 4,
+        "classified_maps": 4
+    },
+    "477": {
+        "id": 477,
+        "name": "Zoth Prism",
+        "area": {
+            "id": 47,
+            "name": "The Zoth Village"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "478": {
+        "id": 478,
+        "name": " The Zoth Door Keepers",
+        "area": {
+            "id": 47,
+            "name": "The Zoth Village"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "479": {
+        "id": 479,
+        "name": "Kawaii River",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "lake_river",
+        "votes": {
+            "lake_river": 14,
+            "swamp": 2,
+            "forest": 1,
+            "plain": 1,
+            "beach": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 24,
+        "classified_maps": 22
+    },
+    "480": {
+        "id": 480,
+        "name": "Low Crackler Mountain",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 8,
+            "plain": 4,
+            "lake_river": 3,
+            "forest": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 19,
+        "classified_maps": 18
+    },
+    "481": {
+        "id": 481,
+        "name": "Brouce Boulgoure's Clearing",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 7,
+            "plain": 5,
+            "mountain": 1,
+            "lake_river": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 17,
+        "classified_maps": 17
+    },
+    "482": {
+        "id": 482,
+        "name": "The Milicluster",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 13,
+            "plain": 7
+        },
+        "outdoor_only": true,
+        "total_maps": 36,
+        "classified_maps": 35
+    },
+    "483": {
+        "id": 483,
+        "name": "Abandoned Railway",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 2,
+            "plain": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 6,
+        "classified_maps": 6
+    },
+    "484": {
+        "id": 484,
+        "name": "Edge of the Milicluster",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 11,
+            "plain": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 22,
+        "classified_maps": 22
+    },
+    "485": {
+        "id": 485,
+        "name": "The Countryside",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 6,
+            "forest": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 13,
+        "classified_maps": 12
+    },
+    "486": {
+        "id": 486,
+        "name": "Little Slope Grove",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 1,
+        "classified_maps": 0
+    },
+    "487": {
+        "id": 487,
+        "name": "Air Pandala Attic Confinement",
+        "area": {
+            "id": 19,
+            "name": "Neutral Pandala"
+        },
+        "biome": "jungle",
+        "votes": {
+            "jungle": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "488": {
+        "id": 488,
+        "name": "Amakna Tunnels",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 5
+        },
+        "outdoor_only": false,
+        "total_maps": 5,
+        "classified_maps": 5
+    },
+    "490": {
+        "id": 490,
+        "name": "Sufokian Gulf Shoreline",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "beach",
+        "votes": {
+            "beach": 5,
+            "lake_river": 3,
+            "sea": 2,
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 11,
+        "classified_maps": 11
+    },
+    "491": {
+        "id": 491,
+        "name": "Larva Dungeon",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 3,
+            "mountain": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 19,
+        "classified_maps": 17
+    },
+    "492": {
+        "id": 492,
+        "name": "Passage to Brakmar",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "cave",
+        "votes": {
+            "cave": 6,
+            "underground": 1
+        },
+        "outdoor_only": false,
+        "total_maps": 7,
+        "classified_maps": 7
+    },
+    "493": {
+        "id": 493,
+        "name": "Blop Dungeon",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 13
+        },
+        "outdoor_only": true,
+        "total_maps": 15,
+        "classified_maps": 15
+    },
+    "494": {
+        "id": 494,
+        "name": "Fungus Dungeon",
+        "area": {
+            "id": 12,
+            "name": "Sidimote Moor"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 4
+        },
+        "outdoor_only": true,
+        "total_maps": 12,
+        "classified_maps": 12
+    },
+    "495": {
+        "id": 495,
+        "name": "Fungus Cavern",
+        "area": {
+            "id": 12,
+            "name": "Sidimote Moor"
+        },
+        "biome": "forest",
+        "votes": {
+            "forest": 8
+        },
+        "outdoor_only": true,
+        "total_maps": 30,
+        "classified_maps": 30
+    },
+    "496": {
+        "id": 496,
+        "name": "Qu'Tan's Sanctuary",
+        "area": {
+            "id": 12,
+            "name": "Sidimote Moor"
+        },
+        "biome": "volcanic",
+        "votes": {
+            "volcanic": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 6,
+        "classified_maps": 6
+    },
+    "497": {
+        "id": 497,
+        "name": "Ilyzaelle's Lookout",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": "mountain",
+        "votes": {
+            "mountain": 3,
+            "plain": 2
+        },
+        "outdoor_only": true,
+        "total_maps": 6,
+        "classified_maps": 5
+    },
+    "498": {
+        "id": 498,
+        "name": "Hotomani Sanctuary",
+        "area": {
+            "id": 8,
+            "name": "Cania Plains"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 32,
+        "classified_maps": 0
+    },
+    "499": {
+        "id": 499,
+        "name": "Minotoror Island Cemetery",
+        "area": {
+            "id": 30,
+            "name": "Minotoror Island"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "500": {
+        "id": 500,
+        "name": "Zoth Village Cemetery",
+        "area": {
+            "id": 47,
+            "name": "The Zoth Village"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 1,
+        "classified_maps": 1
+    },
+    "501": {
+        "id": 501,
+        "name": "Isle O'Anstitch",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 12,
+        "classified_maps": 0
+    },
+    "510": {
+        "id": 510,
+        "name": "Arena",
+        "area": {
+            "id": 11,
+            "name": "Brakmar"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 4,
+        "classified_maps": 0
+    },
+    "512": {
+        "id": 512,
+        "name": "Arena",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 4,
+        "classified_maps": 0
+    },
+    "536": {
+        "id": 536,
+        "name": "Goultarminator",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 2,
+            "jungle": 1,
+            "swamp": 1,
+            "wasteland": 1,
+            "cemetery": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 15,
+        "classified_maps": 7
+    },
+    "537": {
+        "id": 537,
+        "name": "Smith Dungeon",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "underground",
+        "votes": {
+            "underground": 17,
+            "cave": 3
+        },
+        "outdoor_only": false,
+        "total_maps": 21,
+        "classified_maps": 20
+    },
+    "538": {
+        "id": 538,
+        "name": "Lair of the Giant Kralove",
+        "area": {
+            "id": 46,
+            "name": "Otomai Island"
+        },
+        "biome": "swamp",
+        "votes": {
+            "swamp": 3
+        },
+        "outdoor_only": true,
+        "total_maps": 3,
+        "classified_maps": 3
+    },
+    "540": {
+        "id": 540,
+        "name": "Pandala Sanctuary",
+        "area": {
+            "id": 24,
+            "name": "Pandala Dungeon"
+        },
+        "biome": null,
+        "votes": {},
+        "outdoor_only": false,
+        "total_maps": 30,
+        "classified_maps": 0
+    },
+    "541": {
+        "id": 541,
+        "name": "Extérieur de l'arène",
+        "area": {
+            "id": 11,
+            "name": "Brakmar"
+        },
+        "biome": "volcanic",
+        "votes": {
+            "volcanic": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 2,
+        "classified_maps": 2
+    },
+    "542": {
+        "id": 542,
+        "name": "Extérieur de l'arène",
+        "area": {
+            "id": 7,
+            "name": "Bonta"
+        },
+        "biome": "plain",
+        "votes": {
+            "plain": 1
+        },
+        "outdoor_only": true,
+        "total_maps": 2,
+        "classified_maps": 2
+    },
+    "543": {
+        "id": 543,
+        "name": "Donjon des Squelettes",
+        "area": {
+            "id": 0,
+            "name": "Amakna"
+        },
+        "biome": "cemetery",
+        "votes": {
+            "cemetery": 8
+        },
+        "outdoor_only": true,
+        "total_maps": 11,
+        "classified_maps": 11
+    }
+}
