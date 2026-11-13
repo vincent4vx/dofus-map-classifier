@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MapClassifier\Command;
 
 use MapClassifier\Config;
+use MapClassifier\Lang\InteractiveObjectRepository;
 use MapClassifier\Lang\MapLocationRepository;
 use MapClassifier\Map\MapFileRepository;
 use MapClassifier\Objects\MapObjectExtractor;
@@ -38,6 +39,7 @@ final class ObjectsAnalyzeCommand extends Command
         private readonly ResultStorage $results,
         private readonly ObjectTypeStorage $types,
         private readonly Config $config,
+        private readonly InteractiveObjectRepository $interactiveObjects,
     ) {
         parent::__construct();
     }
@@ -65,6 +67,7 @@ final class ObjectsAnalyzeCommand extends Command
             $results,
             new SubAreaBiomeResolver()->resolve($locations, $results),
             (float) $input->getOption('min-ratio'),
+            $this->interactiveObjects->tryByGfx(static fn (string $error) => $io->warning('Interactive objects not available: ' . $error)),
         );
 
         $analyzed = 0;
@@ -94,7 +97,7 @@ final class ObjectsAnalyzeCommand extends Command
             $types = $this->types->all(SpriteSet::from($set));
 
             $export[$set] = (object) array_map(
-                static fn (ObjectProfile $profile) => $profile->toArray() + ['type' => ($types[$profile->id] ?? null)?->classification?->toArray()],
+                static fn (ObjectProfile $profile) => $profile->toArray() + ['type' => $profile->type(($types[$profile->id] ?? null)?->classification)?->toArray()],
                 $sprites,
             );
         }

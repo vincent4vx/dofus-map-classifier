@@ -33,6 +33,21 @@ final class ObjectTypeClassificationTest extends TestCase
         ], $type->toArray());
     }
 
+    public function testWithName(): void
+    {
+        $type = ObjectTypeClassification::fromArray([
+            'category' => 'crop',
+            'name' => 'wheat clump',
+            'keywords' => ['cereal', 'yellow', 'flax'],
+            'description' => 'A clump.',
+        ])->withName('Flax', 'resource');
+
+        $this->assertSame(ObjectCategory::Crop, $type->category);
+        $this->assertSame('flax', $type->name);
+        $this->assertSame(['cereal', 'yellow', 'wheat clump', 'resource'], $type->keywords);
+        $this->assertSame('A clump.', $type->description);
+    }
+
     /**
      * @param array<string, mixed> $override
      */

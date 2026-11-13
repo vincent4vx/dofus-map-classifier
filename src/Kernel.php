@@ -25,6 +25,7 @@ use MapClassifier\Command\ObjectsClassifyCommand;
 use MapClassifier\Command\ObjectsReportCommand;
 use MapClassifier\Command\ObjectsSpritesCommand;
 use MapClassifier\Command\ReportCommand;
+use MapClassifier\Lang\InteractiveObjectRepository;
 use MapClassifier\Lang\MapLocationRepository;
 use MapClassifier\Map\MapFileRepository;
 use MapClassifier\MapKey\MapKeyDownloader;
@@ -77,6 +78,10 @@ final class Kernel
 
     public MapsToClassify $mapsToClassify {
         get => $this->mapsToClassify ??= new MapsToClassify($this->maps, $this->results, $this->batches, $this->config->rendersDir);
+    }
+
+    public InteractiveObjectRepository $interactiveObjects {
+        get => $this->interactiveObjects ??= new InteractiveObjectRepository($this->config->langDir, $this->config->lang);
     }
 
     public MapLocationRepository $locations {
@@ -182,7 +187,7 @@ final class Kernel
         $app->addCommand(new ClassifyStatusCommand($this));
         $app->addCommand(new ClassifyImportCommand($this));
         $app->addCommand(new ClassifyDiscardCommand($this->batches));
-        $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->objectTypes, $this->config));
+        $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->objectTypes, $this->config, $this->interactiveObjects));
         $app->addCommand(new ObjectsSpritesCommand(new SpriteExporter($this->config->dofusPath, $this->sprites), $this->config));
         $app->addCommand(new ObjectsClassifyCommand($this));
         $app->addCommand(new ObjectsReportCommand($this->config, $this->objectTypes));

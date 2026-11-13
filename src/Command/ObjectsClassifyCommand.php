@@ -11,6 +11,7 @@ use MapClassifier\Objects\Layer;
 use MapClassifier\Objects\ObjectProfile;
 use MapClassifier\Objects\SpriteSet;
 use MapClassifier\ObjectType\ObjectTypeResult;
+use MapClassifier\Storage\ResultStorage;
 use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -23,6 +24,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use function array_slice;
 use function count;
 use function file_get_contents;
+use function file_put_contents;
 use function is_array;
 use function is_file;
 use function json_decode;
@@ -49,6 +51,7 @@ final class ObjectsClassifyCommand extends Command
             ->addArgument('ids', InputArgument::IS_ARRAY, 'Sprite ids or ranges, prefixed by "g" for grounds or "o" for objects (e.g. o345 g10-20). Without prefix, both sets are selected')
             ->addOption('set', null, InputOption::VALUE_REQUIRED, 'Only this sprite set (grounds or objects)')
             ->addOption('layer', null, InputOption::VALUE_REQUIRED, 'Only sprites mainly used on this layer (background, ground, layer1, layer2)')
+            ->addOption('interactive', null, InputOption::VALUE_NONE, 'Only sprites of interactive objects (resources, workshops…)')
             ->addOption('min-maps', null, InputOption::VALUE_REQUIRED, 'Only sprites used on at least this number of maps', '1')
             ->addOption('limit', 'l', InputOption::VALUE_REQUIRED, 'Maximum number of sprites to classify (most used first)')
             ->addOption('concurrency', 'c', InputOption::VALUE_REQUIRED, 'Number of parallel requests', '10')
@@ -82,6 +85,7 @@ final class ObjectsClassifyCommand extends Command
         $set = $input->getOption('set') !== null ? SpriteSet::from((string) $input->getOption('set')) : null;
         $layer = $input->getOption('layer') !== null ? Layer::from((string) $input->getOption('layer')) : null;
         $minMaps = (int) $input->getOption('min-maps');
+        $interactiveOnly = (bool) $input->getOption('interactive');
         $force = (bool) $input->getOption('force');
         $retry = (bool) $input->getOption('retry-errors');
         $storage = $this->kernel->objectTypes;
@@ -99,6 +103,7 @@ final class ObjectsClassifyCommand extends Command
 
                 if (
                     ($layer !== null && $profile->layer !== $layer)
+                    || ($interactiveOnly && $profile->interactive === null)
                     || $profile->maps < $minMaps
                     || !self::matches($ranges, $profile)
                 ) {
@@ -170,11 +175,41 @@ final class ObjectsClassifyCommand extends Command
         $progress->finish();
         $io->newLine(2);
 
+        $this->joinTypes($data, $file);
+        $io->text('Types joined in ' . $file);
+
         $errors
             ? $io->warning(sprintf('%d sprites classified, %d errors', $ok, $errors))
             : $io->success(sprintf('%d sprites classified', $ok));
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Update the "type" field of the objects file, so objects:analyze does not need to be run again
+     *
+     * @param array<array-key, mixed> $data Decoded objects file
+     */
+    private function joinTypes(array $data, string $file): void
+    {
+        foreach (SpriteSet::cases() as $set) {
+            if (!is_array($data[$set->value] ?? null)) {
+                continue;
+            }
+
+            $types = $this->kernel->objectTypes->all($set);
+            $profiles = [];
+
+            foreach ($data[$set->value] as $id => $profile) {
+                $profile['type'] = ObjectProfile::fromArray($set, $profile)->type(($types[(int) $id] ?? null)?->classification)?->toArray();
+                $profiles[$id] = $profile;
+            }
+
+            // Keep sprites indexed by id (JSON object) even if ids are sequential
+            $data[$set->value] = (object) $profiles;
+        }
+
+        file_put_contents($file, ResultStorage::encode($data) . "\n");
     }
 
     /**

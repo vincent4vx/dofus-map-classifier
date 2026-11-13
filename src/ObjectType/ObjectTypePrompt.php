@@ -96,6 +96,14 @@ final readonly class ObjectTypePrompt
             $lines[] = 'Known sprite: this is the teleport cell marker (cell used to change map), category "marker".';
         }
 
+        if ($profile->interactive !== null) {
+            $lines[] = sprintf(
+                'Known interactive object (from the game data): "%s", %s. Use this name, and choose the category of what the sprite shows.',
+                $profile->interactive->name,
+                $profile->interactive->typeDescription(),
+            );
+        }
+
         if ($profile->biomes) {
             $lines[] = 'Biomes of these maps (number of maps): ' . $counts($profile->biomes) . '.';
         }

@@ -9,6 +9,7 @@ use MapClassifier\Classification\Biome;
 use MapClassifier\Classification\LocationType;
 use MapClassifier\Config;
 use MapClassifier\Objects\Layer;
+use MapClassifier\Objects\ObjectProfile;
 use MapClassifier\Objects\SpriteSet;
 use MapClassifier\ObjectType\ObjectCategory;
 use MapClassifier\ObjectType\ObjectTypeStorage;
@@ -86,16 +87,19 @@ final class ObjectsReportCommand extends Command
             return self::FAILURE;
         }
 
-        // Compact list for the page: [set, id, layer, occurrences, maps, classified maps, areas, sub areas, biomes, indoor, location types, type]
+        // Compact list for the page: [set, id, layer, occurrences, maps, classified maps, areas, sub areas, biomes, indoor, location types, type, interactive]
         $items = [];
         $areas = [];
+        $interactiveTypes = [];
 
         foreach (is_array($data) ? $data : [] as $set => $sprites) {
             // Use stored types to display them even if objects:analyze was not run again
             $types = $this->types->all(SpriteSet::from($set));
 
             foreach ($sprites as $id => $profile) {
-                $type = ($types[(int) $id] ?? null)?->classification?->toArray() ?? $profile['type'] ?? null;
+                $stored = ($types[(int) $id] ?? null)?->classification;
+                $type = $stored !== null ? ObjectProfile::fromArray(SpriteSet::from($set), $profile)->type($stored)?->toArray() : ($profile['type'] ?? null);
+                $interactive = $profile['interactive'] ?? null;
 
                 $items[] = [
                     $set,
@@ -110,7 +114,12 @@ final class ObjectsReportCommand extends Command
                     $profile['indoor'],
                     $profile['location_types'],
                     $type === null ? null : [$type['category'], $type['name'], $type['keywords'], $type['description']],
+                    is_array($interactive) ? [$interactive['name'], $interactive['type']] : null,
                 ];
+
+                if (is_array($interactive)) {
+                    $interactiveTypes[$interactive['type']] = true;
+                }
 
                 foreach ($profile['areas'] as $area) {
                     $areas[$area['name'] ?? '#' . $area['id']] = true;
@@ -120,12 +129,15 @@ final class ObjectsReportCommand extends Command
 
         $areas = array_keys($areas);
         sort($areas);
+        $interactiveTypes = array_keys($interactiveTypes);
+        sort($interactiveTypes);
 
         $outputFile = (string) $input->getOption('output');
         file_put_contents($outputFile, $this->page(
             json_encode($items, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR),
             $this->relativeSpritesPath(dirname($outputFile)),
             $areas,
+            $interactiveTypes,
         ));
 
         $io->success(sprintf('Report of %d sprites written to %s', count($items), $outputFile));
@@ -146,8 +158,9 @@ final class ObjectsReportCommand extends Command
 
     /**
      * @param list<string> $areas
+     * @param list<string> $interactiveTypes
      */
-    private function page(string $json, string $spritesPath, array $areas): string
+    private function page(string $json, string $spritesPath, array $areas, array $interactiveTypes = []): string
     {
         $options = static fn (array $values) => implode('', array_map(
             static fn (string $value) => sprintf('<option value="%1$s">%1$s</option>', htmlspecialchars($value)),
@@ -158,6 +171,7 @@ final class ObjectsReportCommand extends Command
         $locations = $options(array_column(LocationType::cases(), 'value'));
         $categories = $options(array_column(ObjectCategory::cases(), 'value'));
         $areaOptions = $options($areas);
+        $interactiveOptions = $options($interactiveTypes);
         // Avoid closing the script tag from the data
         $json = str_replace('</', '<\/', $json);
         $spritesPath = htmlspecialchars(json_encode($spritesPath, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR));
@@ -194,14 +208,16 @@ final class ObjectsReportCommand extends Command
                 .cat { background: #333; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
                 .kw { display: inline-block; background: #fff3d6; border: 0; border-radius: 3px; padding: 0 5px; margin: 1px; font: inherit; cursor: pointer; }
                 .kw:hover { background: #ffe3a0; }
+                .io { background: #2a7a3b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
             </style>
             </head>
             <body>
             <header>
                 <h1>Map objects</h1>
                 <form id="filters" onsubmit="return false">
-                    <input type="search" name="q" placeholder="Search id, name, category, keyword…" autofocus>
+                    <input type="search" name="q" placeholder="Search id, name, category, keyword, interactive object…" autofocus>
                     <select name="category"><option value="">All categories</option>{$categories}<option value="none">(not classified)</option></select>
+                    <select name="interactive"><option value="">Interactive or not</option><option value="any">Interactive objects</option>{$interactiveOptions}<option value="none">Not interactive</option></select>
                     <select name="set"><option value="">All sets</option><option value="grounds">grounds</option><option value="objects">objects</option></select>
                     <select name="layer"><option value="">All layers</option>{$layers}</select>
                     <select name="biome"><option value="">All biomes</option>{$biomes}</select>
@@ -223,9 +239,11 @@ final class ObjectsReportCommand extends Command
                 const PAGE = 200;
                 const items = JSON.parse(document.getElementById('data').textContent).map(i => ({
                     set: i[0], id: i[1], layer: i[2], occurrences: i[3], maps: i[4], classified: i[5],
-                    areas: i[6], subAreas: i[7], biomes: i[8], indoor: i[9], locations: i[10], type: i[11],
+                    areas: i[6], subAreas: i[7], biomes: i[8], indoor: i[9], locations: i[10], type: i[11], interactive: i[12],
                     // Search only on the sprite identity and type: other attributes have their own filter
-                    search: ((i[0] === 'grounds' ? 'g' : 'o') + i[1] + ' ' + i[1] + (i[11] ? ' ' + i[11][0] + ' ' + i[11][1] + ' ' + i[11][2].join(' ') : '')).toLowerCase(),
+                    search: ((i[0] === 'grounds' ? 'g' : 'o') + i[1] + ' ' + i[1]
+                        + (i[11] ? ' ' + i[11][0] + ' ' + i[11][1] + ' ' + i[11][2].join(' ') : '')
+                        + (i[12] ? ' ' + i[12][0] + ' ' + i[12][1] : '')).toLowerCase(),
                 }));
                 const form = document.getElementById('filters');
                 const main = document.querySelector('main');
@@ -244,6 +262,7 @@ final class ObjectsReportCommand extends Command
                         + '<div class="info"><h2>' + (i.set === 'grounds' ? 'g' : 'o') + i.id + ' <small>' + i.layer + ' · ' + i.maps + ' maps · ' + i.occurrences + ' uses</small></h2>'
                         + (i.type ? '<p class="type"><b>' + esc(i.type[1]) + '</b> <span class="cat">' + esc(i.type[0]) + '</span></p>'
                             + '<p>' + i.type[2].map(k => '<button type="button" class="kw">' + esc(k) + '</button>').join('') + '</p>' : '')
+                        + (i.interactive ? '<p><span class="io" title="Interactive object (langs)">' + esc(i.interactive[1]) + ': ' + esc(i.interactive[0]) + '</span></p>' : '')
                         + (Object.keys(i.biomes).length ? '<p><span class="label">Biomes</span> ' + chips(i.biomes) + '</p>' : '')
                         + (i.areas.length ? '<p><span class="label">Areas</span> ' + list(i.areas, 4) + '</p>' : '')
                         + (i.subAreas.length ? '<p><span class="label">Sub areas</span> ' + list(i.subAreas, 4) + '</p>' : '')
@@ -264,6 +283,7 @@ final class ObjectsReportCommand extends Command
 
                     matching = items.filter(i => (!f.set || i.set === f.set)
                         && (!f.layer || i.layer === f.layer)
+                        && (!f.interactive || (f.interactive === 'any' ? i.interactive : f.interactive === 'none' ? !i.interactive : i.interactive && i.interactive[1] === f.interactive))
                         && (!f.category || (f.category === 'none' ? !i.type : i.type && i.type[0] === f.category))
                         && (!f.biome || f.biome in i.biomes)
                         && (!f.area || i.areas.some(a => a[0] === f.area))

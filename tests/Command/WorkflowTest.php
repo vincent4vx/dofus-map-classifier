@@ -209,6 +209,7 @@ final class WorkflowTest extends TestCase
             $this->assertSame([['id' => 320, 'name' => 'Kwismas Island', 'maps' => 1]], $profile['sub_areas']);
             $this->assertContains($profile['layer'], ['background', 'ground', 'layer1', 'layer2']);
             $this->assertArrayNotHasKey('super_areas', $profile);
+            $this->assertArrayHasKey('interactive', $profile);
         }
 
         // Export used sprites to SVG
@@ -253,6 +254,11 @@ final class WorkflowTest extends TestCase
         $this->assertStringContainsString('Nothing to classify', $this->exec('objects:classify', ['ids' => ['o' . $firstObject]]));
         $this->assertStringContainsString('1 sprites classified', $this->exec('objects:classify', ['ids' => ['o' . $firstObject], '--force' => true]));
         $this->assertStringContainsString('2 sprites classified', $this->exec('objects:classify', ['--set' => 'grounds', '--limit' => '2']));
+
+        // Type is joined in objects.json by objects:classify
+        $joined = json_decode((string) file_get_contents($this->config->varDir . '/objects.json'), true);
+        $this->assertSame('snowy pine', $joined['objects'][$firstObject]['type']['name']);
+        $this->assertSame(array_keys($objects['objects']), array_keys($joined['objects']));
 
         // Type is displayed in the report, and joined in objects.json
         $this->exec('objects:report');

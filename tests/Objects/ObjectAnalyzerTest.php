@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace MapClassifier\Tests\Objects;
 
 use MapClassifier\Classification\MapClassification;
+use MapClassifier\Lang\InteractiveObject;
 use MapClassifier\Lang\MapLocation;
 use MapClassifier\Objects\Layer;
 use MapClassifier\Objects\ObjectAnalyzer;
+use MapClassifier\Objects\ObjectProfile;
 use MapClassifier\Objects\SpriteSet;
+use MapClassifier\ObjectType\ObjectTypeClassification;
 use MapClassifier\Storage\MapResult;
 use MapClassifier\SubArea\SubAreaBiomeResolver;
 use PHPUnit\Framework\TestCase;
@@ -95,6 +98,7 @@ final class ObjectAnalyzerTest extends TestCase
             'biomes' => [],
             'indoor' => [],
             'location_types' => [],
+            'interactive' => null,
         ], json_decode(json_encode($profiles['objects'][7]->toArray()), true));
     }
 
@@ -120,6 +124,31 @@ final class ObjectAnalyzerTest extends TestCase
         $this->assertSame(['jungle' => 3], $profile->biomes);
         $this->assertSame(['outdoor' => 1, 'indoor' => 1], $profile->indoor);
         $this->assertSame(2, $profile->classifiedMaps);
+    }
+
+    public function testInteractiveObject(): void
+    {
+        $wheat = new InteractiveObject(38, 'Wheat', 1);
+        $analyzer = new ObjectAnalyzer([], [], interactiveObjects: [7511 => $wheat]);
+        $analyzer->add(1, ['layer2' => [7511 => 1, 12 => 1], 'ground' => [7511 => 1]]);
+
+        $profiles = $analyzer->profiles();
+
+        $this->assertSame($wheat, $profiles['objects'][7511]->interactive);
+        $this->assertNull($profiles['objects'][12]->interactive);
+        $this->assertNull($profiles['grounds'][7511]->interactive, 'Interactive objects only use the objects set');
+
+        $array = $profiles['objects'][7511]->toArray();
+        $this->assertSame(['id' => 38, 'name' => 'Wheat', 'type' => 'resource'], $array['interactive']);
+        $this->assertEquals($wheat, ObjectProfile::fromArray(SpriteSet::Objects, $array)->interactive);
+        $this->assertNull(ObjectProfile::fromArray(SpriteSet::Objects, $profiles['objects'][12]->toArray())->interactive);
+
+        // The interactive object name takes priority on the model name
+        $type = ObjectTypeClassification::fromArray(['category' => 'crop', 'name' => 'wheat stalks', 'keywords' => ['cereal'], 'description' => '']);
+        $this->assertSame('wheat', $profiles['objects'][7511]->type($type)->name);
+        $this->assertSame(['cereal', 'wheat stalks', 'resource'], $profiles['objects'][7511]->type($type)->keywords);
+        $this->assertSame($type, $profiles['objects'][12]->type($type));
+        $this->assertNull($profiles['objects'][7511]->type(null));
     }
 
     public function testFilter(): void

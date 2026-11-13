@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Objects;
 
+use MapClassifier\Lang\InteractiveObject;
 use MapClassifier\Lang\MapLocation;
 use MapClassifier\Storage\MapResult;
 use MapClassifier\SubArea\SubAreaBiome;
@@ -66,6 +67,8 @@ final class ObjectAnalyzer
         private readonly array $subAreaBiomes = [],
         /** Values with a count lower than this ratio of the main value count are ignored */
         private readonly float $minRatio = 0.1,
+        /** @var array<int, InteractiveObject> Interactive objects indexed by sprite number of the objects set */
+        private readonly array $interactiveObjects = [],
     ) {}
 
     /**
@@ -166,6 +169,7 @@ final class ObjectAnalyzer
                     biomes: $this->filter($stats['biomes']),
                     indoor: $this->filter($stats['indoor']),
                     locationTypes: $this->filter($stats['locationTypes']),
+                    interactive: $set === SpriteSet::Objects->value ? ($this->interactiveObjects[$id] ?? null) : null,
                 );
             }
         }

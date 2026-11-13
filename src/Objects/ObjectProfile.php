@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace MapClassifier\Objects;
 
+use MapClassifier\Lang\InteractiveObject;
+use MapClassifier\ObjectType\ObjectTypeClassification;
+
 use function array_map;
 use function array_values;
 use function is_array;
@@ -37,6 +40,8 @@ final readonly class ObjectProfile
         public array $indoor,
         /** @var array<string, int> */
         public array $locationTypes,
+        /** Interactive object (resource, workshop…) drawn by the sprite, from the langs */
+        public ?InteractiveObject $interactive = null,
     ) {}
 
     /**
@@ -64,7 +69,20 @@ final readonly class ObjectProfile
             biomes: $counts($data['biomes'] ?? null),
             indoor: $counts($data['indoor'] ?? null),
             locationTypes: $counts($data['location_types'] ?? null),
+            interactive: is_array($data['interactive'] ?? null) ? InteractiveObject::fromArray($data['interactive']) : null,
         );
+    }
+
+    /**
+     * Type of the sprite: the name of the interactive object takes priority over the name given by the model
+     */
+    public function type(?ObjectTypeClassification $classification): ?ObjectTypeClassification
+    {
+        if ($classification === null || $this->interactive === null) {
+            return $classification;
+        }
+
+        return $classification->withName($this->interactive->name, $this->interactive->typeName());
     }
 
     /**
@@ -83,6 +101,7 @@ final readonly class ObjectProfile
             'biomes' => (object) $this->biomes,
             'indoor' => (object) $this->indoor,
             'location_types' => (object) $this->locationTypes,
+            'interactive' => $this->interactive?->toArray(),
         ];
     }
 }

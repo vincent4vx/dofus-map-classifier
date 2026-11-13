@@ -69,6 +69,20 @@ final readonly class ObjectTypeClassification
     }
 
     /**
+     * Replace the name, keeping the previous name and the given keywords as keywords
+     */
+    public function withName(string $name, string ...$keywords): self
+    {
+        $name = mb_strtolower(trim($name));
+        $keywords = array_values(array_unique(array_filter(
+            [...$this->keywords, ...array_map(static fn (string $keyword) => mb_strtolower(trim($keyword)), [$this->name, ...$keywords])],
+            static fn (string $keyword) => $keyword !== '' && $keyword !== $name,
+        )));
+
+        return new self($this->category, $name, $keywords, $this->description);
+    }
+
+    /**
      * @return array{category: string, name: string, keywords: list<string>, description: string}
      */
     public function toArray(): array

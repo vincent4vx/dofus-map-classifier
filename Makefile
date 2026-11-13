@@ -61,8 +61,9 @@ export: ## Export results to var/maps.json and var/sub_areas.json (--only-ok)
 report: ## Generate the HTML report var/report.html (ids, --area, --biome…)
 	$(CONSOLE) report $(ARGS)
 
-objects-classify: ## Find the type of sprites (ids like o345 g10-20, --set, --layer, --min-maps, --limit, --concurrency…)
+objects-classify: ## Find the type of sprites, join them in var/objects.json and regenerate var/objects.html (ids like o345 g10-20, --set, --limit…)
 	$(CONSOLE) objects:classify $(ARGS)
+	$(CONSOLE) objects:report
 
 objects: ## Analyze sprites (var/objects.json), render them to PNG and generate var/objects.html (selection, --min-ratio)
 	$(CONSOLE) objects:analyze $(ARGS)

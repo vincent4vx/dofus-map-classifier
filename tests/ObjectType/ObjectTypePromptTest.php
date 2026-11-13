@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests\ObjectType;
 
+use MapClassifier\Lang\InteractiveObject;
 use MapClassifier\Objects\Layer;
 use MapClassifier\Objects\ObjectProfile;
 use MapClassifier\Objects\SpriteSet;
@@ -40,6 +41,16 @@ final class ObjectTypePromptTest extends TestCase
             Indoor / outdoor maps: outdoor (60).
             Kind of places: wild (40), road (20).
             TXT, ObjectTypePrompt::context($this->profile(), ['width' => 53.0, 'height' => 27.5]));
+    }
+
+    public function testContextInteractiveObject(): void
+    {
+        $profile = new ObjectProfile(SpriteSet::Objects, 7511, Layer::Layer2, 10, 2, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1));
+
+        $this->assertStringContainsString(
+            "\n" . 'Known interactive object (from the game data): "Wheat", resource harvested by a profession: tree, ore, cereal, plant, fish…. Use this name, and choose the category of what the sprite shows.',
+            ObjectTypePrompt::context($profile, ['width' => 25.0, 'height' => 13.0]),
+        );
     }
 
     public function testContextMinimalAndTeleportMarker(): void

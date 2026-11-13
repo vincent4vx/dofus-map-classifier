@@ -8,15 +8,11 @@ use Arakne\Swf\SwfFile;
 use ArrayAccess;
 use RuntimeException;
 
-use function basename;
-use function glob;
 use function is_array;
 use function is_int;
 use function is_iterable;
 use function is_numeric;
 use function is_string;
-use function preg_match;
-use function preg_quote;
 use function str_starts_with;
 use function substr;
 
@@ -46,21 +42,7 @@ final class MapLocationRepository
      */
     public function file(): string
     {
-        if ($this->file !== null) {
-            return $this->file;
-        }
-
-        $best = null;
-        $bestVersion = -1;
-
-        foreach (glob($this->langDir . '/maps_' . $this->lang . '_*.swf') ?: [] as $file) {
-            if (preg_match('/^maps_' . preg_quote($this->lang, '/') . '_(\d+)\.swf$/', basename($file), $matches) && (int) $matches[1] > $bestVersion) {
-                $best = $file;
-                $bestVersion = (int) $matches[1];
-            }
-        }
-
-        return $this->file = $best ?? throw new RuntimeException('No maps_' . $this->lang . '_*.swf lang file found in ' . $this->langDir);
+        return $this->file ??= LangFile::latest($this->langDir, 'maps', $this->lang);
     }
 
     /**

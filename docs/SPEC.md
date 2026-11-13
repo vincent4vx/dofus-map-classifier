@@ -93,12 +93,13 @@ Commande `objects:analyze` (`make objects`) → `var/objects.json`.
   - `occurrences` (cellules), `maps` (maps qui l'utilisent), `classified_maps` ;
   - `areas`, `sub_areas` (id, nom, nombre de maps) : depuis la lang, pour toutes les maps ;
   - `biomes` : biome de la map, ou à défaut celui de sa sub area (maps non classées ou sans biome) ;
-  - `indoor` (`indoor` / `outdoor`) et `location_types` : uniquement depuis les maps classées.
+  - `indoor` (`indoor` / `outdoor`) et `location_types` : uniquement depuis les maps classées ;
+  - `interactive` : objet interactif dessiné par le sprite (`{id, name, type}`), depuis la lang `interactiveobjects_{lang}_{version}.swf` (`IO.g` : numéro de sprite du set `objects` → id, `IO.d` : nom `n` et type `t`). Les types n'ont pas de libellé dans les langs, ils sont nommés d'après leurs objets : `resource` (1), `workshop` (2), `zaap` (3), `fountain` (4), `door` (5), `storage` (6), `pot` (7), `zaapi` (10), `craftsmen list` (12), `paddock` (13), `switch` (14), `class statue` (15). ~176 sprites concernés, tous en `layer2`.
 - Les attributs sont comptés une fois par map (pas par cellule).
 - Les valeurs bien moins fréquentes que la valeur principale sont considérées comme du bruit et ignorées : une valeur est gardée si son nombre de maps est ≥ 10 % de celui de la valeur principale (`--min-ratio`).
 - Pas d'agrégation par super area (jugée non pertinente).
 - `objects:sprites` : rendu direct des sprites utilisés en PNG, tel qu'envoyé au modèle, dans `var/sprites/{grounds|objects}/{id}.png` (extraction SVG en mémoire via ArakneSwf, puis rendu : marges transparentes retirées, agrandi à ~512 px (x16 max), fond gris neutre `#a0a0a0`). La taille visible en pixels du jeu est stockée dans `var/sprites/{set}/sizes.json`. ~5 min et ~440 Mo pour ~4 800 sprites.
-- `objects:report` : galerie HTML `var/objects.html` (sprite + données agrégées), filtres : recherche (id, area, sub area), set, layer, biome, area, intérieur, type de lieu, nombre minimum de maps, tri ; pagination par 200.
+- `objects:report` : galerie HTML `var/objects.html` (sprite + données agrégées), filtres : recherche (id, nom, catégorie, mots-clés, objet interactif), objet interactif (type), set, layer, biome, area, intérieur, type de lieu, nombre minimum de maps, tri ; pagination par 200.
 - `make objects` enchaîne les trois commandes.
 
 ### Type des objets (étape 3, partie 2)
@@ -112,8 +113,9 @@ Commande `objects:classify` (`make objects-classify`), via l'API Responses en sy
   - `name` : nom libre court (ex : "pine tree") ;
   - `keywords` : mots-clés libres décrivant le sprite (pas de biome ni de lieu, déjà connus) ;
   - `description`.
-- Stockage : `var/object_types/{grounds|objects}/{id}.json`. Le type est joint dans `objects.json` (`type`) par `objects:analyze` et affiché dans `objects.html` (filtre par catégorie, recherche sur nom et mots-clés, mots-clés cliquables).
-- Sélection : ids préfixés (`o345`, `g10-20`), `--set`, `--layer`, `--min-maps`, `--limit` (les plus utilisés d'abord), `--force`, `--retry-errors`.
+- Objets interactifs : le nom et le type de l'objet sont donnés au modèle, qui doit reprendre ce nom et choisir la catégorie d'après ce que montre le sprite. Le nom de l'objet interactif est prioritaire : il remplace le nom donné par le modèle lors de la jointure (le nom du modèle et le type d'objet interactif sont ajoutés aux mots-clés). Le résultat brut du modèle reste stocké tel quel.
+- Stockage : `var/object_types/{grounds|objects}/{id}.json`. Le type est joint dans `objects.json` (`type`) à la fin de `objects:classify` (et par `objects:analyze`) et affiché dans `objects.html` (filtre par catégorie, recherche sur nom et mots-clés, mots-clés cliquables).
+- Sélection : ids préfixés (`o345`, `g10-20`), `--set`, `--layer`, `--interactive`, `--min-maps`, `--limit` (les plus utilisés d'abord), `--force`, `--retry-errors`.
 
 ### Constats techniques
 

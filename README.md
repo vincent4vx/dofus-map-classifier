@@ -38,8 +38,9 @@ make classify ARGS="--super-area=3 --concurrency=10"   # 3. classify synchronous
 make export                                       # 4. var/maps.json + var/sub_areas.json
 make report                                       # 5. var/report.html (search and filters)
 make objects                                      # 6. var/objects.json (layer, areas, biomes… of each sprite), PNG sprites, var/objects.html
-make objects-classify ARGS="--limit=500"          # 7. type of each sprite (category, name, keywords), most used first
-make objects                                      #    then run again to join types in var/objects.json
+make objects-classify ARGS="--limit=500"          # 7. type of each sprite (category, name, keywords), most used first,
+                                                  #    joined in var/objects.json and displayed in var/objects.html
+                                                  #    --interactive: only interactive objects (resources, workshops, doors…)
 
 make pipeline ARGS="--area=18"                    # render + classify + export + report of a selection
 
