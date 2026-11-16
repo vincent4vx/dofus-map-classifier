@@ -37,7 +37,7 @@ final class MapLocationRepositoryTest extends TestCase
             'sub_area' => ['id' => 95, 'name' => 'Astrub City'],
             'area' => ['id' => 18, 'name' => 'Astrub'],
             'super_area' => ['id' => 0, 'name' => 'Amaknean Continent'],
-        ], $repository->find(7411)->toArray());
+        ], $repository->find(7411)?->toArray());
 
         $this->assertNull($repository->find(999999));
         $this->assertCount(9271, $repository->all());
@@ -45,7 +45,7 @@ final class MapLocationRepositoryTest extends TestCase
 
     public function testNamePrefixIsRemoved(): void
     {
-        $this->assertSame('Canidae Dungeon', (new MapLocationRepository(self::FIXTURES))->find(9650)->subAreaName);
+        $this->assertSame('Canidae Dungeon', (new MapLocationRepository(self::FIXTURES))->find(9650)?->subAreaName);
     }
 
     public function testUseLatestVersion(): void
@@ -58,7 +58,7 @@ final class MapLocationRepositoryTest extends TestCase
         $repository = new MapLocationRepository($this->tempDir(), 'en');
 
         $this->assertSame($this->tempDir() . '/maps_en_1251.swf', $repository->file());
-        $this->assertSame(320, $repository->find(10000)->subAreaId);
+        $this->assertSame(320, $repository->find(10000)?->subAreaId);
     }
 
     public function testMissingFile(): void

@@ -27,11 +27,14 @@ final class SpriteRendererTest extends TestCase
         $this->assertEqualsWithDelta(10, $sprite->height, 0.5);
 
         // Visible part scaled to 200px, with padding
-        [$width, $height] = getimagesizefromstring($sprite->png);
+        $size = getimagesizefromstring($sprite->png);
+        $this->assertIsArray($size);
+        [$width, $height] = $size;
         $this->assertEqualsWithDelta(220, $width, 3);
         $this->assertEqualsWithDelta(120, $height, 3);
 
         $gd = imagecreatefromstring($sprite->png);
+        $this->assertNotFalse($gd);
         imagepalettetotruecolor($gd);
         $this->assertSame(0xA0A0A0, imagecolorat($gd, 2, 2) & 0xFFFFFF, 'grey background');
         $this->assertSame(0xFF0000, imagecolorat($gd, (int) ($width / 2), (int) ($height / 2)) & 0xFFFFFF, 'scaled sprite');
@@ -43,7 +46,9 @@ final class SpriteRendererTest extends TestCase
             '<svg xmlns="http://www.w3.org/2000/svg" width="4px" height="2px"><rect width="4" height="2" fill="#00ff00"/></svg>',
         );
 
-        [$width, $height] = getimagesizefromstring($sprite->png);
+        $size = getimagesizefromstring($sprite->png);
+        $this->assertIsArray($size);
+        [$width, $height] = $size;
 
         $this->assertEqualsWithDelta(40, $width, 1);
         $this->assertEqualsWithDelta(20, $height, 1);

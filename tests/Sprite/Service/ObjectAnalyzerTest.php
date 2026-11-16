@@ -98,7 +98,7 @@ final class ObjectAnalyzerTest extends TestCase
             'indoor' => [],
             'location_types' => [],
             'interactive' => null,
-        ], json_decode(json_encode($profiles['objects'][7]->toArray()), true));
+        ], json_decode((string) json_encode($profiles['objects'][7]->toArray()), true));
     }
 
     public function testBiomeFallbackOnSubArea(): void

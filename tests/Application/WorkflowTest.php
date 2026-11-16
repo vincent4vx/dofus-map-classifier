@@ -16,6 +16,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;
 
+use function array_find;
 use function array_key_first;
 use function array_key_last;
 use function array_keys;
@@ -45,11 +46,11 @@ final class WorkflowTest extends TestCase
 
     protected function setUp(): void
     {
-        $dofusPath = getenv('DOFUS_PATH') ?: '/dofus';
-
-        if (!is_dir($dofusPath . '/data/maps')) {
-            $this->markTestSkipped('Dofus client not available');
-        }
+        // DOFUS_PATH, or the client downloaded by "bin/console client:download" (var/dofus)
+        $dofusPath = array_find(
+            [getenv('DOFUS_PATH') ?: '/dofus', __DIR__ . '/../../var/dofus'],
+            static fn (string $path) => is_dir($path . '/data/maps'),
+        ) ?? $this->markTestSkipped('Dofus client not available: set DOFUS_PATH, or run "bin/console client:download"');
 
         $this->config = new Config($dofusPath, $this->tempDir(), openAiModel: 'luna', langDir: __DIR__ . '/../Fixtures/lang');
         mkdir($this->config->keysDir, 0755, true);
@@ -64,7 +65,9 @@ final class WorkflowTest extends TestCase
         // Render: 10000 has a key, 10001 has not
         $render = $this->exec('maps:render', ['ids' => ['10000-10001']]);
         $this->assertStringContainsString('1 maps rendered, 1 failed', $render);
-        $this->assertSame([742, 432], array_slice(getimagesize($this->config->rendersDir . '/10000.png'), 0, 2));
+        $size = getimagesize($this->config->rendersDir . '/10000.png');
+        $this->assertIsArray($size);
+        $this->assertSame([742, 432], [$size[0], $size[1]]);
         $this->assertSame('missing_key', $this->mapResult(10001)['error']);
 
         // Already rendered or failed maps are skipped
@@ -228,7 +231,9 @@ final class WorkflowTest extends TestCase
             $this->assertSameSize($objects[$set], $sizes);
         }
 
-        $this->assertSame('image/png', getimagesize($this->config->varDir . '/sprites/objects/' . array_key_first($objects['objects']) . '.png')['mime']);
+        $size = getimagesize($this->config->varDir . '/sprites/objects/' . array_key_first($objects['objects']) . '.png');
+        $this->assertIsArray($size);
+        $this->assertSame('image/png', $size['mime']);
         $this->assertMatchesRegularExpression('/objects: 0 exported, \d+ already exported/', $this->exec('objects:sprites'));
 
         // HTML report
@@ -302,9 +307,6 @@ final class WorkflowTest extends TestCase
         $this->assertSame([], $this->api->batches);
     }
 
-    /**
-     * @param array<string, mixed> $input
-     */
     public function testObjectsCommandsWithoutAnalyze(): void
     {
         foreach (['objects:sprites', 'objects:classify', 'objects:report'] as $command) {
@@ -314,6 +316,9 @@ final class WorkflowTest extends TestCase
         }
     }
 
+    /**
+     * @param array<string, mixed> $input
+     */
     private function exec(string $command, array $input = []): string
     {
         $tester = new CommandTester($this->app->find($command));

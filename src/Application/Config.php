@@ -13,6 +13,8 @@ use function rtrim;
 final class Config
 {
     public const string DEFAULT_KEYS_ARCHIVE_URL = 'https://codeload.github.com/Daweyy/MapKeys-DR/tar.gz/refs/heads/main';
+    /** Dofus Retro client archived by dofedex (https://github.com/dofera/dofedex) */
+    public const string DEFAULT_CLIENT_ARCHIVE_URL = 'https://github.com/dofera/dofedex/releases/download/1.41.7/dofus-1.41.7-classic.zip';
 
     public function __construct(
         /** Path of the Dofus 1.29 client */
@@ -25,6 +27,7 @@ final class Config
         public readonly ?string $openAiReasoningEffort = null,
         public readonly string $openAiBaseUrl = 'https://api.openai.com/v1',
         public readonly string $keysArchiveUrl = self::DEFAULT_KEYS_ARCHIVE_URL,
+        public readonly string $clientArchiveUrl = self::DEFAULT_CLIENT_ARCHIVE_URL,
         /** Directory of the lang swf files (e.g. maps_en_1251.swf) */
         public readonly string $langDir = '/lang',
         /** Lang to use for names */
@@ -32,6 +35,8 @@ final class Config
     ) {}
 
     public string $keysDir { get => $this->varDir . '/keys'; }
+    /** Default directory of the client downloaded by client:download */
+    public string $downloadedClientDir { get => $this->varDir . '/dofus'; }
     public string $rendersDir { get => $this->varDir . '/renders'; }
     public string $resultsDir { get => $this->varDir . '/results'; }
     public string $batchesDir { get => $this->varDir . '/batches'; }
@@ -53,6 +58,7 @@ final class Config
             openAiReasoningEffort: $env('OPENAI_REASONING_EFFORT'),
             openAiBaseUrl: rtrim($env('OPENAI_BASE_URL') ?? 'https://api.openai.com/v1', '/'),
             keysArchiveUrl: $env('MAP_KEYS_ARCHIVE_URL') ?? self::DEFAULT_KEYS_ARCHIVE_URL,
+            clientArchiveUrl: $env('CLIENT_ARCHIVE_URL') ?? self::DEFAULT_CLIENT_ARCHIVE_URL,
             langDir: rtrim($env('LANG_DIR') ?? '/lang', '/'),
             lang: $env('DOFUS_LANG') ?? 'en',
         );

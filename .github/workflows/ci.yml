@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # rsvg-convert renders the SVG sprites through Imagick
+      - name: Install librsvg
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends librsvg2-bin
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: gd, imagick, zip, zlib
+          ini-values: memory_limit=-1
+          coverage: none
+
+      - uses: ramsey/composer-install@v3
+
+      # Maps and sprites of the client (~80 MB), downloaded from dofedex when not cached
+      - name: Cache Dofus client
+        uses: actions/cache@v4
+        with:
+          path: var/dofus
+          key: dofus-client-${{ hashFiles('src/Application/Config.php') }}
+
+      - name: Download Dofus client
+        run: bin/console client:download
+
+      - name: Run PHPUnit
+        run: vendor/bin/phpunit --fail-on-skipped
+
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: gd, imagick, zip, zlib
+          coverage: none
+
+      - uses: ramsey/composer-install@v3
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G

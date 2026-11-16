@@ -28,9 +28,11 @@ use MapClassifier\Map\Classification\Service\MapRenderService;
 use MapClassifier\Map\Classification\Service\MapResultParser;
 use MapClassifier\Map\Classification\Service\MapsToClassify;
 use MapClassifier\Map\Classification\Service\SyncClassifier;
+use MapClassifier\Map\Command\ClientDownloadCommand;
 use MapClassifier\Map\Command\KeysDownloadCommand;
 use MapClassifier\Map\Repository\MapFileRepository;
 use MapClassifier\Map\Repository\MapKeyRepository;
+use MapClassifier\Map\Service\ClientDownloader;
 use MapClassifier\Map\Service\MapImageRenderer;
 use MapClassifier\Map\Service\MapKeyDownloader;
 use MapClassifier\Sprite\Classification\Command\ObjectsClassifyCommand;
@@ -202,6 +204,7 @@ final class Kernel
     {
         $app = new Application('map-classifier', '0.1.0');
 
+        $app->addCommand(new ClientDownloadCommand(new ClientDownloader($this->httpClient), $this->config->clientArchiveUrl, $this->config->downloadedClientDir));
         $app->addCommand(new KeysDownloadCommand(new MapKeyDownloader($this->httpClient), $this->config->keysDir, $this->config->keysArchiveUrl));
         $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, $this->results, $this->config->rendersDir), $this->config->resultsDir));
         $app->addCommand(new ClassifySubmitCommand($this->mapsToClassify, $this->locations, $this->batchService(...), $this->config->openAiModel));

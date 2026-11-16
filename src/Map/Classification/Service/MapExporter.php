@@ -53,7 +53,7 @@ final readonly class MapExporter
             }
 
             // Insert location after the map id and version
-            $maps[(string) $id] = array_slice($row, 0, 2, true) + ['location' => $location] + $row;
+            $maps[$id] = array_slice($row, 0, 2, true) + ['location' => $location] + $row;
         }
 
         arsort($biomes);

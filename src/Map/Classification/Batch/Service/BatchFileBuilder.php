@@ -53,6 +53,7 @@ final readonly class BatchFileBuilder
         }
 
         $files = [];
+        /** @var resource|null $handle Modified by the $close closure */
         $handle = null;
         $path = '';
         $current = [];

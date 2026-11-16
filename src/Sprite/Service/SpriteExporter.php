@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Service;
 
-use Arakne\Swf\Extractor\DrawableInterface;
 use Arakne\Swf\Extractor\Drawer\Converter\Converter;
 use Arakne\Swf\Extractor\SwfExtractor;
 use Arakne\Swf\SwfFile;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
-use RuntimeException;
 use Throwable;
 
 use function glob;
@@ -66,13 +64,7 @@ final readonly class SpriteExporter
                             ++$report['skipped'];
                         } else {
                             try {
-                                $character = $extractor->byName((string) $name);
-
-                                if (!$character instanceof DrawableInterface) {
-                                    throw new RuntimeException('Not a drawable character');
-                                }
-
-                                $this->files->save($set, $id, $this->renderer->render($this->converter->toSvg($character)));
+                                $this->files->save($set, $id, $this->renderer->render($this->converter->toSvg($extractor->byName((string) $name))));
                                 ++$report['exported'];
                             } catch (Throwable $e) {
                                 $report['failed'][$id] = $e->getMessage();

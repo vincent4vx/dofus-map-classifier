@@ -20,7 +20,7 @@ Classification automatique des maps (et à terme des objets de maps) de Dofus Re
 
 - Projet PHP via composer : `arakne/php-map-parser`, `symfony/console`, client HTTP, PHPUnit.
 - Dockerfile dédié : PHP 8.4 CLI (php-map-parser impose `~8.4`), extensions gd, imagick, zlib, librsvg, JIT activé. Makefile pour les commandes courantes.
-- Client Dofus monté en volume.
+- Client Dofus monté en volume (le sien, ou celui téléchargé par `client:download`).
 - Configuration par variables d'environnement :
   - `DOFUS_PATH` : chemin du client Dofus
   - `OPENAI_API_KEY`
@@ -31,6 +31,7 @@ Classification automatique des maps (et à terme des objets de maps) de Dofus Re
 
 | Commande | Rôle |
 |---|---|
+| `client:download` | Télécharge un client Dofus Retro depuis [dofedex](https://github.com/dofera/dofedex) (1.41.7 classic, maps de même version que les clés MapKeys-DR) et n'extrait que `data/maps` et `clips/gfx` (`--full` pour tout) dans `var/dofus`. Utilisé par la CI pour les tests |
 | `keys:download` | Télécharge les clés MapKeys-DR dans `var/keys/` |
 | `maps:render [ids…]` | Rend chaque map en taille native (742×432) dans `var/renders/{id}.png`. Échecs (clé manquante, erreur de rendu) enregistrés, le traitement continue |
 | `classify:submit` | Construit le JSONL des maps rendues non classées et le soumet à la Batch API OpenAI (detail=high, structured output) |

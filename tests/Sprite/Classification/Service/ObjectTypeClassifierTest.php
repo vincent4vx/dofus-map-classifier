@@ -16,6 +16,7 @@ use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
 use MapClassifier\Tests\TempDirTrait;
+use LogicException;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;
@@ -42,14 +43,15 @@ final class ObjectTypeClassifierTest extends TestCase
         $requests = [];
         $http = new MockHttpClient(static function (string $method, string $url, array $options) use (&$requests) {
             $body = json_decode($options['body'], true);
-            preg_match('/sprite o(\d+)\./', $body['input'][0]['content'][0]['text'], $m);
-            $requests[(int) $m[1]] = $body;
+            $id = preg_match('/sprite o(\d+)\./', $body['input'][0]['content'][0]['text'], $m) ? (int) $m[1] : 0;
+            $requests[$id] = $body;
 
-            return match ((int) $m[1]) {
+            return match ($id) {
                 1 => new JsonMockResponse(self::response(['category' => 'tree', 'name' => 'Pine Tree', 'keywords' => ['tree', 'pine'], 'description' => 'A pine.'])),
                 2 => new JsonMockResponse(['error' => ['message' => 'Bad request']], ['http_code' => 400]),
                 3 => new JsonMockResponse(self::response(['category' => 'spaceship', 'name' => 'x', 'keywords' => [], 'description' => ''])),
                 4 => new JsonMockResponse(['model' => 'luna', 'output' => [['type' => 'message', 'content' => [['type' => 'refusal', 'refusal' => 'No']]]]]),
+                default => throw new LogicException('Unexpected sprite ' . $id),
             };
         });
 
@@ -73,15 +75,17 @@ final class ObjectTypeClassifierTest extends TestCase
         $this->assertSame('data:image/png;base64,' . base64_encode('png-1'), $requests[1]['input'][0]['content'][1]['image_url']);
 
         $tree = $storage->get(SpriteSet::Objects, 1);
+        $this->assertNotNull($tree);
         $this->assertTrue($tree->ok);
+        $this->assertNotNull($tree->classification);
         $this->assertSame(ObjectCategory::Tree, $tree->classification->category);
         $this->assertSame('pine tree', $tree->classification->name);
         $this->assertSame('luna-2026', $tree->model);
 
-        $this->assertSame('HTTP 400: Bad request', $storage->get(SpriteSet::Objects, 2)->error);
-        $this->assertSame('Invalid output: Invalid category: spaceship', $storage->get(SpriteSet::Objects, 3)->error);
-        $this->assertSame('Refused: No', $storage->get(SpriteSet::Objects, 4)->error);
-        $this->assertSame('Sprite image not exported', $storage->get(SpriteSet::Objects, 5)->error);
+        $this->assertSame('HTTP 400: Bad request', $storage->get(SpriteSet::Objects, 2)?->error);
+        $this->assertSame('Invalid output: Invalid category: spaceship', $storage->get(SpriteSet::Objects, 3)?->error);
+        $this->assertSame('Refused: No', $storage->get(SpriteSet::Objects, 4)?->error);
+        $this->assertSame('Sprite image not exported', $storage->get(SpriteSet::Objects, 5)?->error);
         $this->assertSame([1, 2, 3, 4, 5], array_keys($storage->all(SpriteSet::Objects)));
         $this->assertSame([], $storage->all(SpriteSet::Grounds));
     }

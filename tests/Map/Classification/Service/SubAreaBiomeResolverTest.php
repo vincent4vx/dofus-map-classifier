@@ -64,6 +64,8 @@ final class SubAreaBiomeResolverTest extends TestCase
     }
 
     /**
+     * @param array<int, MapLocation> $locations
+     * @param array<int, MapResult> $results
      * @param string|false|null $biome False for not classified map
      */
     private function map(array &$locations, array &$results, int $id, int $subArea, string|false|null $biome, bool $indoor): void

@@ -105,9 +105,11 @@ final class ObjectsClassifyCommand extends Command
         $this->classifier->classify($todo, max(1, (int) $option('concurrency')), static function (ObjectTypeResult $result) use ($io, $output, $progress, &$ok, &$errors) {
             $name = $result->set->spriteName($result->id);
 
-            if ($result->ok) {
+            $classification = $result->ok ? $result->classification : null;
+
+            if ($classification !== null) {
                 ++$ok;
-                $message = sprintf('%s: %s (%s)', $name, $result->classification->name, $result->classification->category->value);
+                $message = sprintf('%s: %s (%s)', $name, $classification->name, $classification->category->value);
             } else {
                 ++$errors;
                 $message = sprintf('<comment>%s: %s</comment>', $name, $result->error);

@@ -29,6 +29,7 @@ final class MapResultRepositoryTest extends TestCase
         $storage->save($result);
 
         $loaded = $storage->get(42);
+        $this->assertNotNull($loaded);
         $this->assertTrue($loaded->ok);
         $this->assertEquals($result->classification, $loaded->classification);
         $this->assertSame($result->toArray(), $loaded->toArray());
@@ -46,7 +47,7 @@ final class MapResultRepositoryTest extends TestCase
             'tags' => ['trees', 'river'],
             'description' => 'A forest crossed by a river.',
             'model' => 'luna',
-            'classified_at' => $result->classifiedAt->format(DATE_ATOM),
+            'classified_at' => $result->classifiedAt?->format(DATE_ATOM),
         ], json_decode((string) file_get_contents($this->tempDir() . '/results/42.json'), true));
     }
 
@@ -56,6 +57,7 @@ final class MapResultRepositoryTest extends TestCase
         $storage->save(MapResult::failure(3, 'v', ErrorCode::MissingKey, 'no key'));
 
         $loaded = $storage->get(3);
+        $this->assertNotNull($loaded);
         $this->assertFalse($loaded->ok);
         $this->assertSame(ErrorCode::MissingKey, $loaded->error);
         $this->assertSame('no key', $loaded->errorMessage);

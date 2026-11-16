@@ -8,7 +8,6 @@ use DateTimeImmutable;
 use DateTimeInterface;
 
 use function array_merge;
-use function is_array;
 use function is_int;
 use function is_string;
 
@@ -81,7 +80,7 @@ final class MapResult
         return new self(
             id: is_int($data['id'] ?? null) ? $data['id'] : 0,
             version: is_string($data['version'] ?? null) ? $data['version'] : null,
-            classification: ($data['status'] ?? null) === 'ok' && is_array($data) ? MapClassification::fromArray($data) : null,
+            classification: ($data['status'] ?? null) === 'ok' ? MapClassification::fromArray($data) : null,
             error: $error,
             errorMessage: is_string($data['error_message'] ?? null) ? $data['error_message'] : null,
             model: is_string($data['model'] ?? null) ? $data['model'] : null,

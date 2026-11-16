@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Map\Service;
 
+use MapClassifier\Infrastructure\Http\FileDownloader;
 use PharData;
 use RecursiveIteratorIterator;
 use RuntimeException;
@@ -11,9 +12,6 @@ use SplFileInfo;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 use function copy;
-use function fclose;
-use function fopen;
-use function fwrite;
 use function is_dir;
 use function mkdir;
 use function preg_match;
@@ -41,7 +39,7 @@ final readonly class MapKeyDownloader
         $archive = $tmp . '.tar.gz';
 
         try {
-            $this->fetch($archiveUrl, $archive);
+            new FileDownloader($this->httpClient)->download($archiveUrl, $archive, 'map keys');
 
             return $this->extract($archive, $targetDir);
         } finally {
@@ -72,24 +70,5 @@ final readonly class MapKeyDownloader
         }
 
         return $count;
-    }
-
-    private function fetch(string $url, string $target): void
-    {
-        $response = $this->httpClient->request('GET', $url);
-
-        if ($response->getStatusCode() !== 200) {
-            throw new RuntimeException('Cannot download map keys from ' . $url . ': HTTP ' . $response->getStatusCode());
-        }
-
-        $handle = fopen($target, 'wb') ?: throw new RuntimeException('Cannot open ' . $target);
-
-        try {
-            foreach ($this->httpClient->stream($response) as $chunk) {
-                fwrite($handle, $chunk->getContent());
-            }
-        } finally {
-            fclose($handle);
-        }
     }
 }

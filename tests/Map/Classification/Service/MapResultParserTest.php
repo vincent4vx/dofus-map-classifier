@@ -24,8 +24,10 @@ final class MapResultParserTest extends TestCase
     public function testSuccess(): void
     {
         $result = $this->parser->parse(BatchFixtures::successLine(42, BatchFixtures::classification('swamp')), 'luna', [42 => 'v1']);
+        $this->assertNotNull($result);
 
         $this->assertTrue($result->ok);
+        $this->assertNotNull($result->classification);
         $this->assertSame(42, $result->id);
         $this->assertSame('v1', $result->version);
         $this->assertSame('luna-2026-01-01', $result->model);
@@ -42,8 +44,9 @@ final class MapResultParserTest extends TestCase
 
     public function testRequestError(): void
     {
-        $line = json_encode(['custom_id' => 'map-42', 'response' => null, 'error' => ['code' => 'batch_expired', 'message' => 'Expired']]);
+        $line = (string) json_encode(['custom_id' => 'map-42', 'response' => null, 'error' => ['code' => 'batch_expired', 'message' => 'Expired']]);
         $result = $this->parser->parse($line, 'luna');
+        $this->assertNotNull($result);
 
         $this->assertFalse($result->ok);
         $this->assertSame(ErrorCode::ClassificationFailed, $result->error);
@@ -53,6 +56,7 @@ final class MapResultParserTest extends TestCase
     public function testHttpError(): void
     {
         $result = $this->parser->parse(BatchFixtures::responseLine(42, 400, ['error' => ['message' => 'Invalid image']]), 'luna');
+        $this->assertNotNull($result);
 
         $this->assertSame(ErrorCode::ClassificationFailed, $result->error);
         $this->assertSame('HTTP 400: Invalid image', $result->errorMessage);
@@ -65,6 +69,7 @@ final class MapResultParserTest extends TestCase
             'model' => 'luna',
             'output' => [['type' => 'message', 'content' => [['type' => 'refusal', 'refusal' => 'No']]]],
         ]), 'luna');
+        $this->assertNotNull($result);
 
         $this->assertSame(ErrorCode::Refused, $result->error);
         $this->assertSame('No', $result->errorMessage);
@@ -73,6 +78,7 @@ final class MapResultParserTest extends TestCase
     public function testInvalidOutput(): void
     {
         $result = $this->parser->parse(BatchFixtures::successLine(42, ['biome' => 'ocean']), 'luna');
+        $this->assertNotNull($result);
 
         $this->assertSame(ErrorCode::ClassificationFailed, $result->error);
         $this->assertSame('Invalid output: Invalid biome: ocean', $result->errorMessage);
@@ -81,6 +87,7 @@ final class MapResultParserTest extends TestCase
     public function testIncompleteResponse(): void
     {
         $result = $this->parser->parse(BatchFixtures::responseLine(42, 200, ['status' => 'incomplete', 'output' => []]), 'luna');
+        $this->assertNotNull($result);
 
         $this->assertSame(ErrorCode::ClassificationFailed, $result->error);
         $this->assertSame('No output text (response status: incomplete)', $result->errorMessage);

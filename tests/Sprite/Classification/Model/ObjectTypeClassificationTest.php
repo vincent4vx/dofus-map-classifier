@@ -60,6 +60,9 @@ final class ObjectTypeClassificationTest extends TestCase
         ObjectTypeClassification::fromArray($override + ['category' => 'tree', 'name' => 'tree', 'keywords' => [], 'description' => '']);
     }
 
+    /**
+     * @return iterable<array{array<string, mixed>, string}>
+     */
     public static function provideInvalid(): iterable
     {
         yield [['category' => 'spaceship'], 'Invalid category: spaceship'];

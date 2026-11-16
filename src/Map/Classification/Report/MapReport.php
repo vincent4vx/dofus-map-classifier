@@ -83,7 +83,7 @@ final readonly class MapReport
             $location?->areaName,
             $location?->subAreaName,
             $c?->biomeOther,
-            implode(' ', $c?->tags ?? []),
+            implode(' ', $c->tags ?? []),
             $c?->description,
             $result->errorMessage,
         ]));
@@ -94,7 +94,7 @@ final readonly class MapReport
             $e($c === null ? '' : ($c->biome->value ?? 'none')),
             $e($c?->locationType->value ?? ''),
             $c === null ? '' : ($c->indoor ? 'indoor' : 'outdoor'),
-            $e($location?->areaName ?? ''),
+            $e($location->areaName ?? ''),
             $e($search),
             $e($imagesPath),
             $result->id,

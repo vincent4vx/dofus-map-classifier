@@ -7,19 +7,27 @@ See [docs/SPEC.md](docs/SPEC.md) for the specifications.
 
 ## Setup
 
-Requirements: Docker, and a Dofus 1.29 client.
+Requirements: Docker, and a Dofus Retro client. Without a client, `make client` downloads one from
+[dofedex](https://github.com/dofera/dofedex) (only the maps and sprites, ~80 MB) into `var/dofus`:
+set `DOFUS_CLIENT_DIR=./var/dofus` in `.env` to use it.
 
 ```bash
 cp .env.dist .env   # fill OPENAI_API_KEY, OPENAI_MODEL and DOFUS_CLIENT_DIR
 make install
+make client        # optional: download a client into var/dofus (also used by the tests)
 make test
+make phpstan        # static analysis (level 8)
 ```
+
+The tests using the client (rendering, sprites, whole workflow) run with `DOFUS_PATH`, or with the client
+downloaded in `var/dofus`; they are skipped when no client is available. The CI downloads it with `client:download`.
 
 Environment variables (container side):
 
 | Variable | Default | Description |
 |---|---|---|
 | `DOFUS_PATH` | `/dofus` | Dofus client path (mounted from `DOFUS_CLIENT_DIR`) |
+| `CLIENT_ARCHIVE_URL` | dofedex 1.41.7 classic | Client zip archive downloaded by `client:download` |
 | `OPENAI_API_KEY` | | OpenAI API key |
 | `OPENAI_MODEL` | `luna` | Model used for classification |
 | `OPENAI_REASONING_EFFORT` | | Reasoning effort (`minimal`, `low`…), only for reasoning models |

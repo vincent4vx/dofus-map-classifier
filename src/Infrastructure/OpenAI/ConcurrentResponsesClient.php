@@ -11,7 +11,6 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 use Throwable;
 
 use function count;
-use function is_array;
 use function spl_object_id;
 
 /**
@@ -72,8 +71,7 @@ final readonly class ConcurrentResponsesClient
                         continue;
                     }
 
-                    $body = $response->toArray(false);
-                    $result = [$response->getStatusCode(), is_array($body) ? $body : [], null];
+                    $result = [$response->getStatusCode(), $response->toArray(false), null];
                 } catch (ExceptionInterface $e) {
                     $result = [0, [], $e];
                 }

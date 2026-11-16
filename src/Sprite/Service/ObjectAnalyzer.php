@@ -83,7 +83,7 @@ final class ObjectAnalyzer
     {
         $location = $this->locations[$mapId] ?? null;
         $classification = ($this->results[$mapId] ?? null)?->classification;
-        $biome = $classification?->biome?->value
+        $biome = $classification->biome->value
             ?? ($location !== null ? ($this->subAreaBiomes[$location->subAreaId] ?? null)?->biome?->value : null);
 
         if ($location !== null) {
@@ -101,8 +101,7 @@ final class ObjectAnalyzer
             $set = Layer::from($layerName)->spriteSet()->value;
 
             foreach ($sprites as $id => $count) {
-                $stats = &$this->stats[$set][$id];
-                $stats ??= [
+                $this->stats[$set][$id] ??= [
                     'layers' => [],
                     'maps' => 0,
                     'classified' => 0,
@@ -112,7 +111,7 @@ final class ObjectAnalyzer
                     'indoor' => [],
                     'locationTypes' => [],
                 ];
-
+                $stats = &$this->stats[$set][$id];
                 $stats['layers'][$layerName] = ($stats['layers'][$layerName] ?? 0) + $count;
 
                 // A sprite can be used on several layers of the same map: count map attributes once
@@ -208,11 +207,11 @@ final class ObjectAnalyzer
      */
     private function named(array $counts, array $names): array
     {
-        return array_values(array_map(
+        return array_map(
             static fn (int $id, int $count) => ['id' => $id, 'name' => $names[$id] ?? null, 'maps' => $count],
             array_keys($filtered = $this->filter($counts)),
             $filtered,
-        ));
+        );
     }
 
     /**

@@ -5,7 +5,7 @@ CONSOLE = $(RUN) bin/console
 # Extra arguments passed to the command, e.g. make render ARGS="--super-area=3"
 ARGS ?=
 
-.PHONY: help build shell install test console keys render classify submit status import discard export report objects objects-classify pipeline
+.PHONY: help build shell install test phpstan client console keys render classify submit status import discard export report objects objects-classify pipeline
 
 help: ## Display this help
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  \033[36m%-17s\033[0m %s\n", $$1, $$2}'
@@ -29,10 +29,16 @@ shell: ## Open a shell in the container
 test: ## Run the tests
 	$(RUN) vendor/bin/phpunit $(ARGS)
 
+phpstan: ## Run the static analysis
+	$(RUN) vendor/bin/phpstan analyse $(ARGS)
+
 console: ## Run any console command: make console ARGS="list"
 	$(CONSOLE) $(ARGS)
 
 ## Workflow
+
+client: ## Download a Dofus Retro client from dofedex into var/dofus (maps and sprites only, --full for all)
+	$(CONSOLE) client:download $(ARGS)
 
 keys: ## Download map keys (MapKeys-DR)
 	$(CONSOLE) keys:download $(ARGS)

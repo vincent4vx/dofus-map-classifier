@@ -36,8 +36,8 @@ final readonly class SubAreaBiomeResolver
         $subAreas = [];
 
         foreach ($locations as $mapId => $location) {
+            $subAreas[$location->subAreaId] ??= ['location' => $location, 'total' => 0, 'classified' => 0, 'outdoor' => [], 'all' => []];
             $subArea = &$subAreas[$location->subAreaId];
-            $subArea ??= ['location' => $location, 'total' => 0, 'classified' => 0, 'outdoor' => [], 'all' => []];
             ++$subArea['total'];
 
             $classification = ($results[$mapId] ?? null)?->classification;

@@ -84,6 +84,9 @@ final class MapClassificationTest extends TestCase
         ]);
     }
 
+    /**
+     * @return iterable<array{array<string, mixed>, string}>
+     */
     public static function provideInvalid(): iterable
     {
         yield [['biome' => 'ocean'], 'Invalid biome: ocean'];

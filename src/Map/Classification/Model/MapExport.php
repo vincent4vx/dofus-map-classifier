@@ -14,7 +14,7 @@ use function count;
 final readonly class MapExport
 {
     public function __construct(
-        /** @var array<string, array<string, mixed>> Exported maps, indexed by map id */
+        /** @var array<int, array<string, mixed>> Exported maps, indexed by map id */
         public array $maps,
         /** @var array<int, SubAreaBiome> Indexed by sub area id. Empty if locations are not available */
         public array $subAreas,

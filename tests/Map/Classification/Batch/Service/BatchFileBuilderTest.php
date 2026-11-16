@@ -39,7 +39,7 @@ final class BatchFileBuilderTest extends TestCase
 
         foreach ([1, 2, 3] as $id) {
             $img = imagecreatetruecolor(742, 432);
-            imagefill($img, 0, 0, imagecolorallocate($img, 10 * $id, 100, 50));
+            imagefill($img, 0, 0, (int) imagecolorallocate($img, 10 * $id, 100, 50));
             imagepng($img, $this->tempDir() . '/' . $id . '.png');
             $this->maps[] = new MapFile($id, 'v' . $id, true, 'unused');
         }
@@ -53,7 +53,7 @@ final class BatchFileBuilderTest extends TestCase
         $this->assertSame($this->tempDir() . '/out/test-001.jsonl', $files[0]->path);
         $this->assertSame([1 => 'v1', 2 => 'v2', 3 => 'v3'], $files[0]->maps);
 
-        $lines = array_map(static fn (string $line) => json_decode($line, true), file($files[0]->path, FILE_IGNORE_NEW_LINES));
+        $lines = array_map(static fn (string $line) => json_decode($line, true), file($files[0]->path, FILE_IGNORE_NEW_LINES) ?: []);
 
         $this->assertCount(3, $lines);
         $this->assertSame('map-1', $lines[0]['custom_id']);
@@ -64,6 +64,7 @@ final class BatchFileBuilderTest extends TestCase
         $image = $lines[0]['body']['input'][0]['content'][1]['image_url'];
         $this->assertStringStartsWith('data:image/jpeg;base64,', $image);
         $size = getimagesizefromstring(base64_decode(explode(',', $image)[1]));
+        $this->assertIsArray($size);
         $this->assertSame([1484, 864], [$size[0], $size[1]]);
     }
 
@@ -72,8 +73,9 @@ final class BatchFileBuilderTest extends TestCase
         $files = (new BatchFileBuilder(new ClassificationPrompt('luna'), new ImageEncoder(ImageEncoder::JPEG, 1.0)))
             ->build([$this->maps[0]], $this->renderPath(...), $this->tempDir() . '/out', 'test');
 
-        $image = json_decode(file($files[0]->path)[0], true)['body']['input'][0]['content'][1]['image_url'];
+        $image = json_decode((string) file_get_contents($files[0]->path), true)['body']['input'][0]['content'][1]['image_url'];
         $size = getimagesizefromstring(base64_decode(explode(',', $image)[1]));
+        $this->assertIsArray($size);
         $this->assertSame([742, 432], [$size[0], $size[1]]);
     }
 
@@ -82,10 +84,11 @@ final class BatchFileBuilderTest extends TestCase
         $files = (new BatchFileBuilder(new ClassificationPrompt('luna'), new ImageEncoder(ImageEncoder::PNG, 1.5)))
             ->build([$this->maps[0]], $this->renderPath(...), $this->tempDir() . '/out', 'test');
 
-        $line = json_decode(file($files[0]->path)[0], true);
+        $line = json_decode((string) file_get_contents($files[0]->path), true);
         $image = $line['body']['input'][0]['content'][1]['image_url'];
         $this->assertStringStartsWith('data:image/png;base64,', $image);
         $size = getimagesizefromstring(base64_decode(explode(',', $image)[1]));
+        $this->assertIsArray($size);
         $this->assertSame([1113, 648], [$size[0], $size[1]]);
     }
 

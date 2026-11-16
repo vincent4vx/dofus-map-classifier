@@ -15,6 +15,7 @@ use MapClassifier\Map\Classification\Service\SyncClassifier;
 use MapClassifier\Map\Model\MapFile;
 use MapClassifier\Tests\BatchFixtures;
 use MapClassifier\Tests\TempDirTrait;
+use LogicException;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;
@@ -54,6 +55,7 @@ final class SyncClassifierTest extends TestCase
                 1, 2 => new JsonMockResponse(json_decode(BatchFixtures::successLine($id, BatchFixtures::classification('desert')), true)['response']['body']),
                 3 => new JsonMockResponse(['error' => ['message' => 'Bad request']], ['http_code' => 400]),
                 4 => new MockResponse('not json'),
+                default => throw new LogicException('Unexpected map ' . $id),
             };
         });
 
@@ -70,24 +72,25 @@ final class SyncClassifierTest extends TestCase
         $this->assertStringStartsWith('data:image/jpeg;base64,', $requests[0][3]['input'][0]['content'][1]['image_url']);
 
         $this->assertCount(4, $received);
-        $this->assertSame('desert', $this->results->get(1)->classification->biome->value);
-        $this->assertSame('v1', $this->results->get(1)->version);
-        $this->assertTrue($this->results->get(2)->ok);
-        $this->assertSame(ErrorCode::ClassificationFailed, $this->results->get(3)->error);
-        $this->assertSame('HTTP 400: Bad request', $this->results->get(3)->errorMessage);
-        $this->assertSame(ErrorCode::ClassificationFailed, $this->results->get(4)->error);
+        $this->assertSame('desert', $this->mapResult(1)->classification?->biome?->value);
+        $this->assertSame('v1', $this->mapResult(1)->version);
+        $this->assertTrue($this->mapResult(2)->ok);
+        $this->assertSame(ErrorCode::ClassificationFailed, $this->mapResult(3)->error);
+        $this->assertSame('HTTP 400: Bad request', $this->mapResult(3)->errorMessage);
+        $this->assertSame(ErrorCode::ClassificationFailed, $this->mapResult(4)->error);
     }
 
     public function testConcurrencyLimit(): void
     {
         $inFlight = 0;
+        /** @var int $max Modified by the HTTP client callback */
         $max = 0;
         $http = new MockHttpClient(static function () use (&$inFlight, &$max) {
             $max = max($max, ++$inFlight);
 
             // The body is consumed when stream() reaches this response: the request is not in flight anymore
             return new MockResponse((static function () use (&$inFlight) {
-                yield json_encode(json_decode(BatchFixtures::successLine(1, BatchFixtures::classification()), true)['response']['body']);
+                yield (string) json_encode(json_decode(BatchFixtures::successLine(1, BatchFixtures::classification()), true)['response']['body']);
                 --$inFlight;
             })());
         });
@@ -104,8 +107,16 @@ final class SyncClassifierTest extends TestCase
 
         $this->classifier($http)->classify([$this->maps()[0]], 1);
 
-        $this->assertSame(ErrorCode::ClassificationFailed, $this->results->get(1)->error);
-        $this->assertStringContainsString('Connection refused', $this->results->get(1)->errorMessage);
+        $this->assertSame(ErrorCode::ClassificationFailed, $this->mapResult(1)->error);
+        $this->assertStringContainsString('Connection refused', (string) $this->mapResult(1)->errorMessage);
+    }
+
+    private function mapResult(int $id): MapResult
+    {
+        $result = $this->results->get($id);
+        $this->assertNotNull($result);
+
+        return $result;
     }
 
     /**

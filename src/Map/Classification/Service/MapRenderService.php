@@ -52,7 +52,7 @@ final readonly class MapRenderService
             $todo[] = $map;
         }
 
-        return $limit !== null ? array_slice($todo, 0, $limit) : array_values($todo);
+        return $limit !== null ? array_slice($todo, 0, $limit) : $todo;
     }
 
     /**

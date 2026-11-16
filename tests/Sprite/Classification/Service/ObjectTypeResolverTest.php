@@ -30,8 +30,10 @@ final class ObjectTypeResolverTest extends TestCase
         $resolver = new ObjectTypeResolver($repository);
         $wheat = self::profile(7511, new InteractiveObject(38, 'Wheat', 1));
 
-        $this->assertSame('wheat', $resolver->type($wheat)->name);
-        $this->assertSame(['cereal', 'wheat stalks', 'resource'], $resolver->type($wheat)->keywords);
+        $wheatType = $resolver->type($wheat);
+        $this->assertNotNull($wheatType);
+        $this->assertSame('wheat', $wheatType->name);
+        $this->assertSame(['cereal', 'wheat stalks', 'resource'], $wheatType->keywords);
         $this->assertEquals($type, $resolver->type(self::profile(12)));
         $this->assertNull($resolver->type(self::profile(13)));
         $this->assertNull($resolver->type(self::profile(14, new InteractiveObject(38, 'Wheat', 1))));
