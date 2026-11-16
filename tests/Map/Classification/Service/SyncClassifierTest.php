@@ -14,7 +14,7 @@ use MapClassifier\Map\Classification\Service\ImageEncoder;
 use MapClassifier\Map\Classification\Service\MapResultParser;
 use MapClassifier\Map\Classification\Service\SyncClassifier;
 use MapClassifier\Map\Model\MapFile;
-use MapClassifier\Tests\BatchFixtures;
+use MapClassifier\Tests\ResponseFixtures;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
@@ -52,7 +52,7 @@ final class SyncClassifierTest extends TestCase
             $id = (int) substr($body['input'][0]['content'][0]['text'], 17, -1);
 
             return match ($id) {
-                1, 2 => new JsonMockResponse(json_decode(BatchFixtures::successLine($id, BatchFixtures::classification('desert')), true)['response']['body']),
+                1, 2 => new JsonMockResponse(ResponseFixtures::success(ResponseFixtures::classification('desert'))),
                 3 => new JsonMockResponse(['error' => ['message' => 'Bad request']], ['http_code' => 400]),
                 4 => new MockResponse('not json'),
                 default => throw new LogicException('Unexpected map ' . $id),
@@ -90,7 +90,7 @@ final class SyncClassifierTest extends TestCase
 
             // The body is consumed when stream() reaches this response: the request is not in flight anymore
             return new MockResponse((static function () use (&$inFlight) {
-                yield (string) json_encode(json_decode(BatchFixtures::successLine(1, BatchFixtures::classification()), true)['response']['body']);
+                yield (string) json_encode(ResponseFixtures::success(ResponseFixtures::classification()));
                 --$inFlight;
             })());
         });

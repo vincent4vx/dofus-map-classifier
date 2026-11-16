@@ -6,70 +6,28 @@ namespace MapClassifier\Map\Classification\Service;
 
 use InvalidArgumentException;
 use JsonException;
-use MapClassifier\Map\Classification\Batch\Service\BatchFileBuilder;
 use MapClassifier\Map\Classification\Model\ErrorCode;
 use MapClassifier\Map\Classification\Model\MapClassification;
 use MapClassifier\Map\Classification\Model\MapResult;
 
 use function is_array;
-use function is_int;
 use function is_string;
 use function json_decode;
 use function json_encode;
-use function preg_match;
 
 use const JSON_THROW_ON_ERROR;
 
 /**
- * Parse a line of a batch output (or error) file, or a Responses API body, into a map result
+ * Parse a Responses API response into a map result
  */
 final readonly class MapResultParser
 {
-    /**
-     * @param array<int, string> $versions Map versions indexed by id
-     *
-     * @return MapResult|null Null if the line cannot be associated with a map
-     */
-    public function parse(string $line, string $model, array $versions = []): ?MapResult
-    {
-        try {
-            $data = json_decode($line, true, flags: JSON_THROW_ON_ERROR);
-        } catch (JsonException) {
-            return null;
-        }
-
-        if (!is_array($data) || !is_string($data['custom_id'] ?? null)) {
-            return null;
-        }
-
-        if (!preg_match('/^' . BatchFileBuilder::CUSTOM_ID_PREFIX . '(\d+)$/', $data['custom_id'], $matches)) {
-            return null;
-        }
-
-        $id = (int) $matches[1];
-        $version = $versions[$id] ?? null;
-        $fail = static fn (ErrorCode $code, string $message) => MapResult::failure($id, $version, $code, $message, $model);
-
-        if (is_array($data['error'] ?? null)) {
-            return $fail(ErrorCode::ClassificationFailed, self::errorMessage($data['error']));
-        }
-
-        $response = $data['response'] ?? null;
-        $body = is_array($response) ? ($response['body'] ?? null) : null;
-
-        if (!is_array($response) || !is_array($body)) {
-            return $fail(ErrorCode::ClassificationFailed, 'Missing response body');
-        }
-
-        return $this->parseResponse($id, $version, is_int($response['status_code'] ?? null) ? $response['status_code'] : 0, $body, $model);
-    }
-
     /**
      * Parse a Responses API response body
      *
      * @param array<array-key, mixed> $body
      */
-    public function parseResponse(int $id, ?string $version, int $statusCode, array $body, string $model): MapResult
+    public function parse(int $id, ?string $version, int $statusCode, array $body, string $model): MapResult
     {
         if ($statusCode !== 200) {
             return MapResult::failure(

@@ -19,7 +19,7 @@ final class Config
     public function __construct(
         /** Path of the Dofus 1.29 client */
         public readonly string $dofusPath,
-        /** Directory used to store all generated data (keys, renders, results, batches, cache) */
+        /** Directory used to store all generated data (keys, renders, results, cache, exports) */
         public readonly string $varDir,
         public readonly ?string $openAiApiKey = null,
         public readonly string $openAiModel = 'luna',
@@ -39,7 +39,6 @@ final class Config
     public string $downloadedClientDir { get => $this->varDir . '/dofus'; }
     public string $rendersDir { get => $this->varDir . '/renders'; }
     public string $resultsDir { get => $this->varDir . '/results'; }
-    public string $batchesDir { get => $this->varDir . '/batches'; }
     public string $cacheDir { get => $this->varDir . '/cache'; }
     public string $mapsDir { get => $this->dofusPath . '/data/maps'; }
     public string $spritesDir { get => $this->varDir . '/sprites'; }

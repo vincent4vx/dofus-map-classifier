@@ -44,7 +44,7 @@ final readonly class SyncClassifier
         $this->client->run($requests, $concurrency, function (MapFile $map, int $status, array $body, ?Throwable $error) use ($onResult) {
             $result = $error !== null
                 ? MapResult::failure($map->id, $map->version, ErrorCode::ClassificationFailed, $error->getMessage(), $this->model)
-                : $this->parser->parseResponse($map->id, $map->version, $status, $body, $this->model);
+                : $this->parser->parse($map->id, $map->version, $status, $body, $this->model);
 
             $this->results->save($result);
 

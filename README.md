@@ -1,7 +1,7 @@
 # Map Classifier
 
 Automatic classification of Dofus Retro maps (biome, indoor, location type, tags, description)
-using [php-map-parser](https://github.com/Arakne/php-map-parser) for rendering and the OpenAI Batch API for classification.
+using [php-map-parser](https://github.com/Arakne/php-map-parser) for rendering and the OpenAI Responses API for classification.
 
 See [docs/SPEC.md](docs/SPEC.md) for the specifications.
 
@@ -52,19 +52,13 @@ make objects-classify ARGS="--limit=500"          # 7. type of each sprite (cate
                                                   #    --interactive: only interactive objects (resources, workshops, doors…)
 
 make pipeline ARGS="--area=18"                    # render + classify + export of a selection
-
-# Batch API (cheaper, asynchronous, up to 24h)
-make submit ARGS="--limit=1000"                   # asks confirmation, --dry-run to only build files
-make status
-make import
-make discard ARGS="batch_xxx"                   # never import a batch (cancelled, obsolete prompt…)
 ```
 
-Maps selection (render, classify, submit, export): ids or ranges (`10000 100-200`), `--super-area`, `--area`, `--sub-area`, `--limit`.
+Maps selection (render, classify, export): ids or ranges (`10000 100-200`), `--super-area`, `--area`, `--sub-area`, `--limit`.
 Exports (`export`, `objects:export`) write all formats by default: `--format=json` or `--format=html` for a single one, with `--output` to change its file.
 `make pipeline` only accepts selection arguments.
 
-All commands are resumable: rendered / classified maps and maps in a pending batch are skipped.
+All commands are resumable: rendered / classified maps are skipped.
 Use `--force` to process them again, `--retry-errors` to retry maps in error.
 
 ## Data layout
@@ -74,9 +68,6 @@ var/
   keys/{id}_{version}.txt     map keys
   renders/{id}.png            rendered maps
   results/{id}.json           result per map (classification or error)
-  batches/batch_*.json        submitted batches tracking
-  batches/input/*.jsonl       batch input files
-  batches/output/*.jsonl      batch output files
   cache/sprites.db            rendering sprite cache
   maps.json                   export of maps, with location (sub area, area, super area)
   sub_areas.json              biome of each sub area, deduced from its classified maps
@@ -97,7 +88,6 @@ src/
   Location/               map locations (sub area, area, super area) from the langs
   Map/                    map files, keys and rendering
     Classification/       biome classification of maps, sub areas biomes, export (JSON and HTML gallery)
-      Batch/              OpenAI Batch API workflow
   Sprite/                 sprites used by the maps: extraction, aggregated profiles, PNG export
     Classification/       type of sprites (category, name, keywords), export (JSON and HTML gallery)
   Infrastructure/         technical tools: OpenAI client, JSON files, lang files, paths

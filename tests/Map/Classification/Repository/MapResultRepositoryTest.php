@@ -8,7 +8,7 @@ use MapClassifier\Map\Classification\Model\ErrorCode;
 use MapClassifier\Map\Classification\Model\MapClassification;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Repository\MapResultRepository;
-use MapClassifier\Tests\BatchFixtures;
+use MapClassifier\Tests\ResponseFixtures;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +23,7 @@ final class MapResultRepositoryTest extends TestCase
     public function testSaveAndGet(): void
     {
         $storage = new MapResultRepository($this->tempDir() . '/results');
-        $result = MapResult::success(42, 'v1', MapClassification::fromArray(BatchFixtures::classification()), 'luna');
+        $result = MapResult::success(42, 'v1', MapClassification::fromArray(ResponseFixtures::classification()), 'luna');
 
         $this->assertNull($storage->get(42));
         $storage->save($result);

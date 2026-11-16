@@ -5,19 +5,9 @@ declare(strict_types=1);
 namespace MapClassifier\Application;
 
 use MapClassifier\Infrastructure\Export\ExportFormat;
-use MapClassifier\Infrastructure\OpenAI\BatchApiInterface;
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
-use MapClassifier\Infrastructure\OpenAI\LazyBatchApi;
-use MapClassifier\Infrastructure\OpenAI\OpenAIClient;
 use MapClassifier\Location\Repository\MapLocationRepository;
-use MapClassifier\Map\Classification\Batch\Repository\BatchRecordRepository;
-use MapClassifier\Map\Classification\Batch\Service\BatchFileBuilder;
-use MapClassifier\Map\Classification\Batch\Service\BatchService;
-use MapClassifier\Map\Classification\Command\ClassifyDiscardCommand;
-use MapClassifier\Map\Classification\Command\ClassifyImportCommand;
 use MapClassifier\Map\Classification\Command\ClassifyRunCommand;
-use MapClassifier\Map\Classification\Command\ClassifyStatusCommand;
-use MapClassifier\Map\Classification\Command\ClassifySubmitCommand;
 use MapClassifier\Map\Classification\Command\ExportCommand;
 use MapClassifier\Map\Classification\Command\MapsRenderCommand;
 use MapClassifier\Map\Classification\Export\HtmlMapExportFormat;
@@ -86,12 +76,8 @@ final class Kernel
         get => $this->results ??= new MapResultRepository($this->config->resultsDir);
     }
 
-    public BatchRecordRepository $batches {
-        get => $this->batches ??= new BatchRecordRepository($this->config->batchesDir);
-    }
-
     public MapsToClassify $mapsToClassify {
-        get => $this->mapsToClassify ??= new MapsToClassify($this->maps, $this->results, $this->batches, $this->config->rendersDir);
+        get => $this->mapsToClassify ??= new MapsToClassify($this->maps, $this->results, $this->config->rendersDir);
     }
 
     public InteractiveObjectRepository $interactiveObjects {
@@ -118,45 +104,13 @@ final class Kernel
         get => $this->objectTypes ??= new ObjectTypeRepository($this->config->objectTypesDir);
     }
 
-    public BatchApiInterface $batchApi {
-        get => $this->batchApi ??= new OpenAIClient(
-            $this->httpClient,
-            $this->config->openAiApiKey ?? throw new RuntimeException('OPENAI_API_KEY is not set'),
-            $this->config->openAiBaseUrl,
-        );
-    }
-
     public function __construct(
         public readonly Config $config,
-        ?BatchApiInterface $batchApi = null,
         ?HttpClientInterface $httpClient = null,
     ) {
-        if ($batchApi) {
-            $this->batchApi = $batchApi;
-        }
-
         if ($httpClient) {
             $this->httpClient = $httpClient;
         }
-    }
-
-    public function batchService(string $imageFormat = ImageEncoder::JPEG, float $imageScale = ImageEncoder::DEFAULT_SCALE, int $maxFileSize = 150 * 1024 * 1024): BatchService
-    {
-        return new BatchService(
-            // Lazy: the API (and API key) is only required when actually calling it
-            new LazyBatchApi(fn () => $this->batchApi),
-            new BatchFileBuilder(
-                $this->prompt(),
-                new ImageEncoder($imageFormat, $imageScale),
-                $maxFileSize,
-            ),
-            $this->batches,
-            $this->results,
-            new MapResultParser(),
-            $this->config->batchesDir,
-            $this->config->rendersDir,
-            $this->config->openAiModel,
-        );
     }
 
     public function syncClassifier(string $imageFormat = ImageEncoder::JPEG, float $imageScale = ImageEncoder::DEFAULT_SCALE): SyncClassifier
@@ -232,11 +186,7 @@ final class Kernel
         $app->addCommand(new ClientDownloadCommand(new ClientDownloader($this->httpClient), $this->config->clientArchiveUrl, $this->config->downloadedClientDir));
         $app->addCommand(new KeysDownloadCommand(new MapKeyDownloader($this->httpClient), $this->config->keysDir, $this->config->keysArchiveUrl));
         $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, $this->results, $this->config->rendersDir), $this->config->resultsDir));
-        $app->addCommand(new ClassifySubmitCommand($this->mapsToClassify, $this->locations, $this->batchService(...), $this->config->openAiModel));
         $app->addCommand(new ClassifyRunCommand($this->mapsToClassify, $this->locations, $this->syncClassifier(...), $this->config->openAiModel));
-        $app->addCommand(new ClassifyStatusCommand($this->batches, $this->batchService()));
-        $app->addCommand(new ClassifyImportCommand($this->batchService()));
-        $app->addCommand(new ClassifyDiscardCommand($this->batches));
         $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects, $this->objectProfiles));
         $app->addCommand(new ObjectsSpritesCommand(new SpriteExporter($this->config->dofusPath, $this->spriteImages), $this->objectProfiles, $this->config->spritesDir));
         $app->addCommand(new ObjectsClassifyCommand($this->objectProfiles, $this->spritesToClassify, $this->objectTypeClassifier(), $this->objectExporter(), $this->objectExportFormats(), $this->config->openAiModel));

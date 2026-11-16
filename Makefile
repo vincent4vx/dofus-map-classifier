@@ -5,7 +5,7 @@ CONSOLE = $(RUN) bin/console
 # Extra arguments passed to the command, e.g. make render ARGS="--super-area=3"
 ARGS ?=
 
-.PHONY: help build shell install test phpstan client console keys render classify submit status import discard export report objects objects-export objects-classify pipeline
+.PHONY: help build shell install test phpstan client console keys render classify export report objects objects-export objects-classify pipeline
 
 help: ## Display this help
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  \033[36m%-17s\033[0m %s\n", $$1, $$2}'
@@ -48,18 +48,6 @@ render: ## Render maps to PNG (ids, --super-area, --area, --sub-area, --limit, -
 
 classify: ## Classify rendered maps synchronously (ids, --concurrency, --force, --retry-errors…)
 	$(CONSOLE) classify:run $(ARGS)
-
-submit: ## Submit rendered maps to the Batch API (ids, --limit, --dry-run…)
-	$(CONSOLE) classify:submit $(ARGS)
-
-status: ## Display the state of submitted batches (--all)
-	$(CONSOLE) classify:status $(ARGS)
-
-import: ## Import the results of terminated batches
-	$(CONSOLE) classify:import $(ARGS)
-
-discard: ## Discard batches, their results will never be imported: make discard ARGS="batch_xxx"
-	$(CONSOLE) classify:discard $(ARGS)
 
 export: ## Export results: var/maps.json, var/sub_areas.json and var/report.html (ids, --area, --biome, --only-ok, --format=json|html)
 	$(CONSOLE) export $(ARGS)

@@ -45,7 +45,6 @@ final class ClassifyRunCommand extends Command
             ->addOption('concurrency', 'c', InputOption::VALUE_REQUIRED, 'Number of parallel requests', '5')
             ->addOption('retry-errors', null, InputOption::VALUE_NONE, 'Classify again maps with a classification error')
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Classify again already classified maps')
-            ->addOption('include-pending', null, InputOption::VALUE_NONE, 'Also classify maps which are part of a running batch')
             ->addOption('image-format', null, InputOption::VALUE_REQUIRED, 'Image format sent to the model (jpeg or png)', ImageEncoder::JPEG)
             ->addOption('image-scale', null, InputOption::VALUE_REQUIRED, 'Scale factor applied to the rendered image before sending it', (string) ImageEncoder::DEFAULT_SCALE)
         ;
@@ -59,7 +58,6 @@ final class ClassifyRunCommand extends Command
             MapSelectionInput::selection($input, $this->locations),
             force: (bool) $input->getOption('force'),
             retryErrors: (bool) $input->getOption('retry-errors'),
-            includePending: (bool) $input->getOption('include-pending'),
             limit: $input->getOption('limit') !== null ? (int) $input->getOption('limit') : null,
         );
 

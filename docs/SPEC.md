@@ -34,10 +34,7 @@ Classification automatique des maps (et à terme des objets de maps) de Dofus Re
 | `client:download` | Télécharge un client Dofus Retro depuis [dofedex](https://github.com/dofera/dofedex) (1.41.7 classic, maps de même version que les clés MapKeys-DR) et n'extrait que `data/maps` et `clips/gfx` (`--full` pour tout) dans `var/dofus`. Utilisé par la CI pour les tests |
 | `keys:download` | Télécharge les clés MapKeys-DR dans `var/keys/` |
 | `maps:render [ids…]` | Rend chaque map en taille native (742×432) dans `var/renders/{id}.png`. Échecs (clé manquante, erreur de rendu) enregistrés, le traitement continue |
-| `classify:submit` | Construit le JSONL des maps rendues non classées et le soumet à la Batch API OpenAI (detail=high, structured output) |
-| `classify:run [ids…]` | Classification synchrone via l'API Responses (requêtes parallèles `--concurrency`, retry 429/5xx). Utile pour tester ou retraiter quelques maps. Ignore les maps d'un batch en cours sauf `--include-pending` |
-| `classify:status` | État des batchs en cours |
-| `classify:import` | Récupère les résultats, écrit `var/results/{id}.json` |
+| `classify:run [ids…]` | Classifie les maps rendues via l'API Responses (detail=high, structured output, requêtes parallèles `--concurrency`, retry 429/5xx), écrit `var/results/{id}.json` |
 | `export [ids…]` | Exporte les résultats avec leur localisation, dans tous les formats par défaut (`--format`) : `json` (`maps.json` indexé par ID + `sub_areas.json`) et `html` (galerie `report.html`). Filtres : sélection de maps, `--biome`, `--only-ok` |
 
 Toutes les commandes sont idempotentes / reprenables (une map déjà traitée est ignorée sauf `--force`).
@@ -125,8 +122,7 @@ Commande `objects:classify` (`make objects-classify`), via l'API Responses en sy
 - Toutes les maps du client sont chiffrées (`X.swf`). La clé dépend de la version de la map : une clé d'une autre version ne fonctionne pas.
 - 735 maps du client (~8 %) n'ont pas de clé correspondante dans MapKeys-DR : elles sont marquées `missing_key`.
 - Le rendu prend ~0,2 s par map (cache de sprites SQLite dans `var/cache`).
-- Les images sont envoyées en JPEG (qualité 90), agrandies x2 (1484x864, option `--image-scale`) : en taille native, le modèle manque de détails et confond certaines textures (ex : plaques d'herbe claire d'Incarnam vues comme de l'eau → `swamp`). Coût : ~2 700 tokens d'entrée par map au lieu de ~1 500. ~250 Ko par requête, soit ~2,3 Go de fichiers batch pour tout le client, découpés en fichiers de 150 Mo max.
-- Les maps sans ligne de résultat dans un batch (batch expiré…) restent non classées et seront resoumises.
+- Les images sont envoyées en JPEG (qualité 90), agrandies x2 (1484x864, option `--image-scale`) : en taille native, le modèle manque de détails et confond certaines textures (ex : plaques d'herbe claire d'Incarnam vues comme de l'eau → `swamp`). Coût : ~2 700 tokens d'entrée par map au lieu de ~1 500. ~250 Ko par requête.
 - Format d'export `html` (`export --format=html`) : galerie HTML (rendu + classification) pour la validation visuelle.
 
 ### Prompt

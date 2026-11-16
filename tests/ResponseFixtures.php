@@ -9,17 +9,21 @@ use function json_encode;
 use const JSON_THROW_ON_ERROR;
 
 /**
- * Build batch output lines like the OpenAI API
+ * Build OpenAI Responses API bodies
  */
-final class BatchFixtures
+final class ResponseFixtures
 {
     /**
+     * Successful response body, with the classification as output text
+     *
      * @param array<string, mixed> $classification
+     *
+     * @return array<string, mixed>
      */
-    public static function successLine(int $mapId, array $classification): string
+    public static function success(array $classification): array
     {
-        return self::responseLine($mapId, 200, [
-            'id' => 'resp_' . $mapId,
+        return [
+            'id' => 'resp_1',
             'object' => 'response',
             'status' => 'completed',
             'model' => 'luna-2026-01-01',
@@ -33,20 +37,7 @@ final class BatchFixtures
                     ],
                 ],
             ],
-        ]);
-    }
-
-    /**
-     * @param array<string, mixed> $body
-     */
-    public static function responseLine(int $mapId, int $status, array $body): string
-    {
-        return json_encode([
-            'id' => 'batch_req_' . $mapId,
-            'custom_id' => 'map-' . $mapId,
-            'response' => ['status_code' => $status, 'request_id' => 'req_' . $mapId, 'body' => $body],
-            'error' => null,
-        ], JSON_THROW_ON_ERROR);
+        ];
     }
 
     /**

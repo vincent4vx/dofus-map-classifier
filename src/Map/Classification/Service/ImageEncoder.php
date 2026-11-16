@@ -23,7 +23,7 @@ use const IMG_BICUBIC;
 
 /**
  * Encode a rendered PNG map as data URL to send to the model
- * JPEG is used by default to reduce the batch file size
+ * JPEG is used by default to reduce the request size
  *
  * The image is upscaled (x2 by default): with the native size, the model has not enough details
  * and confuses some textures (e.g. pale grass patches seen as water)
