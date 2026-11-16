@@ -41,8 +41,8 @@ use MapClassifier\Sprite\Classification\Service\SpriteTypePrompt;
 use MapClassifier\Sprite\Command\SpritesAnalyzeCommand;
 use MapClassifier\Sprite\Command\SpritesImagesCommand;
 use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
-use MapClassifier\Sprite\Repository\SpriteImageRepository;
 use MapClassifier\Sprite\Repository\SpriteProfileRepository;
+use MapClassifier\Sprite\Repository\SpriteRepository;
 use MapClassifier\Sprite\Service\MapSpriteExtractor;
 use MapClassifier\Sprite\Service\SpriteAnalysis;
 use MapClassifier\Sprite\Service\SpriteImageExporter;
@@ -89,8 +89,8 @@ final class Kernel
         get => $this->locations ??= new MapLocationRepository($this->config->langDir, $this->config->lang);
     }
 
-    public SpriteImageRepository $spriteImages {
-        get => $this->spriteImages ??= new SpriteImageRepository($this->config->spritesDir);
+    public SpriteRepository $sprites {
+        get => $this->sprites ??= new SpriteRepository($this->config->dofusPath, $this->config->spritesDir);
     }
 
     public SpriteProfileRepository $spriteProfiles {
@@ -98,7 +98,7 @@ final class Kernel
     }
 
     public SpritesToClassify $spritesToClassify {
-        get => $this->spritesToClassify ??= new SpritesToClassify($this->spriteTypes, $this->spriteImages);
+        get => $this->spritesToClassify ??= new SpritesToClassify($this->spriteTypes, $this->sprites);
     }
 
     public SpriteTypeRepository $spriteTypes {
@@ -141,7 +141,7 @@ final class Kernel
         return new SpriteTypeClassifier(
             $this->responsesClient(),
             new SpriteTypePrompt($this->config->openAiModel, $this->config->openAiReasoningEffort),
-            $this->spriteImages,
+            $this->sprites,
             $this->spriteTypes,
             $this->config->openAiModel,
         );
@@ -171,7 +171,7 @@ final class Kernel
 
     public function spriteExporter(): SpriteExporter
     {
-        return new SpriteExporter($this->spriteTypes);
+        return new SpriteExporter($this->spriteTypes, $this->sprites);
     }
 
     public function prompt(): ClassificationPrompt
@@ -187,8 +187,8 @@ final class Kernel
         $app->addCommand(new KeysDownloadCommand(new MapKeyDownloader($this->httpClient), $this->config->keysDir, $this->config->keysArchiveUrl));
         $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, new ResultRenderErrorRepository($this->results), $this->config->rendersDir)));
         $app->addCommand(new ClassifyRunCommand($this->mapsToClassify, $this->locations, $this->mapClassifier(), $this->config->openAiModel));
-        $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects), $this->spriteProfiles));
-        $app->addCommand(new SpritesImagesCommand(new SpriteImageExporter($this->config->dofusPath, $this->spriteImages), $this->spriteProfiles, $this->config->spritesDir));
+        $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects, $this->sprites), $this->spriteProfiles));
+        $app->addCommand(new SpritesImagesCommand(new SpriteImageExporter($this->sprites), $this->spriteProfiles, $this->config->spritesDir));
         $app->addCommand(new SpritesClassifyCommand($this->spriteProfiles, $this->spritesToClassify, $this->spriteTypeClassifier(), $this->spriteExporter(), $this->spriteExportFormats(), $this->config->openAiModel));
         $app->addCommand(new SpritesExportCommand($this->spriteProfiles, $this->spriteExporter(), $this->spriteExportFormats()));
         $app->addCommand(new ExportCommand(new MapExporter($this->results), $this->locations, $this->mapExportFormats()));

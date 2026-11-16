@@ -8,12 +8,13 @@ use MapClassifier\Location\Model\MapLocation;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Model\SubAreaBiome;
 use MapClassifier\Sprite\Model\InteractiveObject;
-use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
+use MapClassifier\Sprite\Model\MapSprites;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Model\SpriteStats;
+use MapClassifier\Sprite\Repository\SpriteRepository;
 
 use function array_filter;
 use function array_keys;
@@ -59,14 +60,15 @@ final class SpriteAnalyzer
         private readonly float $minRatio = 0.1,
         /** @var array<int, InteractiveObject> Interactive objects indexed by sprite number of the objects set */
         private readonly array $interactiveObjects = [],
+        /** Exported sprites, used to check the frames of the ground sprites used on slopes. Without it, no sprite is flagged as slope */
+        private readonly ?SpriteRepository $sprites = null,
     ) {}
 
     /**
      * Add the sprites used by a map
      *
-     * @param array<string, array<int, int>> $layers Occurrences of each sprite, indexed by layer (see {@see MapSpriteExtractor::extract()})
      */
-    public function add(int $mapId, array $layers): void
+    public function add(int $mapId, MapSprites $sprites): void
     {
         $location = $this->locations[$mapId] ?? null;
         $classification = ($this->results[$mapId] ?? null)?->classification;
@@ -81,23 +83,10 @@ final class SpriteAnalyzer
             }
         }
 
-        /** @var array<string, array<int, true>> $seen Sprites already counted for this map */
-        $seen = [];
-
-        foreach ($layers as $layerName => $sprites) {
-            $layer = Layer::from($layerName);
-            $set = $layer->spriteSet()->value;
-
-            foreach ($sprites as $id => $count) {
-                $stats = $this->stats[$set][$id] ??= new SpriteStats();
-                $stats->addCells($layer, $count);
-
-                // A sprite can be used on several layers of the same map: count map attributes once
-                if (!isset($seen[$set][$id])) {
-                    $seen[$set][$id] = true;
-                    $stats->addMap($location, $biome, $classification);
-                }
-            }
+        // One usage per sprite: map attributes are counted once per map
+        foreach ($sprites as $usage) {
+            $this->stats[$usage->set->value][$usage->id] ??= new SpriteStats();
+            $this->stats[$usage->set->value][$usage->id]->addMap($usage, $location, $biome, $classification);
         }
     }
 
@@ -126,6 +115,7 @@ final class SpriteAnalyzer
                     indoor: $this->filter($stats->indoor),
                     locationTypes: $this->filter($stats->locationTypes),
                     interactive: $spriteSet === SpriteSet::Objects ? ($this->interactiveObjects[$id] ?? null) : null,
+                    slope: $this->slope($spriteSet, $id, $stats),
                 );
             }
         }
@@ -164,5 +154,16 @@ final class SpriteAnalyzer
             array_keys($filtered = $this->filter($counts)),
             $filtered,
         );
+    }
+
+    /**
+     * The ground sprite is drawn on slopes: used on at least one sloped cell, and has one frame per slope value
+     * The frames are given by the metadata of the exported sprite: an unexported sprite is not flagged
+     */
+    private function slope(SpriteSet $set, int $id, SpriteStats $stats): bool
+    {
+        return $set === SpriteSet::Grounds
+            && $stats->slopedCells > 0
+            && ($this->sprites?->get($set, $id)?->hasSlopeFrames() ?? false);
     }
 }

@@ -90,6 +90,7 @@ Commande `sprites:analyze` (`make sprites`) → `var/sprite_profiles.json`.
 - Parcourt toutes les maps décodables (sans rendu) et relève les sprites utilisés : `background` et `ground` (sprites de sol, `g*.swf`), `layer1` et `layer2` (sprites d'objets, `o*.swf`). Les numéros des deux ensembles sont indépendants : la sortie est séparée en `grounds` et `objects`.
 - Pour chaque sprite :
   - `layer` : uniquement le layer le plus courant (en nombre de cellules) ;
+  - `slope` : sprite de sol dessiné en pente : utilisé sur au moins une cellule en pente (slope de la cellule différent de 0 et 1, 1 étant le sol plat) sur le layer `ground`, et ayant une frame par valeur de pente (15 frames, d'après les métadonnées de l'image exportée par `sprites:images` : un sprite non exporté n'est pas marqué, `make sprites` relance donc l'analyse après l'export des images). Concerne `g4`, `g6`, `g49` et `g69` ; 17 autres sprites de sol sont posés sur des pentes sans variante de pente. Le PNG exporté est la frame du sol plat. Indiqué au modèle dans le contexte de classification, badge et filtre dans la galerie ;
   - `occurrences` (cellules), `maps` (maps qui l'utilisent), `classified_maps` ;
   - `areas`, `sub_areas` (id, nom, nombre de maps) : depuis la lang, pour toutes les maps ;
   - `biomes` : biome de la map, ou à défaut celui de sa sub area (maps non classées ou sans biome) ;
@@ -98,7 +99,7 @@ Commande `sprites:analyze` (`make sprites`) → `var/sprite_profiles.json`.
 - Les attributs sont comptés une fois par map (pas par cellule).
 - Les valeurs bien moins fréquentes que la valeur principale sont considérées comme du bruit et ignorées : une valeur est gardée si son nombre de maps est ≥ 10 % de celui de la valeur principale (`--min-ratio`).
 - Pas d'agrégation par super area (jugée non pertinente).
-- `sprites:images` : rendu direct des sprites utilisés en PNG, tel qu'envoyé au modèle, dans `var/sprites/{grounds|objects}/{id}.png` (extraction SVG en mémoire via ArakneSwf, puis rendu : marges transparentes retirées, agrandi à ~512 px (x16 max), fond gris neutre `#a0a0a0`). La taille visible en pixels du jeu est stockée dans `var/sprites/{set}/sizes.json`. ~5 min et ~440 Mo pour ~4 800 sprites.
+- `sprites:images` : rendu direct des sprites utilisés en PNG, tel qu'envoyé au modèle, dans `var/sprites/{grounds|objects}/{id}.png` (extraction SVG en mémoire via ArakneSwf, puis rendu : marges transparentes retirées, agrandi à ~512 px (x16 max), fond gris neutre `#a0a0a0`). Les métadonnées (taille visible en pixels du jeu, nombre de frames, chemin de l'image) sont stockées dans `var/sprites/{set}/metadata.json`, et jointes à l'export (`image`). ~5 min et ~440 Mo pour ~4 800 sprites.
 - `sprites:export --format=html` : galerie HTML `var/sprites.html` (sprite + données agrégées), filtres : recherche (id, nom, catégorie, mots-clés, objet interactif), objet interactif (type), set, layer, biome, area, intérieur, type de lieu, nombre minimum de maps, tri ; pagination par 200.
 - `make sprites` enchaîne `sprites:analyze`, `sprites:images` et `sprites:export` (JSON et HTML).
 

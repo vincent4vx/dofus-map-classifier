@@ -16,7 +16,7 @@ use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
-use MapClassifier\Sprite\Repository\SpriteImageRepository;
+use MapClassifier\Sprite\Repository\SpriteRepository;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
@@ -33,10 +33,10 @@ final class SpriteTypeClassifierTest extends TestCase
 
     public function testClassify(): void
     {
-        $sprites = new SpriteImageRepository($this->tempDir() . '/sprites');
+        $sprites = new SpriteRepository('/not-used', $this->tempDir() . '/sprites');
 
         foreach ([1, 2, 3, 4] as $id) {
-            $sprites->save(SpriteSet::Objects, $id, new RenderedSprite('png-' . $id, 10.0, 10.0));
+            $sprites->save(SpriteSet::Objects, $id, new RenderedSprite('png-' . $id, 10.0, 10.0), 1);
         }
 
         $sprites->flush(SpriteSet::Objects);

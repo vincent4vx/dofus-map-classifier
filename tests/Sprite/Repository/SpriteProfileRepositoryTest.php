@@ -29,7 +29,7 @@ final class SpriteProfileRepositoryTest extends TestCase
 
         $profiles = SpriteProfiles::of([
             new SpriteProfile(SpriteSet::Objects, 7511, Layer::Layer2, 3, 1, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1)),
-            new SpriteProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [new LocationUsage(1, 'Area', 2)], [], ['plain' => 1], ['outdoor' => 1], ['wild' => 1]),
+            new SpriteProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [new LocationUsage(1, 'Area', 2)], [], ['plain' => 1], ['outdoor' => 1], ['wild' => 1], slope: true),
         ]);
 
         $repository->save($profiles);

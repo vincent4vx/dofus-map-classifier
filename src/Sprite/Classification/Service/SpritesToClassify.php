@@ -9,7 +9,7 @@ use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Model\SpriteFilter;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteProfiles;
-use MapClassifier\Sprite\Repository\SpriteImageRepository;
+use MapClassifier\Sprite\Repository\SpriteRepository;
 
 use function array_slice;
 use function usort;
@@ -21,7 +21,7 @@ final readonly class SpritesToClassify
 {
     public function __construct(
         private SpriteTypeRepository $types,
-        private SpriteImageRepository $images,
+        private SpriteRepository $sprites,
     ) {}
 
     /**
@@ -41,7 +41,7 @@ final readonly class SpritesToClassify
                 continue;
             }
 
-            if (!$this->images->exists($profile->set, $profile->id)) {
+            if ($this->sprites->get($profile->set, $profile->id) === null) {
                 ++$missingImages;
                 continue;
             }

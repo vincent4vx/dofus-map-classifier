@@ -8,9 +8,9 @@ use Arakne\MapParser\Parser\Cell;
 use MapClassifier\Infrastructure\OpenAI\ResponsesRequest;
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
 use MapClassifier\Sprite\Model\Layer;
+use MapClassifier\Sprite\Model\SpriteMetadata;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
-use MapClassifier\Sprite\Model\SpriteSize;
 
 use function array_column;
 use function array_keys;
@@ -31,16 +31,16 @@ final readonly class SpriteTypePrompt
     ) {}
 
     /**
-     * @param SpriteSize $size Visible size of the sprite
+     * @param SpriteMetadata $metadata Metadata of the exported sprite (size, frames)
      *
      * @return array<string, mixed>
      */
-    public function requestBody(SpriteProfile $profile, string $imageUrl, SpriteSize $size): array
+    public function requestBody(SpriteProfile $profile, SpriteMetadata $metadata, string $imageUrl): array
     {
         return ResponsesRequest::structured(
             $this->model,
             self::instructions(),
-            self::context($profile, $size),
+            self::context($profile, $metadata),
             $imageUrl,
             'sprite_type',
             self::schema(),
@@ -52,7 +52,7 @@ final readonly class SpriteTypePrompt
      * Describe what is known about the sprite usage in maps
      *
      *      */
-    public static function context(SpriteProfile $profile, SpriteSize $size): string
+    public static function context(SpriteProfile $profile, SpriteMetadata $metadata): string
     {
         $counts = static fn (array $values) => implode(', ', array_map(
             static fn (string $name, int $count) => $name . ' (' . $count . ')',
@@ -71,10 +71,14 @@ final readonly class SpriteTypePrompt
 
         $lines = [
             'Identify the sprite ' . $profile->set->spriteName($profile->id) . '.',
-            sprintf('Visible size: %s x %s game pixels (one map cell is 53 x 27 pixels).', $size->width, $size->height),
+            sprintf('Visible size: %s x %s game pixels (one map cell is 53 x 27 pixels).', $metadata->size->width, $metadata->size->height),
             sprintf('Mainly used as: %s (%s).', $profile->layer->value, self::layerDescription($profile->layer)),
             sprintf('Used %d times, on %d maps.', $profile->occurrences, $profile->maps),
         ];
+
+        if ($profile->slope) {
+            $lines[] = 'Also used on sloped ground cells (relief).';
+        }
 
         if ($profile->set === SpriteSet::Objects && in_array($profile->id, Cell::TELEPORT_OBJECT_NUMBERS, true)) {
             $lines[] = 'Known sprite: this is the teleport cell marker (cell used to change map), category "marker".';

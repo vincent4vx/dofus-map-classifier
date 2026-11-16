@@ -30,6 +30,7 @@
     .kw { display: inline-block; background: #fff3d6; border: 0; border-radius: 3px; padding: 0 5px; margin: 1px; font: inherit; cursor: pointer; }
     .kw:hover { background: #ffe3a0; }
     .io { background: #2a7a3b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
+    .slope { background: #8a5a2b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; font-weight: normal; }
 </style>
 </head>
 <body>
@@ -41,6 +42,7 @@
         <select name="interactive"><option value="">Interactive or not</option><option value="any">Interactive objects</option>{{interactiveOptions}}<option value="none">Not interactive</option></select>
         <select name="set"><option value="">All sets</option><option value="grounds">grounds</option><option value="objects">objects</option></select>
         <select name="layer"><option value="">All layers</option>{{layers}}</select>
+        <select name="slope"><option value="">Flat &amp; slope</option><option value="slope">Used on slopes</option><option value="flat">Only flat</option></select>
         <select name="biome"><option value="">All biomes</option>{{biomes}}</select>
         <select name="area"><option value="">All areas</option>{{areaOptions}}</select>
         <select name="indoor"><option value="">Indoor &amp; outdoor</option><option value="indoor">Indoor</option><option value="outdoor">Outdoor</option></select>
@@ -90,8 +92,8 @@
         + (locations.length > max ? ' <span class="label">+' + (locations.length - max) + '</span>' : '');
 
     function card(i) {
-        return '<article><div class="sprite"><img loading="lazy" src="' + esc(SPRITES + '/' + i.set + '/' + i.id + '.png') + '" alt="' + i.id + '"></div>'
-            + '<div class="info"><h2>' + i.name + ' <small>' + i.layer + ' · ' + i.maps + ' maps · ' + i.occurrences + ' uses</small></h2>'
+        return '<article><div class="sprite">' + (i.image ? '<img loading="lazy" src="' + esc(SPRITES + '/' + i.image.image) + '" alt="' + i.id + '">' : '') + '</div>'
+            + '<div class="info"><h2>' + i.name + (i.slope ? ' <span class="slope" title="Used on sloped ground cells">slope</span>' : '') + ' <small>' + i.layer + ' · ' + i.maps + ' maps · ' + i.occurrences + ' uses</small></h2>'
             + (i.type ? '<p class="type"><b>' + esc(i.type.name) + '</b> <span class="cat">' + esc(i.type.category) + '</span></p>'
                 + '<p>' + i.type.keywords.map(k => '<button type="button" class="kw">' + esc(k) + '</button>').join('') + '</p>' : '')
             + (i.interactive ? '<p><span class="io" title="Interactive object (langs)">' + esc(i.interactive.type) + ': ' + esc(i.interactive.name) + '</span></p>' : '')
@@ -115,6 +117,7 @@
 
         matching = items.filter(i => (!f.set || i.set === f.set)
             && (!f.layer || i.layer === f.layer)
+            && (!f.slope || i.slope === (f.slope === 'slope'))
             && (!f.interactive || (f.interactive === 'any' ? i.interactive : f.interactive === 'none' ? !i.interactive : i.interactive && i.interactive.type === f.interactive))
             && (!f.category || (f.category === 'none' ? !i.type : i.type && i.type.category === f.category))
             && (!f.biome || f.biome in i.biomes)

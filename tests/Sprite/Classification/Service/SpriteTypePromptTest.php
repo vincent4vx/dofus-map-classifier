@@ -9,6 +9,7 @@ use MapClassifier\Sprite\Classification\Service\SpriteTypePrompt;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
+use MapClassifier\Sprite\Model\SpriteMetadata;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Model\SpriteSize;
@@ -20,7 +21,7 @@ final class SpriteTypePromptTest extends TestCase
 {
     public function testRequestBody(): void
     {
-        $body = (new SpriteTypePrompt('luna', 'low'))->requestBody($this->profile(), 'data:image/png;base64,xxx', new SpriteSize(53.0, 27.5));
+        $body = (new SpriteTypePrompt('luna', 'low'))->requestBody($this->profile(), self::metadata(53.0, 27.5), 'data:image/png;base64,xxx');
 
         $this->assertSame('luna', $body['model']);
         $this->assertSame(['effort' => 'low'], $body['reasoning']);
@@ -42,7 +43,7 @@ final class SpriteTypePromptTest extends TestCase
             Sub areas: Village (40).
             Indoor / outdoor maps: outdoor (60).
             Kind of places: wild (40), road (20).
-            TXT, SpriteTypePrompt::context($this->profile(), new SpriteSize(53.0, 27.5)));
+            TXT, SpriteTypePrompt::context($this->profile(), self::metadata(53.0, 27.5)));
     }
 
     public function testContextInteractiveObject(): void
@@ -51,8 +52,15 @@ final class SpriteTypePromptTest extends TestCase
 
         $this->assertStringContainsString(
             "\n" . 'Known interactive object (from the game data): "Wheat", resource harvested by a profession: tree, ore, cereal, plant, fish…. Use this name, and choose the category of what the sprite shows.',
-            SpriteTypePrompt::context($profile, new SpriteSize(25.0, 13.0)),
+            SpriteTypePrompt::context($profile, self::metadata(25.0, 13.0)),
         );
+    }
+
+    public function testContextSlope(): void
+    {
+        $profile = new SpriteProfile(SpriteSet::Grounds, 69, Layer::Ground, 7, 3, 0, [], [], [], [], [], slope: true);
+
+        $this->assertStringContainsString("\nAlso used on sloped ground cells (relief).", SpriteTypePrompt::context($profile, self::metadata(53.0, 27.0, SpriteSet::Grounds, 15)));
     }
 
     public function testContextMinimalAndTeleportMarker(): void
@@ -65,11 +73,11 @@ final class SpriteTypePromptTest extends TestCase
             Mainly used as: layer1 (element drawn flat on the ground, below characters: paths, carpets, shadows, small vegetation, ground details).
             Used 10 times, on 2 maps.
             Known sprite: this is the teleport cell marker (cell used to change map), category "marker".
-            TXT, SpriteTypePrompt::context($profile, new SpriteSize(25.0, 13.0)));
+            TXT, SpriteTypePrompt::context($profile, self::metadata(25.0, 13.0)));
 
         $ground = new SpriteProfile(SpriteSet::Grounds, 1030, Layer::Ground, 10, 2, 0, [], [], [], [], []);
-        $this->assertStringNotContainsString('teleport', SpriteTypePrompt::context($ground, new SpriteSize(1.0, 1.0)));
-        $this->assertStringStartsWith('Identify the sprite g1030.', SpriteTypePrompt::context($ground, new SpriteSize(1.0, 1.0)));
+        $this->assertStringNotContainsString('teleport', SpriteTypePrompt::context($ground, self::metadata(1.0, 1.0)));
+        $this->assertStringStartsWith('Identify the sprite g1030.', SpriteTypePrompt::context($ground, self::metadata(1.0, 1.0)));
     }
 
     public function testSchemaAndInstructions(): void
@@ -100,5 +108,10 @@ final class SpriteTypePromptTest extends TestCase
             indoor: ['outdoor' => 60],
             locationTypes: ['wild' => 40, 'road' => 20],
         );
+    }
+
+    private static function metadata(float $width, float $height, SpriteSet $set = SpriteSet::Objects, int $frames = 1): SpriteMetadata
+    {
+        return new SpriteMetadata($set, 1, new SpriteSize($width, $height), $frames, $set->value . '/1.png');
     }
 }

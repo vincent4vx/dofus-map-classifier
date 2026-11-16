@@ -17,7 +17,7 @@ use function is_array;
  * Attributes values are given with the number of maps they come from, sorted by count.
  * Values much less frequent than the main one are considered as noise, and removed.
  *
- * JSON (sprite_profiles.json): {"id", "layer", "occurrences", "maps", "classified_maps",
+ * JSON (sprite_profiles.json): {"id", "layer", "slope", "occurrences", "maps", "classified_maps",
  * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: maps}, "indoor": {"indoor" | "outdoor": maps},
  * "location_types": {type: maps}, "interactive": {@see InteractiveObject} | null}
  */
@@ -46,6 +46,8 @@ final readonly class SpriteProfile implements JsonSerializable
         public array $locationTypes,
         /** Interactive object (resource, workshop…) drawn by the sprite, from the langs */
         public ?InteractiveObject $interactive = null,
+        /** Ground sprite drawn on slopes: used on at least one sloped cell (slope other than 0 and 1, i.e. not flat), with one frame per slope value */
+        public bool $slope = false,
     ) {}
 
     /**
@@ -74,6 +76,7 @@ final readonly class SpriteProfile implements JsonSerializable
             indoor: $counts($data['indoor'] ?? null),
             locationTypes: $counts($data['location_types'] ?? null),
             interactive: is_array($data['interactive'] ?? null) ? InteractiveObject::fromArray($data['interactive']) : null,
+            slope: ($data['slope'] ?? false) === true,
         );
     }
 
@@ -86,6 +89,7 @@ final readonly class SpriteProfile implements JsonSerializable
         return [
             'id' => $this->id,
             'layer' => $this->layer->value,
+            'slope' => $this->slope,
             'occurrences' => $this->occurrences,
             'maps' => $this->maps,
             'classified_maps' => $this->classifiedMaps,

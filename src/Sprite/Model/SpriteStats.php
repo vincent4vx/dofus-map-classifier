@@ -8,15 +8,14 @@ use MapClassifier\Location\Model\MapLocation;
 use MapClassifier\Map\Classification\Model\Biome;
 use MapClassifier\Map\Classification\Model\MapClassification;
 
-use function array_key_first;
 use function array_sum;
-use function arsort;
 
 /**
  * Usage of a sprite, accumulated over the maps using it (see {@see \MapClassifier\Sprite\Service\SpriteAnalyzer})
  *
- * Map attributes are counted once per map, by {@see addMap()}.
- * To aggregate a new attribute: add its counts here, fill them in {@see addMap()}, and add it to {@see SpriteProfile}.
+ * Each map using the sprite is counted once, by {@see addMap()}.
+ * To aggregate a new data: extract it in {@see MapSpriteUsage} (for usage data) or take it from the map, count it here in {@see addMap()},
+ * and add it to {@see SpriteProfile}.
  */
 final class SpriteStats
 {
@@ -44,23 +43,25 @@ final class SpriteStats
     /** @var array<string, int> Number of classified maps, indexed by location type value */
     public private(set) array $locationTypes = [];
 
-    /**
-     * Count the cells of a map layer using the sprite
-     */
-    public function addCells(Layer $layer, int $count): void
-    {
-        $this->cells[$layer->value] = ($this->cells[$layer->value] ?? 0) + $count;
-    }
+    /** Number of ground cells with a slope (not flat) using the sprite */
+    public private(set) int $slopedCells = 0;
 
     /**
-     * Count the attributes of a map using the sprite. Must be called once per map.
+     * Count a map using the sprite: its usage on the map, and the map attributes. Must be called once per map.
      *
+     * @param MapSpriteUsage $usage Usage of the sprite on the map
      * @param Biome|null $biome Biome of the map, or of its sub area
      * @param MapClassification|null $classification Null if the map is not classified
      */
-    public function addMap(?MapLocation $location, ?Biome $biome, ?MapClassification $classification): void
+    public function addMap(MapSpriteUsage $usage, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification): void
     {
         ++$this->maps;
+
+        foreach ($usage->cells as $layer => $count) {
+            $this->cells[$layer] = ($this->cells[$layer] ?? 0) + $count;
+        }
+
+        $this->slopedCells += $usage->slopedCells;
 
         if ($location !== null) {
             self::increment($this->subAreas, $location->subAreaId);
@@ -82,14 +83,20 @@ final class SpriteStats
     }
 
     /**
-     * Layer using the sprite on the most cells (the first counted one on equality)
+     * Layer using the sprite on the most cells
+     * On equality, the last layer in the {@see Layer} order is used (e.g. layer2 rather than layer1), so the result does not depend on the reading order
      */
     public function mainLayer(): Layer
     {
-        $cells = $this->cells;
-        arsort($cells);
+        $main = null;
 
-        return Layer::from((string) array_key_first($cells));
+        foreach (Layer::cases() as $layer) {
+            if (($this->cells[$layer->value] ?? 0) >= ($main === null ? 1 : $this->cells[$main->value])) {
+                $main = $layer;
+            }
+        }
+
+        return $main ?? Layer::Background;
     }
 
     /**

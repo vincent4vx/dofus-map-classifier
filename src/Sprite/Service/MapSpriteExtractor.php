@@ -12,10 +12,11 @@ use MapClassifier\Map\Model\MapFile;
 use MapClassifier\Map\Model\RenderError;
 use MapClassifier\Map\Repository\MapKeyRepository;
 use MapClassifier\Sprite\Model\Layer;
+use MapClassifier\Sprite\Model\MapSprites;
 use Throwable;
 
 /**
- * Extract the sprites used by a map, per layer
+ * Extract the sprites used by a map, with their usage (cells per layer, slopes…)
  */
 final readonly class MapSpriteExtractor
 {
@@ -25,11 +26,10 @@ final readonly class MapSpriteExtractor
     ) {}
 
     /**
-     * @return array<string, array<int, int>> Number of occurrences of each sprite number, indexed by layer value
      *
      * @throws RenderException When the map cannot be loaded
      */
-    public function extract(MapFile $map): array
+    public function extract(MapFile $map): MapSprites
     {
         $attachments = [];
 
@@ -44,21 +44,24 @@ final readonly class MapSpriteExtractor
             throw new RenderException(RenderError::RenderFailed, $e->getMessage(), $e);
         }
 
-        $sprites = [];
+        $sprites = new MapSprites();
 
         if ($loaded->background > 0) {
-            $sprites[Layer::Background->value][$loaded->background] = 1;
+            $sprites->addCell(Layer::Background, $loaded->background);
         }
 
         foreach ($loaded->cells as $cell) {
-            foreach ([
-                Layer::Ground->value => $cell->ground->number,
-                Layer::Layer1->value => $cell->layer1->number,
-                Layer::Layer2->value => $cell->layer2->number,
-            ] as $layer => $number) {
-                if ($number > 0) {
-                    $sprites[$layer][$number] = ($sprites[$layer][$number] ?? 0) + 1;
-                }
+            if ($cell->ground->number > 0) {
+                // Flat ground has the slope 1 (0 is not valid)
+                $sprites->addCell(Layer::Ground, $cell->ground->number, $cell->ground->slope > 1);
+            }
+
+            if ($cell->layer1->number > 0) {
+                $sprites->addCell(Layer::Layer1, $cell->layer1->number);
+            }
+
+            if ($cell->layer2->number > 0) {
+                $sprites->addCell(Layer::Layer2, $cell->layer2->number);
             }
         }
 

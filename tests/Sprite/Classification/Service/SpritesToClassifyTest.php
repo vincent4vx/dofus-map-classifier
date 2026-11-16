@@ -18,7 +18,7 @@ use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSelection;
 use MapClassifier\Sprite\Model\SpriteSet;
-use MapClassifier\Sprite\Repository\SpriteImageRepository;
+use MapClassifier\Sprite\Repository\SpriteRepository;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
 
@@ -34,7 +34,7 @@ final class SpritesToClassifyTest extends TestCase
 
     protected function setUp(): void
     {
-        $images = new SpriteImageRepository($this->tempDir() . '/sprites');
+        $images = new SpriteRepository('/not-used', $this->tempDir() . '/sprites');
         $this->types = new SpriteTypeRepository($this->tempDir() . '/types');
         $this->service = new SpritesToClassify($this->types, $images);
 
@@ -49,7 +49,7 @@ final class SpritesToClassifyTest extends TestCase
         foreach ($this->profiles as $profile) {
             // Sprite o4 is not exported
             if ($profile->set !== SpriteSet::Objects || $profile->id !== 4) {
-                $images->save($profile->set, $profile->id, new RenderedSprite('png', 1.0, 1.0));
+                $images->save($profile->set, $profile->id, new RenderedSprite('png', 1.0, 1.0), 1);
             }
         }
 

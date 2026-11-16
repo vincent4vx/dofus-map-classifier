@@ -13,7 +13,7 @@ use MapClassifier\Sprite\Classification\Model\SpriteTypeError;
 use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
 use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Model\SpriteProfile;
-use MapClassifier\Sprite\Repository\SpriteImageRepository;
+use MapClassifier\Sprite\Repository\SpriteRepository;
 use Throwable;
 
 use function base64_encode;
@@ -26,7 +26,7 @@ final readonly class SpriteTypeClassifier
     public function __construct(
         private ConcurrentResponsesClient $client,
         private SpriteTypePrompt $prompt,
-        private SpriteImageRepository $sprites,
+        private SpriteRepository $sprites,
         private SpriteTypeRepository $storage,
         private string $model,
     ) {}
@@ -40,15 +40,15 @@ final readonly class SpriteTypeClassifier
     {
         $requests = (function () use ($profiles, $onResult) {
             foreach ($profiles as $profile) {
-                $png = $this->sprites->read($profile->set, $profile->id);
-                $size = $this->sprites->size($profile->set, $profile->id);
+                $metadata = $this->sprites->get($profile->set, $profile->id);
+                $png = $metadata !== null ? $this->sprites->image($metadata) : null;
 
-                if ($png === null || $size === null) {
+                if ($metadata === null || $png === null) {
                     $this->save(SpriteTypeResult::failure($profile->set, $profile->id, SpriteTypeError::ImageNotExported), $onResult);
                     continue;
                 }
 
-                yield $profile => fn () => $this->prompt->requestBody($profile, 'data:image/png;base64,' . base64_encode($png), $size);
+                yield $profile => fn () => $this->prompt->requestBody($profile, $metadata, 'data:image/png;base64,' . base64_encode($png));
             }
         })();
 

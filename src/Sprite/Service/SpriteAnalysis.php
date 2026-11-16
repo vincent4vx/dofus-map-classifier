@@ -11,6 +11,7 @@ use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Model\MapFile;
 use MapClassifier\Sprite\Model\SpriteAnalysisReport;
 use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
+use MapClassifier\Sprite\Repository\SpriteRepository;
 
 /**
  * Analyze the sprites used by the maps: load the maps data (locations, classifications, interactive objects),
@@ -23,6 +24,7 @@ final readonly class SpriteAnalysis
         private MapLocationRepository $locations,
         private MapResultRepository $results,
         private InteractiveObjectRepository $interactiveObjects,
+        private SpriteRepository $sprites,
         private SubAreaBiomeResolver $subAreaBiomes = new SubAreaBiomeResolver(),
     ) {}
 
@@ -43,6 +45,7 @@ final readonly class SpriteAnalysis
             $this->subAreaBiomes->resolve($locations, $results),
             $minRatio,
             $this->interactiveObjects->tryByGfx(static fn (string $error) => $onWarning('Interactive objects not available: ' . $error)),
+            $this->sprites,
         );
 
         $analyzed = 0;

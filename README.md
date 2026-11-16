@@ -74,7 +74,7 @@ var/
   sub_areas.json              biome of each sub area, deduced from its classified maps
   sprite_profiles.json        data of each sprite (layer, areas, biomes…), aggregated from the maps
   sprites.json                export of sprites: profile and type of each sprite
-  sprites/{grounds|objects}/  sprites rendered as PNG (as sent to the model), with sizes.json
+  sprites/{grounds|objects}/  sprites rendered as PNG (as sent to the model), with metadata.json (size, frames)
   sprites.html                visual report of sprites, with filters
   sprite_types/{set}/{id}.json  type of each sprite (category, name, keywords)
   report.html                 visual report

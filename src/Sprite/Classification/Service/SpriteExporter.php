@@ -8,14 +8,16 @@ use MapClassifier\Sprite\Classification\Model\Export\ExportedSprite;
 use MapClassifier\Sprite\Classification\Model\Export\SpriteExport;
 use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Model\SpriteProfiles;
+use MapClassifier\Sprite\Repository\SpriteRepository;
 
 /**
- * Join the sprites profiles with their type
+ * Join the sprites profiles with their image metadata and their type
  */
 final readonly class SpriteExporter
 {
     public function __construct(
         private SpriteTypeRepository $types,
+        private SpriteRepository $sprites,
     ) {}
 
     public function export(SpriteProfiles $profiles): SpriteExport
@@ -25,7 +27,7 @@ final readonly class SpriteExporter
         $sprites = [];
 
         foreach ($profiles as $profile) {
-            $sprites[] = new ExportedSprite($profile, $resolver->type($profile));
+            $sprites[] = new ExportedSprite($profile, $this->sprites->get($profile->set, $profile->id), $resolver->type($profile));
         }
 
         return new SpriteExport($sprites);

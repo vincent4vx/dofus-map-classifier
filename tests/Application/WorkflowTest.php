@@ -16,6 +16,7 @@ use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
+use function array_diff_key;
 use function array_find;
 use function array_key_first;
 use function array_key_last;
@@ -184,8 +185,8 @@ final class WorkflowTest extends TestCase
                 $this->assertFileExists($this->config->varDir . '/sprites/' . $set . '/' . $id . '.png');
             }
 
-            $sizes = json_decode((string) file_get_contents($this->config->varDir . '/sprites/' . $set . '/sizes.json'), true);
-            $this->assertSameSize($objects[$set], $sizes);
+            $metadata = json_decode((string) file_get_contents($this->config->varDir . '/sprites/' . $set . '/metadata.json'), true);
+            $this->assertSameSize($objects[$set], $metadata);
         }
 
         $size = getimagesize($this->config->varDir . '/sprites/objects/' . array_key_first($objects['objects']) . '.png');
@@ -220,7 +221,8 @@ final class WorkflowTest extends TestCase
         $joined = json_decode((string) file_get_contents($this->config->varDir . '/sprites.json'), true);
         $this->assertSame('snowy pine', $joined['objects'][$firstObject]['type']['name']);
         $this->assertSame(array_keys($objects['objects']), array_keys($joined['objects']));
-        $this->assertSame($objects['objects'][$firstObject] + ['type' => $joined['objects'][$firstObject]['type']], $joined['objects'][$firstObject]);
+        $this->assertSame($objects['objects'][$firstObject], array_diff_key($joined['objects'][$firstObject], ['image' => 0, 'type' => 0]), 'Profile, with image and type');
+        $this->assertSame('objects/' . $firstObject . '.png', $joined['objects'][$firstObject]['image']['image']);
 
         // Type is displayed in the HTML gallery, also exported by sprites:classify
         $this->assertStringContainsString('"type":{"category":"tree","name":"snowy pine","keywords":["pine","snow"],"description":"A snowy pine."}', (string) file_get_contents($this->config->varDir . '/sprites.html'));

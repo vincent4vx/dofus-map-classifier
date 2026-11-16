@@ -11,13 +11,19 @@ use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
+use MapClassifier\Sprite\Model\MapSprites;
+use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Repository\SpriteRepository;
 use MapClassifier\Sprite\Service\SpriteAnalyzer;
+use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
 
 final class SpriteAnalyzerTest extends TestCase
 {
+    use TempDirTrait;
+
     public function testProfiles(): void
     {
         $locations = [];
@@ -50,10 +56,10 @@ final class SpriteAnalyzerTest extends TestCase
 
             // Ground 345 is a different sprite
             $layers['ground'] = [345 => 10];
-            $analyzer->add($id, $layers);
+            $analyzer->add($id, self::sprites($layers));
         }
 
-        $analyzer->add(100, ['layer1' => [7 => 2], 'background' => [12 => 1], 'ground' => [12 => 5]]);
+        $analyzer->add(100, self::sprites(['layer1' => [7 => 2], 'background' => [12 => 1], 'ground' => [12 => 5]]));
 
         $profiles = $analyzer->profiles();
 
@@ -95,6 +101,7 @@ final class SpriteAnalyzerTest extends TestCase
         $this->assertSame([
             'id' => 7,
             'layer' => 'layer1',
+            'slope' => false,
             'occurrences' => 2,
             'maps' => 1,
             'classified_maps' => 0,
@@ -105,6 +112,35 @@ final class SpriteAnalyzerTest extends TestCase
             'location_types' => [],
             'interactive' => null,
         ], json_decode((string) json_encode($profiles->get(SpriteSet::Objects, 7)), true));
+    }
+
+    public function testSlope(): void
+    {
+        $sprites = new SpriteRepository('/not-used', $this->tempDir());
+
+        foreach ([1 => 15, 2 => 15, 3 => 15, 4 => 1] as $id => $frames) {
+            $sprites->save(SpriteSet::Grounds, $id, new RenderedSprite('png', 1.0, 1.0), $frames);
+        }
+
+        $sprites->save(SpriteSet::Objects, 1, new RenderedSprite('png', 1.0, 1.0), 15);
+
+        $analyzer = new SpriteAnalyzer([], [], sprites: $sprites);
+        // Ground 1: 4 sloped cells out of 6, ground 2: 1 out of 6, ground 3: never sloped, ground 4: sloped but without slope frames, ground 5: not exported
+        $analyzer->add(1, self::sprites(['ground' => [1 => 4, 2 => 3, 3 => 2, 4 => 1, 5 => 1], 'background' => [3 => 1]], [1 => 3, 2 => 1, 4 => 1, 5 => 1]));
+        $analyzer->add(2, self::sprites(['ground' => [1 => 2, 2 => 3], 'layer1' => [1 => 1]], [1 => 1]));
+
+        $profiles = $analyzer->profiles();
+
+        $this->assertTrue($profiles->get(SpriteSet::Grounds, 1)?->slope);
+        $this->assertTrue($profiles->get(SpriteSet::Grounds, 2)?->slope, 'A single sloped cell is enough');
+        $this->assertFalse($profiles->get(SpriteSet::Grounds, 3)?->slope, 'Never used on a slope');
+        $this->assertFalse($profiles->get(SpriteSet::Grounds, 4)?->slope, 'No frame per slope value');
+        $this->assertFalse($profiles->get(SpriteSet::Grounds, 5)?->slope, 'Not exported: frames unknown');
+        $this->assertFalse($profiles->get(SpriteSet::Objects, 1)?->slope, 'Only ground sprites');
+
+        $withoutRepository = new SpriteAnalyzer([], []);
+        $withoutRepository->add(1, self::sprites(['ground' => [1 => 1]], [1 => 1]));
+        $this->assertFalse($withoutRepository->profiles()->get(SpriteSet::Grounds, 1)?->slope);
     }
 
     public function testBiomeFallbackOnSubArea(): void
@@ -120,9 +156,9 @@ final class SpriteAnalyzerTest extends TestCase
         ];
 
         $analyzer = new SpriteAnalyzer($locations, $results, new SubAreaBiomeResolver()->resolve($locations, $results));
-        $analyzer->add(1, ['layer1' => [1 => 1]]);
-        $analyzer->add(2, ['layer1' => [1 => 1]]);
-        $analyzer->add(3, ['layer1' => [1 => 1]]); // not classified
+        $analyzer->add(1, self::sprites(['layer1' => [1 => 1]]));
+        $analyzer->add(2, self::sprites(['layer1' => [1 => 1]]));
+        $analyzer->add(3, self::sprites(['layer1' => [1 => 1]])); // not classified
 
         $profile = $analyzer->profiles()->get(SpriteSet::Objects, 1);
 
@@ -137,7 +173,7 @@ final class SpriteAnalyzerTest extends TestCase
     {
         $wheat = new InteractiveObject(38, 'Wheat', 1);
         $analyzer = new SpriteAnalyzer([], [], interactiveObjects: [7511 => $wheat]);
-        $analyzer->add(1, ['layer2' => [7511 => 1, 12 => 1], 'ground' => [7511 => 1]]);
+        $analyzer->add(1, self::sprites(['layer2' => [7511 => 1, 12 => 1], 'ground' => [7511 => 1]]));
 
         $profiles = $analyzer->profiles();
 
@@ -172,5 +208,24 @@ final class SpriteAnalyzerTest extends TestCase
             'tags' => [],
             'description' => '',
         ]), 'luna');
+    }
+
+    /**
+     * @param array<string, array<int, int>> $cells Number of cells using each sprite, indexed by layer value then sprite id
+     * @param array<int, int> $slopedGrounds Number of sloped ground cells, indexed by ground sprite id
+     */
+    private static function sprites(array $cells, array $slopedGrounds = []): MapSprites
+    {
+        $sprites = new MapSprites();
+
+        foreach ($cells as $layer => $counts) {
+            foreach ($counts as $id => $count) {
+                for ($i = 0; $i < $count; ++$i) {
+                    $sprites->addCell(Layer::from($layer), $id, $layer === 'ground' && $i < ($slopedGrounds[$id] ?? 0));
+                }
+            }
+        }
+
+        return $sprites;
     }
 }
