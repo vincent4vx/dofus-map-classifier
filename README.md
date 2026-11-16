@@ -76,3 +76,36 @@ var/
   object_types/{set}/{id}.json  type of each sprite (category, name, keywords)
   report.html                 visual report
 ```
+
+## Code organization
+
+Code is split by domain, then by kind of class:
+
+```
+src/
+  Location/               map locations (sub area, area, super area) from the langs
+  Map/                    map files, keys and rendering
+    Classification/       biome classification of maps, sub areas biomes, export and HTML report
+      Batch/              OpenAI Batch API workflow
+  Sprite/                 sprites used by the maps: extraction, aggregated profiles, PNG export
+    Classification/       type of sprites (category, name, keywords) and HTML report
+  Infrastructure/         technical tools: OpenAI client, JSON files, lang files, paths
+  Application/            configuration and services wiring (Kernel)
+```
+
+Each domain separates the data read from the game files from the `Classification` made by the model
+(external API, which costs and may be wrong, and is stored apart in `var/`).
+
+Inside each domain (and each `Classification`):
+
+- `Command/`: console commands of the domain
+- `Model/`: data structures (value objects, enums), without dependencies on services or storage
+- `Repository/`: data access (JSON files, lang files, client files)
+- `Service/`: processing (rendering, classification, aggregation, selection…)
+- `Report/`: HTML pages generation
+- `Exception/`: domain errors
+
+Dependencies go one way: `Location` ← `Map` ← `Map\Classification` ← `Sprite` ← `Sprite\Classification`, all of them may use `Infrastructure`.
+Only `Application` knows the configuration and wires the services: commands receive their services and paths.
+Commands only handle the console input and output, and delegate to the services. Tests follow the same tree.
+

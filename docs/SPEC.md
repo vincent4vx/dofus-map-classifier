@@ -72,6 +72,8 @@ Enums en anglais, tags et description en anglais.
 
 ### Architecture
 
+- Découpage par domaine (`Location`, `Map`, `Sprite`), plus `Infrastructure` (OpenAI, JSON, langs) et `Application` (configuration, câblage). `Map` et `Sprite` séparent les données lues dans le jeu de leur sous-domaine `Classification` (résultats du modèle). Dans chaque domaine, les classes sont séparées par type : `Command` (commandes console), `Model` (structures de données), `Repository` (accès aux données), `Service` (traitements), `Report` (pages HTML), `Exception`. Voir le README.
+- Dépendances à sens unique : `Location` ← `Map` ← `Map\Classification` ← `Sprite` ← `Sprite\Classification`. Seul `Application` connaît la configuration et le `Kernel` ; les commandes ne gèrent que l'entrée / sortie console.
 - Services découplés : provider de clés, renderer, client de classification (interface, mockable), stockage des résultats.
 - Le résultat par map doit pouvoir être enrichi (area / sub area en étape 2). Les rendus PNG sont conservés pour l'étape 3.
 - Tests PHPUnit sans appel réseau.

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests;
 
-use MapClassifier\OpenAI\BatchApiInterface;
-use MapClassifier\OpenAI\BatchInfo;
+use MapClassifier\Infrastructure\OpenAI\BatchApiInterface;
+use MapClassifier\Infrastructure\OpenAI\BatchInfo;
 use Override;
 
 use function count;

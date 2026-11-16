@@ -3,8 +3,8 @@
 
 declare(strict_types=1);
 
-use MapClassifier\Config;
-use MapClassifier\Kernel;
+use MapClassifier\Application\Config;
+use MapClassifier\Application\Kernel;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
