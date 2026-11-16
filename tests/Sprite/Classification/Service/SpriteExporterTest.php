@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MapClassifier\Tests\Sprite\Classification\Service;
 
 use MapClassifier\Sprite\Classification\Model\SpriteType;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeError;
 use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
 use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Classification\Service\SpriteExporter;
@@ -28,7 +29,7 @@ final class SpriteExporterTest extends TestCase
     {
         $types = new SpriteTypeRepository($this->tempDir());
         $types->save(SpriteTypeResult::success(SpriteSet::Objects, 7511, SpriteType::fromArray(['category' => 'crop', 'name' => 'wheat stalks', 'keywords' => ['cereal'], 'description' => 'Wheat.']), 'luna'));
-        $types->save(SpriteTypeResult::failure(SpriteSet::Objects, 12, 'error'));
+        $types->save(SpriteTypeResult::failure(SpriteSet::Objects, 12, SpriteTypeError::ClassificationFailed, 'error'));
 
         $wheat = new SpriteProfile(SpriteSet::Objects, 7511, Layer::Layer2, 3, 1, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1));
         $failed = new SpriteProfile(SpriteSet::Objects, 12, Layer::Layer2, 3, 1, 0, [], [], [], [], []);

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MapClassifier\Sprite\Classification\Service;
 
 use Arakne\MapParser\Parser\Cell;
+use MapClassifier\Infrastructure\OpenAI\ResponsesRequest;
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\SpriteProfile;
@@ -36,33 +37,15 @@ final readonly class SpriteTypePrompt
      */
     public function requestBody(SpriteProfile $profile, string $imageUrl, SpriteSize $size): array
     {
-        $body = [
-            'model' => $this->model,
-            'instructions' => self::instructions(),
-            'input' => [
-                [
-                    'role' => 'user',
-                    'content' => [
-                        ['type' => 'input_text', 'text' => self::context($profile, $size)],
-                        ['type' => 'input_image', 'image_url' => $imageUrl, 'detail' => 'high'],
-                    ],
-                ],
-            ],
-            'text' => [
-                'format' => [
-                    'type' => 'json_schema',
-                    'name' => 'sprite_type',
-                    'strict' => true,
-                    'schema' => self::schema(),
-                ],
-            ],
-        ];
-
-        if ($this->reasoningEffort !== null) {
-            $body['reasoning'] = ['effort' => $this->reasoningEffort];
-        }
-
-        return $body;
+        return ResponsesRequest::structured(
+            $this->model,
+            self::instructions(),
+            self::context($profile, $size),
+            $imageUrl,
+            'sprite_type',
+            self::schema(),
+            $this->reasoningEffort,
+        );
     }
 
     /**

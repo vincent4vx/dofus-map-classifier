@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace MapClassifier\Map\Classification\Service;
 
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
-use MapClassifier\Map\Classification\Model\ErrorCode;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Repository\MapResultRepository;
 use MapClassifier\Map\Model\MapFile;
@@ -42,9 +41,7 @@ final readonly class MapClassifier
         })();
 
         $this->client->run($requests, $concurrency, function (MapFile $map, int $status, array $body, ?Throwable $error) use ($onResult) {
-            $result = $error !== null
-                ? MapResult::failure($map->id, $map->version, ErrorCode::ClassificationFailed, $error->getMessage(), $this->model)
-                : $this->parser->parse($map->id, $map->version, $status, $body, $this->model);
+            $result = $this->parser->parse($map->id, $map->version, $status, $body, $this->model, $error);
 
             $this->results->save($result);
 

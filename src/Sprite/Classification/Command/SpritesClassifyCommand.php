@@ -6,6 +6,7 @@ namespace MapClassifier\Sprite\Classification\Command;
 
 use InvalidArgumentException;
 use MapClassifier\Infrastructure\Console\EnumOption;
+use MapClassifier\Infrastructure\Console\ProgressOutput;
 use MapClassifier\Infrastructure\Export\ExportFormat;
 use MapClassifier\Sprite\Classification\Model\Export\SpriteExport;
 use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
@@ -112,12 +113,9 @@ final class SpritesClassifyCommand extends Command
 
         $ok = 0;
         $errors = 0;
-        $progress = $io->createProgressBar(count($todo));
-        $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %message%');
-        $progress->setMessage('');
-        $progress->start();
+        $progress = new ProgressOutput($io, count($todo));
 
-        $this->classifier->classify($todo, max(1, (int) $option('concurrency')), static function (SpriteTypeResult $result) use ($io, $output, $progress, &$ok, &$errors) {
+        $this->classifier->classify($todo, max(1, (int) $option('concurrency')), static function (SpriteTypeResult $result) use ($output, $progress, &$ok, &$errors) {
             $name = $result->set->spriteName($result->id);
 
             $classification = $result->ok ? $result->classification : null;
@@ -127,21 +125,17 @@ final class SpritesClassifyCommand extends Command
                 $message = sprintf('%s: %s (%s)', $name, $classification->name, $classification->category->value);
             } else {
                 ++$errors;
-                $message = sprintf('<comment>%s: %s</comment>', $name, $result->error);
+                $message = sprintf('<comment>%s: %s%s</comment>', $name, $result->error?->value, $result->errorMessage !== null ? ' (' . $result->errorMessage . ')' : '');
             }
 
             if ($output->isVerbose() || !$result->ok) {
-                $progress->clear();
-                $io->writeln($message);
-                $progress->display();
+                $progress->writeln($message);
             }
 
-            $progress->setMessage($name);
-            $progress->advance();
+            $progress->advance($name);
         });
 
         $progress->finish();
-        $io->newLine(2);
 
         // Export again, to join the new types
         $export = $this->exporter->export($profiles);

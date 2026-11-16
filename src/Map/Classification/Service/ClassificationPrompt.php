@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Map\Classification\Service;
 
+use MapClassifier\Infrastructure\OpenAI\ResponsesRequest;
 use MapClassifier\Map\Classification\Model\Biome;
 use MapClassifier\Map\Classification\Model\LocationType;
 
@@ -29,33 +30,15 @@ final readonly class ClassificationPrompt
      */
     public function requestBody(int $mapId, string $imageUrl): array
     {
-        $body = [
-            'model' => $this->model,
-            'instructions' => self::instructions(),
-            'input' => [
-                [
-                    'role' => 'user',
-                    'content' => [
-                        ['type' => 'input_text', 'text' => 'Classify the map ' . $mapId . '.'],
-                        ['type' => 'input_image', 'image_url' => $imageUrl, 'detail' => 'high'],
-                    ],
-                ],
-            ],
-            'text' => [
-                'format' => [
-                    'type' => 'json_schema',
-                    'name' => 'map_classification',
-                    'strict' => true,
-                    'schema' => self::schema(),
-                ],
-            ],
-        ];
-
-        if ($this->reasoningEffort !== null) {
-            $body['reasoning'] = ['effort' => $this->reasoningEffort];
-        }
-
-        return $body;
+        return ResponsesRequest::structured(
+            $this->model,
+            self::instructions(),
+            'Classify the map ' . $mapId . '.',
+            $imageUrl,
+            'map_classification',
+            self::schema(),
+            $this->reasoningEffort,
+        );
     }
 
     public static function instructions(): string

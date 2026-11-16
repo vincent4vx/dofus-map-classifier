@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Map\Command;
 
+use MapClassifier\Infrastructure\Console\ProgressOutput;
 use MapClassifier\Location\Repository\MapLocationRepository;
 use MapClassifier\Map\Repository\MapFileRepository;
 use MapClassifier\Map\Service\MapRenderService;
@@ -59,29 +60,25 @@ final class MapsRenderCommand extends Command
 
         $rendered = 0;
         $failed = 0;
-        $progress = $io->createProgressBar(count($todo));
-        $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %message%');
-        $progress->setMessage('');
+        $progress = new ProgressOutput($io, count($todo));
 
         foreach ($todo as $map) {
-            $progress->setMessage('map ' . $map->id);
-
             $error = $this->service->render($map);
 
             if ($error === null) {
                 ++$rendered;
             } else {
                 ++$failed;
-                $progress->clear();
-                $io->writeln(sprintf('<comment>Map %d: %s (%s)</comment>', $map->id, $error->error->value, $error->getMessage()), OutputInterface::VERBOSITY_VERBOSE);
-                $progress->display();
+
+                if ($output->isVerbose()) {
+                    $progress->writeln(sprintf('<comment>Map %d: %s (%s)</comment>', $map->id, $error->error->value, $error->getMessage()));
+                }
             }
 
-            $progress->advance();
+            $progress->advance('map ' . $map->id);
         }
 
         $progress->finish();
-        $io->newLine(2);
 
         if ($failed) {
             $io->warning(sprintf('%d maps rendered, %d failed (run with -v to display the errors)', $rendered, $failed));

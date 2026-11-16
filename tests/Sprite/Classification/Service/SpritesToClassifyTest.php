@@ -6,6 +6,7 @@ namespace MapClassifier\Tests\Sprite\Classification\Service;
 
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
 use MapClassifier\Sprite\Classification\Model\SpriteType;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeError;
 use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
 use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Classification\Service\SpritesToClassify;
@@ -78,7 +79,7 @@ final class SpritesToClassifyTest extends TestCase
     public function testAlreadyClassified(): void
     {
         $this->types->save(SpriteTypeResult::success(SpriteSet::Objects, 2, new SpriteType(SpriteCategory::Tree, 'tree', [], ''), 'luna'));
-        $this->types->save(SpriteTypeResult::failure(SpriteSet::Objects, 3, 'error'));
+        $this->types->save(SpriteTypeResult::failure(SpriteSet::Objects, 3, SpriteTypeError::ClassificationFailed, 'error'));
 
         $all = SpriteSelection::parse([]);
 

@@ -6,6 +6,9 @@ namespace MapClassifier\Infrastructure\OpenAI;
 
 use function is_array;
 use function is_string;
+use function json_encode;
+
+use const JSON_THROW_ON_ERROR;
 
 /**
  * Extract the output of a Responses API response body
@@ -63,9 +66,12 @@ final readonly class ResponseOutput
      */
     public static function error(int $status, array $body): string
     {
-        $message = is_array($body['error'] ?? null) && is_string($body['error']['message'] ?? null)
-            ? $body['error']['message']
-            : 'unknown error';
+        $error = $body['error'] ?? null;
+        $message = match (true) {
+            is_array($error) && is_string($error['message'] ?? null) => $error['message'],
+            is_array($error) => json_encode($error, JSON_THROW_ON_ERROR),
+            default => 'unknown error',
+        };
 
         return 'HTTP ' . ($status ?: '?') . ': ' . $message;
     }

@@ -7,6 +7,7 @@ namespace MapClassifier\Tests\Sprite\Classification\Service;
 use LogicException;
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeError;
 use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
 use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Classification\Service\SpriteTypeClassifier;
@@ -82,10 +83,19 @@ final class SpriteTypeClassifierTest extends TestCase
         $this->assertSame('pine tree', $tree->classification->name);
         $this->assertSame('luna-2026', $tree->model);
 
-        $this->assertSame('HTTP 400: Bad request', $storage->get(SpriteSet::Objects, 2)?->error);
-        $this->assertSame('Invalid output: Invalid category: spaceship', $storage->get(SpriteSet::Objects, 3)?->error);
-        $this->assertSame('Refused: No', $storage->get(SpriteSet::Objects, 4)?->error);
-        $this->assertSame('Sprite image not exported', $storage->get(SpriteSet::Objects, 5)?->error);
+        $errors = [];
+
+        foreach ([2, 3, 4, 5] as $id) {
+            $result = $storage->get(SpriteSet::Objects, $id);
+            $errors[$id] = [$result?->error, $result?->errorMessage];
+        }
+
+        $this->assertSame([
+            2 => [SpriteTypeError::ClassificationFailed, 'HTTP 400: Bad request'],
+            3 => [SpriteTypeError::ClassificationFailed, 'Invalid output: Invalid category: spaceship'],
+            4 => [SpriteTypeError::Refused, 'No'],
+            5 => [SpriteTypeError::ImageNotExported, null],
+        ], $errors);
         $this->assertSame([1, 2, 3, 4, 5], array_keys($storage->all(SpriteSet::Objects)));
         $this->assertSame([], $storage->all(SpriteSet::Grounds));
     }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Map\Classification\Command;
 
+use MapClassifier\Infrastructure\Console\ProgressOutput;
 use MapClassifier\Location\Repository\MapLocationRepository;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Service\ImageEncoder;
@@ -69,16 +70,13 @@ final class ClassifyRunCommand extends Command
 
         $ok = 0;
         $errors = 0;
-        $progress = $io->createProgressBar(count($todo));
-        $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %message%');
-        $progress->setMessage('');
-        $progress->start();
+        $progress = new ProgressOutput($io, count($todo));
 
         $this->classifier->classify(
             $todo,
             new ImageEncoder((string) $input->getOption('image-format'), (float) $input->getOption('image-scale')),
             max(1, (int) $input->getOption('concurrency')),
-            static function (MapResult $result) use ($io, $output, $progress, &$ok, &$errors) {
+            static function (MapResult $result) use ($output, $progress, &$ok, &$errors) {
                 if ($result->ok) {
                     ++$ok;
                     $message = sprintf('map %d: %s', $result->id, $result->classification->biome->value ?? 'no biome');
@@ -88,18 +86,14 @@ final class ClassifyRunCommand extends Command
                 }
 
                 if ($output->isVerbose() || !$result->ok) {
-                    $progress->clear();
-                    $io->writeln($message);
-                    $progress->display();
+                    $progress->writeln($message);
                 }
 
-                $progress->setMessage('map ' . $result->id);
-                $progress->advance();
+                $progress->advance('map ' . $result->id);
             },
         );
 
         $progress->finish();
-        $io->newLine(2);
 
         $errors
             ? $io->warning(sprintf('%d maps classified, %d errors', $ok, $errors))

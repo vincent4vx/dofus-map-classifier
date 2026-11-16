@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Classification\Repository;
 
+use InvalidArgumentException;
 use MapClassifier\Infrastructure\Json\JsonFile;
 use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
 use MapClassifier\Sprite\Model\SpriteSet;
@@ -35,7 +36,12 @@ final readonly class SpriteTypeRepository
 
         $data = json_decode((string) file_get_contents($file), true);
 
-        return is_array($data) ? SpriteTypeResult::fromArray($data) : null;
+        try {
+            return is_array($data) ? SpriteTypeResult::fromArray($data) : null;
+        } catch (InvalidArgumentException) {
+            // Corrupted file: considered as not classified
+            return null;
+        }
     }
 
     public function save(SpriteTypeResult $result): void
