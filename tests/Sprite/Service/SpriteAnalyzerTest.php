@@ -15,6 +15,7 @@ use MapClassifier\Sprite\Model\MapSprites;
 use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Model\UsageCount;
 use MapClassifier\Sprite\Repository\SpriteRepository;
 use MapClassifier\Sprite\Service\SpriteAnalyzer;
 use MapClassifier\Tests\TempDirTrait;
@@ -77,11 +78,13 @@ final class SpriteAnalyzerTest extends TestCase
         $this->assertSame(82, $object->classifiedMaps);
 
         // cave (2) is lower than 10% of plain (50): ignored
-        $this->assertSame(['plain' => 50, 'forest' => 30], $object->biomes);
-        $this->assertSame(['outdoor' => 80], $object->indoor);
-        $this->assertSame(['wild' => 82], $object->locationTypes);
-        $this->assertEquals([new LocationUsage(1, 'Sub area 1', 80)], $object->subAreas);
-        $this->assertEquals([new LocationUsage(10, 'Area', 82)], $object->areas);
+        // Uses: 3 per plain map, 4 per forest map (layer2 + layer1), 3 per cave map
+        $this->assertEquals(['plain' => new UsageCount(50, 150), 'forest' => new UsageCount(30, 120)], $object->biomes);
+        $this->assertEquals(['outdoor' => new UsageCount(80, 270)], $object->indoor);
+        $this->assertEquals(['wild' => new UsageCount(82, 276)], $object->locationTypes);
+        $this->assertEquals([new LocationUsage(1, 'Sub area 1', 80, 270)], $object->subAreas);
+        $this->assertEquals([new LocationUsage(10, 'Area', 82, 276)], $object->areas);
+        $this->assertSame(4.0, $object->biomes['forest']->perMap());
 
         $ground = $profiles->get(SpriteSet::Grounds, 345);
 
@@ -96,7 +99,7 @@ final class SpriteAnalyzerTest extends TestCase
         $this->assertSame(1, $background->maps);
         $this->assertSame(0, $background->classifiedMaps);
         $this->assertSame([], $background->biomes);
-        $this->assertEquals([new LocationUsage(3, 'Sub area 3', 1)], $background->subAreas);
+        $this->assertEquals([new LocationUsage(3, 'Sub area 3', 1, 6)], $background->subAreas, 'Background and ground uses');
 
         $this->assertSame([
             'id' => 7,
@@ -105,8 +108,8 @@ final class SpriteAnalyzerTest extends TestCase
             'occurrences' => 2,
             'maps' => 1,
             'classified_maps' => 0,
-            'areas' => [['id' => 10, 'name' => 'Area', 'maps' => 1]],
-            'sub_areas' => [['id' => 3, 'name' => 'Sub area 3', 'maps' => 1]],
+            'areas' => [['id' => 10, 'name' => 'Area', 'maps' => 1, 'occurrences' => 2]],
+            'sub_areas' => [['id' => 3, 'name' => 'Sub area 3', 'maps' => 1, 'occurrences' => 2]],
             'biomes' => [],
             'indoor' => [],
             'location_types' => [],
@@ -164,8 +167,8 @@ final class SpriteAnalyzerTest extends TestCase
 
         $this->assertNotNull($profile);
 
-        $this->assertSame(['jungle' => 3], $profile->biomes);
-        $this->assertSame(['outdoor' => 1, 'indoor' => 1], $profile->indoor);
+        $this->assertEquals(['jungle' => new UsageCount(3, 3)], $profile->biomes);
+        $this->assertEquals(['outdoor' => new UsageCount(1, 1), 'indoor' => new UsageCount(1, 1)], $profile->indoor);
         $this->assertSame(2, $profile->classifiedMaps);
     }
 
@@ -193,9 +196,12 @@ final class SpriteAnalyzerTest extends TestCase
     {
         $analyzer = new SpriteAnalyzer([], [], minRatio: 0.1);
 
-        $this->assertSame(['plain' => 50, 'forest' => 30, 'snow' => 5], $analyzer->filter(['snow' => 5, 'cave' => 2, 'plain' => 50, 'forest' => 30, 'sea' => 4]));
+        $counts = static fn (array $maps) => array_map(static fn (int $count) => new UsageCount($count, $count * 2), $maps);
+
+        $this->assertEquals($counts(['plain' => 50, 'forest' => 30, 'snow' => 5]), $analyzer->filter($counts(['snow' => 5, 'cave' => 2, 'plain' => 50, 'forest' => 30, 'sea' => 4])));
+        $this->assertSame(['plain', 'forest', 'snow'], array_keys($analyzer->filter($counts(['snow' => 5, 'cave' => 2, 'plain' => 50, 'forest' => 30, 'sea' => 4]))), 'Sorted by maps');
         $this->assertSame([], $analyzer->filter([]));
-        $this->assertSame(['a' => 1, 'b' => 1], $analyzer->filter(['a' => 1, 'b' => 1]));
+        $this->assertEquals($counts(['a' => 1, 'b' => 1]), $analyzer->filter($counts(['a' => 1, 'b' => 1])));
     }
 
     private function classified(int $id, ?string $biome, bool $indoor): MapResult

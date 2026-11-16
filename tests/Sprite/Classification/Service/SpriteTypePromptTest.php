@@ -12,6 +12,7 @@ use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\SpriteMetadata;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Model\UsageCount;
 use MapClassifier\Sprite\Model\SpriteSize;
 use PHPUnit\Framework\TestCase;
 
@@ -104,9 +105,9 @@ final class SpriteTypePromptTest extends TestCase
             classifiedMaps: 60,
             areas: [new LocationUsage(0, 'Amakna', 70), new LocationUsage(12, null, 10)],
             subAreas: [new LocationUsage(1, 'Village', 40)],
-            biomes: ['plain' => 50, 'forest' => 30],
-            indoor: ['outdoor' => 60],
-            locationTypes: ['wild' => 40, 'road' => 20],
+            biomes: ['plain' => new UsageCount(50, 150), 'forest' => new UsageCount(30, 40)],
+            indoor: ['outdoor' => new UsageCount(60, 100)],
+            locationTypes: ['wild' => new UsageCount(40, 70), 'road' => new UsageCount(20, 30)],
         );
     }
 

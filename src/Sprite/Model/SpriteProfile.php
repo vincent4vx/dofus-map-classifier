@@ -18,8 +18,8 @@ use function is_array;
  * Values much less frequent than the main one are considered as noise, and removed.
  *
  * JSON (sprite_profiles.json): {"id", "layer", "slope", "occurrences", "maps", "classified_maps",
- * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: maps}, "indoor": {"indoor" | "outdoor": maps},
- * "location_types": {type: maps}, "interactive": {@see InteractiveObject} | null}
+ * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: {@see UsageCount}}, "indoor": {"indoor" | "outdoor": {@see UsageCount}},
+ * "location_types": {type: {@see UsageCount}}, "interactive": {@see InteractiveObject} | null}
  */
 final readonly class SpriteProfile implements JsonSerializable
 {
@@ -38,11 +38,11 @@ final readonly class SpriteProfile implements JsonSerializable
         public array $areas,
         /** @var list<LocationUsage> */
         public array $subAreas,
-        /** @var array<string, int> */
+        /** @var array<string, UsageCount> Indexed by biome value */
         public array $biomes,
-        /** @var array<string, int> "indoor" or "outdoor" */
+        /** @var array<string, UsageCount> Indexed by "indoor" or "outdoor" (classified maps only) */
         public array $indoor,
-        /** @var array<string, int> */
+        /** @var array<string, UsageCount> Indexed by location type value (classified maps only) */
         public array $locationTypes,
         /** Interactive object (resource, workshop…) drawn by the sprite, from the langs */
         public ?InteractiveObject $interactive = null,
@@ -61,7 +61,7 @@ final readonly class SpriteProfile implements JsonSerializable
             static fn (mixed $value) => LocationUsage::fromArray(is_array($value) ? $value : []),
             is_array($values) ? $values : [],
         ));
-        $counts = static fn (mixed $values) => array_map('intval', is_array($values) ? $values : []);
+        $counts = static fn (mixed $values) => array_map(UsageCount::fromJson(...), is_array($values) ? $values : []);
 
         return new self(
             set: $set,

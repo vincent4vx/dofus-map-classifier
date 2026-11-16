@@ -14,14 +14,15 @@ use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Model\SpriteStats;
+use MapClassifier\Sprite\Model\UsageCount;
 use MapClassifier\Sprite\Repository\SpriteRepository;
 
 use function array_filter;
 use function array_keys;
 use function array_map;
-use function arsort;
 use function ksort;
 use function reset;
+use function uasort;
 
 /**
  * Aggregate maps data on the sprites they use
@@ -124,11 +125,11 @@ final class SpriteAnalyzer
     }
 
     /**
-     * Remove values much less frequent than the main one, and sort by count desc
+     * Remove values used on much less maps than the main one, and sort by number of maps desc
      *
      * @template K of array-key
-     * @param array<K, int> $counts
-     * @return array<K, int>
+     * @param array<K, UsageCount> $counts
+     * @return array<K, UsageCount>
      */
     public function filter(array $counts): array
     {
@@ -136,21 +137,21 @@ final class SpriteAnalyzer
             return [];
         }
 
-        arsort($counts);
-        $min = reset($counts) * $this->minRatio;
+        uasort($counts, static fn (UsageCount $a, UsageCount $b) => $b->maps <=> $a->maps);
+        $min = reset($counts)->maps * $this->minRatio;
 
-        return array_filter($counts, static fn (int $count) => $count >= $min);
+        return array_filter($counts, static fn (UsageCount $count) => $count->maps >= $min);
     }
 
     /**
-     * @param array<int, int> $counts
+     * @param array<int, UsageCount> $counts
      * @param array<int, string|null> $names
      * @return list<LocationUsage>
      */
     private function named(array $counts, array $names): array
     {
         return array_map(
-            static fn (int $id, int $count) => new LocationUsage($id, $names[$id] ?? null, $count),
+            static fn (int $id, UsageCount $count) => new LocationUsage($id, $names[$id] ?? null, $count->maps, $count->occurrences),
             array_keys($filtered = $this->filter($counts)),
             $filtered,
         );

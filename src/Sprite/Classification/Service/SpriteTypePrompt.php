@@ -11,6 +11,7 @@ use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\SpriteMetadata;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Model\UsageCount;
 
 use function array_column;
 use function array_keys;
@@ -55,7 +56,8 @@ final readonly class SpriteTypePrompt
     public static function context(SpriteProfile $profile, SpriteMetadata $metadata): string
     {
         $counts = static fn (array $values) => implode(', ', array_map(
-            static fn (string $name, int $count) => $name . ' (' . $count . ')',
+            // Number of maps: the total of uses is not given to the model
+            static fn (string $name, int|UsageCount $count) => $name . ' (' . ($count instanceof UsageCount ? $count->maps : $count) . ')',
             array_keys($values),
             $values,
         ));

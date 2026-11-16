@@ -30,6 +30,7 @@
     .kw { display: inline-block; background: #fff3d6; border: 0; border-radius: 3px; padding: 0 5px; margin: 1px; font: inherit; cursor: pointer; }
     .kw:hover { background: #ffe3a0; }
     .io { background: #2a7a3b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
+    .context { background: #eef6ee; border-radius: 3px; padding: 1px 5px; }
     .slope { background: #8a5a2b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; font-weight: normal; }
 </style>
 </head>
@@ -48,7 +49,7 @@
         <select name="indoor"><option value="">Indoor &amp; outdoor</option><option value="indoor">Indoor</option><option value="outdoor">Outdoor</option></select>
         <select name="location"><option value="">All locations</option>{{locations}}</select>
         <label>Min maps <input type="number" name="min" min="0" value="0"></label>
-        <select name="sort"><option value="maps">Sort: maps</option><option value="occurrences">Sort: occurrences</option><option value="id">Sort: id</option></select>
+        <select name="sort"><option value="maps">Sort: maps</option><option value="occurrences">Sort: uses</option><option value="frequency">Sort: uses per map</option><option value="id">Sort: id</option></select>
         <button type="reset">Reset</button>
         <span id="count"></span>
     </form>
@@ -86,14 +87,31 @@
     let shown = 0;
 
     const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
-    const chips = obj => Object.entries(obj).map(([k, v]) => '<span class="chip">' + esc(k) + ' <b>' + v + '</b></span>').join('');
+    // Usage: {maps, occurrences}
+    const perMap = usage => usage.maps ? usage.occurrences / usage.maps : 0;
+    const describe = usage => usage.maps + ' maps · ' + usage.occurrences + ' uses · ' + perMap(usage).toFixed(1) + ' / map';
+    const chip = (name, usage) => '<span class="chip" title="' + esc(describe(usage)) + '">' + esc(name) + ' <b>' + usage.maps + '</b></span>';
+    const chips = obj => Object.entries(obj).map(([k, usage]) => chip(k, usage)).join('');
     const label = location => location.name ?? '#' + location.id;
-    const list = (locations, max) => locations.slice(0, max).map(l => '<span class="chip">' + esc(label(l)) + ' <b>' + l.maps + '</b></span>').join('')
+    const list = (locations, max) => locations.slice(0, max).map(l => chip(label(l), l)).join('')
         + (locations.length > max ? ' <span class="label">+' + (locations.length - max) + '</span>' : '');
+
+    // Usage of the sprite in the context of each active filter (each filter is independent: their counts are not combined)
+    const NO_USAGE = {maps: 0, occurrences: 0};
+    let filters = {};
+    const contexts = i => [
+        filters.area && [filters.area, i.areas.find(a => label(a) === filters.area) ?? NO_USAGE],
+        filters.location && [filters.location, i.location_types[filters.location] ?? NO_USAGE],
+        filters.biome && [filters.biome, i.biomes[filters.biome] ?? NO_USAGE],
+        filters.indoor && [filters.indoor, i.indoor[filters.indoor] ?? NO_USAGE],
+    ].filter(Boolean);
+    // Usage used to sort: the most specific active filter (area, location, biome, indoor), or all the maps
+    const scope = i => contexts(i)[0]?.[1] ?? i;
 
     function card(i) {
         return '<article><div class="sprite">' + (i.image ? '<img loading="lazy" src="' + esc(SPRITES + '/' + i.image.image) + '" alt="' + i.id + '">' : '') + '</div>'
-            + '<div class="info"><h2>' + i.name + (i.slope ? ' <span class="slope" title="Used on sloped ground cells">slope</span>' : '') + ' <small>' + i.layer + ' · ' + i.maps + ' maps · ' + i.occurrences + ' uses</small></h2>'
+            + '<div class="info"><h2>' + i.name + (i.slope ? ' <span class="slope" title="Used on sloped ground cells">slope</span>' : '') + ' <small>' + i.layer + ' · ' + describe(i) + '</small></h2>'
+            + contexts(i).map(([name, usage]) => '<p class="context"><span class="label">' + esc(name) + '</span> ' + describe(usage) + '</p>').join('')
             + (i.type ? '<p class="type"><b>' + esc(i.type.name) + '</b> <span class="cat">' + esc(i.type.category) + '</span></p>'
                 + '<p>' + i.type.keywords.map(k => '<button type="button" class="kw">' + esc(k) + '</button>').join('') + '</p>' : '')
             + (i.interactive ? '<p><span class="io" title="Interactive object (langs)">' + esc(i.interactive.type) + ': ' + esc(i.interactive.name) + '</span></p>' : '')
@@ -111,7 +129,7 @@
     }
 
     function apply() {
-        const f = Object.fromEntries(new FormData(form));
+        const f = filters = Object.fromEntries(new FormData(form));
         const words = f.q.toLowerCase().split(/\s+/).filter(Boolean);
         const min = parseInt(f.min || '0', 10);
 
@@ -127,8 +145,9 @@
             && i.maps >= min
             && words.every(w => i.search.includes(w)));
 
-        const key = f.sort;
-        matching.sort(key === 'id' ? (a, b) => a.set.localeCompare(b.set) || a.id - b.id : (a, b) => b[key] - a[key]);
+        // Sort by the usage in the context of the filters
+        const value = {maps: i => scope(i).maps, occurrences: i => scope(i).occurrences, frequency: i => perMap(scope(i))}[f.sort];
+        matching.sort(value ? (a, b) => value(b) - value(a) : (a, b) => a.set.localeCompare(b.set) || a.id - b.id);
 
         count.textContent = matching.length + ' / ' + items.length + ' sprites';
         main.innerHTML = '';

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Model;
 
+use function array_sum;
+
 /**
  * Usage of a sprite on a map (see {@see \MapClassifier\Sprite\Service\MapSpriteExtractor})
  *
@@ -21,6 +23,14 @@ final class MapSpriteUsage
         public readonly SpriteSet $set,
         public readonly int $id,
     ) {}
+
+    /**
+     * Total number of cells (or backgrounds) using the sprite on the map
+     */
+    public function occurrences(): int
+    {
+        return array_sum($this->cells);
+    }
 
     /**
      * Count a cell (or the background) using the sprite

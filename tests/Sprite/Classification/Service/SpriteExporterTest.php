@@ -15,6 +15,7 @@ use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Model\UsageCount;
 use MapClassifier\Sprite\Repository\SpriteRepository;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
@@ -35,7 +36,7 @@ final class SpriteExporterTest extends TestCase
 
         $wheat = new SpriteProfile(SpriteSet::Objects, 7511, Layer::Layer2, 3, 1, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1));
         $failed = new SpriteProfile(SpriteSet::Objects, 12, Layer::Layer2, 3, 1, 0, [], [], [], [], []);
-        $ground = new SpriteProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [], [], ['plain' => 1], [], [], slope: true);
+        $ground = new SpriteProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [], [], ['plain' => new UsageCount(1, 5)], [], [], slope: true);
         $flatSlopeGround = new SpriteProfile(SpriteSet::Grounds, 1, Layer::Ground, 5, 2, 1, [], [], [], [], []);
 
         $sprites = new SpriteRepository('/not-used', $this->tempDir() . '/sprites');

@@ -167,9 +167,10 @@ final class WorkflowTest extends TestCase
         foreach ([...$objects['grounds'], ...$objects['objects']] as $profile) {
             $this->assertSame(1, $profile['maps']);
             $this->assertSame(1, $profile['classified_maps']);
-            $this->assertSame(['snow' => 1], $profile['biomes']);
-            $this->assertSame(['outdoor' => 1], $profile['indoor']);
-            $this->assertSame([['id' => 320, 'name' => 'Kwismas Island', 'maps' => 1]], $profile['sub_areas']);
+            $usage = ['maps' => 1, 'occurrences' => $profile['occurrences']];
+            $this->assertSame(['snow' => $usage], $profile['biomes']);
+            $this->assertSame(['outdoor' => $usage], $profile['indoor']);
+            $this->assertSame([['id' => 320, 'name' => 'Kwismas Island'] + $usage], $profile['sub_areas']);
             $this->assertContains($profile['layer'], ['background', 'ground', 'layer1', 'layer2']);
             $this->assertArrayNotHasKey('super_areas', $profile);
             $this->assertArrayHasKey('interactive', $profile);
@@ -200,7 +201,7 @@ final class WorkflowTest extends TestCase
         $this->assertFileExists($this->config->varDir . '/sprites.json');
         $html = (string) file_get_contents($this->config->varDir . '/sprites.html');
         $this->assertStringContainsString('<option value="Arctic Area">Arctic Area</option>', $html);
-        $this->assertStringContainsString('"sub_areas":[{"id":320,"name":"Kwismas Island","maps":1}]', $html);
+        $this->assertStringContainsString('"sub_areas":[{"id":320,"name":"Kwismas Island","maps":1,"occurrences":', $html);
         $this->assertStringContainsString('&quot;sprites&quot;', $html);
 
         // Classify sprite types

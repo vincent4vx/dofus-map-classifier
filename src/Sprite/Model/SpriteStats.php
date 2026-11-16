@@ -28,19 +28,19 @@ final class SpriteStats
     /** Number of classified maps using the sprite */
     public private(set) int $classifiedMaps = 0;
 
-    /** @var array<int, int> Number of maps, indexed by area id */
+    /** @var array<int, UsageCount> Usage indexed by area id */
     public private(set) array $areas = [];
 
-    /** @var array<int, int> Number of maps, indexed by sub area id */
+    /** @var array<int, UsageCount> Usage indexed by sub area id */
     public private(set) array $subAreas = [];
 
-    /** @var array<string, int> Number of maps, indexed by biome value */
+    /** @var array<string, UsageCount> Usage indexed by biome value */
     public private(set) array $biomes = [];
 
-    /** @var array<string, int> Number of classified maps, indexed by "indoor" or "outdoor" */
+    /** @var array<string, UsageCount> Usage on classified maps, indexed by "indoor" or "outdoor" */
     public private(set) array $indoor = [];
 
-    /** @var array<string, int> Number of classified maps, indexed by location type value */
+    /** @var array<string, UsageCount> Usage on classified maps, indexed by location type value */
     public private(set) array $locationTypes = [];
 
     /** Number of ground cells with a slope (not flat) using the sprite */
@@ -61,24 +61,26 @@ final class SpriteStats
             $this->cells[$layer] = ($this->cells[$layer] ?? 0) + $count;
         }
 
+        $occurrences = $usage->occurrences();
+
         $this->slopedCells += $usage->slopedCells;
 
         if ($location !== null) {
-            self::increment($this->subAreas, $location->subAreaId);
+            self::increment($this->subAreas, $location->subAreaId, $occurrences);
 
             if ($location->areaId !== null) {
-                self::increment($this->areas, $location->areaId);
+                self::increment($this->areas, $location->areaId, $occurrences);
             }
         }
 
         if ($biome !== null) {
-            self::increment($this->biomes, $biome->value);
+            self::increment($this->biomes, $biome->value, $occurrences);
         }
 
         if ($classification !== null) {
             ++$this->classifiedMaps;
-            self::increment($this->indoor, $classification->indoor ? 'indoor' : 'outdoor');
-            self::increment($this->locationTypes, $classification->locationType->value);
+            self::increment($this->indoor, $classification->indoor ? 'indoor' : 'outdoor', $occurrences);
+            self::increment($this->locationTypes, $classification->locationType->value, $occurrences);
         }
     }
 
@@ -108,10 +110,11 @@ final class SpriteStats
     }
 
     /**
-     * @param array<array-key, int> $counts
+     * @param array<array-key, UsageCount> $counts
+     * @param int $occurrences Number of uses of the sprite on the map
      */
-    private static function increment(array &$counts, int|string $key): void
+    private static function increment(array &$counts, int|string $key, int $occurrences): void
     {
-        $counts[$key] = ($counts[$key] ?? 0) + 1;
+        $counts[$key] = ($counts[$key] ?? new UsageCount())->withMap($occurrences);
     }
 }
