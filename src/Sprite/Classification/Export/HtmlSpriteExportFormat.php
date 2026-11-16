@@ -8,8 +8,8 @@ use MapClassifier\Infrastructure\Export\ExportFormat;
 use MapClassifier\Infrastructure\Filesystem\Path;
 use MapClassifier\Map\Classification\Model\Biome;
 use MapClassifier\Map\Classification\Model\LocationType;
-use MapClassifier\Sprite\Classification\Model\Export\ObjectExport;
-use MapClassifier\Sprite\Classification\Model\ObjectCategory;
+use MapClassifier\Sprite\Classification\Model\Export\SpriteExport;
+use MapClassifier\Sprite\Classification\Model\SpriteCategory;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
 use Override;
@@ -35,9 +35,9 @@ use const JSON_UNESCAPED_UNICODE;
  * HTML page displaying sprites with their aggregated data and type, with filters
  * Sprites are rendered by JavaScript from a compact JSON list, with pagination
  *
- * @implements ExportFormat<ObjectExport>
+ * @implements ExportFormat<SpriteExport>
  */
-final readonly class HtmlObjectExportFormat implements ExportFormat
+final readonly class HtmlSpriteExportFormat implements ExportFormat
 {
     public function __construct(
         /** Directory of the sprites images */
@@ -68,7 +68,7 @@ final readonly class HtmlObjectExportFormat implements ExportFormat
     /**
      * @param string $spritesPath Path or URL of the sprites images directory, from the page
      */
-    public function render(ObjectExport $export, string $spritesPath): string
+    public function render(SpriteExport $export, string $spritesPath): string
     {
         // Compact list for the page: [set, id, layer, occurrences, maps, classified maps, areas, sub areas, biomes, indoor, location types, type, interactive]
         $items = [];
@@ -133,7 +133,7 @@ final readonly class HtmlObjectExportFormat implements ExportFormat
         $layers = $options(array_column(Layer::cases(), 'value'));
         $biomes = $options(array_column(Biome::cases(), 'value'));
         $locations = $options(array_column(LocationType::cases(), 'value'));
-        $categories = $options(array_column(ObjectCategory::cases(), 'value'));
+        $categories = $options(array_column(SpriteCategory::cases(), 'value'));
         $areaOptions = $options($areas);
         $interactiveOptions = $options($interactiveTypes);
         // Avoid closing the script tag from the data
@@ -146,7 +146,7 @@ final readonly class HtmlObjectExportFormat implements ExportFormat
             <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Map objects</title>
+            <title>Map sprites</title>
             <style>
                 body { font-family: system-ui, sans-serif; margin: 0 16px 16px; background: #f4f4f4; color: #222; }
                 header { position: sticky; top: 0; z-index: 1; background: #f4f4f4; padding: 12px 0; border-bottom: 1px solid #ddd; margin-bottom: 16px; }
@@ -177,7 +177,7 @@ final readonly class HtmlObjectExportFormat implements ExportFormat
             </head>
             <body>
             <header>
-                <h1>Map objects</h1>
+                <h1>Map sprites</h1>
                 <form id="filters" onsubmit="return false">
                     <input type="search" name="q" placeholder="Search id, name, category, keyword, interactive object…" autofocus>
                     <select name="category"><option value="">All categories</option>{$categories}<option value="none">(not classified)</option></select>

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace MapClassifier\Sprite\Classification\Repository;
 
 use MapClassifier\Infrastructure\Json\JsonFile;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
 use MapClassifier\Sprite\Model\SpriteSet;
 
 use function basename;
@@ -19,13 +19,13 @@ use function ksort;
 /**
  * Store one JSON file per sprite: "{dir}/{set}/{id}.json"
  */
-final readonly class ObjectTypeRepository
+final readonly class SpriteTypeRepository
 {
     public function __construct(
         private string $dir,
     ) {}
 
-    public function get(SpriteSet $set, int $id): ?ObjectTypeResult
+    public function get(SpriteSet $set, int $id): ?SpriteTypeResult
     {
         $file = $this->file($set, $id);
 
@@ -35,16 +35,16 @@ final readonly class ObjectTypeRepository
 
         $data = json_decode((string) file_get_contents($file), true);
 
-        return is_array($data) ? ObjectTypeResult::fromArray($data) : null;
+        return is_array($data) ? SpriteTypeResult::fromArray($data) : null;
     }
 
-    public function save(ObjectTypeResult $result): void
+    public function save(SpriteTypeResult $result): void
     {
         JsonFile::write($this->file($result->set, $result->id), $result);
     }
 
     /**
-     * @return array<int, ObjectTypeResult> Indexed by sprite id, sorted
+     * @return array<int, SpriteTypeResult> Indexed by sprite id, sorted
      */
     public function all(SpriteSet $set): array
     {

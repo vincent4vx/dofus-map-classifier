@@ -17,14 +17,14 @@ use function is_string;
 /**
  * Type classification result of a sprite: either a classification, or an error
  *
- * JSON (object_types/{set}/{id}.json): {"set", "id", "status": "ok" | "error", "error", ...classification fields, "model", "classified_at"}
+ * JSON (sprite_types/{set}/{id}.json): {"set", "id", "status": "ok" | "error", "error", ...classification fields, "model", "classified_at"}
  */
-final class ObjectTypeResult implements JsonSerializable
+final class SpriteTypeResult implements JsonSerializable
 {
     public function __construct(
         public readonly SpriteSet $set,
         public readonly int $id,
-        public readonly ?ObjectTypeClassification $classification = null,
+        public readonly ?SpriteType $classification = null,
         public readonly ?string $error = null,
         public readonly ?string $model = null,
         public readonly ?DateTimeImmutable $classifiedAt = null,
@@ -34,7 +34,7 @@ final class ObjectTypeResult implements JsonSerializable
         get => $this->classification !== null && $this->error === null;
     }
 
-    public static function success(SpriteSet $set, int $id, ObjectTypeClassification $classification, string $model): self
+    public static function success(SpriteSet $set, int $id, SpriteType $classification, string $model): self
     {
         return new self($set, $id, $classification, model: $model, classifiedAt: new DateTimeImmutable());
     }
@@ -70,7 +70,7 @@ final class ObjectTypeResult implements JsonSerializable
 
         if (($data['status'] ?? null) === 'ok') {
             try {
-                $classification = ObjectTypeClassification::fromArray($data);
+                $classification = SpriteType::fromArray($data);
             } catch (InvalidArgumentException) {
                 // Invalid stored data: considered as not classified
             }

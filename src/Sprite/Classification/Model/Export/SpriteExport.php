@@ -13,11 +13,11 @@ use function array_sum;
 use function count;
 
 /**
- * Export of all sprites with their type (objects.json)
+ * Export of all sprites with their type (sprites.json)
  *
  * JSON: {"grounds": {id: {@see ExportedSprite}}, "objects": {id: {@see ExportedSprite}}}
  */
-final readonly class ObjectExport implements JsonSerializable
+final readonly class SpriteExport implements JsonSerializable
 {
     public function __construct(
         /** @var array<string, array<int, ExportedSprite>> Sprites indexed by set value, then sprite id */

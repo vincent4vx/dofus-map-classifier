@@ -22,10 +22,10 @@ use function trim;
  *
  * JSON: {"category", "name", "keywords", "description"}, same as the model output schema
  */
-final readonly class ObjectTypeClassification implements JsonSerializable
+final readonly class SpriteType implements JsonSerializable
 {
     public function __construct(
-        public ObjectCategory $category,
+        public SpriteCategory $category,
         /** Short free name of the object, e.g. "pine tree" */
         public string $name,
         /** @var list<string> Lowercase search keywords */
@@ -40,7 +40,7 @@ final readonly class ObjectTypeClassification implements JsonSerializable
      */
     public static function fromArray(array $data): self
     {
-        $category = is_string($data['category'] ?? null) ? ObjectCategory::tryFrom($data['category']) : null;
+        $category = is_string($data['category'] ?? null) ? SpriteCategory::tryFrom($data['category']) : null;
 
         if ($category === null) {
             throw new InvalidArgumentException('Invalid category: ' . (is_string($data['category'] ?? null) ? $data['category'] : '?'));

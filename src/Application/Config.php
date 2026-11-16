@@ -42,11 +42,11 @@ final class Config
     public string $cacheDir { get => $this->varDir . '/cache'; }
     public string $mapsDir { get => $this->dofusPath . '/data/maps'; }
     public string $spritesDir { get => $this->varDir . '/sprites'; }
-    public string $objectTypesDir { get => $this->varDir . '/object_types'; }
+    public string $spriteTypesDir { get => $this->varDir . '/sprite_types'; }
     /** Profiles of the sprites, aggregated from the maps */
     public string $spriteProfilesFile { get => $this->varDir . '/sprite_profiles.json'; }
     /** Export of the sprites, with their type */
-    public string $objectsFile { get => $this->varDir . '/objects.json'; }
+    public string $spritesFile { get => $this->varDir . '/sprites.json'; }
 
     public static function fromEnv(string $projectDir): self
     {

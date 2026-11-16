@@ -7,9 +7,9 @@ namespace MapClassifier\Tests\Sprite\Repository;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
-use MapClassifier\Sprite\Repository\ObjectProfileRepository;
+use MapClassifier\Sprite\Repository\SpriteProfileRepository;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
@@ -17,18 +17,18 @@ use RuntimeException;
 use function file_get_contents;
 use function json_decode;
 
-final class ObjectProfileRepositoryTest extends TestCase
+final class SpriteProfileRepositoryTest extends TestCase
 {
     use TempDirTrait;
 
     public function testSaveAndLoad(): void
     {
-        $repository = new ObjectProfileRepository($this->tempDir() . '/sprite_profiles.json');
+        $repository = new SpriteProfileRepository($this->tempDir() . '/sprite_profiles.json');
         $this->assertFalse($repository->exists());
 
         $profiles = [
-            'grounds' => [0 => new ObjectProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [new LocationUsage(1, 'Area', 2)], [], ['plain' => 1], ['outdoor' => 1], ['wild' => 1])],
-            'objects' => [7511 => new ObjectProfile(SpriteSet::Objects, 7511, Layer::Layer2, 3, 1, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1))],
+            'grounds' => [0 => new SpriteProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [new LocationUsage(1, 'Area', 2)], [], ['plain' => 1], ['outdoor' => 1], ['wild' => 1])],
+            'objects' => [7511 => new SpriteProfile(SpriteSet::Objects, 7511, Layer::Layer2, 3, 1, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1))],
         ];
 
         $repository->save($profiles);
@@ -47,6 +47,6 @@ final class ObjectProfileRepositoryTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('sprite_profiles.json not found');
 
-        new ObjectProfileRepository($this->tempDir() . '/sprite_profiles.json')->all();
+        new SpriteProfileRepository($this->tempDir() . '/sprite_profiles.json')->all();
     }
 }

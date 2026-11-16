@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace MapClassifier\Sprite\Command;
 
 use MapClassifier\Sprite\Model\SpriteSet;
-use MapClassifier\Sprite\Repository\ObjectProfileRepository;
-use MapClassifier\Sprite\Service\SpriteExporter;
+use MapClassifier\Sprite\Repository\SpriteProfileRepository;
+use MapClassifier\Sprite\Service\SpriteImageExporter;
 use Override;
 use RuntimeException;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -19,12 +19,12 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use function count;
 use function sprintf;
 
-#[AsCommand('objects:sprites', 'Render the ground and object sprites to the PNG files sent to the model')]
-final class ObjectsSpritesCommand extends Command
+#[AsCommand('sprites:images', 'Render the ground and object sprites to the PNG files sent to the model')]
+final class SpritesImagesCommand extends Command
 {
     public function __construct(
-        private readonly SpriteExporter $exporter,
-        private readonly ObjectProfileRepository $profiles,
+        private readonly SpriteImageExporter $exporter,
+        private readonly SpriteProfileRepository $profiles,
         private readonly string $spritesDir,
     ) {
         parent::__construct();
@@ -34,7 +34,7 @@ final class ObjectsSpritesCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addOption('all', 'a', InputOption::VALUE_NONE, 'Export all sprites of the client, even unused ones (by default, only sprites of objects:analyze are exported)')
+            ->addOption('all', 'a', InputOption::VALUE_NONE, 'Export all sprites of the client, even unused ones (by default, only sprites of sprites:analyze are exported)')
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Export again already exported sprites')
         ;
     }
@@ -49,7 +49,7 @@ final class ObjectsSpritesCommand extends Command
             try {
                 $used = $this->profiles->all();
             } catch (RuntimeException $e) {
-                $io->error($e->getMessage() . ': run objects:analyze first, or use --all');
+                $io->error($e->getMessage() . ': run sprites:analyze first, or use --all');
 
                 return self::FAILURE;
             }

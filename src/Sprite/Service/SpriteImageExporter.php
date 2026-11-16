@@ -18,7 +18,7 @@ use function is_numeric;
  * Export ground and object sprites of the client to the PNG files sent to the model
  * Sprites are extracted as SVG with ArakneSwf, then rendered with {@see SpriteRenderer}
  */
-final readonly class SpriteExporter
+final readonly class SpriteImageExporter
 {
     public function __construct(
         private string $dofusPath,

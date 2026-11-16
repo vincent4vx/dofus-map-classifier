@@ -5,7 +5,7 @@ CONSOLE = $(RUN) bin/console
 # Extra arguments passed to the command, e.g. make render ARGS="--super-area=3"
 ARGS ?=
 
-.PHONY: help build shell install test phpstan client console keys render classify export report objects objects-export objects-classify pipeline
+.PHONY: help build shell install test phpstan client console keys render classify export report sprites sprites-export sprites-classify pipeline
 
 help: ## Display this help
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  \033[36m%-17s\033[0m %s\n", $$1, $$2}'
@@ -55,16 +55,16 @@ export: ## Export results: var/maps.json, var/sub_areas.json and var/report.html
 report: ## Only export the HTML gallery var/report.html (ids, --area, --biome…)
 	$(CONSOLE) export --format=html $(ARGS)
 
-objects-classify: ## Find the type of sprites, then export var/objects.json and var/objects.html (ids like o345 g10-20, --set, --limit…)
-	$(CONSOLE) objects:classify $(ARGS)
+sprites-classify: ## Find the type of sprites, then export var/sprites.json and var/sprites.html (ids like o345 g10-20, --set, --limit…)
+	$(CONSOLE) sprites:classify $(ARGS)
 
-objects: ## Analyze sprites (var/sprite_profiles.json), render them to PNG, export var/objects.json and generate var/objects.html (selection, --min-ratio)
-	$(CONSOLE) objects:analyze $(ARGS)
-	$(CONSOLE) objects:sprites
-	$(CONSOLE) objects:export
+sprites: ## Analyze sprites (var/sprite_profiles.json), render them to PNG, export var/sprites.json and generate var/sprites.html (selection, --min-ratio)
+	$(CONSOLE) sprites:analyze $(ARGS)
+	$(CONSOLE) sprites:images
+	$(CONSOLE) sprites:export
 
-objects-export: ## Export sprites profiles with their type: var/objects.json and var/objects.html (--format=json|html)
-	$(CONSOLE) objects:export $(ARGS)
+sprites-export: ## Export sprites profiles with their type: var/sprites.json and var/sprites.html (--format=json|html)
+	$(CONSOLE) sprites:export $(ARGS)
 
 pipeline: ## Render, classify and export the selection: make pipeline ARGS="--area=18"
 	$(CONSOLE) maps:render $(ARGS)

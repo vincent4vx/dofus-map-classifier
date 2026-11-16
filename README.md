@@ -45,17 +45,17 @@ make render ARGS="--super-area=3"                 # 2. render maps to var/render
 make classify ARGS="--super-area=3 --concurrency=10"   # 3. classify with the OpenAI Responses API
 make export                                       # 4. var/maps.json + var/sub_areas.json + var/report.html (search and filters)
 make report ARGS="--area=18"                      # 5. only var/report.html, for a selection (= export --format=html)
-make objects                                      # 6. var/sprite_profiles.json (layer, areas, biomes… of each sprite), PNG sprites,
-                                                  #    var/objects.json export and var/objects.html
-make objects-classify ARGS="--limit=500"          # 7. type of each sprite (category, name, keywords), most used first,
-                                                  #    exported to var/objects.json and displayed in var/objects.html
+make sprites                                      # 6. var/sprite_profiles.json (layer, areas, biomes… of each sprite), PNG sprites,
+                                                  #    var/sprites.json export and var/sprites.html
+make sprites-classify ARGS="--limit=500"          # 7. type of each sprite (category, name, keywords), most used first,
+                                                  #    exported to var/sprites.json and displayed in var/sprites.html
                                                   #    --interactive: only interactive objects (resources, workshops, doors…)
 
 make pipeline ARGS="--area=18"                    # render + classify + export of a selection
 ```
 
 Maps selection (render, classify, export): ids or ranges (`10000 100-200`), `--super-area`, `--area`, `--sub-area`, `--limit`.
-Exports (`export`, `objects:export`) write all formats by default: `--format=json` or `--format=html` for a single one, with `--output` to change its file.
+Exports (`export`, `sprites:export`) write all formats by default: `--format=json` or `--format=html` for a single one, with `--output` to change its file.
 `make pipeline` only accepts selection arguments.
 
 All commands are resumable: rendered / classified maps are skipped.
@@ -72,10 +72,10 @@ var/
   maps.json                   export of maps, with location (sub area, area, super area)
   sub_areas.json              biome of each sub area, deduced from its classified maps
   sprite_profiles.json        data of each sprite (layer, areas, biomes…), aggregated from the maps
-  objects.json                export of sprites: profile and type of each sprite
+  sprites.json                export of sprites: profile and type of each sprite
   sprites/{grounds|objects}/  sprites rendered as PNG (as sent to the model), with sizes.json
-  objects.html                visual report of sprites, with filters
-  object_types/{set}/{id}.json  type of each sprite (category, name, keywords)
+  sprites.html                visual report of sprites, with filters
+  sprite_types/{set}/{id}.json  type of each sprite (category, name, keywords)
   report.html                 visual report
 ```
 

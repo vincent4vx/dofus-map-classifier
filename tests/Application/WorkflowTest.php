@@ -149,18 +149,18 @@ final class WorkflowTest extends TestCase
         $this->assertStringContainsString('1 maps classified', $this->exec('classify:run', ['--area' => '42']));
     }
 
-    public function testObjectsAnalyze(): void
+    public function testSpritesAnalyze(): void
     {
         $this->exec('maps:render', ['ids' => ['10000']]);
         $this->exec('classify:run');
 
-        $output = $this->exec('objects:analyze', ['ids' => ['10000-10001']]);
+        $output = $this->exec('sprites:analyze', ['ids' => ['10000-10001']]);
         $this->assertStringContainsString('1 maps skipped: missing_key', $output);
         $this->assertMatchesRegularExpression('/1 maps analyzed: \d+ ground sprites and \d+ object sprites/', $output);
 
         $objects = json_decode((string) file_get_contents($this->config->varDir . '/sprite_profiles.json'), true);
         $this->assertSame(['grounds', 'objects'], array_keys($objects));
-        $this->assertFileDoesNotExist($this->config->varDir . '/objects.json', 'Only written by the export');
+        $this->assertFileDoesNotExist($this->config->varDir . '/sprites.json', 'Only written by the export');
         $this->assertNotEmpty($objects['objects']);
 
         foreach ([...$objects['grounds'], ...$objects['objects']] as $profile) {
@@ -175,7 +175,7 @@ final class WorkflowTest extends TestCase
         }
 
         // Export used sprites to SVG
-        $sprites = $this->exec('objects:sprites');
+        $sprites = $this->exec('sprites:images');
         $this->assertMatchesRegularExpression('/grounds: \d+ exported, 0 already exported, 0 failed/', $sprites);
         $this->assertMatchesRegularExpression('/objects: \d+ exported, 0 already exported, 0 failed/', $sprites);
 
@@ -191,13 +191,13 @@ final class WorkflowTest extends TestCase
         $size = getimagesize($this->config->varDir . '/sprites/objects/' . array_key_first($objects['objects']) . '.png');
         $this->assertIsArray($size);
         $this->assertSame('image/png', $size['mime']);
-        $this->assertMatchesRegularExpression('/objects: 0 exported, \d+ already exported/', $this->exec('objects:sprites'));
+        $this->assertMatchesRegularExpression('/objects: 0 exported, \d+ already exported/', $this->exec('sprites:images'));
 
         // Export: JSON and HTML gallery
         $count = count($objects['grounds']) + count($objects['objects']);
-        $this->assertStringContainsString($count . ' sprites exported (0 with a type)', $this->exec('objects:export'));
-        $this->assertFileExists($this->config->varDir . '/objects.json');
-        $html = (string) file_get_contents($this->config->varDir . '/objects.html');
+        $this->assertStringContainsString($count . ' sprites exported (0 with a type)', $this->exec('sprites:export'));
+        $this->assertFileExists($this->config->varDir . '/sprites.json');
+        $html = (string) file_get_contents($this->config->varDir . '/sprites.html');
         $this->assertStringContainsString('<option value="Arctic Area">Arctic Area</option>', $html);
         $this->assertStringContainsString('["Kwismas Island",1]', $html);
         $this->assertStringContainsString('&quot;sprites&quot;', $html);
@@ -211,25 +211,25 @@ final class WorkflowTest extends TestCase
         ]));
 
         $firstObject = array_key_first($objects['objects']);
-        $this->assertStringContainsString('1 sprites classified', $this->exec('objects:classify', ['ids' => ['o' . $firstObject]]));
-        $this->assertStringContainsString('Nothing to classify', $this->exec('objects:classify', ['ids' => ['o' . $firstObject]]));
-        $this->assertStringContainsString('1 sprites classified', $this->exec('objects:classify', ['ids' => ['o' . $firstObject], '--force' => true]));
-        $this->assertStringContainsString('2 sprites classified', $this->exec('objects:classify', ['--set' => 'grounds', '--limit' => '2']));
+        $this->assertStringContainsString('1 sprites classified', $this->exec('sprites:classify', ['ids' => ['o' . $firstObject]]));
+        $this->assertStringContainsString('Nothing to classify', $this->exec('sprites:classify', ['ids' => ['o' . $firstObject]]));
+        $this->assertStringContainsString('1 sprites classified', $this->exec('sprites:classify', ['ids' => ['o' . $firstObject], '--force' => true]));
+        $this->assertStringContainsString('2 sprites classified', $this->exec('sprites:classify', ['--set' => 'grounds', '--limit' => '2']));
 
-        // Types are exported to objects.json by objects:classify
-        $joined = json_decode((string) file_get_contents($this->config->varDir . '/objects.json'), true);
+        // Types are exported to sprites.json by sprites:classify
+        $joined = json_decode((string) file_get_contents($this->config->varDir . '/sprites.json'), true);
         $this->assertSame('snowy pine', $joined['objects'][$firstObject]['type']['name']);
         $this->assertSame(array_keys($objects['objects']), array_keys($joined['objects']));
         $this->assertSame($objects['objects'][$firstObject] + ['type' => $joined['objects'][$firstObject]['type']], $joined['objects'][$firstObject]);
 
-        // Type is displayed in the HTML gallery, also exported by objects:classify
-        $this->assertStringContainsString('["tree","snowy pine",["pine","snow"],"A snowy pine."]', (string) file_get_contents($this->config->varDir . '/objects.html'));
-        $this->assertStringContainsString('<option value="tree">tree</option>', (string) file_get_contents($this->config->varDir . '/objects.html'));
+        // Type is displayed in the HTML gallery, also exported by sprites:classify
+        $this->assertStringContainsString('["tree","snowy pine",["pine","snow"],"A snowy pine."]', (string) file_get_contents($this->config->varDir . '/sprites.html'));
+        $this->assertStringContainsString('<option value="tree">tree</option>', (string) file_get_contents($this->config->varDir . '/sprites.html'));
 
         // Export again after a new analyze: stored types are joined
-        $this->exec('objects:analyze', ['ids' => ['10000-10001']]);
-        $this->assertStringContainsString($count . ' sprites exported (3 with a type)', $this->exec('objects:export', ['--format' => ['json']]));
-        $objects = json_decode((string) file_get_contents($this->config->varDir . '/objects.json'), true);
+        $this->exec('sprites:analyze', ['ids' => ['10000-10001']]);
+        $this->assertStringContainsString($count . ' sprites exported (3 with a type)', $this->exec('sprites:export', ['--format' => ['json']]));
+        $objects = json_decode((string) file_get_contents($this->config->varDir . '/sprites.json'), true);
         $this->assertSame(['category' => 'tree', 'name' => 'snowy pine', 'keywords' => ['pine', 'snow'], 'description' => 'A snowy pine.'], $objects['objects'][$firstObject]['type']);
         $this->assertArrayHasKey('type', $objects['objects'][array_key_last($objects['objects'])]);
         $this->assertNull($objects['objects'][array_key_last($objects['objects'])]['type']);
@@ -245,7 +245,7 @@ final class WorkflowTest extends TestCase
         $this->assertSame(Command::INVALID, $tester->execute(['--output' => 'foo.json']));
         $this->assertStringContainsString('The --output option requires a single --format', $tester->getDisplay());
 
-        $tester = new CommandTester($this->app->find('objects:export'));
+        $tester = new CommandTester($this->app->find('sprites:export'));
         $this->assertSame(Command::INVALID, $tester->execute(['--format' => ['json', 'html'], '--output' => 'foo.json']));
 
         $tester = new CommandTester($this->app->find('export'));
@@ -253,12 +253,12 @@ final class WorkflowTest extends TestCase
         $this->assertStringContainsString('Invalid biome "ocean"', $tester->getDisplay());
     }
 
-    public function testObjectsCommandsWithoutAnalyze(): void
+    public function testSpritesCommandsWithoutAnalyze(): void
     {
-        foreach (['objects:sprites', 'objects:classify', 'objects:export'] as $command) {
+        foreach (['sprites:images', 'sprites:classify', 'sprites:export'] as $command) {
             $tester = new CommandTester($this->app->find($command));
             $this->assertSame(Command::FAILURE, $tester->execute([]), $command);
-            $this->assertStringContainsString('sprite_profiles.json not found: run objects:analyze', (string) preg_replace('/\s+/', ' ', $tester->getDisplay()), $command);
+            $this->assertStringContainsString('sprite_profiles.json not found: run sprites:analyze', (string) preg_replace('/\s+/', ' ', $tester->getDisplay()), $command);
         }
     }
 

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace MapClassifier\Sprite\Repository;
 
 use MapClassifier\Infrastructure\Json\JsonFile;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
 use RuntimeException;
 
@@ -15,9 +15,9 @@ use function is_file;
 /**
  * Store the sprites profiles in a single JSON file (sprite_profiles.json), indexed by set then sprite id
  *
- * JSON: {"grounds": {id: {@see ObjectProfile}}, "objects": {id: {@see ObjectProfile}}}
+ * JSON: {"grounds": {id: {@see SpriteProfile}}, "objects": {id: {@see SpriteProfile}}}
  */
-final readonly class ObjectProfileRepository
+final readonly class SpriteProfileRepository
 {
     public function __construct(
         public string $file,
@@ -29,7 +29,7 @@ final readonly class ObjectProfileRepository
     }
 
     /**
-     * @return array<string, array<int, ObjectProfile>> Profiles indexed by set value, then sprite id
+     * @return array<string, array<int, SpriteProfile>> Profiles indexed by set value, then sprite id
      *
      * @throws RuntimeException If the file does not exist or is invalid
      */
@@ -43,7 +43,7 @@ final readonly class ObjectProfileRepository
 
             foreach (is_array($data[$set->value] ?? null) ? $data[$set->value] : [] as $id => $profile) {
                 if (is_array($profile)) {
-                    $profiles[$set->value][(int) $id] = ObjectProfile::fromArray($set, ['id' => $id] + $profile);
+                    $profiles[$set->value][(int) $id] = SpriteProfile::fromArray($set, ['id' => $id] + $profile);
                 }
             }
         }
@@ -52,7 +52,7 @@ final readonly class ObjectProfileRepository
     }
 
     /**
-     * @param array<string, array<int, ObjectProfile>> $profiles Profiles indexed by set value, then sprite id
+     * @param array<string, array<int, SpriteProfile>> $profiles Profiles indexed by set value, then sprite id
      */
     public function save(array $profiles): void
     {

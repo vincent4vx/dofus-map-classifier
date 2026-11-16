@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests\Sprite\Classification\Service;
 
-use MapClassifier\Sprite\Classification\Model\ObjectTypeClassification;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
-use MapClassifier\Sprite\Classification\Repository\ObjectTypeRepository;
-use MapClassifier\Sprite\Classification\Service\ObjectExporter;
+use MapClassifier\Sprite\Classification\Model\SpriteType;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
+use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
+use MapClassifier\Sprite\Classification\Service\SpriteExporter;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
@@ -19,21 +19,21 @@ use function array_keys;
 use function json_decode;
 use function json_encode;
 
-final class ObjectExporterTest extends TestCase
+final class SpriteExporterTest extends TestCase
 {
     use TempDirTrait;
 
     public function testExport(): void
     {
-        $types = new ObjectTypeRepository($this->tempDir());
-        $types->save(ObjectTypeResult::success(SpriteSet::Objects, 7511, ObjectTypeClassification::fromArray(['category' => 'crop', 'name' => 'wheat stalks', 'keywords' => ['cereal'], 'description' => 'Wheat.']), 'luna'));
-        $types->save(ObjectTypeResult::failure(SpriteSet::Objects, 12, 'error'));
+        $types = new SpriteTypeRepository($this->tempDir());
+        $types->save(SpriteTypeResult::success(SpriteSet::Objects, 7511, SpriteType::fromArray(['category' => 'crop', 'name' => 'wheat stalks', 'keywords' => ['cereal'], 'description' => 'Wheat.']), 'luna'));
+        $types->save(SpriteTypeResult::failure(SpriteSet::Objects, 12, 'error'));
 
-        $wheat = new ObjectProfile(SpriteSet::Objects, 7511, Layer::Layer2, 3, 1, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1));
-        $failed = new ObjectProfile(SpriteSet::Objects, 12, Layer::Layer2, 3, 1, 0, [], [], [], [], []);
-        $ground = new ObjectProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [], [], ['plain' => 1], [], []);
+        $wheat = new SpriteProfile(SpriteSet::Objects, 7511, Layer::Layer2, 3, 1, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1));
+        $failed = new SpriteProfile(SpriteSet::Objects, 12, Layer::Layer2, 3, 1, 0, [], [], [], [], []);
+        $ground = new SpriteProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [], [], ['plain' => 1], [], []);
 
-        $export = new ObjectExporter($types)->export(['grounds' => [0 => $ground], 'objects' => [12 => $failed, 7511 => $wheat]]);
+        $export = new SpriteExporter($types)->export(['grounds' => [0 => $ground], 'objects' => [12 => $failed, 7511 => $wheat]]);
 
         $this->assertSame(3, $export->count());
         $this->assertSame(1, $export->classified());

@@ -7,15 +7,15 @@ namespace MapClassifier\Sprite\Classification\Command;
 use InvalidArgumentException;
 use MapClassifier\Infrastructure\Console\EnumOption;
 use MapClassifier\Infrastructure\Export\ExportFormat;
-use MapClassifier\Sprite\Classification\Model\Export\ObjectExport;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
-use MapClassifier\Sprite\Classification\Service\ObjectExporter;
-use MapClassifier\Sprite\Classification\Service\ObjectTypeClassifier;
+use MapClassifier\Sprite\Classification\Model\Export\SpriteExport;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
+use MapClassifier\Sprite\Classification\Service\SpriteExporter;
 use MapClassifier\Sprite\Classification\Service\SpritesToClassify;
+use MapClassifier\Sprite\Classification\Service\SpriteTypeClassifier;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\SpriteSelection;
 use MapClassifier\Sprite\Model\SpriteSet;
-use MapClassifier\Sprite\Repository\ObjectProfileRepository;
+use MapClassifier\Sprite\Repository\SpriteProfileRepository;
 use Override;
 use RuntimeException;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -31,15 +31,15 @@ use function implode;
 use function max;
 use function sprintf;
 
-#[AsCommand('objects:classify', 'Find the type of sprites (category, name, keywords) using the OpenAI Responses API')]
-final class ObjectsClassifyCommand extends Command
+#[AsCommand('sprites:classify', 'Find the type of sprites (category, name, keywords) using the OpenAI Responses API')]
+final class SpritesClassifyCommand extends Command
 {
     public function __construct(
-        private readonly ObjectProfileRepository $profiles,
+        private readonly SpriteProfileRepository $profiles,
         private readonly SpritesToClassify $spritesToClassify,
-        private readonly ObjectTypeClassifier $classifier,
-        private readonly ObjectExporter $exporter,
-        /** @var list<ExportFormat<ObjectExport>> Export formats, written to their default output after the classification */
+        private readonly SpriteTypeClassifier $classifier,
+        private readonly SpriteExporter $exporter,
+        /** @var list<ExportFormat<SpriteExport>> Export formats, written to their default output after the classification */
         private readonly array $exportFormats,
         private readonly string $model,
     ) {
@@ -70,7 +70,7 @@ final class ObjectsClassifyCommand extends Command
         try {
             $profiles = $this->profiles->all();
         } catch (RuntimeException $e) {
-            $io->error($e->getMessage() . ': run objects:analyze and objects:sprites first');
+            $io->error($e->getMessage() . ': run sprites:analyze and sprites:images first');
 
             return self::FAILURE;
         }
@@ -99,7 +99,7 @@ final class ObjectsClassifyCommand extends Command
         $todo = $selected['sprites'];
 
         if ($selected['missingImages']) {
-            $io->warning(sprintf('%d sprites ignored: image not exported (run objects:sprites)', $selected['missingImages']));
+            $io->warning(sprintf('%d sprites ignored: image not exported (run sprites:images)', $selected['missingImages']));
         }
 
         if (!$todo) {
@@ -117,7 +117,7 @@ final class ObjectsClassifyCommand extends Command
         $progress->setMessage('');
         $progress->start();
 
-        $this->classifier->classify($todo, max(1, (int) $option('concurrency')), static function (ObjectTypeResult $result) use ($io, $output, $progress, &$ok, &$errors) {
+        $this->classifier->classify($todo, max(1, (int) $option('concurrency')), static function (SpriteTypeResult $result) use ($io, $output, $progress, &$ok, &$errors) {
             $name = $result->set->spriteName($result->id);
 
             $classification = $result->ok ? $result->classification : null;

@@ -12,9 +12,9 @@ use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Repository\MapFileRepository;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
-use MapClassifier\Sprite\Repository\ObjectProfileRepository;
-use MapClassifier\Sprite\Service\MapObjectExtractor;
-use MapClassifier\Sprite\Service\ObjectAnalyzer;
+use MapClassifier\Sprite\Repository\SpriteProfileRepository;
+use MapClassifier\Sprite\Service\MapSpriteExtractor;
+use MapClassifier\Sprite\Service\SpriteAnalyzer;
 use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -26,16 +26,16 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use function count;
 use function sprintf;
 
-#[AsCommand('objects:analyze', 'Aggregate maps data (layer, areas, biome…) on each sprite used by the maps')]
-final class ObjectsAnalyzeCommand extends Command
+#[AsCommand('sprites:analyze', 'Aggregate maps data (layer, areas, biome…) on each sprite used by the maps')]
+final class SpritesAnalyzeCommand extends Command
 {
     public function __construct(
         private readonly MapFileRepository $maps,
-        private readonly MapObjectExtractor $extractor,
+        private readonly MapSpriteExtractor $extractor,
         private readonly MapLocationRepository $locations,
         private readonly MapResultRepository $results,
         private readonly InteractiveObjectRepository $interactiveObjects,
-        private readonly ObjectProfileRepository $profiles,
+        private readonly SpriteProfileRepository $profiles,
     ) {
         parent::__construct();
     }
@@ -57,7 +57,7 @@ final class ObjectsAnalyzeCommand extends Command
         $locations = $this->locations->tryAll(static fn (string $error) => $io->warning('Areas not available: ' . $error));
         $results = $this->results->all();
 
-        $analyzer = new ObjectAnalyzer(
+        $analyzer = new SpriteAnalyzer(
             $locations,
             $results,
             new SubAreaBiomeResolver()->resolve($locations, $results),

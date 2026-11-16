@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Classification\Service;
 
-use MapClassifier\Sprite\Classification\Repository\ObjectTypeRepository;
+use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Model\Layer;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSelection;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
@@ -20,19 +20,19 @@ use function usort;
 final readonly class SpritesToClassify
 {
     public function __construct(
-        private ObjectTypeRepository $types,
+        private SpriteTypeRepository $types,
         private SpriteImageRepository $images,
     ) {}
 
     /**
-     * @param array<string, array<int, ObjectProfile>> $profiles All profiles, indexed by set value then sprite id
+     * @param array<string, array<int, SpriteProfile>> $profiles All profiles, indexed by set value then sprite id
      * @param SpriteSet|null $set Only sprites of this set
      * @param Layer|null $layer Only sprites mainly used on this layer
      * @param bool $interactiveOnly Only sprites of interactive objects
      * @param bool $force Also select already classified sprites
      * @param bool $retryErrors Also select sprites with a classification error
      *
-     * @return array{sprites: list<ObjectProfile>, missingImages: int} Selected sprites, and number of sprites ignored because their image is not exported
+     * @return array{sprites: list<SpriteProfile>, missingImages: int} Selected sprites, and number of sprites ignored because their image is not exported
      */
     public function select(
         array $profiles,
@@ -78,7 +78,7 @@ final readonly class SpritesToClassify
             }
         }
 
-        usort($sprites, static fn (ObjectProfile $a, ObjectProfile $b) => $b->maps <=> $a->maps ?: $a->id <=> $b->id);
+        usort($sprites, static fn (SpriteProfile $a, SpriteProfile $b) => $b->maps <=> $a->maps ?: $a->id <=> $b->id);
 
         return [
             'sprites' => $limit !== null ? array_slice($sprites, 0, $limit) : $sprites,

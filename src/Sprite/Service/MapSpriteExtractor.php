@@ -17,7 +17,7 @@ use Throwable;
 /**
  * Extract the sprites used by a map, per layer
  */
-final readonly class MapObjectExtractor
+final readonly class MapSpriteExtractor
 {
     public function __construct(
         private MapKeyRepository $keys,
@@ -44,10 +44,10 @@ final readonly class MapObjectExtractor
             throw new RenderException(RenderError::RenderFailed, $e->getMessage(), $e);
         }
 
-        $objects = [];
+        $sprites = [];
 
         if ($loaded->background > 0) {
-            $objects[Layer::Background->value][$loaded->background] = 1;
+            $sprites[Layer::Background->value][$loaded->background] = 1;
         }
 
         foreach ($loaded->cells as $cell) {
@@ -57,11 +57,11 @@ final readonly class MapObjectExtractor
                 Layer::Layer2->value => $cell->layer2->number,
             ] as $layer => $number) {
                 if ($number > 0) {
-                    $objects[$layer][$number] = ($objects[$layer][$number] ?? 0) + 1;
+                    $sprites[$layer][$number] = ($sprites[$layer][$number] ?? 0) + 1;
                 }
             }
         }
 
-        return $objects;
+        return $sprites;
     }
 }

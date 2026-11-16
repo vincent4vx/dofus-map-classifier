@@ -8,7 +8,7 @@ namespace MapClassifier\Sprite\Classification\Model;
  * Closed list of sprite categories, to ease search
  * The precise type is given by the free "name" and "keywords" fields
  */
-enum ObjectCategory: string
+enum SpriteCategory: string
 {
     // Vegetation
     case Tree = 'tree';

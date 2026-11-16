@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace MapClassifier\Sprite\Classification\Service;
 
 use Arakne\MapParser\Parser\Cell;
-use MapClassifier\Sprite\Classification\Model\ObjectCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteCategory;
 use MapClassifier\Sprite\Model\Layer;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Model\SpriteSize;
 
@@ -22,7 +22,7 @@ use function sprintf;
 /**
  * Build the Responses API request used to find the type of a sprite
  */
-final readonly class ObjectTypePrompt
+final readonly class SpriteTypePrompt
 {
     public function __construct(
         private string $model,
@@ -34,7 +34,7 @@ final readonly class ObjectTypePrompt
      *
      * @return array<string, mixed>
      */
-    public function requestBody(ObjectProfile $profile, string $imageUrl, SpriteSize $size): array
+    public function requestBody(SpriteProfile $profile, string $imageUrl, SpriteSize $size): array
     {
         $body = [
             'model' => $this->model,
@@ -69,7 +69,7 @@ final readonly class ObjectTypePrompt
      * Describe what is known about the sprite usage in maps
      *
      *      */
-    public static function context(ObjectProfile $profile, SpriteSize $size): string
+    public static function context(SpriteProfile $profile, SpriteSize $size): string
     {
         $counts = static fn (array $values) => implode(', ', array_map(
             static fn (string $name, int $count) => $name . ' (' . $count . ')',
@@ -141,8 +141,8 @@ final readonly class ObjectTypePrompt
     public static function instructions(): string
     {
         $categories = implode("\n", array_map(
-            static fn (ObjectCategory $category) => '- ' . $category->value . ': ' . $category->description(),
-            ObjectCategory::cases(),
+            static fn (SpriteCategory $category) => '- ' . $category->value . ': ' . $category->description(),
+            SpriteCategory::cases(),
         ));
 
         return <<<PROMPT
@@ -175,7 +175,7 @@ final readonly class ObjectTypePrompt
             'additionalProperties' => false,
             'required' => ['category', 'name', 'keywords', 'description'],
             'properties' => [
-                'category' => ['type' => 'string', 'enum' => array_column(ObjectCategory::cases(), 'value')],
+                'category' => ['type' => 'string', 'enum' => array_column(SpriteCategory::cases(), 'value')],
                 'name' => ['type' => 'string'],
                 'keywords' => ['type' => 'array', 'items' => ['type' => 'string']],
                 'description' => ['type' => 'string'],

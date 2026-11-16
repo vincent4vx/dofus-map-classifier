@@ -11,12 +11,12 @@ use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
-use MapClassifier\Sprite\Service\ObjectAnalyzer;
+use MapClassifier\Sprite\Service\SpriteAnalyzer;
 use PHPUnit\Framework\TestCase;
 
-final class ObjectAnalyzerTest extends TestCase
+final class SpriteAnalyzerTest extends TestCase
 {
     public function testProfiles(): void
     {
@@ -38,7 +38,7 @@ final class ObjectAnalyzerTest extends TestCase
         // Not classified map: no biome, indoor or location type, but sub area is known
         $locations[100] = new MapLocation(100, 3, 'Sub area 3', 10, 'Area', 0, 'Continent');
 
-        $analyzer = new ObjectAnalyzer($locations, $results, minRatio: 0.1);
+        $analyzer = new SpriteAnalyzer($locations, $results, minRatio: 0.1);
 
         for ($id = 1; $id <= 82; ++$id) {
             // Sprite 345 is used 3 times per map on layer2, once on layer1 on forest maps
@@ -114,7 +114,7 @@ final class ObjectAnalyzerTest extends TestCase
             2 => $this->classified(2, null, true), // interior without biome
         ];
 
-        $analyzer = new ObjectAnalyzer($locations, $results, new SubAreaBiomeResolver()->resolve($locations, $results));
+        $analyzer = new SpriteAnalyzer($locations, $results, new SubAreaBiomeResolver()->resolve($locations, $results));
         $analyzer->add(1, ['layer1' => [1 => 1]]);
         $analyzer->add(2, ['layer1' => [1 => 1]]);
         $analyzer->add(3, ['layer1' => [1 => 1]]); // not classified
@@ -129,7 +129,7 @@ final class ObjectAnalyzerTest extends TestCase
     public function testInteractiveObject(): void
     {
         $wheat = new InteractiveObject(38, 'Wheat', 1);
-        $analyzer = new ObjectAnalyzer([], [], interactiveObjects: [7511 => $wheat]);
+        $analyzer = new SpriteAnalyzer([], [], interactiveObjects: [7511 => $wheat]);
         $analyzer->add(1, ['layer2' => [7511 => 1, 12 => 1], 'ground' => [7511 => 1]]);
 
         $profiles = $analyzer->profiles();
@@ -141,13 +141,13 @@ final class ObjectAnalyzerTest extends TestCase
         $array = json_decode((string) json_encode($profiles['objects'][7511]), true);
         $this->assertIsArray($array);
         $this->assertSame(['id' => 38, 'name' => 'Wheat', 'type' => 'resource'], $array['interactive']);
-        $this->assertEquals($wheat, ObjectProfile::fromArray(SpriteSet::Objects, $array)->interactive);
-        $this->assertNull(ObjectProfile::fromArray(SpriteSet::Objects, $profiles['objects'][12]->jsonSerialize())->interactive);
+        $this->assertEquals($wheat, SpriteProfile::fromArray(SpriteSet::Objects, $array)->interactive);
+        $this->assertNull(SpriteProfile::fromArray(SpriteSet::Objects, $profiles['objects'][12]->jsonSerialize())->interactive);
     }
 
     public function testFilter(): void
     {
-        $analyzer = new ObjectAnalyzer([], [], minRatio: 0.1);
+        $analyzer = new SpriteAnalyzer([], [], minRatio: 0.1);
 
         $this->assertSame(['plain' => 50, 'forest' => 30, 'snow' => 5], $analyzer->filter(['snow' => 5, 'cave' => 2, 'plain' => 50, 'forest' => 30, 'sea' => 4]));
         $this->assertSame([], $analyzer->filter([]));

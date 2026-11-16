@@ -5,23 +5,23 @@ declare(strict_types=1);
 namespace MapClassifier\Tests\Sprite\Classification\Model;
 
 use InvalidArgumentException;
-use MapClassifier\Sprite\Classification\Model\ObjectCategory;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeClassification;
+use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteType;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-final class ObjectTypeClassificationTest extends TestCase
+final class SpriteTypeTest extends TestCase
 {
     public function testFromArray(): void
     {
-        $type = ObjectTypeClassification::fromArray([
+        $type = SpriteType::fromArray([
             'category' => 'tree',
             'name' => ' Pine Tree ',
             'keywords' => ['Tree', ' conifer ', 'tree', '', 'Snowy'],
             'description' => ' A snowy pine tree. ',
         ]);
 
-        $this->assertSame(ObjectCategory::Tree, $type->category);
+        $this->assertSame(SpriteCategory::Tree, $type->category);
         $this->assertSame('pine tree', $type->name);
         $this->assertSame(['tree', 'conifer', 'snowy'], $type->keywords);
         $this->assertSame('A snowy pine tree.', $type->description);
@@ -35,14 +35,14 @@ final class ObjectTypeClassificationTest extends TestCase
 
     public function testWithName(): void
     {
-        $type = ObjectTypeClassification::fromArray([
+        $type = SpriteType::fromArray([
             'category' => 'crop',
             'name' => 'wheat clump',
             'keywords' => ['cereal', 'yellow', 'flax'],
             'description' => 'A clump.',
         ])->withName('Flax', 'resource');
 
-        $this->assertSame(ObjectCategory::Crop, $type->category);
+        $this->assertSame(SpriteCategory::Crop, $type->category);
         $this->assertSame('flax', $type->name);
         $this->assertSame(['cereal', 'yellow', 'wheat clump', 'resource'], $type->keywords);
         $this->assertSame('A clump.', $type->description);
@@ -57,7 +57,7 @@ final class ObjectTypeClassificationTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage($message);
 
-        ObjectTypeClassification::fromArray($override + ['category' => 'tree', 'name' => 'tree', 'keywords' => [], 'description' => '']);
+        SpriteType::fromArray($override + ['category' => 'tree', 'name' => 'tree', 'keywords' => [], 'description' => '']);
     }
 
     /**

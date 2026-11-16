@@ -8,10 +8,10 @@ use InvalidArgumentException;
 use JsonException;
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\Infrastructure\OpenAI\ResponseOutput;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeClassification;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
-use MapClassifier\Sprite\Classification\Repository\ObjectTypeRepository;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Classification\Model\SpriteType;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
+use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
 use Throwable;
 
@@ -25,20 +25,20 @@ use const JSON_THROW_ON_ERROR;
 /**
  * Find the type of sprites by calling the Responses API, with concurrent requests
  */
-final readonly class ObjectTypeClassifier
+final readonly class SpriteTypeClassifier
 {
     public function __construct(
         private ConcurrentResponsesClient $client,
-        private ObjectTypePrompt $prompt,
+        private SpriteTypePrompt $prompt,
         private SpriteImageRepository $sprites,
-        private ObjectTypeRepository $storage,
+        private SpriteTypeRepository $storage,
         private string $model,
     ) {}
 
     /**
-     * @param list<ObjectProfile> $profiles
+     * @param list<SpriteProfile> $profiles
      * @param positive-int $concurrency
-     * @param callable(ObjectTypeResult): void|null $onResult Called after each result is saved
+     * @param callable(SpriteTypeResult): void|null $onResult Called after each result is saved
      */
     public function classify(array $profiles, int $concurrency = 5, ?callable $onResult = null): void
     {
@@ -48,7 +48,7 @@ final readonly class ObjectTypeClassifier
                 $size = $this->sprites->size($profile->set, $profile->id);
 
                 if ($png === false || $size === null) {
-                    $this->save(ObjectTypeResult::failure($profile->set, $profile->id, 'Sprite image not exported'), $onResult);
+                    $this->save(SpriteTypeResult::failure($profile->set, $profile->id, 'Sprite image not exported'), $onResult);
                     continue;
                 }
 
@@ -56,7 +56,7 @@ final readonly class ObjectTypeClassifier
             }
         })();
 
-        $this->client->run($requests, $concurrency, function (ObjectProfile $profile, int $status, array $body, ?Throwable $error) use ($onResult) {
+        $this->client->run($requests, $concurrency, function (SpriteProfile $profile, int $status, array $body, ?Throwable $error) use ($onResult) {
             $this->save($this->result($profile, $status, $body, $error), $onResult);
         });
     }
@@ -64,40 +64,40 @@ final readonly class ObjectTypeClassifier
     /**
      * @param array<array-key, mixed> $body
      */
-    public function result(ObjectProfile $profile, int $status, array $body, ?Throwable $error = null): ObjectTypeResult
+    public function result(SpriteProfile $profile, int $status, array $body, ?Throwable $error = null): SpriteTypeResult
     {
         if ($error !== null) {
-            return ObjectTypeResult::failure($profile->set, $profile->id, $error->getMessage(), $this->model);
+            return SpriteTypeResult::failure($profile->set, $profile->id, $error->getMessage(), $this->model);
         }
 
         if ($status !== 200) {
-            return ObjectTypeResult::failure($profile->set, $profile->id, ResponseOutput::error($status, $body), $this->model);
+            return SpriteTypeResult::failure($profile->set, $profile->id, ResponseOutput::error($status, $body), $this->model);
         }
 
         $output = ResponseOutput::fromBody($body);
         $model = $output->model ?? $this->model;
 
         if ($output->refusal !== null) {
-            return ObjectTypeResult::failure($profile->set, $profile->id, 'Refused: ' . $output->refusal, $model);
+            return SpriteTypeResult::failure($profile->set, $profile->id, 'Refused: ' . $output->refusal, $model);
         }
 
         if ($output->text === null) {
-            return ObjectTypeResult::failure($profile->set, $profile->id, 'No output text (response status: ' . $output->status . ')', $model);
+            return SpriteTypeResult::failure($profile->set, $profile->id, 'No output text (response status: ' . $output->status . ')', $model);
         }
 
         try {
             $data = json_decode($output->text, true, flags: JSON_THROW_ON_ERROR);
 
-            return ObjectTypeResult::success($profile->set, $profile->id, ObjectTypeClassification::fromArray(is_array($data) ? $data : []), $model);
+            return SpriteTypeResult::success($profile->set, $profile->id, SpriteType::fromArray(is_array($data) ? $data : []), $model);
         } catch (JsonException|InvalidArgumentException $e) {
-            return ObjectTypeResult::failure($profile->set, $profile->id, 'Invalid output: ' . $e->getMessage(), $model);
+            return SpriteTypeResult::failure($profile->set, $profile->id, 'Invalid output: ' . $e->getMessage(), $model);
         }
     }
 
     /**
-     * @param callable(ObjectTypeResult): void|null $onResult
+     * @param callable(SpriteTypeResult): void|null $onResult
      */
-    private function save(ObjectTypeResult $result, ?callable $onResult): void
+    private function save(SpriteTypeResult $result, ?callable $onResult): void
     {
         $this->storage->save($result);
 

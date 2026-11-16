@@ -85,7 +85,7 @@ Enums en anglais, tags et description en anglais.
 
 ### Analyse des objets (étape 3, partie 1)
 
-Commande `objects:analyze` (`make objects`) → `var/sprite_profiles.json`.
+Commande `sprites:analyze` (`make sprites`) → `var/sprite_profiles.json`.
 
 - Parcourt toutes les maps décodables (sans rendu) et relève les sprites utilisés : `background` et `ground` (sprites de sol, `g*.swf`), `layer1` et `layer2` (sprites d'objets, `o*.swf`). Les numéros des deux ensembles sont indépendants : la sortie est séparée en `grounds` et `objects`.
 - Pour chaque sprite :
@@ -98,15 +98,15 @@ Commande `objects:analyze` (`make objects`) → `var/sprite_profiles.json`.
 - Les attributs sont comptés une fois par map (pas par cellule).
 - Les valeurs bien moins fréquentes que la valeur principale sont considérées comme du bruit et ignorées : une valeur est gardée si son nombre de maps est ≥ 10 % de celui de la valeur principale (`--min-ratio`).
 - Pas d'agrégation par super area (jugée non pertinente).
-- `objects:sprites` : rendu direct des sprites utilisés en PNG, tel qu'envoyé au modèle, dans `var/sprites/{grounds|objects}/{id}.png` (extraction SVG en mémoire via ArakneSwf, puis rendu : marges transparentes retirées, agrandi à ~512 px (x16 max), fond gris neutre `#a0a0a0`). La taille visible en pixels du jeu est stockée dans `var/sprites/{set}/sizes.json`. ~5 min et ~440 Mo pour ~4 800 sprites.
-- `objects:export --format=html` : galerie HTML `var/objects.html` (sprite + données agrégées), filtres : recherche (id, nom, catégorie, mots-clés, objet interactif), objet interactif (type), set, layer, biome, area, intérieur, type de lieu, nombre minimum de maps, tri ; pagination par 200.
-- `make objects` enchaîne `objects:analyze`, `objects:sprites` et `objects:export` (JSON et HTML).
+- `sprites:images` : rendu direct des sprites utilisés en PNG, tel qu'envoyé au modèle, dans `var/sprites/{grounds|objects}/{id}.png` (extraction SVG en mémoire via ArakneSwf, puis rendu : marges transparentes retirées, agrandi à ~512 px (x16 max), fond gris neutre `#a0a0a0`). La taille visible en pixels du jeu est stockée dans `var/sprites/{set}/sizes.json`. ~5 min et ~440 Mo pour ~4 800 sprites.
+- `sprites:export --format=html` : galerie HTML `var/sprites.html` (sprite + données agrégées), filtres : recherche (id, nom, catégorie, mots-clés, objet interactif), objet interactif (type), set, layer, biome, area, intérieur, type de lieu, nombre minimum de maps, tri ; pagination par 200.
+- `make sprites` enchaîne `sprites:analyze`, `sprites:images` et `sprites:export` (JSON et HTML).
 
 ### Type des objets (étape 3, partie 2)
 
-Commande `objects:classify` (`make objects-classify`), via l'API Responses (requêtes parallèles).
+Commande `sprites:classify` (`make sprites-classify`), via l'API Responses (requêtes parallèles).
 
-- Le PNG exporté par `objects:sprites` est envoyé tel quel.
+- Le PNG exporté par `sprites:images` est envoyé tel quel.
 - Contexte donné au modèle : taille visible en pixels du jeu (une cellule = 53 x 27 px), layer principal et son rôle, nombre de maps, biomes, areas, sub areas, intérieur / extérieur, types de lieu. Les sprites connus comme marqueurs de téléportation (1029, 1030) sont signalés.
 - Réponse :
   - `category` : liste fermée pour faciliter la recherche (tree, bush, grass, flower, plant, crop, mushroom, rock, cliff, water, ground, path, floor, building, wall, roof, door, window, stairs, bridge, fence, furniture, container, light, statue, tomb, sign, tool, vehicle, decoration, remains, creature, shadow, effect, marker, other) ;
@@ -114,7 +114,7 @@ Commande `objects:classify` (`make objects-classify`), via l'API Responses (requ
   - `keywords` : mots-clés libres décrivant le sprite (pas de biome ni de lieu, déjà connus) ;
   - `description`.
 - Objets interactifs : le nom et le type de l'objet sont donnés au modèle, qui doit reprendre ce nom et choisir la catégorie d'après ce que montre le sprite. Le nom de l'objet interactif est prioritaire : il remplace le nom donné par le modèle lors de la jointure (le nom du modèle et le type d'objet interactif sont ajoutés aux mots-clés). Le résultat brut du modèle reste stocké tel quel.
-- Stockage : `var/object_types/{grounds|objects}/{id}.json`. Export : `objects:export` écrit `var/objects.json`, le profil de chaque sprite (`sprite_profiles.json`) avec son type (`type`, null si non classé), comme `export` pour les maps. L'export (tous les formats) est refait à la fin de `objects:classify`. Le type est affiché dans `objects.html` (filtre par catégorie, recherche sur nom et mots-clés, mots-clés cliquables).
+- Stockage : `var/sprite_types/{grounds|objects}/{id}.json`. Export : `sprites:export` écrit `var/sprites.json`, le profil de chaque sprite (`sprite_profiles.json`) avec son type (`type`, null si non classé), comme `export` pour les maps. L'export (tous les formats) est refait à la fin de `sprites:classify`. Le type est affiché dans `sprites.html` (filtre par catégorie, recherche sur nom et mots-clés, mots-clés cliquables).
 - Sélection : ids préfixés (`o345`, `g10-20`), `--set`, `--layer`, `--interactive`, `--min-maps`, `--limit` (les plus utilisés d'abord), `--force`, `--retry-errors`.
 
 ### Constats techniques

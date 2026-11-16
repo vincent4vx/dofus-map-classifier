@@ -10,7 +10,7 @@ use MapClassifier\Map\Classification\Model\SubAreaBiome;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
 
 use function array_filter;
@@ -27,7 +27,7 @@ use function reset;
  *
  * Usage:
  * ```php
- * $analyzer = new ObjectAnalyzer($locations, $results, $subAreaBiomes);
+ * $analyzer = new SpriteAnalyzer($locations, $results, $subAreaBiomes);
  * foreach ($maps as $map) {
  *     $analyzer->add($map->id, $extractor->extract($map));
  * }
@@ -38,7 +38,7 @@ use function reset;
  * The biome of a map is its classified biome, or the biome of its sub area if the map has no biome or is not classified.
  * Indoor and location type are only taken from classified maps.
  */
-final class ObjectAnalyzer
+final class SpriteAnalyzer
 {
     /**
      * Stats indexed by sprite set, then sprite id
@@ -77,9 +77,9 @@ final class ObjectAnalyzer
     /**
      * Add the sprites used by a map
      *
-     * @param array<string, array<int, int>> $objects Occurrences of each sprite, indexed by layer (see {@see MapObjectExtractor::extract()})
+     * @param array<string, array<int, int>> $layers Occurrences of each sprite, indexed by layer (see {@see MapSpriteExtractor::extract()})
      */
-    public function add(int $mapId, array $objects): void
+    public function add(int $mapId, array $layers): void
     {
         $location = $this->locations[$mapId] ?? null;
         $classification = ($this->results[$mapId] ?? null)?->classification;
@@ -97,7 +97,7 @@ final class ObjectAnalyzer
         /** @var array<string, array<int, true>> $seen Sprites already counted for this map */
         $seen = [];
 
-        foreach ($objects as $layerName => $sprites) {
+        foreach ($layers as $layerName => $sprites) {
             $set = Layer::from($layerName)->spriteSet()->value;
 
             foreach ($sprites as $id => $count) {
@@ -146,7 +146,7 @@ final class ObjectAnalyzer
     }
 
     /**
-     * @return array<string, array<int, ObjectProfile>> Profiles indexed by sprite set value, then sprite id (sorted)
+     * @return array<string, array<int, SpriteProfile>> Profiles indexed by sprite set value, then sprite id (sorted)
      */
     public function profiles(): array
     {
@@ -160,7 +160,7 @@ final class ObjectAnalyzer
                 arsort($layers);
 
                 $spriteSet = SpriteSet::from($set);
-                $profiles[$set][$id] = new ObjectProfile(
+                $profiles[$set][$id] = new SpriteProfile(
                     set: $spriteSet,
                     id: $id,
                     layer: Layer::from((string) array_key_first($layers)),

@@ -5,26 +5,26 @@ declare(strict_types=1);
 namespace MapClassifier\Sprite\Classification\Service;
 
 use MapClassifier\Sprite\Classification\Model\Export\ExportedSprite;
-use MapClassifier\Sprite\Classification\Model\Export\ObjectExport;
-use MapClassifier\Sprite\Classification\Repository\ObjectTypeRepository;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Classification\Model\Export\SpriteExport;
+use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
+use MapClassifier\Sprite\Model\SpriteProfile;
 
 /**
  * Join the sprites profiles with their type
  */
-final readonly class ObjectExporter
+final readonly class SpriteExporter
 {
     public function __construct(
-        private ObjectTypeRepository $types,
+        private SpriteTypeRepository $types,
     ) {}
 
     /**
-     * @param array<string, array<int, ObjectProfile>> $profiles Profiles indexed by set value, then sprite id
+     * @param array<string, array<int, SpriteProfile>> $profiles Profiles indexed by set value, then sprite id
      */
-    public function export(array $profiles): ObjectExport
+    public function export(array $profiles): SpriteExport
     {
         // New resolver on each export: it loads the stored types once
-        $resolver = new ObjectTypeResolver($this->types);
+        $resolver = new SpriteTypeResolver($this->types);
         $sprites = [];
 
         foreach ($profiles as $set => $setProfiles) {
@@ -35,6 +35,6 @@ final readonly class ObjectExporter
             }
         }
 
-        return new ObjectExport($sprites);
+        return new SpriteExport($sprites);
     }
 }

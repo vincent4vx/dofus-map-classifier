@@ -21,7 +21,7 @@ use function is_array;
  * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: maps}, "indoor": {"indoor" | "outdoor": maps},
  * "location_types": {type: maps}, "interactive": {@see InteractiveObject} | null}
  */
-final readonly class ObjectProfile implements JsonSerializable
+final readonly class SpriteProfile implements JsonSerializable
 {
     public function __construct(
         public SpriteSet $set,

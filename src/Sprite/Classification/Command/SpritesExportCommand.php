@@ -7,9 +7,9 @@ namespace MapClassifier\Sprite\Classification\Command;
 use InvalidArgumentException;
 use MapClassifier\Infrastructure\Export\ExportFormat;
 use MapClassifier\Infrastructure\Export\ExportFormatOption;
-use MapClassifier\Sprite\Classification\Model\Export\ObjectExport;
-use MapClassifier\Sprite\Classification\Service\ObjectExporter;
-use MapClassifier\Sprite\Repository\ObjectProfileRepository;
+use MapClassifier\Sprite\Classification\Model\Export\SpriteExport;
+use MapClassifier\Sprite\Classification\Service\SpriteExporter;
+use MapClassifier\Sprite\Repository\SpriteProfileRepository;
 use Override;
 use RuntimeException;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -21,13 +21,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use function implode;
 use function sprintf;
 
-#[AsCommand('objects:export', 'Export the sprites profiles with their type: JSON data and HTML gallery with filters')]
-final class ObjectsExportCommand extends Command
+#[AsCommand('sprites:export', 'Export the sprites profiles with their type: JSON data and HTML gallery with filters')]
+final class SpritesExportCommand extends Command
 {
     public function __construct(
-        private readonly ObjectProfileRepository $profiles,
-        private readonly ObjectExporter $exporter,
-        /** @var list<ExportFormat<ObjectExport>> */
+        private readonly SpriteProfileRepository $profiles,
+        private readonly SpriteExporter $exporter,
+        /** @var list<ExportFormat<SpriteExport>> */
         private readonly array $formats,
     ) {
         parent::__construct();
@@ -52,7 +52,7 @@ final class ObjectsExportCommand extends Command
 
             return self::INVALID;
         } catch (RuntimeException $e) {
-            $io->error($e->getMessage() . ': run objects:analyze first');
+            $io->error($e->getMessage() . ': run sprites:analyze first');
 
             return self::FAILURE;
         }

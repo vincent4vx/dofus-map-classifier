@@ -4,29 +4,29 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests\Sprite\Classification\Service;
 
-use MapClassifier\Sprite\Classification\Model\ObjectCategory;
-use MapClassifier\Sprite\Classification\Service\ObjectTypePrompt;
+use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Service\SpriteTypePrompt;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Model\SpriteSize;
 use PHPUnit\Framework\TestCase;
 
 use function array_column;
 
-final class ObjectTypePromptTest extends TestCase
+final class SpriteTypePromptTest extends TestCase
 {
     public function testRequestBody(): void
     {
-        $body = (new ObjectTypePrompt('luna', 'low'))->requestBody($this->profile(), 'data:image/png;base64,xxx', new SpriteSize(53.0, 27.5));
+        $body = (new SpriteTypePrompt('luna', 'low'))->requestBody($this->profile(), 'data:image/png;base64,xxx', new SpriteSize(53.0, 27.5));
 
         $this->assertSame('luna', $body['model']);
         $this->assertSame(['effort' => 'low'], $body['reasoning']);
-        $this->assertSame(ObjectTypePrompt::instructions(), $body['instructions']);
+        $this->assertSame(SpriteTypePrompt::instructions(), $body['instructions']);
         $this->assertSame(['type' => 'input_image', 'image_url' => 'data:image/png;base64,xxx', 'detail' => 'high'], $body['input'][0]['content'][1]);
-        $this->assertSame(ObjectTypePrompt::schema(), $body['text']['format']['schema']);
+        $this->assertSame(SpriteTypePrompt::schema(), $body['text']['format']['schema']);
         $this->assertTrue($body['text']['format']['strict']);
     }
 
@@ -42,22 +42,22 @@ final class ObjectTypePromptTest extends TestCase
             Sub areas: Village (40).
             Indoor / outdoor maps: outdoor (60).
             Kind of places: wild (40), road (20).
-            TXT, ObjectTypePrompt::context($this->profile(), new SpriteSize(53.0, 27.5)));
+            TXT, SpriteTypePrompt::context($this->profile(), new SpriteSize(53.0, 27.5)));
     }
 
     public function testContextInteractiveObject(): void
     {
-        $profile = new ObjectProfile(SpriteSet::Objects, 7511, Layer::Layer2, 10, 2, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1));
+        $profile = new SpriteProfile(SpriteSet::Objects, 7511, Layer::Layer2, 10, 2, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1));
 
         $this->assertStringContainsString(
             "\n" . 'Known interactive object (from the game data): "Wheat", resource harvested by a profession: tree, ore, cereal, plant, fish…. Use this name, and choose the category of what the sprite shows.',
-            ObjectTypePrompt::context($profile, new SpriteSize(25.0, 13.0)),
+            SpriteTypePrompt::context($profile, new SpriteSize(25.0, 13.0)),
         );
     }
 
     public function testContextMinimalAndTeleportMarker(): void
     {
-        $profile = new ObjectProfile(SpriteSet::Objects, 1030, Layer::Layer1, 10, 2, 0, [], [], [], [], []);
+        $profile = new SpriteProfile(SpriteSet::Objects, 1030, Layer::Layer1, 10, 2, 0, [], [], [], [], []);
 
         $this->assertSame(<<<'TXT'
             Identify the sprite o1030.
@@ -65,29 +65,29 @@ final class ObjectTypePromptTest extends TestCase
             Mainly used as: layer1 (element drawn flat on the ground, below characters: paths, carpets, shadows, small vegetation, ground details).
             Used 10 times, on 2 maps.
             Known sprite: this is the teleport cell marker (cell used to change map), category "marker".
-            TXT, ObjectTypePrompt::context($profile, new SpriteSize(25.0, 13.0)));
+            TXT, SpriteTypePrompt::context($profile, new SpriteSize(25.0, 13.0)));
 
-        $ground = new ObjectProfile(SpriteSet::Grounds, 1030, Layer::Ground, 10, 2, 0, [], [], [], [], []);
-        $this->assertStringNotContainsString('teleport', ObjectTypePrompt::context($ground, new SpriteSize(1.0, 1.0)));
-        $this->assertStringStartsWith('Identify the sprite g1030.', ObjectTypePrompt::context($ground, new SpriteSize(1.0, 1.0)));
+        $ground = new SpriteProfile(SpriteSet::Grounds, 1030, Layer::Ground, 10, 2, 0, [], [], [], [], []);
+        $this->assertStringNotContainsString('teleport', SpriteTypePrompt::context($ground, new SpriteSize(1.0, 1.0)));
+        $this->assertStringStartsWith('Identify the sprite g1030.', SpriteTypePrompt::context($ground, new SpriteSize(1.0, 1.0)));
     }
 
     public function testSchemaAndInstructions(): void
     {
-        $schema = ObjectTypePrompt::schema();
+        $schema = SpriteTypePrompt::schema();
 
-        $this->assertSame(array_column(ObjectCategory::cases(), 'value'), $schema['properties']['category']['enum']);
+        $this->assertSame(array_column(SpriteCategory::cases(), 'value'), $schema['properties']['category']['enum']);
         $this->assertSame(array_keys($schema['properties']), $schema['required']);
         $this->assertFalse($schema['additionalProperties']);
 
-        foreach (ObjectCategory::cases() as $category) {
-            $this->assertStringContainsString('- ' . $category->value . ': ' . $category->description(), ObjectTypePrompt::instructions());
+        foreach (SpriteCategory::cases() as $category) {
+            $this->assertStringContainsString('- ' . $category->value . ': ' . $category->description(), SpriteTypePrompt::instructions());
         }
     }
 
-    private function profile(): ObjectProfile
+    private function profile(): SpriteProfile
     {
-        return new ObjectProfile(
+        return new SpriteProfile(
             set: SpriteSet::Objects,
             id: 345,
             layer: Layer::Layer2,

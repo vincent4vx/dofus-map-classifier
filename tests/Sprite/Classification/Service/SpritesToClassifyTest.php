@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests\Sprite\Classification\Service;
 
-use MapClassifier\Sprite\Classification\Model\ObjectCategory;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeClassification;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
-use MapClassifier\Sprite\Classification\Repository\ObjectTypeRepository;
+use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteType;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
+use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Classification\Service\SpritesToClassify;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
-use MapClassifier\Sprite\Model\ObjectProfile;
 use MapClassifier\Sprite\Model\RenderedSprite;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSelection;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
@@ -25,15 +25,15 @@ final class SpritesToClassifyTest extends TestCase
 {
     use TempDirTrait;
 
-    private ObjectTypeRepository $types;
+    private SpriteTypeRepository $types;
     private SpritesToClassify $service;
-    /** @var array<string, array<int, ObjectProfile>> */
+    /** @var array<string, array<int, SpriteProfile>> */
     private array $profiles;
 
     protected function setUp(): void
     {
         $images = new SpriteImageRepository($this->tempDir() . '/sprites');
-        $this->types = new ObjectTypeRepository($this->tempDir() . '/types');
+        $this->types = new SpriteTypeRepository($this->tempDir() . '/types');
         $this->service = new SpritesToClassify($this->types, $images);
 
         $this->profiles = [
@@ -81,8 +81,8 @@ final class SpritesToClassifyTest extends TestCase
 
     public function testAlreadyClassified(): void
     {
-        $this->types->save(ObjectTypeResult::success(SpriteSet::Objects, 2, new ObjectTypeClassification(ObjectCategory::Tree, 'tree', [], ''), 'luna'));
-        $this->types->save(ObjectTypeResult::failure(SpriteSet::Objects, 3, 'error'));
+        $this->types->save(SpriteTypeResult::success(SpriteSet::Objects, 2, new SpriteType(SpriteCategory::Tree, 'tree', [], ''), 'luna'));
+        $this->types->save(SpriteTypeResult::failure(SpriteSet::Objects, 3, 'error'));
 
         $all = SpriteSelection::parse([]);
 
@@ -91,17 +91,17 @@ final class SpritesToClassifyTest extends TestCase
         $this->assertSame(['g1', 'o2', 'o3', 'o1'], self::names($this->service->select($this->profiles, $all, force: true)['sprites']));
     }
 
-    private static function profile(SpriteSet $set, int $id, Layer $layer, int $maps, ?InteractiveObject $interactive = null): ObjectProfile
+    private static function profile(SpriteSet $set, int $id, Layer $layer, int $maps, ?InteractiveObject $interactive = null): SpriteProfile
     {
-        return new ObjectProfile($set, $id, $layer, $maps, $maps, 0, [], [], [], [], [], $interactive);
+        return new SpriteProfile($set, $id, $layer, $maps, $maps, 0, [], [], [], [], [], $interactive);
     }
 
     /**
-     * @param list<ObjectProfile> $profiles
+     * @param list<SpriteProfile> $profiles
      * @return list<string>
      */
     private static function names(array $profiles): array
     {
-        return array_map(static fn (ObjectProfile $profile) => $profile->set->spriteName($profile->id), $profiles);
+        return array_map(static fn (SpriteProfile $profile) => $profile->set->spriteName($profile->id), $profiles);
     }
 }

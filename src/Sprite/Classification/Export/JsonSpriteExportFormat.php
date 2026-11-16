@@ -6,15 +6,15 @@ namespace MapClassifier\Sprite\Classification\Export;
 
 use MapClassifier\Infrastructure\Export\ExportFormat;
 use MapClassifier\Infrastructure\Json\JsonFile;
-use MapClassifier\Sprite\Classification\Model\Export\ObjectExport;
+use MapClassifier\Sprite\Classification\Model\Export\SpriteExport;
 use Override;
 
 /**
- * JSON file of the export (objects.json), see {@see ObjectExport}
+ * JSON file of the export (sprites.json), see {@see SpriteExport}
  *
- * @implements ExportFormat<ObjectExport>
+ * @implements ExportFormat<SpriteExport>
  */
-final readonly class JsonObjectExportFormat implements ExportFormat
+final readonly class JsonSpriteExportFormat implements ExportFormat
 {
     public function __construct(
         private string $defaultOutput,

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Classification\Service;
 
-use MapClassifier\Sprite\Classification\Model\ObjectTypeClassification;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
-use MapClassifier\Sprite\Classification\Repository\ObjectTypeRepository;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use MapClassifier\Sprite\Classification\Model\SpriteType;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
+use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
+use MapClassifier\Sprite\Model\SpriteProfile;
 
 /**
  * Resolve the type of a sprite from the stored classifications
@@ -15,16 +15,16 @@ use MapClassifier\Sprite\Model\ObjectProfile;
  *
  * Stored types are loaded once: create a new instance to see types classified later
  */
-final class ObjectTypeResolver
+final class SpriteTypeResolver
 {
-    /** @var array<string, array<int, ObjectTypeResult>> */
+    /** @var array<string, array<int, SpriteTypeResult>> */
     private array $types = [];
 
     public function __construct(
-        private readonly ObjectTypeRepository $repository,
+        private readonly SpriteTypeRepository $repository,
     ) {}
 
-    public function type(ObjectProfile $profile): ?ObjectTypeClassification
+    public function type(SpriteProfile $profile): ?SpriteType
     {
         $this->types[$profile->set->value] ??= $this->repository->all($profile->set);
 
@@ -35,7 +35,7 @@ final class ObjectTypeResolver
      * Apply the name of the interactive object on the classification
      * The model name and the interactive object type are kept as keywords
      */
-    public static function withInteractiveName(ObjectProfile $profile, ?ObjectTypeClassification $classification): ?ObjectTypeClassification
+    public static function withInteractiveName(SpriteProfile $profile, ?SpriteType $classification): ?SpriteType
     {
         if ($classification === null || $profile->interactive === null) {
             return $classification;

@@ -6,14 +6,14 @@ namespace MapClassifier\Tests\Sprite\Classification\Service;
 
 use LogicException;
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
-use MapClassifier\Sprite\Classification\Model\ObjectCategory;
-use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
-use MapClassifier\Sprite\Classification\Repository\ObjectTypeRepository;
-use MapClassifier\Sprite\Classification\Service\ObjectTypeClassifier;
-use MapClassifier\Sprite\Classification\Service\ObjectTypePrompt;
+use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
+use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
+use MapClassifier\Sprite\Classification\Service\SpriteTypeClassifier;
+use MapClassifier\Sprite\Classification\Service\SpriteTypePrompt;
 use MapClassifier\Sprite\Model\Layer;
-use MapClassifier\Sprite\Model\ObjectProfile;
 use MapClassifier\Sprite\Model\RenderedSprite;
+use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
 use MapClassifier\Tests\TempDirTrait;
@@ -26,7 +26,7 @@ use function json_decode;
 use function json_encode;
 use function preg_match;
 
-final class ObjectTypeClassifierTest extends TestCase
+final class SpriteTypeClassifierTest extends TestCase
 {
     use TempDirTrait;
 
@@ -55,17 +55,17 @@ final class ObjectTypeClassifierTest extends TestCase
             };
         });
 
-        $storage = new ObjectTypeRepository($this->tempDir() . '/types');
-        $classifier = new ObjectTypeClassifier(
+        $storage = new SpriteTypeRepository($this->tempDir() . '/types');
+        $classifier = new SpriteTypeClassifier(
             new ConcurrentResponsesClient($http, static fn () => 'sk-test', 'https://api.test/v1'),
-            new ObjectTypePrompt('luna'),
+            new SpriteTypePrompt('luna'),
             $sprites,
             $storage,
             'luna',
         );
 
         $received = [];
-        $classifier->classify([$this->profile(1), $this->profile(2), $this->profile(3), $this->profile(4), $this->profile(5)], 2, function (ObjectTypeResult $result) use (&$received) {
+        $classifier->classify([$this->profile(1), $this->profile(2), $this->profile(3), $this->profile(4), $this->profile(5)], 2, function (SpriteTypeResult $result) use (&$received) {
             $received[] = $result->id;
         });
 
@@ -78,7 +78,7 @@ final class ObjectTypeClassifierTest extends TestCase
         $this->assertNotNull($tree);
         $this->assertTrue($tree->ok);
         $this->assertNotNull($tree->classification);
-        $this->assertSame(ObjectCategory::Tree, $tree->classification->category);
+        $this->assertSame(SpriteCategory::Tree, $tree->classification->category);
         $this->assertSame('pine tree', $tree->classification->name);
         $this->assertSame('luna-2026', $tree->model);
 
@@ -90,9 +90,9 @@ final class ObjectTypeClassifierTest extends TestCase
         $this->assertSame([], $storage->all(SpriteSet::Grounds));
     }
 
-    private function profile(int $id): ObjectProfile
+    private function profile(int $id): SpriteProfile
     {
-        return new ObjectProfile(SpriteSet::Objects, $id, Layer::Layer2, 1, 1, 0, [], [], [], [], []);
+        return new SpriteProfile(SpriteSet::Objects, $id, Layer::Layer2, 1, 1, 0, [], [], [], [], []);
     }
 
     /**
