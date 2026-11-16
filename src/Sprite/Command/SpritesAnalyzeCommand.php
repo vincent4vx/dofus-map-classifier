@@ -5,16 +5,11 @@ declare(strict_types=1);
 namespace MapClassifier\Sprite\Command;
 
 use MapClassifier\Location\Repository\MapLocationRepository;
-use MapClassifier\Map\Classification\Repository\MapResultRepository;
-use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Map\Command\MapSelectionInput;
-use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Repository\MapFileRepository;
 use MapClassifier\Sprite\Model\SpriteSet;
-use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
 use MapClassifier\Sprite\Repository\SpriteProfileRepository;
-use MapClassifier\Sprite\Service\MapSpriteExtractor;
-use MapClassifier\Sprite\Service\SpriteAnalyzer;
+use MapClassifier\Sprite\Service\SpriteAnalysis;
 use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -31,10 +26,8 @@ final class SpritesAnalyzeCommand extends Command
 {
     public function __construct(
         private readonly MapFileRepository $maps,
-        private readonly MapSpriteExtractor $extractor,
         private readonly MapLocationRepository $locations,
-        private readonly MapResultRepository $results,
-        private readonly InteractiveObjectRepository $interactiveObjects,
+        private readonly SpriteAnalysis $analysis,
         private readonly SpriteProfileRepository $profiles,
     ) {
         parent::__construct();
@@ -54,45 +47,28 @@ final class SpritesAnalyzeCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
         $maps = MapSelectionInput::selection($input, $this->locations)->filter($this->maps->all());
-        $locations = $this->locations->tryAll(static fn (string $error) => $io->warning('Areas not available: ' . $error));
-        $results = $this->results->all();
-
-        $analyzer = new SpriteAnalyzer(
-            $locations,
-            $results,
-            new SubAreaBiomeResolver()->resolve($locations, $results),
-            (float) $input->getOption('min-ratio'),
-            $this->interactiveObjects->tryByGfx(static fn (string $error) => $io->warning('Interactive objects not available: ' . $error)),
-        );
-
-        $analyzed = 0;
-        $errors = [];
         $progress = $io->createProgressBar(count($maps));
 
-        foreach ($maps as $map) {
-            try {
-                $analyzer->add($map->id, $this->extractor->extract($map));
-                ++$analyzed;
-            } catch (RenderException $e) {
-                $errors[$e->error->value] = ($errors[$e->error->value] ?? 0) + 1;
-            }
-
-            $progress->advance();
-        }
+        $report = $this->analysis->analyze(
+            $maps,
+            (float) $input->getOption('min-ratio'),
+            static fn (string $warning) => $io->warning($warning),
+            static fn () => $progress->advance(),
+        );
 
         $progress->finish();
         $io->newLine(2);
 
-        $profiles = $analyzer->profiles();
+        $profiles = $report->profiles;
         $this->profiles->save($profiles);
 
-        foreach ($errors as $code => $count) {
-            $io->text(sprintf('%d maps skipped: %s', $count, $code));
+        foreach ($report->skippedMaps as $error => $count) {
+            $io->text(sprintf('%d maps skipped: %s', $count, $error));
         }
 
         $io->success(sprintf(
             '%d maps analyzed: %d ground sprites and %d object sprites written to %s',
-            $analyzed,
+            $report->analyzedMaps,
             count($profiles->bySet(SpriteSet::Grounds)),
             count($profiles->bySet(SpriteSet::Objects)),
             $this->profiles->file,

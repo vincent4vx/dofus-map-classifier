@@ -44,6 +44,7 @@ use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
 use MapClassifier\Sprite\Repository\SpriteProfileRepository;
 use MapClassifier\Sprite\Service\MapSpriteExtractor;
+use MapClassifier\Sprite\Service\SpriteAnalysis;
 use MapClassifier\Sprite\Service\SpriteImageExporter;
 use RuntimeException;
 use Symfony\Component\Console\Application;
@@ -186,7 +187,7 @@ final class Kernel
         $app->addCommand(new KeysDownloadCommand(new MapKeyDownloader($this->httpClient), $this->config->keysDir, $this->config->keysArchiveUrl));
         $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, new ResultRenderErrorRepository($this->results), $this->config->rendersDir)));
         $app->addCommand(new ClassifyRunCommand($this->mapsToClassify, $this->locations, $this->mapClassifier(), $this->config->openAiModel));
-        $app->addCommand(new SpritesAnalyzeCommand($this->maps, new MapSpriteExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects, $this->spriteProfiles));
+        $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects), $this->spriteProfiles));
         $app->addCommand(new SpritesImagesCommand(new SpriteImageExporter($this->config->dofusPath, $this->spriteImages), $this->spriteProfiles, $this->config->spritesDir));
         $app->addCommand(new SpritesClassifyCommand($this->spriteProfiles, $this->spritesToClassify, $this->spriteTypeClassifier(), $this->spriteExporter(), $this->spriteExportFormats(), $this->config->openAiModel));
         $app->addCommand(new SpritesExportCommand($this->spriteProfiles, $this->spriteExporter(), $this->spriteExportFormats()));
