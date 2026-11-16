@@ -36,8 +36,10 @@ use MapClassifier\Map\Service\ClientDownloader;
 use MapClassifier\Map\Service\MapImageRenderer;
 use MapClassifier\Map\Service\MapKeyDownloader;
 use MapClassifier\Sprite\Classification\Command\ObjectsClassifyCommand;
+use MapClassifier\Sprite\Classification\Command\ObjectsExportCommand;
 use MapClassifier\Sprite\Classification\Command\ObjectsReportCommand;
 use MapClassifier\Sprite\Classification\Repository\ObjectTypeRepository;
+use MapClassifier\Sprite\Classification\Service\ObjectExporter;
 use MapClassifier\Sprite\Classification\Service\ObjectTypeClassifier;
 use MapClassifier\Sprite\Classification\Service\ObjectTypePrompt;
 use MapClassifier\Sprite\Classification\Service\ObjectTypeResolver;
@@ -101,7 +103,7 @@ final class Kernel
     }
 
     public ObjectProfileRepository $objectProfiles {
-        get => $this->objectProfiles ??= new ObjectProfileRepository($this->config->objectsFile);
+        get => $this->objectProfiles ??= new ObjectProfileRepository($this->config->spriteProfilesFile);
     }
 
     public SpritesToClassify $spritesToClassify {
@@ -195,6 +197,11 @@ final class Kernel
         return new ObjectTypeResolver($this->objectTypes);
     }
 
+    public function objectExporter(): ObjectExporter
+    {
+        return new ObjectExporter($this->objectTypes);
+    }
+
     public function prompt(): ClassificationPrompt
     {
         return new ClassificationPrompt($this->config->openAiModel, $this->config->openAiReasoningEffort);
@@ -212,9 +219,10 @@ final class Kernel
         $app->addCommand(new ClassifyStatusCommand($this->batches, $this->batchService()));
         $app->addCommand(new ClassifyImportCommand($this->batchService()));
         $app->addCommand(new ClassifyDiscardCommand($this->batches));
-        $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects, $this->objectProfiles, $this->objectTypeResolver()->fields(...)));
+        $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects, $this->objectProfiles));
         $app->addCommand(new ObjectsSpritesCommand(new SpriteExporter($this->config->dofusPath, $this->spriteImages), $this->objectProfiles, $this->config->spritesDir));
-        $app->addCommand(new ObjectsClassifyCommand($this->objectProfiles, $this->spritesToClassify, $this->objectTypeClassifier(), $this->objectTypeResolver(), $this->config->openAiModel));
+        $app->addCommand(new ObjectsClassifyCommand($this->objectProfiles, $this->spritesToClassify, $this->objectTypeClassifier(), $this->objectExporter(), $this->config->objectsFile, $this->config->openAiModel));
+        $app->addCommand(new ObjectsExportCommand($this->objectProfiles, $this->objectExporter(), $this->config->objectsFile));
         $app->addCommand(new ObjectsReportCommand($this->objectProfiles, $this->objectTypeResolver(), $this->config->spritesDir, $this->config->varDir . '/objects.html'));
         $app->addCommand(new ExportCommand(new MapExporter($this->results), $this->locations, $this->config->varDir . '/maps.json', $this->config->varDir . '/sub_areas.json'));
         $app->addCommand(new ReportCommand($this->results, $this->locations, $this->config->rendersDir, $this->config->varDir . '/report.html'));

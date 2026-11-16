@@ -32,16 +32,6 @@ final class ObjectTypeResolver
     }
 
     /**
-     * Fields joined to the profile when it is stored
-     *
-     * @return array{type: array<string, mixed>|null}
-     */
-    public function fields(ObjectProfile $profile): array
-    {
-        return ['type' => $this->type($profile)?->toArray()];
-    }
-
-    /**
      * Apply the name of the interactive object on the classification
      * The model name and the interactive object type are kept as keywords
      */

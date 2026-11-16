@@ -9,6 +9,7 @@ use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Model\SubAreaBiome;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
+use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\ObjectProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
 
@@ -17,7 +18,6 @@ use function array_key_first;
 use function array_keys;
 use function array_map;
 use function array_sum;
-use function array_values;
 use function arsort;
 use function ksort;
 use function reset;
@@ -203,12 +203,12 @@ final class ObjectAnalyzer
     /**
      * @param array<int, int> $counts
      * @param array<int, string|null> $names
-     * @return list<array{id: int, name: string|null, maps: int}>
+     * @return list<LocationUsage>
      */
     private function named(array $counts, array $names): array
     {
         return array_map(
-            static fn (int $id, int $count) => ['id' => $id, 'name' => $names[$id] ?? null, 'maps' => $count],
+            static fn (int $id, int $count) => new LocationUsage($id, $names[$id] ?? null, $count),
             array_keys($filtered = $this->filter($counts)),
             $filtered,
         );

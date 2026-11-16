@@ -44,6 +44,9 @@ final class Config
     public string $mapsDir { get => $this->dofusPath . '/data/maps'; }
     public string $spritesDir { get => $this->varDir . '/sprites'; }
     public string $objectTypesDir { get => $this->varDir . '/object_types'; }
+    /** Profiles of the sprites, aggregated from the maps */
+    public string $spriteProfilesFile { get => $this->varDir . '/sprite_profiles.json'; }
+    /** Export of the sprites, with their type */
     public string $objectsFile { get => $this->varDir . '/objects.json'; }
 
     public static function fromEnv(string $projectDir): self

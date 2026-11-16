@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MapClassifier\Tests\Location\Repository;
 
 use MapClassifier\Location\Model\MapLocation;
+use MapClassifier\Location\Model\NamedLocation;
 use MapClassifier\Location\Repository\MapLocationRepository;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
@@ -33,11 +34,13 @@ final class MapLocationRepositoryTest extends TestCase
             superAreaName: 'Amaknean Continent',
         ), $repository->find(10000));
 
-        $this->assertSame([
-            'sub_area' => ['id' => 95, 'name' => 'Astrub City'],
-            'area' => ['id' => 18, 'name' => 'Astrub'],
-            'super_area' => ['id' => 0, 'name' => 'Amaknean Continent'],
-        ], $repository->find(7411)?->toArray());
+        $location = $repository->find(7411);
+        $this->assertNotNull($location);
+        $this->assertEquals(new NamedLocation(95, 'Astrub City'), $location->subArea());
+        $this->assertEquals(new NamedLocation(18, 'Astrub'), $location->area());
+        $this->assertEquals(new NamedLocation(0, 'Amaknean Continent'), $location->superArea());
+        $this->assertNull(new MapLocation(1, 2)->area());
+        $this->assertNull(new MapLocation(1, 2)->superArea());
 
         $this->assertNull($repository->find(999999));
         $this->assertCount(9271, $repository->all());

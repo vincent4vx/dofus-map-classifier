@@ -70,8 +70,7 @@ final readonly class SubAreaBiomeResolver
             return new SubAreaBiome(
                 id: $subArea['location']->subAreaId,
                 name: $subArea['location']->subAreaName,
-                areaId: $subArea['location']->areaId,
-                areaName: $subArea['location']->areaName,
+                area: $subArea['location']->area(),
                 biome: $votes ? Biome::from((string) array_key_first($votes)) : null,
                 votes: $votes,
                 outdoorOnly: $outdoorOnly,

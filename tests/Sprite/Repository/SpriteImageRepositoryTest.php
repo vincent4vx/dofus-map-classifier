@@ -6,6 +6,7 @@ namespace MapClassifier\Tests\Sprite\Repository;
 
 use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Model\SpriteSize;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
@@ -30,7 +31,7 @@ final class SpriteImageRepositoryTest extends TestCase
 
         $this->assertSame($this->tempDir() . '/objects/12.png', $files->path(SpriteSet::Objects, 12));
         $this->assertSame('png-12', file_get_contents($files->path(SpriteSet::Objects, 12)));
-        $this->assertSame(['width' => 53.5, 'height' => 27.0], $files->size(SpriteSet::Objects, 12));
+        $this->assertEquals(new SpriteSize(53.5, 27.0), $files->size(SpriteSet::Objects, 12));
 
         // Sizes are only persisted on flush
         $this->assertFalse((new SpriteImageRepository($this->tempDir()))->exists(SpriteSet::Objects, 12));
@@ -40,7 +41,7 @@ final class SpriteImageRepositoryTest extends TestCase
 
         $reloaded = new SpriteImageRepository($this->tempDir());
         $this->assertTrue($reloaded->exists(SpriteSet::Objects, 12));
-        $this->assertSame(['width' => 10.0, 'height' => 20.5], $reloaded->size(SpriteSet::Objects, 3));
+        $this->assertEquals(new SpriteSize(10.0, 20.5), $reloaded->size(SpriteSet::Objects, 3));
         $this->assertFalse($reloaded->exists(SpriteSet::Grounds, 12));
 
         // Saving more sprites keeps existing sizes

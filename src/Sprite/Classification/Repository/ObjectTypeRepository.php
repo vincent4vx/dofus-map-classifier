@@ -40,7 +40,7 @@ final readonly class ObjectTypeRepository
 
     public function save(ObjectTypeResult $result): void
     {
-        JsonFile::write($this->file($result->set, $result->id), $result->toArray());
+        JsonFile::write($this->file($result->set, $result->id), $result);
     }
 
     /**

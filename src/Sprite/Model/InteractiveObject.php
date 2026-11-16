@@ -4,12 +4,17 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Model;
 
+use JsonSerializable;
+use Override;
+
 use function array_search;
 
 /**
  * Interactive object (resource, workshop, zaap, door…) of the "interactiveobjects" lang file
+ *
+ * JSON: {"id", "name", "type"} (type name, see {@see typeName()})
  */
-final readonly class InteractiveObject
+final readonly class InteractiveObject implements JsonSerializable
 {
     /**
      * Name of the types: types have no name in the langs, so they are deduced from the objects of each type
@@ -37,7 +42,7 @@ final readonly class InteractiveObject
     ) {}
 
     /**
-     * Create from the array of {@see toArray()}
+     * Create from the JSON of {@see jsonSerialize()}
      *
      * @param array<array-key, mixed> $data
      */
@@ -78,7 +83,8 @@ final readonly class InteractiveObject
     /**
      * @return array{id: int, name: string, type: string}
      */
-    public function toArray(): array
+    #[Override]
+    public function jsonSerialize(): array
     {
         return ['id' => $this->id, 'name' => $this->name, 'type' => $this->typeName()];
     }

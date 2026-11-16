@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Classification\Command;
 
+use MapClassifier\Infrastructure\Json\JsonFile;
 use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
 use MapClassifier\Sprite\Classification\Service\ObjectTypeClassifier;
-use MapClassifier\Sprite\Classification\Service\ObjectTypeResolver;
+use MapClassifier\Sprite\Classification\Service\ObjectExporter;
 use MapClassifier\Sprite\Classification\Service\SpritesToClassify;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\SpriteSelection;
@@ -33,7 +34,9 @@ final class ObjectsClassifyCommand extends Command
         private readonly ObjectProfileRepository $profiles,
         private readonly SpritesToClassify $spritesToClassify,
         private readonly ObjectTypeClassifier $classifier,
-        private readonly ObjectTypeResolver $types,
+        private readonly ObjectExporter $exporter,
+        /** Export file (objects.json), updated after the classification */
+        private readonly string $exportFile,
         private readonly string $model,
     ) {
         parent::__construct();
@@ -59,10 +62,9 @@ final class ObjectsClassifyCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $repository = $this->profiles;
-
+        
         try {
-            $profiles = $repository->all();
+            $profiles = $this->profiles->all();
         } catch (RuntimeException $e) {
             $io->error($e->getMessage() . ': run objects:analyze and objects:sprites first');
 
@@ -128,9 +130,9 @@ final class ObjectsClassifyCommand extends Command
         $progress->finish();
         $io->newLine(2);
 
-        // Join the new types in the objects file, so objects:analyze does not need to be run again
-        $repository->save($profiles, $this->types->fields(...));
-        $io->text('Types joined in ' . $repository->file);
+        // Export again, to join the new types
+        JsonFile::write($this->exportFile, $this->exporter->export($profiles));
+        $io->text('Types exported to ' . $this->exportFile);
 
         $errors
             ? $io->warning(sprintf('%d sprites classified, %d errors', $ok, $errors))

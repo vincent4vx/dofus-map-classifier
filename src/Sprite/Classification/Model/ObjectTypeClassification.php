@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace MapClassifier\Sprite\Classification\Model;
 
 use InvalidArgumentException;
+use JsonSerializable;
+use Override;
 
 use function array_filter;
 use function array_map;
@@ -17,8 +19,10 @@ use function trim;
 
 /**
  * Type of a sprite, returned by the model
+ *
+ * JSON: {"category", "name", "keywords", "description"}, same as the model output schema
  */
-final readonly class ObjectTypeClassification
+final readonly class ObjectTypeClassification implements JsonSerializable
 {
     public function __construct(
         public ObjectCategory $category,
@@ -85,7 +89,8 @@ final readonly class ObjectTypeClassification
     /**
      * @return array{category: string, name: string, keywords: list<string>, description: string}
      */
-    public function toArray(): array
+    #[Override]
+    public function jsonSerialize(): array
     {
         return [
             'category' => $this->category->value,

@@ -6,6 +6,8 @@ namespace MapClassifier\Map\Classification\Model;
 
 use DateTimeImmutable;
 use DateTimeInterface;
+use JsonSerializable;
+use Override;
 
 use function array_merge;
 use function is_int;
@@ -13,8 +15,11 @@ use function is_string;
 
 /**
  * Processing result of a map: either a classification, or an error
+ *
+ * JSON (results/{id}.json): {"id", "version", "status": "ok" | "error", "error", "error_message", ...classification fields, "model", "classified_at"}
+ * Classification fields are null (and tags empty) on error
  */
-final class MapResult
+final class MapResult implements JsonSerializable
 {
     public function __construct(
         public readonly int $id,
@@ -43,9 +48,10 @@ final class MapResult
     /**
      * @return array<string, mixed>
      */
-    public function toArray(): array
+    #[Override]
+    public function jsonSerialize(): array
     {
-        $classification = $this->classification?->toArray() ?? [
+        $classification = $this->classification?->jsonSerialize() ?? [
             'biome' => null,
             'biome_other' => null,
             'indoor' => null,

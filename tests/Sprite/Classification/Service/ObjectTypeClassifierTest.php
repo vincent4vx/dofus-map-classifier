@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests\Sprite\Classification\Service;
 
+use LogicException;
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\Sprite\Classification\Model\ObjectCategory;
 use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
@@ -16,7 +17,6 @@ use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
 use MapClassifier\Tests\TempDirTrait;
-use LogicException;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;

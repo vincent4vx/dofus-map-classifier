@@ -19,15 +19,18 @@ final readonly class MapLocation
         public ?string $superAreaName = null,
     ) {}
 
-    /**
-     * @return array<string, mixed>
-     */
-    public function toArray(): array
+    public function subArea(): NamedLocation
     {
-        return [
-            'sub_area' => ['id' => $this->subAreaId, 'name' => $this->subAreaName],
-            'area' => $this->areaId === null ? null : ['id' => $this->areaId, 'name' => $this->areaName],
-            'super_area' => $this->superAreaId === null ? null : ['id' => $this->superAreaId, 'name' => $this->superAreaName],
-        ];
+        return new NamedLocation($this->subAreaId, $this->subAreaName);
+    }
+
+    public function area(): ?NamedLocation
+    {
+        return $this->areaId === null ? null : new NamedLocation($this->areaId, $this->areaName);
+    }
+
+    public function superArea(): ?NamedLocation
+    {
+        return $this->superAreaId === null ? null : new NamedLocation($this->superAreaId, $this->superAreaName);
     }
 }

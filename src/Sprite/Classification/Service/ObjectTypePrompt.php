@@ -9,6 +9,7 @@ use MapClassifier\Sprite\Classification\Model\ObjectCategory;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\ObjectProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Model\SpriteSize;
 
 use function array_column;
 use function array_keys;
@@ -29,11 +30,11 @@ final readonly class ObjectTypePrompt
     ) {}
 
     /**
-     * @param array{width: float, height: float} $size Visible size of the sprite, in game pixels
+     * @param SpriteSize $size Visible size of the sprite
      *
      * @return array<string, mixed>
      */
-    public function requestBody(ObjectProfile $profile, string $imageUrl, array $size): array
+    public function requestBody(ObjectProfile $profile, string $imageUrl, SpriteSize $size): array
     {
         $body = [
             'model' => $this->model,
@@ -67,9 +68,8 @@ final readonly class ObjectTypePrompt
     /**
      * Describe what is known about the sprite usage in maps
      *
-     * @param array{width: float, height: float} $size
-     */
-    public static function context(ObjectProfile $profile, array $size): string
+     *      */
+    public static function context(ObjectProfile $profile, SpriteSize $size): string
     {
         $counts = static fn (array $values) => implode(', ', array_map(
             static fn (string $name, int $count) => $name . ' (' . $count . ')',
@@ -80,7 +80,7 @@ final readonly class ObjectTypePrompt
             $byName = [];
 
             foreach (array_slice($values, 0, 6) as $value) {
-                $byName[$value['name'] ?? '#' . $value['id']] = $value['maps'];
+                $byName[$value->label()] = $value->maps;
             }
 
             return $counts($byName);
@@ -88,7 +88,7 @@ final readonly class ObjectTypePrompt
 
         $lines = [
             'Identify the sprite ' . $profile->set->spriteName($profile->id) . '.',
-            sprintf('Visible size: %s x %s game pixels (one map cell is 53 x 27 pixels).', $size['width'], $size['height']),
+            sprintf('Visible size: %s x %s game pixels (one map cell is 53 x 27 pixels).', $size->width, $size->height),
             sprintf('Mainly used as: %s (%s).', $profile->layer->value, self::layerDescription($profile->layer)),
             sprintf('Used %d times, on %d maps.', $profile->occurrences, $profile->maps),
         ];

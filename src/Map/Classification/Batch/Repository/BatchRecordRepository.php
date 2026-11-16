@@ -28,7 +28,7 @@ final readonly class BatchRecordRepository
 
     public function save(BatchRecord $record): void
     {
-        JsonFile::write($this->dir . '/' . $record->id . '.json', $record->toArray());
+        JsonFile::write($this->dir . '/' . $record->id . '.json', $record);
     }
 
     /**

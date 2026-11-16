@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Command;
 
-use Closure;
 use MapClassifier\Location\Repository\MapLocationRepository;
 use MapClassifier\Map\Classification\Repository\MapResultRepository;
 use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
@@ -37,8 +36,6 @@ final class ObjectsAnalyzeCommand extends Command
         private readonly MapResultRepository $results,
         private readonly InteractiveObjectRepository $interactiveObjects,
         private readonly ObjectProfileRepository $profiles,
-        /** @var (Closure(ObjectProfile): array<string, mixed>)|null Extra fields joined to each stored profile */
-        private readonly ?Closure $extraFields = null,
     ) {
         parent::__construct();
     }
@@ -87,7 +84,7 @@ final class ObjectsAnalyzeCommand extends Command
         $io->newLine(2);
 
         $profiles = $analyzer->profiles();
-        $this->profiles->save($profiles, $this->extraFields);
+        $this->profiles->save($profiles);
 
         foreach ($errors as $code => $count) {
             $io->text(sprintf('%d maps skipped: %s', $count, $code));

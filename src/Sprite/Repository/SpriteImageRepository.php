@@ -6,6 +6,7 @@ namespace MapClassifier\Sprite\Repository;
 
 use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Model\SpriteSize;
 use RuntimeException;
 
 use function file_get_contents;
@@ -26,7 +27,7 @@ use const JSON_THROW_ON_ERROR;
  */
 final class SpriteImageRepository
 {
-    /** @var array<string, array<int, array{float, float}>> Sizes indexed by set, then id */
+    /** @var array<string, array<int, SpriteSize>> Sizes indexed by set, then id */
     private array $sizes = [];
 
     public function __construct(
@@ -45,14 +46,10 @@ final class SpriteImageRepository
 
     /**
      * Visible size of the sprite, in game pixels
-     *
-     * @return array{width: float, height: float}|null
      */
-    public function size(SpriteSet $set, int $id): ?array
+    public function size(SpriteSet $set, int $id): ?SpriteSize
     {
-        $size = $this->sizes($set)[$id] ?? null;
-
-        return $size === null ? null : ['width' => $size[0], 'height' => $size[1]];
+        return $this->sizes($set)[$id] ?? null;
     }
 
     public function save(SpriteSet $set, int $id, RenderedSprite $sprite): void
@@ -68,7 +65,7 @@ final class SpriteImageRepository
         rename($file . '.tmp', $file);
 
         $this->sizes($set);
-        $this->sizes[$set->value][$id] = [$sprite->width, $sprite->height];
+        $this->sizes[$set->value][$id] = new SpriteSize($sprite->width, $sprite->height);
     }
 
     /**
@@ -86,7 +83,7 @@ final class SpriteImageRepository
     }
 
     /**
-     * @return array<int, array{float, float}>
+     * @return array<int, SpriteSize>
      */
     private function sizes(SpriteSet $set): array
     {
@@ -99,8 +96,8 @@ final class SpriteImageRepository
         $data = is_file($file) ? json_decode((string) file_get_contents($file), true) : null;
 
         foreach (is_array($data) ? $data : [] as $id => $size) {
-            if (is_array($size) && isset($size[0], $size[1])) {
-                $sizes[(int) $id] = [(float) $size[0], (float) $size[1]];
+            if ($size = SpriteSize::fromJson($size)) {
+                $sizes[(int) $id] = $size;
             }
         }
 

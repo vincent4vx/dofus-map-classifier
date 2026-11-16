@@ -46,7 +46,7 @@ final class MapClassificationTest extends TestCase
         $classification = MapClassification::fromArray($data);
 
         $this->assertSame('building interior', $classification->biomeOther);
-        $this->assertSame($data, $classification->toArray());
+        $this->assertSame($data, $classification->jsonSerialize());
     }
 
     public function testNullBiome(): void
@@ -62,7 +62,7 @@ final class MapClassificationTest extends TestCase
 
         $this->assertNull($classification->biome);
         $this->assertNull($classification->biomeOther);
-        $this->assertNull($classification->toArray()['biome']);
+        $this->assertNull($classification->jsonSerialize()['biome']);
     }
 
     /**

@@ -10,6 +10,7 @@ use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
+use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\ObjectProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Service\ObjectAnalyzer;
@@ -71,8 +72,8 @@ final class ObjectAnalyzerTest extends TestCase
         $this->assertSame(['plain' => 50, 'forest' => 30], $object->biomes);
         $this->assertSame(['outdoor' => 80], $object->indoor);
         $this->assertSame(['wild' => 82], $object->locationTypes);
-        $this->assertSame([['id' => 1, 'name' => 'Sub area 1', 'maps' => 80]], $object->subAreas);
-        $this->assertSame([['id' => 10, 'name' => 'Area', 'maps' => 82]], $object->areas);
+        $this->assertEquals([new LocationUsage(1, 'Sub area 1', 80)], $object->subAreas);
+        $this->assertEquals([new LocationUsage(10, 'Area', 82)], $object->areas);
 
         $ground = $profiles['grounds'][345];
         $this->assertSame(Layer::Ground, $ground->layer);
@@ -84,7 +85,7 @@ final class ObjectAnalyzerTest extends TestCase
         $this->assertSame(1, $background->maps);
         $this->assertSame(0, $background->classifiedMaps);
         $this->assertSame([], $background->biomes);
-        $this->assertSame([['id' => 3, 'name' => 'Sub area 3', 'maps' => 1]], $background->subAreas);
+        $this->assertEquals([new LocationUsage(3, 'Sub area 3', 1)], $background->subAreas);
 
         $this->assertSame([
             'id' => 7,
@@ -98,7 +99,7 @@ final class ObjectAnalyzerTest extends TestCase
             'indoor' => [],
             'location_types' => [],
             'interactive' => null,
-        ], json_decode((string) json_encode($profiles['objects'][7]->toArray()), true));
+        ], json_decode((string) json_encode($profiles['objects'][7]), true));
     }
 
     public function testBiomeFallbackOnSubArea(): void
@@ -137,10 +138,11 @@ final class ObjectAnalyzerTest extends TestCase
         $this->assertNull($profiles['objects'][12]->interactive);
         $this->assertNull($profiles['grounds'][7511]->interactive, 'Interactive objects only use the objects set');
 
-        $array = $profiles['objects'][7511]->toArray();
+        $array = json_decode((string) json_encode($profiles['objects'][7511]), true);
+        $this->assertIsArray($array);
         $this->assertSame(['id' => 38, 'name' => 'Wheat', 'type' => 'resource'], $array['interactive']);
         $this->assertEquals($wheat, ObjectProfile::fromArray(SpriteSet::Objects, $array)->interactive);
-        $this->assertNull(ObjectProfile::fromArray(SpriteSet::Objects, $profiles['objects'][12]->toArray())->interactive);
+        $this->assertNull(ObjectProfile::fromArray(SpriteSet::Objects, $profiles['objects'][12]->jsonSerialize())->interactive);
     }
 
     public function testFilter(): void

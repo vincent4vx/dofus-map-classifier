@@ -9,6 +9,7 @@ use MapClassifier\Map\Classification\Model\LocationType;
 use MapClassifier\Sprite\Classification\Model\ObjectCategory;
 use MapClassifier\Sprite\Classification\Service\ObjectTypeResolver;
 use MapClassifier\Sprite\Model\Layer;
+use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\ObjectProfile;
 
 use function array_column;
@@ -43,7 +44,7 @@ final readonly class SpriteReport
         $items = [];
         $areas = [];
         $interactiveTypes = [];
-        $named = static fn (array $values) => array_map(static fn (array $a) => [$a['name'] ?? '#' . $a['id'], $a['maps']], $values);
+        $named = static fn (array $values) => array_map(static fn (LocationUsage $usage) => [$usage->label(), $usage->maps], $values);
 
         foreach ($profiles as $sprites) {
             foreach ($sprites as $profile) {
@@ -70,7 +71,7 @@ final readonly class SpriteReport
                 }
 
                 foreach ($profile->areas as $area) {
-                    $areas[$area['name'] ?? '#' . $area['id']] = true;
+                    $areas[$area->label()] = true;
                 }
             }
         }

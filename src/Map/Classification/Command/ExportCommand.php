@@ -56,7 +56,7 @@ final class ExportCommand extends Command
 
         if ($export->subAreas) {
             $subAreasFile = (string) $input->getOption('sub-areas-output');
-            JsonFile::write($subAreasFile, (object) $export->subAreasToArray());
+            JsonFile::write($subAreasFile, (object) $export->subAreas);
             $io->text(sprintf('%d / %d sub areas with a biome, written to %s', $export->resolvedSubAreas(), count($export->subAreas), $subAreasFile));
         }
 

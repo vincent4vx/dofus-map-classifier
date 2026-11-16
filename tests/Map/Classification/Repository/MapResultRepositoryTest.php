@@ -32,7 +32,7 @@ final class MapResultRepositoryTest extends TestCase
         $this->assertNotNull($loaded);
         $this->assertTrue($loaded->ok);
         $this->assertEquals($result->classification, $loaded->classification);
-        $this->assertSame($result->toArray(), $loaded->toArray());
+        $this->assertSame($result->jsonSerialize(), $loaded->jsonSerialize());
 
         $this->assertSame([
             'id' => 42,
@@ -62,7 +62,7 @@ final class MapResultRepositoryTest extends TestCase
         $this->assertSame(ErrorCode::MissingKey, $loaded->error);
         $this->assertSame('no key', $loaded->errorMessage);
         $this->assertNull($loaded->classification);
-        $this->assertSame('error', $loaded->toArray()['status']);
+        $this->assertSame('error', $loaded->jsonSerialize()['status']);
     }
 
     public function testAllAndDelete(): void

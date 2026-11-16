@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace MapClassifier\Map\Classification\Model;
 
 use InvalidArgumentException;
+use JsonSerializable;
+use Override;
 
 use function array_map;
 use function array_values;
@@ -15,8 +17,10 @@ use function trim;
 
 /**
  * Classification of a map returned by the model
+ *
+ * JSON: {"biome", "biome_other", "indoor", "location_type", "tags", "description"}, same as the model output schema
  */
-final readonly class MapClassification
+final readonly class MapClassification implements JsonSerializable
 {
     public function __construct(
         /** Null when it cannot be determined (e.g. building interior) */
@@ -82,7 +86,8 @@ final readonly class MapClassification
     /**
      * @return array{biome: string|null, biome_other: string|null, indoor: bool, location_type: string, tags: list<string>, description: string}
      */
-    public function toArray(): array
+    #[Override]
+    public function jsonSerialize(): array
     {
         return [
             'biome' => $this->biome?->value,

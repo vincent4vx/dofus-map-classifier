@@ -42,7 +42,7 @@ final readonly class MapResultRepository
 
     public function save(MapResult $result): void
     {
-        JsonFile::write($this->file($result->id), $result->toArray());
+        JsonFile::write($this->file($result->id), $result);
     }
 
     public function delete(int $id): void

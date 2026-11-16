@@ -13,7 +13,9 @@ use function is_array;
 use function is_file;
 
 /**
- * Store the sprites profiles in a single JSON file (objects.json), indexed by set then sprite id
+ * Store the sprites profiles in a single JSON file (sprite_profiles.json), indexed by set then sprite id
+ *
+ * JSON: {"grounds": {id: {@see ObjectProfile}}, "objects": {id: {@see ObjectProfile}}}
  */
 final readonly class ObjectProfileRepository
 {
@@ -51,9 +53,8 @@ final readonly class ObjectProfileRepository
 
     /**
      * @param array<string, array<int, ObjectProfile>> $profiles Profiles indexed by set value, then sprite id
-     * @param (callable(ObjectProfile): array<string, mixed>)|null $fields Additional fields to store on each profile
      */
-    public function save(array $profiles, ?callable $fields = null): void
+    public function save(array $profiles): void
     {
         $data = [];
 
@@ -61,7 +62,7 @@ final readonly class ObjectProfileRepository
             $rows = [];
 
             foreach ($sprites as $id => $profile) {
-                $rows[$id] = $profile->toArray() + ($fields ? $fields($profile) : []);
+                $rows[$id] = $profile;
             }
 
             // Keep sprites indexed by id (JSON object) even if ids are sequential

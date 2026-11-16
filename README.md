@@ -45,9 +45,10 @@ make render ARGS="--super-area=3"                 # 2. render maps to var/render
 make classify ARGS="--super-area=3 --concurrency=10"   # 3. classify synchronously (Responses API)
 make export                                       # 4. var/maps.json + var/sub_areas.json
 make report                                       # 5. var/report.html (search and filters)
-make objects                                      # 6. var/objects.json (layer, areas, biomes… of each sprite), PNG sprites, var/objects.html
+make objects                                      # 6. var/sprite_profiles.json (layer, areas, biomes… of each sprite), PNG sprites,
+                                                  #    var/objects.json export and var/objects.html
 make objects-classify ARGS="--limit=500"          # 7. type of each sprite (category, name, keywords), most used first,
-                                                  #    joined in var/objects.json and displayed in var/objects.html
+                                                  #    exported to var/objects.json and displayed in var/objects.html
                                                   #    --interactive: only interactive objects (resources, workshops, doors…)
 
 make pipeline ARGS="--area=18"                    # render + classify + export + report of a selection
@@ -78,7 +79,8 @@ var/
   cache/sprites.db            rendering sprite cache
   maps.json                   export of maps, with location (sub area, area, super area)
   sub_areas.json              biome of each sub area, deduced from its classified maps
-  objects.json                data of each sprite (layer, areas, biomes…), aggregated from the maps
+  sprite_profiles.json        data of each sprite (layer, areas, biomes…), aggregated from the maps
+  objects.json                export of sprites: profile and type of each sprite
   sprites/{grounds|objects}/  sprites rendered as PNG (as sent to the model), with sizes.json
   objects.html                visual report of sprites, with filters
   object_types/{set}/{id}.json  type of each sprite (category, name, keywords)
@@ -107,7 +109,7 @@ Each domain separates the data read from the game files from the `Classification
 Inside each domain (and each `Classification`):
 
 - `Command/`: console commands of the domain
-- `Model/`: data structures (value objects, enums), without dependencies on services or storage
+- `Model/`: data structures (value objects, enums), without dependencies on services or storage. Classes written to JSON files implement `JsonSerializable` and document their JSON format (e.g. `Map/Classification/Model/Export` for `maps.json`)
 - `Repository/`: data access (JSON files, lang files, client files)
 - `Service/`: processing (rendering, classification, aggregation, selection…)
 - `Report/`: HTML pages generation

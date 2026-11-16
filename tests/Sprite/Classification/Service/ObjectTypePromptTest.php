@@ -8,8 +8,10 @@ use MapClassifier\Sprite\Classification\Model\ObjectCategory;
 use MapClassifier\Sprite\Classification\Service\ObjectTypePrompt;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
+use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\ObjectProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Model\SpriteSize;
 use PHPUnit\Framework\TestCase;
 
 use function array_column;
@@ -18,7 +20,7 @@ final class ObjectTypePromptTest extends TestCase
 {
     public function testRequestBody(): void
     {
-        $body = (new ObjectTypePrompt('luna', 'low'))->requestBody($this->profile(), 'data:image/png;base64,xxx', ['width' => 53.0, 'height' => 27.5]);
+        $body = (new ObjectTypePrompt('luna', 'low'))->requestBody($this->profile(), 'data:image/png;base64,xxx', new SpriteSize(53.0, 27.5));
 
         $this->assertSame('luna', $body['model']);
         $this->assertSame(['effort' => 'low'], $body['reasoning']);
@@ -40,7 +42,7 @@ final class ObjectTypePromptTest extends TestCase
             Sub areas: Village (40).
             Indoor / outdoor maps: outdoor (60).
             Kind of places: wild (40), road (20).
-            TXT, ObjectTypePrompt::context($this->profile(), ['width' => 53.0, 'height' => 27.5]));
+            TXT, ObjectTypePrompt::context($this->profile(), new SpriteSize(53.0, 27.5)));
     }
 
     public function testContextInteractiveObject(): void
@@ -49,7 +51,7 @@ final class ObjectTypePromptTest extends TestCase
 
         $this->assertStringContainsString(
             "\n" . 'Known interactive object (from the game data): "Wheat", resource harvested by a profession: tree, ore, cereal, plant, fish…. Use this name, and choose the category of what the sprite shows.',
-            ObjectTypePrompt::context($profile, ['width' => 25.0, 'height' => 13.0]),
+            ObjectTypePrompt::context($profile, new SpriteSize(25.0, 13.0)),
         );
     }
 
@@ -63,11 +65,11 @@ final class ObjectTypePromptTest extends TestCase
             Mainly used as: layer1 (element drawn flat on the ground, below characters: paths, carpets, shadows, small vegetation, ground details).
             Used 10 times, on 2 maps.
             Known sprite: this is the teleport cell marker (cell used to change map), category "marker".
-            TXT, ObjectTypePrompt::context($profile, ['width' => 25.0, 'height' => 13.0]));
+            TXT, ObjectTypePrompt::context($profile, new SpriteSize(25.0, 13.0)));
 
         $ground = new ObjectProfile(SpriteSet::Grounds, 1030, Layer::Ground, 10, 2, 0, [], [], [], [], []);
-        $this->assertStringNotContainsString('teleport', ObjectTypePrompt::context($ground, ['width' => 1.0, 'height' => 1.0]));
-        $this->assertStringStartsWith('Identify the sprite g1030.', ObjectTypePrompt::context($ground, ['width' => 1.0, 'height' => 1.0]));
+        $this->assertStringNotContainsString('teleport', ObjectTypePrompt::context($ground, new SpriteSize(1.0, 1.0)));
+        $this->assertStringStartsWith('Identify the sprite g1030.', ObjectTypePrompt::context($ground, new SpriteSize(1.0, 1.0)));
     }
 
     public function testSchemaAndInstructions(): void
@@ -92,8 +94,8 @@ final class ObjectTypePromptTest extends TestCase
             occurrences: 120,
             maps: 80,
             classifiedMaps: 60,
-            areas: [['id' => 0, 'name' => 'Amakna', 'maps' => 70], ['id' => 12, 'name' => null, 'maps' => 10]],
-            subAreas: [['id' => 1, 'name' => 'Village', 'maps' => 40]],
+            areas: [new LocationUsage(0, 'Amakna', 70), new LocationUsage(12, null, 10)],
+            subAreas: [new LocationUsage(1, 'Village', 40)],
             biomes: ['plain' => 50, 'forest' => 30],
             indoor: ['outdoor' => 60],
             locationTypes: ['wild' => 40, 'road' => 20],

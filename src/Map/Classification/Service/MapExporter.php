@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace MapClassifier\Map\Classification\Service;
 
 use MapClassifier\Location\Model\MapLocation;
+use MapClassifier\Map\Classification\Model\Export\ExportedLocation;
+use MapClassifier\Map\Classification\Model\Export\ExportedMap;
 use MapClassifier\Map\Classification\Model\MapExport;
 use MapClassifier\Map\Classification\Repository\MapResultRepository;
 
-use function array_slice;
 use function arsort;
 
 /**
@@ -45,15 +46,11 @@ final readonly class MapExporter
                 $biomes[$biome] = ($biomes[$biome] ?? 0) + 1;
             }
 
-            $row = $result->toArray();
-            $location = ($locations[$id] ?? null)?->toArray();
-
-            if ($location !== null) {
-                $location['sub_area']['biome'] = $subAreas[$locations[$id]->subAreaId]->biome?->value;
-            }
-
-            // Insert location after the map id and version
-            $maps[$id] = array_slice($row, 0, 2, true) + ['location' => $location] + $row;
+            $location = $locations[$id] ?? null;
+            $maps[$id] = new ExportedMap(
+                $result,
+                $location === null ? null : ExportedLocation::fromLocation($location, $subAreas[$location->subAreaId]->biome),
+            );
         }
 
         arsort($biomes);

@@ -12,7 +12,6 @@ use MapClassifier\Map\Model\MapFile;
 use MapClassifier\Map\Service\MapImageRenderer;
 
 use function array_slice;
-use function array_values;
 use function is_file;
 
 /**

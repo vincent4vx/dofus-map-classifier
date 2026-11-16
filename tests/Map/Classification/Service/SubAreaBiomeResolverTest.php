@@ -50,7 +50,7 @@ final class SubAreaBiomeResolverTest extends TestCase
         $this->assertTrue($subAreas[1]->outdoorOnly);
         $this->assertSame(8, $subAreas[1]->totalMaps);
         $this->assertSame(7, $subAreas[1]->classifiedMaps);
-        $this->assertSame('Area', $subAreas[1]->areaName);
+        $this->assertSame('Area', $subAreas[1]->area?->name);
 
         $this->assertSame(Biome::Underground, $subAreas[2]->biome);
         $this->assertFalse($subAreas[2]->outdoorOnly);

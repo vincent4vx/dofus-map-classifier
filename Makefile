@@ -5,7 +5,7 @@ CONSOLE = $(RUN) bin/console
 # Extra arguments passed to the command, e.g. make render ARGS="--super-area=3"
 ARGS ?=
 
-.PHONY: help build shell install test phpstan client console keys render classify submit status import discard export report objects objects-classify pipeline
+.PHONY: help build shell install test phpstan client console keys render classify submit status import discard export report objects objects-export objects-classify pipeline
 
 help: ## Display this help
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  \033[36m%-17s\033[0m %s\n", $$1, $$2}'
@@ -67,14 +67,18 @@ export: ## Export results to var/maps.json and var/sub_areas.json (--only-ok)
 report: ## Generate the HTML report var/report.html (ids, --area, --biome…)
 	$(CONSOLE) report $(ARGS)
 
-objects-classify: ## Find the type of sprites, join them in var/objects.json and regenerate var/objects.html (ids like o345 g10-20, --set, --limit…)
+objects-classify: ## Find the type of sprites, export them to var/objects.json and regenerate var/objects.html (ids like o345 g10-20, --set, --limit…)
 	$(CONSOLE) objects:classify $(ARGS)
 	$(CONSOLE) objects:report
 
-objects: ## Analyze sprites (var/objects.json), render them to PNG and generate var/objects.html (selection, --min-ratio)
+objects: ## Analyze sprites (var/sprite_profiles.json), render them to PNG, export var/objects.json and generate var/objects.html (selection, --min-ratio)
 	$(CONSOLE) objects:analyze $(ARGS)
 	$(CONSOLE) objects:sprites
+	$(CONSOLE) objects:export
 	$(CONSOLE) objects:report
+
+objects-export: ## Export sprites profiles with their type to var/objects.json
+	$(CONSOLE) objects:export $(ARGS)
 
 pipeline: ## Render, classify synchronously, export and report the selection: make pipeline ARGS="--area=18"
 	$(CONSOLE) maps:render $(ARGS)

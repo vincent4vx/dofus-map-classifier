@@ -7,15 +7,19 @@ namespace MapClassifier\Sprite\Classification\Model;
 use DateTimeImmutable;
 use DateTimeInterface;
 use InvalidArgumentException;
+use JsonSerializable;
 use MapClassifier\Sprite\Model\SpriteSet;
+use Override;
 
 use function is_int;
 use function is_string;
 
 /**
  * Type classification result of a sprite: either a classification, or an error
+ *
+ * JSON (object_types/{set}/{id}.json): {"set", "id", "status": "ok" | "error", "error", ...classification fields, "model", "classified_at"}
  */
-final class ObjectTypeResult
+final class ObjectTypeResult implements JsonSerializable
 {
     public function __construct(
         public readonly SpriteSet $set,
@@ -43,14 +47,15 @@ final class ObjectTypeResult
     /**
      * @return array<string, mixed>
      */
-    public function toArray(): array
+    #[Override]
+    public function jsonSerialize(): array
     {
         return [
             'set' => $this->set->value,
             'id' => $this->id,
             'status' => $this->ok ? 'ok' : 'error',
             'error' => $this->error,
-            ...($this->classification?->toArray() ?? ['category' => null, 'name' => null, 'keywords' => [], 'description' => null]),
+            ...($this->classification?->jsonSerialize() ?? ['category' => null, 'name' => null, 'keywords' => [], 'description' => null]),
             'model' => $this->model,
             'classified_at' => $this->classifiedAt?->format(DateTimeInterface::ATOM),
         ];

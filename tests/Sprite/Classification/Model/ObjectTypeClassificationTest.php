@@ -30,7 +30,7 @@ final class ObjectTypeClassificationTest extends TestCase
             'name' => 'pine tree',
             'keywords' => ['tree', 'conifer', 'snowy'],
             'description' => 'A snowy pine tree.',
-        ], $type->toArray());
+        ], $type->jsonSerialize());
     }
 
     public function testWithName(): void

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Model;
 
+use JsonSerializable;
+use Override;
+
 use function array_map;
 use function array_values;
 use function is_array;
@@ -13,8 +16,12 @@ use function is_array;
  *
  * Attributes values are given with the number of maps they come from, sorted by count.
  * Values much less frequent than the main one are considered as noise, and removed.
+ *
+ * JSON (sprite_profiles.json): {"id", "layer", "occurrences", "maps", "classified_maps",
+ * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: maps}, "indoor": {"indoor" | "outdoor": maps},
+ * "location_types": {type: maps}, "interactive": {@see InteractiveObject} | null}
  */
-final readonly class ObjectProfile
+final readonly class ObjectProfile implements JsonSerializable
 {
     public function __construct(
         public SpriteSet $set,
@@ -27,9 +34,9 @@ final readonly class ObjectProfile
         public int $maps,
         /** Number of classified maps using the sprite */
         public int $classifiedMaps,
-        /** @var list<array{id: int, name: string|null, maps: int}> */
+        /** @var list<LocationUsage> */
         public array $areas,
-        /** @var list<array{id: int, name: string|null, maps: int}> */
+        /** @var list<LocationUsage> */
         public array $subAreas,
         /** @var array<string, int> */
         public array $biomes,
@@ -42,14 +49,14 @@ final readonly class ObjectProfile
     ) {}
 
     /**
-     * Create from the array of {@see toArray()}
+     * Create from the JSON of {@see jsonSerialize()}
      *
      * @param array<array-key, mixed> $data
      */
     public static function fromArray(SpriteSet $set, array $data): self
     {
         $named = static fn (mixed $values) => array_values(array_map(
-            static fn (array $value) => ['id' => (int) $value['id'], 'name' => isset($value['name']) ? (string) $value['name'] : null, 'maps' => (int) $value['maps']],
+            static fn (mixed $value) => LocationUsage::fromArray(is_array($value) ? $value : []),
             is_array($values) ? $values : [],
         ));
         $counts = static fn (mixed $values) => array_map('intval', is_array($values) ? $values : []);
@@ -73,7 +80,8 @@ final readonly class ObjectProfile
     /**
      * @return array<string, mixed>
      */
-    public function toArray(): array
+    #[Override]
+    public function jsonSerialize(): array
     {
         return [
             'id' => $this->id,
@@ -86,7 +94,7 @@ final readonly class ObjectProfile
             'biomes' => (object) $this->biomes,
             'indoor' => (object) $this->indoor,
             'location_types' => (object) $this->locationTypes,
-            'interactive' => $this->interactive?->toArray(),
+            'interactive' => $this->interactive,
         ];
     }
 }

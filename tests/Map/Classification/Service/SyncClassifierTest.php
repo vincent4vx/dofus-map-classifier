@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests\Map\Classification\Service;
 
+use LogicException;
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\Map\Classification\Model\ErrorCode;
 use MapClassifier\Map\Classification\Model\MapResult;
@@ -15,7 +16,6 @@ use MapClassifier\Map\Classification\Service\SyncClassifier;
 use MapClassifier\Map\Model\MapFile;
 use MapClassifier\Tests\BatchFixtures;
 use MapClassifier\Tests\TempDirTrait;
-use LogicException;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;

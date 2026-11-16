@@ -37,8 +37,7 @@ final class ObjectTypeResolverTest extends TestCase
         $this->assertEquals($type, $resolver->type(self::profile(12)));
         $this->assertNull($resolver->type(self::profile(13)));
         $this->assertNull($resolver->type(self::profile(14, new InteractiveObject(38, 'Wheat', 1))));
-        $this->assertSame(['type' => ['category' => 'crop', 'name' => 'wheat', 'keywords' => ['cereal', 'wheat stalks', 'resource'], 'description' => '']], $resolver->fields($wheat));
-        $this->assertSame(['type' => null], $resolver->fields(self::profile(13)));
+        $this->assertSame(['category' => 'crop', 'name' => 'wheat', 'keywords' => ['cereal', 'wheat stalks', 'resource'], 'description' => ''], $wheatType->jsonSerialize());
     }
 
     private static function profile(int $id, ?InteractiveObject $interactive = null): ObjectProfile

@@ -6,15 +6,19 @@ namespace MapClassifier\Map\Classification\Batch\Model;
 
 use DateTimeImmutable;
 use DateTimeInterface;
+use JsonSerializable;
 use MapClassifier\Infrastructure\OpenAI\BatchInfo;
+use Override;
 
 use function is_array;
 use function is_string;
 
 /**
  * Local tracking of a submitted batch
+ *
+ * JSON (batches/{id}.json): {"id", "input_file", "model", "status", "output_file_id", "error_file_id", "request_counts": {"total", "completed", "failed"}, "errors", "submitted_at", "imported_at", "discarded", "maps": {id: version}}
  */
-final class BatchRecord
+final class BatchRecord implements JsonSerializable
 {
     public function __construct(
         /** OpenAI batch id */
@@ -56,7 +60,8 @@ final class BatchRecord
     /**
      * @return array<string, mixed>
      */
-    public function toArray(): array
+    #[Override]
+    public function jsonSerialize(): array
     {
         return [
             'id' => $this->id,
