@@ -46,7 +46,7 @@ keys: ## Download map keys (MapKeys-DR)
 render: ## Render maps to PNG (ids, --super-area, --area, --sub-area, --limit, --force)
 	$(CONSOLE) maps:render $(ARGS)
 
-classify: ## Classify rendered maps synchronously (ids, --concurrency, --force, --retry-errors…)
+classify: ## Classify rendered maps with the OpenAI Responses API (ids, --concurrency, --force, --retry-errors…)
 	$(CONSOLE) classify:run $(ARGS)
 
 export: ## Export results: var/maps.json, var/sub_areas.json and var/report.html (ids, --area, --biome, --only-ok, --format=json|html)
@@ -66,7 +66,7 @@ objects: ## Analyze sprites (var/sprite_profiles.json), render them to PNG, expo
 objects-export: ## Export sprites profiles with their type: var/objects.json and var/objects.html (--format=json|html)
 	$(CONSOLE) objects:export $(ARGS)
 
-pipeline: ## Render, classify synchronously and export the selection: make pipeline ARGS="--area=18"
+pipeline: ## Render, classify and export the selection: make pipeline ARGS="--area=18"
 	$(CONSOLE) maps:render $(ARGS)
 	$(CONSOLE) classify:run $(ARGS)
 	$(CONSOLE) export

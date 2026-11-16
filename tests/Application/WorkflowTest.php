@@ -247,6 +247,10 @@ final class WorkflowTest extends TestCase
 
         $tester = new CommandTester($this->app->find('objects:export'));
         $this->assertSame(Command::INVALID, $tester->execute(['--format' => ['json', 'html'], '--output' => 'foo.json']));
+
+        $tester = new CommandTester($this->app->find('export'));
+        $this->assertSame(Command::INVALID, $tester->execute(['--biome' => 'ocean']));
+        $this->assertStringContainsString('Invalid biome "ocean"', $tester->getDisplay());
     }
 
     public function testObjectsCommandsWithoutAnalyze(): void

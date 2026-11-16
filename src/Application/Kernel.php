@@ -4,30 +4,30 @@ declare(strict_types=1);
 
 namespace MapClassifier\Application;
 
+use MapClassifier\Client\Command\ClientDownloadCommand;
+use MapClassifier\Client\Service\ClientDownloader;
 use MapClassifier\Infrastructure\Export\ExportFormat;
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\Location\Repository\MapLocationRepository;
 use MapClassifier\Map\Classification\Command\ClassifyRunCommand;
 use MapClassifier\Map\Classification\Command\ExportCommand;
-use MapClassifier\Map\Classification\Command\MapsRenderCommand;
 use MapClassifier\Map\Classification\Export\HtmlMapExportFormat;
 use MapClassifier\Map\Classification\Export\JsonMapExportFormat;
 use MapClassifier\Map\Classification\Model\MapExport;
 use MapClassifier\Map\Classification\Repository\MapResultRepository;
+use MapClassifier\Map\Classification\Repository\ResultRenderErrorRepository;
 use MapClassifier\Map\Classification\Service\ClassificationPrompt;
-use MapClassifier\Map\Classification\Service\ImageEncoder;
+use MapClassifier\Map\Classification\Service\MapClassifier;
 use MapClassifier\Map\Classification\Service\MapExporter;
-use MapClassifier\Map\Classification\Service\MapRenderService;
 use MapClassifier\Map\Classification\Service\MapResultParser;
 use MapClassifier\Map\Classification\Service\MapsToClassify;
-use MapClassifier\Map\Classification\Service\SyncClassifier;
-use MapClassifier\Map\Command\ClientDownloadCommand;
 use MapClassifier\Map\Command\KeysDownloadCommand;
+use MapClassifier\Map\Command\MapsRenderCommand;
 use MapClassifier\Map\Repository\MapFileRepository;
 use MapClassifier\Map\Repository\MapKeyRepository;
-use MapClassifier\Map\Service\ClientDownloader;
 use MapClassifier\Map\Service\MapImageRenderer;
 use MapClassifier\Map\Service\MapKeyDownloader;
+use MapClassifier\Map\Service\MapRenderService;
 use MapClassifier\Sprite\Classification\Command\ObjectsClassifyCommand;
 use MapClassifier\Sprite\Classification\Command\ObjectsExportCommand;
 use MapClassifier\Sprite\Classification\Export\HtmlObjectExportFormat;
@@ -113,12 +113,11 @@ final class Kernel
         }
     }
 
-    public function syncClassifier(string $imageFormat = ImageEncoder::JPEG, float $imageScale = ImageEncoder::DEFAULT_SCALE): SyncClassifier
+    public function mapClassifier(): MapClassifier
     {
-        return new SyncClassifier(
+        return new MapClassifier(
             $this->responsesClient(),
             $this->prompt(),
-            new ImageEncoder($imageFormat, $imageScale),
             new MapResultParser(),
             $this->results,
             $this->config->rendersDir,
@@ -185,8 +184,8 @@ final class Kernel
 
         $app->addCommand(new ClientDownloadCommand(new ClientDownloader($this->httpClient), $this->config->clientArchiveUrl, $this->config->downloadedClientDir));
         $app->addCommand(new KeysDownloadCommand(new MapKeyDownloader($this->httpClient), $this->config->keysDir, $this->config->keysArchiveUrl));
-        $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, $this->results, $this->config->rendersDir), $this->config->resultsDir));
-        $app->addCommand(new ClassifyRunCommand($this->mapsToClassify, $this->locations, $this->syncClassifier(...), $this->config->openAiModel));
+        $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, new ResultRenderErrorRepository($this->results), $this->config->rendersDir)));
+        $app->addCommand(new ClassifyRunCommand($this->mapsToClassify, $this->locations, $this->mapClassifier(), $this->config->openAiModel));
         $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects, $this->objectProfiles));
         $app->addCommand(new ObjectsSpritesCommand(new SpriteExporter($this->config->dofusPath, $this->spriteImages), $this->objectProfiles, $this->config->spritesDir));
         $app->addCommand(new ObjectsClassifyCommand($this->objectProfiles, $this->spritesToClassify, $this->objectTypeClassifier(), $this->objectExporter(), $this->objectExportFormats(), $this->config->openAiModel));

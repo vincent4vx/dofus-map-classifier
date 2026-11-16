@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MapClassifier\Map\Command;
+namespace MapClassifier\Client\Command;
 
-use MapClassifier\Map\Service\ClientDownloader;
+use MapClassifier\Client\Service\ClientDownloader;
 use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;

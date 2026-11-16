@@ -34,8 +34,15 @@ enum ErrorCode: string
         };
     }
 
-    public function isRenderError(): bool
+    /**
+     * Render error corresponding to this code, or null if it is not a render error
+     */
+    public function renderError(): ?RenderError
     {
-        return $this === self::MissingKey || $this === self::RenderFailed;
+        return match ($this) {
+            self::MissingKey => RenderError::MissingKey,
+            self::RenderFailed => RenderError::RenderFailed,
+            default => null,
+        };
     }
 }

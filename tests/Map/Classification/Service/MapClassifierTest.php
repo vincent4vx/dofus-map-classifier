@@ -10,9 +10,8 @@ use MapClassifier\Map\Classification\Model\ErrorCode;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Repository\MapResultRepository;
 use MapClassifier\Map\Classification\Service\ClassificationPrompt;
-use MapClassifier\Map\Classification\Service\ImageEncoder;
+use MapClassifier\Map\Classification\Service\MapClassifier;
 use MapClassifier\Map\Classification\Service\MapResultParser;
-use MapClassifier\Map\Classification\Service\SyncClassifier;
 use MapClassifier\Map\Model\MapFile;
 use MapClassifier\Tests\ResponseFixtures;
 use MapClassifier\Tests\TempDirTrait;
@@ -28,7 +27,7 @@ use function json_encode;
 use function max;
 use function substr;
 
-final class SyncClassifierTest extends TestCase
+final class MapClassifierTest extends TestCase
 {
     use TempDirTrait;
 
@@ -60,7 +59,7 @@ final class SyncClassifierTest extends TestCase
         });
 
         $received = [];
-        $this->classifier($http)->classify($this->maps(), 2, function (MapResult $result) use (&$received) {
+        $this->classifier($http)->classify($this->maps(), concurrency: 2, onResult: function (MapResult $result) use (&$received) {
             $received[$result->id] = $result;
         });
 
@@ -95,7 +94,7 @@ final class SyncClassifierTest extends TestCase
             })());
         });
 
-        $this->classifier($http)->classify($this->maps(), 2);
+        $this->classifier($http)->classify($this->maps(), concurrency: 2);
 
         $this->assertSame(2, $max);
         $this->assertCount(4, $this->results->all());
@@ -105,7 +104,7 @@ final class SyncClassifierTest extends TestCase
     {
         $http = new MockHttpClient(new MockResponse('', ['error' => 'Connection refused']));
 
-        $this->classifier($http)->classify([$this->maps()[0]], 1);
+        $this->classifier($http)->classify([$this->maps()[0]], concurrency: 1);
 
         $this->assertSame(ErrorCode::ClassificationFailed, $this->mapResult(1)->error);
         $this->assertStringContainsString('Connection refused', (string) $this->mapResult(1)->errorMessage);
@@ -132,12 +131,11 @@ final class SyncClassifierTest extends TestCase
         ];
     }
 
-    private function classifier(MockHttpClient $http): SyncClassifier
+    private function classifier(MockHttpClient $http): MapClassifier
     {
-        return new SyncClassifier(
+        return new MapClassifier(
             new ConcurrentResponsesClient($http, static fn () => 'sk-test', 'https://api.test/v1'),
             new ClassificationPrompt('luna'),
-            new ImageEncoder(),
             new MapResultParser(),
             $this->results,
             $this->tempDir(),

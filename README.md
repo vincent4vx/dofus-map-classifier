@@ -42,7 +42,7 @@ All commands are available through `make` (run `make help`), extra arguments are
 ```bash
 make keys                                         # 1. download map keys (MapKeys-DR)
 make render ARGS="--super-area=3"                 # 2. render maps to var/renders/{id}.png (~0.2s per map)
-make classify ARGS="--super-area=3 --concurrency=10"   # 3. classify synchronously (Responses API)
+make classify ARGS="--super-area=3 --concurrency=10"   # 3. classify with the OpenAI Responses API
 make export                                       # 4. var/maps.json + var/sub_areas.json + var/report.html (search and filters)
 make report ARGS="--area=18"                      # 5. only var/report.html, for a selection (= export --format=html)
 make objects                                      # 6. var/sprite_profiles.json (layer, areas, biomes… of each sprite), PNG sprites,
@@ -85,6 +85,7 @@ Code is split by domain, then by kind of class:
 
 ```
 src/
+  Client/                 download of a Dofus Retro client (dofedex)
   Location/               map locations (sub area, area, super area) from the langs
   Map/                    map files, keys and rendering
     Classification/       biome classification of maps, sub areas biomes, export (JSON and HTML gallery)

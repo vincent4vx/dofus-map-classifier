@@ -8,6 +8,7 @@ use InvalidArgumentException;
 use MapClassifier\Infrastructure\Export\ExportFormat;
 use MapClassifier\Infrastructure\Export\ExportFormatOption;
 use MapClassifier\Location\Repository\MapLocationRepository;
+use MapClassifier\Map\Classification\Model\BiomeFilter;
 use MapClassifier\Map\Classification\Model\MapExport;
 use MapClassifier\Map\Classification\Service\MapExporter;
 use MapClassifier\Map\Command\MapSelectionInput;
@@ -44,7 +45,7 @@ final class ExportCommand extends Command
         MapSelectionInput::configure($this, 'Map ids or ranges. All results by default');
         ExportFormatOption::configure($this, $this->formats);
         $this
-            ->addOption('biome', 'b', InputOption::VALUE_REQUIRED, 'Only export classified maps of this biome ("none" for maps without biome)')
+            ->addOption('biome', 'b', InputOption::VALUE_REQUIRED, 'Only export classified maps of this biome ("' . BiomeFilter::NONE . '" for maps without biome)')
             ->addOption('only-ok', null, InputOption::VALUE_NONE, 'Exclude maps in error')
         ;
     }
@@ -56,18 +57,18 @@ final class ExportCommand extends Command
 
         try {
             $formats = ExportFormatOption::selected($input, $this->formats);
+            $biome = $input->getOption('biome') !== null ? BiomeFilter::parse((string) $input->getOption('biome')) : null;
         } catch (InvalidArgumentException $e) {
             $io->error($e->getMessage());
 
             return self::INVALID;
         }
 
-        $biome = $input->getOption('biome');
         $locations = $this->locations->tryAll(static fn (string $error) => $io->warning('Locations not exported: ' . $error));
         $export = $this->exporter->export(
             $locations,
             MapSelectionInput::selection($input, $this->locations),
-            $biome !== null ? (string) $biome : null,
+            $biome,
             (bool) $input->getOption('only-ok'),
         );
 

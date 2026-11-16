@@ -104,7 +104,7 @@ Commande `objects:analyze` (`make objects`) → `var/sprite_profiles.json`.
 
 ### Type des objets (étape 3, partie 2)
 
-Commande `objects:classify` (`make objects-classify`), via l'API Responses en synchrone (requêtes parallèles).
+Commande `objects:classify` (`make objects-classify`), via l'API Responses (requêtes parallèles).
 
 - Le PNG exporté par `objects:sprites` est envoyé tel quel.
 - Contexte donné au modèle : taille visible en pixels du jeu (une cellule = 53 x 27 px), layer principal et son rôle, nombre de maps, biomes, areas, sub areas, intérieur / extérieur, types de lieu. Les sprites connus comme marqueurs de téléportation (1029, 1030) sont signalés.

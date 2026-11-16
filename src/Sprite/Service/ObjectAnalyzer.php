@@ -83,8 +83,8 @@ final class ObjectAnalyzer
     {
         $location = $this->locations[$mapId] ?? null;
         $classification = ($this->results[$mapId] ?? null)?->classification;
-        $biome = $classification->biome->value
-            ?? ($location !== null ? ($this->subAreaBiomes[$location->subAreaId] ?? null)?->biome?->value : null);
+        $biome = $classification->biome
+            ?? ($location !== null ? ($this->subAreaBiomes[$location->subAreaId] ?? null)?->biome : null);
 
         if ($location !== null) {
             $this->subAreaNames[$location->subAreaId] = $location->subAreaName;
@@ -131,7 +131,7 @@ final class ObjectAnalyzer
                 }
 
                 if ($biome !== null) {
-                    self::increment($stats['biomes'], $biome);
+                    self::increment($stats['biomes'], $biome->value);
                 }
 
                 if ($classification !== null) {
@@ -159,8 +159,9 @@ final class ObjectAnalyzer
                 $layers = $stats['layers'];
                 arsort($layers);
 
+                $spriteSet = SpriteSet::from($set);
                 $profiles[$set][$id] = new ObjectProfile(
-                    set: SpriteSet::from($set),
+                    set: $spriteSet,
                     id: $id,
                     layer: Layer::from((string) array_key_first($layers)),
                     occurrences: array_sum($layers),
@@ -171,7 +172,7 @@ final class ObjectAnalyzer
                     biomes: $this->filter($stats['biomes']),
                     indoor: $this->filter($stats['indoor']),
                     locationTypes: $this->filter($stats['locationTypes']),
-                    interactive: $set === SpriteSet::Objects->value ? ($this->interactiveObjects[$id] ?? null) : null,
+                    interactive: $spriteSet === SpriteSet::Objects ? ($this->interactiveObjects[$id] ?? null) : null,
                 );
             }
         }

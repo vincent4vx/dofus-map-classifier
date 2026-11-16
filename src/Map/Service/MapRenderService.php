@@ -2,27 +2,23 @@
 
 declare(strict_types=1);
 
-namespace MapClassifier\Map\Classification\Service;
+namespace MapClassifier\Map\Service;
 
-use MapClassifier\Map\Classification\Model\ErrorCode;
-use MapClassifier\Map\Classification\Model\MapResult;
-use MapClassifier\Map\Classification\Repository\MapResultRepository;
 use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Model\MapFile;
-use MapClassifier\Map\Service\MapImageRenderer;
+use MapClassifier\Map\Repository\RenderErrorRepository;
 
 use function array_slice;
 use function is_file;
 
 /**
- * Render maps to the PNG files sent to the model
- * Render failures are stored as map results, so they are not classified
+ * Render maps to PNG files, and keep track of the maps which cannot be rendered
  */
 final readonly class MapRenderService
 {
     public function __construct(
         private MapImageRenderer $renderer,
-        private MapResultRepository $results,
+        private RenderErrorRepository $errors,
         private string $rendersDir,
     ) {}
 
@@ -44,7 +40,7 @@ final readonly class MapRenderService
                 continue;
             }
 
-            if (!$force && !$retryErrors && ($this->results->get($map->id)?->error?->isRenderError() ?? false)) {
+            if (!$force && !$retryErrors && $this->errors->get($map->id) !== null) {
                 continue;
             }
 
@@ -64,15 +60,13 @@ final readonly class MapRenderService
         try {
             $this->renderer->renderTo($map, $this->target($map->id));
         } catch (RenderException $e) {
-            $this->results->save(MapResult::failure($map->id, $map->version, ErrorCode::fromRenderError($e->error), $e->getMessage()));
+            $this->errors->save($map, $e);
 
             return $e;
         }
 
         // Previous render error is now obsolete
-        if ($this->results->get($map->id)?->error?->isRenderError()) {
-            $this->results->delete($map->id);
-        }
+        $this->errors->delete($map->id);
 
         return null;
     }

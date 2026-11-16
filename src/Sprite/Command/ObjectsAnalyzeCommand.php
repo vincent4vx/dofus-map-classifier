@@ -10,6 +10,7 @@ use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Map\Command\MapSelectionInput;
 use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Repository\MapFileRepository;
+use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
 use MapClassifier\Sprite\Repository\ObjectProfileRepository;
 use MapClassifier\Sprite\Service\MapObjectExtractor;
@@ -92,8 +93,8 @@ final class ObjectsAnalyzeCommand extends Command
         $io->success(sprintf(
             '%d maps analyzed: %d ground sprites and %d object sprites written to %s',
             $analyzed,
-            count($profiles['grounds'] ?? []),
-            count($profiles['objects'] ?? []),
+            count($profiles[SpriteSet::Grounds->value] ?? []),
+            count($profiles[SpriteSet::Objects->value] ?? []),
             $this->profiles->file,
         ));
 

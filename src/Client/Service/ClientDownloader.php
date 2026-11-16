@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MapClassifier\Map\Service;
+namespace MapClassifier\Client\Service;
 
 use MapClassifier\Infrastructure\Http\FileDownloader;
 use RuntimeException;

@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MapClassifier\Map\Classification\Command;
+namespace MapClassifier\Map\Command;
 
 use MapClassifier\Location\Repository\MapLocationRepository;
-use MapClassifier\Map\Classification\Service\MapRenderService;
-use MapClassifier\Map\Command\MapSelectionInput;
 use MapClassifier\Map\Repository\MapFileRepository;
+use MapClassifier\Map\Service\MapRenderService;
 use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -26,7 +25,6 @@ final class MapsRenderCommand extends Command
         private readonly MapFileRepository $maps,
         private readonly MapLocationRepository $locations,
         private readonly MapRenderService $service,
-        private readonly string $resultsDir,
     ) {
         parent::__construct();
     }
@@ -86,7 +84,7 @@ final class MapsRenderCommand extends Command
         $io->newLine(2);
 
         if ($failed) {
-            $io->warning(sprintf('%d maps rendered, %d failed (see errors in %s)', $rendered, $failed, $this->resultsDir));
+            $io->warning(sprintf('%d maps rendered, %d failed (run with -v to display the errors)', $rendered, $failed));
         } else {
             $io->success(sprintf('%d maps rendered', $rendered));
         }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Classification\Command;
 
+use InvalidArgumentException;
+use MapClassifier\Infrastructure\Console\EnumOption;
 use MapClassifier\Infrastructure\Export\ExportFormat;
 use MapClassifier\Sprite\Classification\Model\Export\ObjectExport;
 use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
@@ -73,12 +75,21 @@ final class ObjectsClassifyCommand extends Command
             return self::FAILURE;
         }
 
+        try {
+            $set = EnumOption::get($input, 'set', SpriteSet::class);
+            $layer = EnumOption::get($input, 'layer', Layer::class);
+        } catch (InvalidArgumentException $e) {
+            $io->error($e->getMessage());
+
+            return self::INVALID;
+        }
+
         $option = static fn (string $name) => $input->getOption($name);
         $selected = $this->spritesToClassify->select(
             $profiles,
             SpriteSelection::parse($input->getArgument('ids')),
-            set: $option('set') !== null ? SpriteSet::from((string) $option('set')) : null,
-            layer: $option('layer') !== null ? Layer::from((string) $option('layer')) : null,
+            set: $set,
+            layer: $layer,
             minMaps: (int) $option('min-maps'),
             interactiveOnly: (bool) $option('interactive'),
             force: (bool) $option('force'),

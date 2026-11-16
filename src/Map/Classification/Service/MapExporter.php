@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MapClassifier\Map\Classification\Service;
 
 use MapClassifier\Location\Model\MapLocation;
+use MapClassifier\Map\Classification\Model\BiomeFilter;
 use MapClassifier\Map\Classification\Model\Export\ExportedLocation;
 use MapClassifier\Map\Classification\Model\Export\ExportedMap;
 use MapClassifier\Map\Classification\Model\MapExport;
@@ -28,10 +29,10 @@ final readonly class MapExporter
      *
      * @param array<int, MapLocation> $locations All locations, indexed by map id. Empty if not available
      * @param MapSelection|null $selection Only export these maps
-     * @param string|null $biome Only export classified maps of this biome ("none" for maps without biome)
+     * @param BiomeFilter|null $biome Only export classified maps of this biome
      * @param bool $onlyOk Exclude maps in error
      */
-    public function export(array $locations, ?MapSelection $selection = null, ?string $biome = null, bool $onlyOk = false): MapExport
+    public function export(array $locations, ?MapSelection $selection = null, ?BiomeFilter $biome = null, bool $onlyOk = false): MapExport
     {
         $maps = [];
         $biomes = [];
@@ -44,7 +45,7 @@ final readonly class MapExporter
                 continue;
             }
 
-            if ($biome !== null && ($result->classification === null || ($result->classification->biome->value ?? 'none') !== $biome)) {
+            if ($biome !== null && !$biome->matches($result)) {
                 continue;
             }
 

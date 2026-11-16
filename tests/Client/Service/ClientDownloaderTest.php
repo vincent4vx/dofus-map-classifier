@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MapClassifier\Tests\Map\Service;
+namespace MapClassifier\Tests\Client\Service;
 
-use MapClassifier\Map\Service\ClientDownloader;
+use MapClassifier\Client\Service\ClientDownloader;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;

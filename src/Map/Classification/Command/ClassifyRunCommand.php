@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace MapClassifier\Map\Classification\Command;
 
-use Closure;
 use MapClassifier\Location\Repository\MapLocationRepository;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Service\ImageEncoder;
+use MapClassifier\Map\Classification\Service\MapClassifier;
 use MapClassifier\Map\Classification\Service\MapsToClassify;
-use MapClassifier\Map\Classification\Service\SyncClassifier;
 use MapClassifier\Map\Command\MapSelectionInput;
 use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -23,14 +22,13 @@ use function count;
 use function max;
 use function sprintf;
 
-#[AsCommand('classify:run', 'Classify rendered maps synchronously, by calling the OpenAI Responses API directly')]
+#[AsCommand('classify:run', 'Classify rendered maps with the OpenAI Responses API (biome, indoor, location type, tags, description)')]
 final class ClassifyRunCommand extends Command
 {
     public function __construct(
         private readonly MapsToClassify $mapsToClassify,
         private readonly MapLocationRepository $locations,
-        /** @var Closure(string, float): SyncClassifier Create the classifier from the image format and image scale */
-        private readonly Closure $classifier,
+        private readonly MapClassifier $classifier,
         private readonly string $model,
     ) {
         parent::__construct();
@@ -76,8 +74,9 @@ final class ClassifyRunCommand extends Command
         $progress->setMessage('');
         $progress->start();
 
-        ($this->classifier)((string) $input->getOption('image-format'), (float) $input->getOption('image-scale'))->classify(
+        $this->classifier->classify(
             $todo,
+            new ImageEncoder((string) $input->getOption('image-format'), (float) $input->getOption('image-scale')),
             max(1, (int) $input->getOption('concurrency')),
             static function (MapResult $result) use ($io, $output, $progress, &$ok, &$errors) {
                 if ($result->ok) {
