@@ -9,6 +9,7 @@ use MapClassifier\Map\Classification\Model\Export\ExportedLocation;
 use MapClassifier\Map\Classification\Model\Export\ExportedMap;
 use MapClassifier\Map\Classification\Model\MapExport;
 use MapClassifier\Map\Classification\Repository\MapResultRepository;
+use MapClassifier\Map\Model\MapSelection;
 
 use function arsort;
 
@@ -23,10 +24,14 @@ final readonly class MapExporter
     ) {}
 
     /**
+     * Sub areas biomes are always computed from all the maps
+     *
      * @param array<int, MapLocation> $locations All locations, indexed by map id. Empty if not available
+     * @param MapSelection|null $selection Only export these maps
+     * @param string|null $biome Only export classified maps of this biome ("none" for maps without biome)
      * @param bool $onlyOk Exclude maps in error
      */
-    public function export(array $locations, bool $onlyOk = false): MapExport
+    public function export(array $locations, ?MapSelection $selection = null, ?string $biome = null, bool $onlyOk = false): MapExport
     {
         $maps = [];
         $biomes = [];
@@ -35,6 +40,14 @@ final readonly class MapExporter
         $subAreas = $this->subAreaBiomes->resolve($locations, $results);
 
         foreach ($results as $id => $result) {
+            if ($selection !== null && !$selection->matches($id)) {
+                continue;
+            }
+
+            if ($biome !== null && ($result->classification === null || ($result->classification->biome->value ?? 'none') !== $biome)) {
+                continue;
+            }
+
             if (!$result->ok) {
                 ++$errors;
 
@@ -42,8 +55,8 @@ final readonly class MapExporter
                     continue;
                 }
             } else {
-                $biome = $result->classification->biome->value ?? '(none)';
-                $biomes[$biome] = ($biomes[$biome] ?? 0) + 1;
+                $mapBiome = $result->classification->biome->value ?? '(none)';
+                $biomes[$mapBiome] = ($biomes[$mapBiome] ?? 0) + 1;
             }
 
             $location = $locations[$id] ?? null;

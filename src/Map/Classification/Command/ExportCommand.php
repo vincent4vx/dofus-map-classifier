@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace MapClassifier\Map\Classification\Command;
 
-use MapClassifier\Infrastructure\Json\JsonFile;
+use InvalidArgumentException;
+use MapClassifier\Infrastructure\Export\ExportFormat;
+use MapClassifier\Infrastructure\Export\ExportFormatOption;
 use MapClassifier\Location\Repository\MapLocationRepository;
+use MapClassifier\Map\Classification\Model\MapExport;
 use MapClassifier\Map\Classification\Service\MapExporter;
+use MapClassifier\Map\Command\MapSelectionInput;
 use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -19,16 +23,17 @@ use function array_keys;
 use function array_map;
 use function array_values;
 use function count;
+use function implode;
 use function sprintf;
 
-#[AsCommand('export', 'Merge all map results into a single JSON file indexed by map id')]
+#[AsCommand('export', 'Export the maps results with their location: JSON data and HTML gallery for visual validation')]
 final class ExportCommand extends Command
 {
     public function __construct(
         private readonly MapExporter $exporter,
         private readonly MapLocationRepository $locations,
-        private readonly string $defaultOutput,
-        private readonly string $defaultSubAreasOutput,
+        /** @var list<ExportFormat<MapExport>> */
+        private readonly array $formats,
     ) {
         parent::__construct();
     }
@@ -36,9 +41,10 @@ final class ExportCommand extends Command
     #[Override]
     protected function configure(): void
     {
+        MapSelectionInput::configure($this, 'Map ids or ranges. All results by default');
+        ExportFormatOption::configure($this, $this->formats);
         $this
-            ->addOption('output', 'o', InputOption::VALUE_REQUIRED, 'Output file', $this->defaultOutput)
-            ->addOption('sub-areas-output', null, InputOption::VALUE_REQUIRED, 'Output file of sub areas biomes', $this->defaultSubAreasOutput)
+            ->addOption('biome', 'b', InputOption::VALUE_REQUIRED, 'Only export classified maps of this biome ("none" for maps without biome)')
             ->addOption('only-ok', null, InputOption::VALUE_NONE, 'Exclude maps in error')
         ;
     }
@@ -47,21 +53,35 @@ final class ExportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $locations = $this->locations->tryAll(static fn (string $error) => $io->warning('Locations not exported: ' . $error));
-        $export = $this->exporter->export($locations, (bool) $input->getOption('only-ok'));
 
-        $file = (string) $input->getOption('output');
-        // Force an object, even when empty
-        JsonFile::write($file, (object) $export->maps);
+        try {
+            $formats = ExportFormatOption::selected($input, $this->formats);
+        } catch (InvalidArgumentException $e) {
+            $io->error($e->getMessage());
+
+            return self::INVALID;
+        }
+
+        $biome = $input->getOption('biome');
+        $locations = $this->locations->tryAll(static fn (string $error) => $io->warning('Locations not exported: ' . $error));
+        $export = $this->exporter->export(
+            $locations,
+            MapSelectionInput::selection($input, $this->locations),
+            $biome !== null ? (string) $biome : null,
+            (bool) $input->getOption('only-ok'),
+        );
 
         if ($export->subAreas) {
-            $subAreasFile = (string) $input->getOption('sub-areas-output');
-            JsonFile::write($subAreasFile, (object) $export->subAreas);
-            $io->text(sprintf('%d / %d sub areas with a biome, written to %s', $export->resolvedSubAreas(), count($export->subAreas), $subAreasFile));
+            $io->text(sprintf('%d / %d sub areas with a biome', $export->resolvedSubAreas(), count($export->subAreas)));
         }
 
         $io->table(['Biome', 'Maps'], array_map(null, array_keys($export->biomes), array_values($export->biomes)));
-        $io->success(sprintf('%d maps exported to %s (%d in error)', count($export->maps), $file, $export->errors));
+
+        foreach ($formats as $file => $format) {
+            $io->text(sprintf('%s: %s', $format->name(), implode(', ', $format->write($export, $file))));
+        }
+
+        $io->success(sprintf('%d maps exported (%d in error)', count($export->maps), $export->errors));
 
         return self::SUCCESS;
     }

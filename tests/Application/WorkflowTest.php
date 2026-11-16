@@ -102,8 +102,9 @@ final class WorkflowTest extends TestCase
         $this->assertMatchesRegularExpression('/batch_1\s+completed\s+1\s+2\/2/', $this->exec('classify:status', ['--all' => true]));
         $this->assertStringContainsString('Nothing to submit', $this->exec('classify:submit'));
 
-        // Export
-        $this->assertStringContainsString('2 maps exported', $this->exec('export'));
+        // Export, in all formats by default
+        $this->assertStringContainsString('2 maps exported (1 in error)', $this->exec('export'));
+        $this->assertFileExists($this->config->varDir . '/report.html');
         $export = json_decode((string) file_get_contents($this->config->varDir . '/maps.json'), true);
         $this->assertSame(['10000', '10001'], array_map('strval', array_keys($export)));
         $this->assertSame('snow', $export[10000]['biome']);
@@ -124,10 +125,16 @@ final class WorkflowTest extends TestCase
         $this->assertNull($subAreas[95]['biome']);
         $this->assertSame('Arctic Area', $export[10000]['location']['area']['name']);
 
-        $this->assertStringContainsString('1 maps exported', $this->exec('export', ['--only-ok' => true]));
+        $this->assertStringContainsString('1 maps exported (1 in error)', $this->exec('export', ['--only-ok' => true]));
+        $this->assertCount(1, json_decode((string) file_get_contents($this->config->varDir . '/maps.json'), true));
 
-        // Report
-        $this->assertStringContainsString('Report of 1 maps', $this->exec('report', ['--biome' => 'snow']));
+        // Filters and a single format, with a custom output
+        $selected = $this->exec('export', ['ids' => ['10001'], '--format' => ['json'], '--output' => $this->config->varDir . '/selected.json']);
+        $this->assertStringContainsString('1 maps exported (1 in error)', $selected);
+        $this->assertSame(['10001'], array_map('strval', array_keys(json_decode((string) file_get_contents($this->config->varDir . '/selected.json'), true))));
+
+        // HTML gallery
+        $this->assertStringContainsString('1 maps exported', $this->exec('export', ['--format' => ['html'], '--biome' => 'snow']));
         $html = (string) file_get_contents($this->config->varDir . '/report.html');
         $this->assertStringContainsString('src="renders/10000.png"', $html);
         $this->assertStringContainsString('A forest crossed by a river.', $html);
@@ -237,9 +244,10 @@ final class WorkflowTest extends TestCase
         $this->assertSame('image/png', $size['mime']);
         $this->assertMatchesRegularExpression('/objects: 0 exported, \d+ already exported/', $this->exec('objects:sprites'));
 
-        // HTML report
+        // Export: JSON and HTML gallery
         $count = count($objects['grounds']) + count($objects['objects']);
-        $this->assertStringContainsString('Report of ' . $count . ' sprites', $this->exec('objects:report'));
+        $this->assertStringContainsString($count . ' sprites exported (0 with a type)', $this->exec('objects:export'));
+        $this->assertFileExists($this->config->varDir . '/objects.json');
         $html = (string) file_get_contents($this->config->varDir . '/objects.html');
         $this->assertStringContainsString('<option value="Arctic Area">Arctic Area</option>', $html);
         $this->assertStringContainsString('["Kwismas Island",1]', $html);
@@ -269,14 +277,13 @@ final class WorkflowTest extends TestCase
         $this->assertSame(array_keys($objects['objects']), array_keys($joined['objects']));
         $this->assertSame($objects['objects'][$firstObject] + ['type' => $joined['objects'][$firstObject]['type']], $joined['objects'][$firstObject]);
 
-        // Type is displayed in the report, and joined in objects.json
-        $this->exec('objects:report');
+        // Type is displayed in the HTML gallery, also exported by objects:classify
         $this->assertStringContainsString('["tree","snowy pine",["pine","snow"],"A snowy pine."]', (string) file_get_contents($this->config->varDir . '/objects.html'));
         $this->assertStringContainsString('<option value="tree">tree</option>', (string) file_get_contents($this->config->varDir . '/objects.html'));
 
         // Export again after a new analyze: stored types are joined
         $this->exec('objects:analyze', ['ids' => ['10000-10001']]);
-        $this->assertMatchesRegularExpression('/' . $count . ' sprites exported to .*objects\.json \(3 with a type\)/', (string) preg_replace('/\s+/', ' ', $this->exec('objects:export')));
+        $this->assertStringContainsString($count . ' sprites exported (3 with a type)', $this->exec('objects:export', ['--format' => ['json']]));
         $objects = json_decode((string) file_get_contents($this->config->varDir . '/objects.json'), true);
         $this->assertSame(['category' => 'tree', 'name' => 'snowy pine', 'keywords' => ['pine', 'snow'], 'description' => 'A snowy pine.'], $objects['objects'][$firstObject]['type']);
         $this->assertArrayHasKey('type', $objects['objects'][array_key_last($objects['objects'])]);
@@ -312,9 +319,23 @@ final class WorkflowTest extends TestCase
         $this->assertSame([], $this->api->batches);
     }
 
+    public function testExportFormatOptions(): void
+    {
+        $tester = new CommandTester($this->app->find('export'));
+
+        $this->assertSame(Command::INVALID, $tester->execute(['--format' => ['xml']]));
+        $this->assertStringContainsString('Unknown format "xml", available: json, html', $tester->getDisplay());
+
+        $this->assertSame(Command::INVALID, $tester->execute(['--output' => 'foo.json']));
+        $this->assertStringContainsString('The --output option requires a single --format', $tester->getDisplay());
+
+        $tester = new CommandTester($this->app->find('objects:export'));
+        $this->assertSame(Command::INVALID, $tester->execute(['--format' => ['json', 'html'], '--output' => 'foo.json']));
+    }
+
     public function testObjectsCommandsWithoutAnalyze(): void
     {
-        foreach (['objects:sprites', 'objects:classify', 'objects:export', 'objects:report'] as $command) {
+        foreach (['objects:sprites', 'objects:classify', 'objects:export'] as $command) {
             $tester = new CommandTester($this->app->find($command));
             $this->assertSame(Command::FAILURE, $tester->execute([]), $command);
             $this->assertStringContainsString('sprite_profiles.json not found: run objects:analyze', (string) preg_replace('/\s+/', ' ', $tester->getDisplay()), $command);

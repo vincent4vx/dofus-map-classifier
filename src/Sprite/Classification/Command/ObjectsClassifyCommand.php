@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Classification\Command;
 
-use MapClassifier\Infrastructure\Json\JsonFile;
+use MapClassifier\Infrastructure\Export\ExportFormat;
+use MapClassifier\Sprite\Classification\Model\Export\ObjectExport;
 use MapClassifier\Sprite\Classification\Model\ObjectTypeResult;
-use MapClassifier\Sprite\Classification\Service\ObjectTypeClassifier;
 use MapClassifier\Sprite\Classification\Service\ObjectExporter;
+use MapClassifier\Sprite\Classification\Service\ObjectTypeClassifier;
 use MapClassifier\Sprite\Classification\Service\SpritesToClassify;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\SpriteSelection;
@@ -24,6 +25,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 use function count;
+use function implode;
 use function max;
 use function sprintf;
 
@@ -35,8 +37,8 @@ final class ObjectsClassifyCommand extends Command
         private readonly SpritesToClassify $spritesToClassify,
         private readonly ObjectTypeClassifier $classifier,
         private readonly ObjectExporter $exporter,
-        /** Export file (objects.json), updated after the classification */
-        private readonly string $exportFile,
+        /** @var list<ExportFormat<ObjectExport>> Export formats, written to their default output after the classification */
+        private readonly array $exportFormats,
         private readonly string $model,
     ) {
         parent::__construct();
@@ -131,8 +133,11 @@ final class ObjectsClassifyCommand extends Command
         $io->newLine(2);
 
         // Export again, to join the new types
-        JsonFile::write($this->exportFile, $this->exporter->export($profiles));
-        $io->text('Types exported to ' . $this->exportFile);
+        $export = $this->exporter->export($profiles);
+
+        foreach ($this->exportFormats as $format) {
+            $io->text('Types exported to ' . implode(', ', $format->write($export, $format->defaultOutput())));
+        }
 
         $errors
             ? $io->warning(sprintf('%d sprites classified, %d errors', $ok, $errors))

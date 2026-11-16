@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Application;
 
+use MapClassifier\Infrastructure\Export\ExportFormat;
 use MapClassifier\Infrastructure\OpenAI\BatchApiInterface;
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\Infrastructure\OpenAI\LazyBatchApi;
@@ -19,7 +20,9 @@ use MapClassifier\Map\Classification\Command\ClassifyStatusCommand;
 use MapClassifier\Map\Classification\Command\ClassifySubmitCommand;
 use MapClassifier\Map\Classification\Command\ExportCommand;
 use MapClassifier\Map\Classification\Command\MapsRenderCommand;
-use MapClassifier\Map\Classification\Command\ReportCommand;
+use MapClassifier\Map\Classification\Export\HtmlMapExportFormat;
+use MapClassifier\Map\Classification\Export\JsonMapExportFormat;
+use MapClassifier\Map\Classification\Model\MapExport;
 use MapClassifier\Map\Classification\Repository\MapResultRepository;
 use MapClassifier\Map\Classification\Service\ClassificationPrompt;
 use MapClassifier\Map\Classification\Service\ImageEncoder;
@@ -37,12 +40,13 @@ use MapClassifier\Map\Service\MapImageRenderer;
 use MapClassifier\Map\Service\MapKeyDownloader;
 use MapClassifier\Sprite\Classification\Command\ObjectsClassifyCommand;
 use MapClassifier\Sprite\Classification\Command\ObjectsExportCommand;
-use MapClassifier\Sprite\Classification\Command\ObjectsReportCommand;
+use MapClassifier\Sprite\Classification\Export\HtmlObjectExportFormat;
+use MapClassifier\Sprite\Classification\Export\JsonObjectExportFormat;
+use MapClassifier\Sprite\Classification\Model\Export\ObjectExport;
 use MapClassifier\Sprite\Classification\Repository\ObjectTypeRepository;
 use MapClassifier\Sprite\Classification\Service\ObjectExporter;
 use MapClassifier\Sprite\Classification\Service\ObjectTypeClassifier;
 use MapClassifier\Sprite\Classification\Service\ObjectTypePrompt;
-use MapClassifier\Sprite\Classification\Service\ObjectTypeResolver;
 use MapClassifier\Sprite\Classification\Service\SpritesToClassify;
 use MapClassifier\Sprite\Command\ObjectsAnalyzeCommand;
 use MapClassifier\Sprite\Command\ObjectsSpritesCommand;
@@ -190,11 +194,25 @@ final class Kernel
     }
 
     /**
-     * Create a new resolver on each call: it loads the stored types once
+     * @return list<ExportFormat<MapExport>>
      */
-    public function objectTypeResolver(): ObjectTypeResolver
+    public function mapExportFormats(): array
     {
-        return new ObjectTypeResolver($this->objectTypes);
+        return [
+            new JsonMapExportFormat($this->config->varDir . '/maps.json'),
+            new HtmlMapExportFormat($this->config->rendersDir, $this->config->varDir . '/report.html'),
+        ];
+    }
+
+    /**
+     * @return list<ExportFormat<ObjectExport>>
+     */
+    public function objectExportFormats(): array
+    {
+        return [
+            new JsonObjectExportFormat($this->config->objectsFile),
+            new HtmlObjectExportFormat($this->config->spritesDir, $this->config->varDir . '/objects.html'),
+        ];
     }
 
     public function objectExporter(): ObjectExporter
@@ -221,11 +239,9 @@ final class Kernel
         $app->addCommand(new ClassifyDiscardCommand($this->batches));
         $app->addCommand(new ObjectsAnalyzeCommand($this->maps, new MapObjectExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects, $this->objectProfiles));
         $app->addCommand(new ObjectsSpritesCommand(new SpriteExporter($this->config->dofusPath, $this->spriteImages), $this->objectProfiles, $this->config->spritesDir));
-        $app->addCommand(new ObjectsClassifyCommand($this->objectProfiles, $this->spritesToClassify, $this->objectTypeClassifier(), $this->objectExporter(), $this->config->objectsFile, $this->config->openAiModel));
-        $app->addCommand(new ObjectsExportCommand($this->objectProfiles, $this->objectExporter(), $this->config->objectsFile));
-        $app->addCommand(new ObjectsReportCommand($this->objectProfiles, $this->objectTypeResolver(), $this->config->spritesDir, $this->config->varDir . '/objects.html'));
-        $app->addCommand(new ExportCommand(new MapExporter($this->results), $this->locations, $this->config->varDir . '/maps.json', $this->config->varDir . '/sub_areas.json'));
-        $app->addCommand(new ReportCommand($this->results, $this->locations, $this->config->rendersDir, $this->config->varDir . '/report.html'));
+        $app->addCommand(new ObjectsClassifyCommand($this->objectProfiles, $this->spritesToClassify, $this->objectTypeClassifier(), $this->objectExporter(), $this->objectExportFormats(), $this->config->openAiModel));
+        $app->addCommand(new ObjectsExportCommand($this->objectProfiles, $this->objectExporter(), $this->objectExportFormats()));
+        $app->addCommand(new ExportCommand(new MapExporter($this->results), $this->locations, $this->mapExportFormats()));
 
         return $app;
     }

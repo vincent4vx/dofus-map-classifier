@@ -38,7 +38,7 @@ Classification automatique des maps (et à terme des objets de maps) de Dofus Re
 | `classify:run [ids…]` | Classification synchrone via l'API Responses (requêtes parallèles `--concurrency`, retry 429/5xx). Utile pour tester ou retraiter quelques maps. Ignore les maps d'un batch en cours sauf `--include-pending` |
 | `classify:status` | État des batchs en cours |
 | `classify:import` | Récupère les résultats, écrit `var/results/{id}.json` |
-| `export` | Fusionne les résultats dans un `maps.json` indexé par ID |
+| `export [ids…]` | Exporte les résultats avec leur localisation, dans tous les formats par défaut (`--format`) : `json` (`maps.json` indexé par ID + `sub_areas.json`) et `html` (galerie `report.html`). Filtres : sélection de maps, `--biome`, `--only-ok` |
 
 Toutes les commandes sont idempotentes / reprenables (une map déjà traitée est ignorée sauf `--force`).
 
@@ -73,7 +73,7 @@ Enums en anglais, tags et description en anglais.
 
 ### Architecture
 
-- Découpage par domaine (`Location`, `Map`, `Sprite`), plus `Infrastructure` (OpenAI, JSON, langs) et `Application` (configuration, câblage). `Map` et `Sprite` séparent les données lues dans le jeu de leur sous-domaine `Classification` (résultats du modèle). Dans chaque domaine, les classes sont séparées par type : `Command` (commandes console), `Model` (structures de données), `Repository` (accès aux données), `Service` (traitements), `Report` (pages HTML), `Exception`. Voir le README.
+- Découpage par domaine (`Location`, `Map`, `Sprite`), plus `Infrastructure` (OpenAI, JSON, langs) et `Application` (configuration, câblage). `Map` et `Sprite` séparent les données lues dans le jeu de leur sous-domaine `Classification` (résultats du modèle). Dans chaque domaine, les classes sont séparées par type : `Command` (commandes console), `Model` (structures de données), `Repository` (accès aux données), `Service` (traitements), `Export` (formats d'export : JSON, HTML, via l'interface `Infrastructure\Export\ExportFormat`), `Exception`. Voir le README.
 - Dépendances à sens unique : `Location` ← `Map` ← `Map\Classification` ← `Sprite` ← `Sprite\Classification`. Seul `Application` connaît la configuration et le `Kernel` ; les commandes ne gèrent que l'entrée / sortie console.
 - Services découplés : provider de clés, renderer, client de classification (interface, mockable), stockage des résultats.
 - Le résultat par map doit pouvoir être enrichi (area / sub area en étape 2). Les rendus PNG sont conservés pour l'étape 3.
@@ -102,8 +102,8 @@ Commande `objects:analyze` (`make objects`) → `var/sprite_profiles.json`.
 - Les valeurs bien moins fréquentes que la valeur principale sont considérées comme du bruit et ignorées : une valeur est gardée si son nombre de maps est ≥ 10 % de celui de la valeur principale (`--min-ratio`).
 - Pas d'agrégation par super area (jugée non pertinente).
 - `objects:sprites` : rendu direct des sprites utilisés en PNG, tel qu'envoyé au modèle, dans `var/sprites/{grounds|objects}/{id}.png` (extraction SVG en mémoire via ArakneSwf, puis rendu : marges transparentes retirées, agrandi à ~512 px (x16 max), fond gris neutre `#a0a0a0`). La taille visible en pixels du jeu est stockée dans `var/sprites/{set}/sizes.json`. ~5 min et ~440 Mo pour ~4 800 sprites.
-- `objects:report` : galerie HTML `var/objects.html` (sprite + données agrégées), filtres : recherche (id, nom, catégorie, mots-clés, objet interactif), objet interactif (type), set, layer, biome, area, intérieur, type de lieu, nombre minimum de maps, tri ; pagination par 200.
-- `make objects` enchaîne `objects:analyze`, `objects:sprites`, `objects:export` et `objects:report`.
+- `objects:export --format=html` : galerie HTML `var/objects.html` (sprite + données agrégées), filtres : recherche (id, nom, catégorie, mots-clés, objet interactif), objet interactif (type), set, layer, biome, area, intérieur, type de lieu, nombre minimum de maps, tri ; pagination par 200.
+- `make objects` enchaîne `objects:analyze`, `objects:sprites` et `objects:export` (JSON et HTML).
 
 ### Type des objets (étape 3, partie 2)
 
@@ -117,7 +117,7 @@ Commande `objects:classify` (`make objects-classify`), via l'API Responses en sy
   - `keywords` : mots-clés libres décrivant le sprite (pas de biome ni de lieu, déjà connus) ;
   - `description`.
 - Objets interactifs : le nom et le type de l'objet sont donnés au modèle, qui doit reprendre ce nom et choisir la catégorie d'après ce que montre le sprite. Le nom de l'objet interactif est prioritaire : il remplace le nom donné par le modèle lors de la jointure (le nom du modèle et le type d'objet interactif sont ajoutés aux mots-clés). Le résultat brut du modèle reste stocké tel quel.
-- Stockage : `var/object_types/{grounds|objects}/{id}.json`. Export : `objects:export` écrit `var/objects.json`, le profil de chaque sprite (`sprite_profiles.json`) avec son type (`type`, null si non classé), comme `export` pour les maps. L'export est refait à la fin de `objects:classify`. Le type est affiché dans `objects.html` (filtre par catégorie, recherche sur nom et mots-clés, mots-clés cliquables).
+- Stockage : `var/object_types/{grounds|objects}/{id}.json`. Export : `objects:export` écrit `var/objects.json`, le profil de chaque sprite (`sprite_profiles.json`) avec son type (`type`, null si non classé), comme `export` pour les maps. L'export (tous les formats) est refait à la fin de `objects:classify`. Le type est affiché dans `objects.html` (filtre par catégorie, recherche sur nom et mots-clés, mots-clés cliquables).
 - Sélection : ids préfixés (`o345`, `g10-20`), `--set`, `--layer`, `--interactive`, `--min-maps`, `--limit` (les plus utilisés d'abord), `--force`, `--retry-errors`.
 
 ### Constats techniques
@@ -127,7 +127,7 @@ Commande `objects:classify` (`make objects-classify`), via l'API Responses en sy
 - Le rendu prend ~0,2 s par map (cache de sprites SQLite dans `var/cache`).
 - Les images sont envoyées en JPEG (qualité 90), agrandies x2 (1484x864, option `--image-scale`) : en taille native, le modèle manque de détails et confond certaines textures (ex : plaques d'herbe claire d'Incarnam vues comme de l'eau → `swamp`). Coût : ~2 700 tokens d'entrée par map au lieu de ~1 500. ~250 Ko par requête, soit ~2,3 Go de fichiers batch pour tout le client, découpés en fichiers de 150 Mo max.
 - Les maps sans ligne de résultat dans un batch (batch expiré…) restent non classées et seront resoumises.
-- Commande supplémentaire `report` : galerie HTML (rendu + classification) pour la validation visuelle.
+- Format d'export `html` (`export --format=html`) : galerie HTML (rendu + classification) pour la validation visuelle.
 
 ### Prompt
 

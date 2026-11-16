@@ -2,18 +2,22 @@
 
 declare(strict_types=1);
 
-namespace MapClassifier\Map\Classification\Report;
+namespace MapClassifier\Map\Classification\Export;
 
 use BackedEnum;
-use MapClassifier\Location\Model\MapLocation;
+use MapClassifier\Infrastructure\Export\ExportFormat;
+use MapClassifier\Infrastructure\Filesystem\Path;
 use MapClassifier\Map\Classification\Model\Biome;
+use MapClassifier\Map\Classification\Model\Export\ExportedMap;
 use MapClassifier\Map\Classification\Model\LocationType;
-use MapClassifier\Map\Classification\Model\MapResult;
-use MapClassifier\Map\Classification\Model\SubAreaBiome;
+use MapClassifier\Map\Classification\Model\MapExport;
+use Override;
 
 use function array_keys;
 use function array_map;
 use function count;
+use function dirname;
+use function file_put_contents;
 use function htmlspecialchars;
 use function implode;
 use function ksort;
@@ -22,36 +26,62 @@ use function sprintf;
 
 /**
  * HTML page displaying map renders and their classification, with filters, for visual validation
+ *
+ * @implements ExportFormat<MapExport>
  */
-final readonly class MapReport
+final readonly class HtmlMapExportFormat implements ExportFormat
 {
+    public function __construct(
+        /** Directory of the maps renders */
+        private string $rendersDir,
+        private string $defaultOutput,
+    ) {}
+
+    #[Override]
+    public function name(): string
+    {
+        return 'html';
+    }
+
+    #[Override]
+    public function defaultOutput(): string
+    {
+        return $this->defaultOutput;
+    }
+
+    #[Override]
+    public function write(object $export, string $output): array
+    {
+        file_put_contents($output, $this->render($export, Path::relativeUrl(dirname($output), $this->rendersDir)));
+
+        return [$output];
+    }
+
     /**
-     * @param array<int, MapResult> $results Results to display
-     * @param array<int, MapLocation> $locations All locations, indexed by map id
-     * @param array<int, SubAreaBiome> $subAreas Sub areas biomes, indexed by sub area id
      * @param string $imagesPath Path or URL of the renders directory, from the page
      */
-    public function render(array $results, array $locations, array $subAreas, string $imagesPath): string
+    public function render(MapExport $export, string $imagesPath): string
     {
         $cards = [];
         $areas = [];
 
-        foreach ($results as $result) {
-            $location = $locations[$result->id] ?? null;
-            $cards[] = $this->card($result, $location, $location ? ($subAreas[$location->subAreaId] ?? null) : null, $imagesPath);
+        foreach ($export->maps as $map) {
+            $cards[] = $this->card($map, $imagesPath);
 
-            if ($location?->areaName !== null) {
-                $areas[$location->areaName] = true;
+            if ($map->location?->area?->name !== null) {
+                $areas[$map->location->area->name] = true;
             }
         }
 
         ksort($areas);
 
-        return $this->page(implode("\n", $cards), count($results), array_keys($areas));
+        return $this->page(implode("\n", $cards), count($export->maps), array_keys($areas));
     }
 
-    private function card(MapResult $result, ?MapLocation $location, ?SubAreaBiome $subArea, string $imagesPath): string
+    private function card(ExportedMap $map, string $imagesPath): string
     {
+        $result = $map->result;
+        $location = $map->location;
         $e = static fn (?string $value) => htmlspecialchars((string) $value);
         $c = $result->classification;
 
@@ -72,16 +102,16 @@ final readonly class MapReport
 
         $place = $location === null ? '' : sprintf(
             '<p class="location">%s › %s <small>(sub area: %s)</small></p>',
-            $e($location->areaName ?? '?'),
-            $e($location->subAreaName ?? '?'),
-            $e($subArea?->biome->value ?? 'unknown'),
+            $e($location->area->name ?? '?'),
+            $e($location->subArea->name ?? '?'),
+            $e($location->subArea->biome->value ?? 'unknown'),
         );
 
         // Lowercase text used by the full text search
         $search = mb_strtolower(implode(' ', [
             $result->id,
-            $location?->areaName,
-            $location?->subAreaName,
+            $location?->area?->name,
+            $location?->subArea->name,
             $c?->biomeOther,
             implode(' ', $c->tags ?? []),
             $c?->description,
@@ -94,7 +124,7 @@ final readonly class MapReport
             $e($c === null ? '' : ($c->biome->value ?? 'none')),
             $e($c?->locationType->value ?? ''),
             $c === null ? '' : ($c->indoor ? 'indoor' : 'outdoor'),
-            $e($location->areaName ?? ''),
+            $e($location->area->name ?? ''),
             $e($search),
             $e($imagesPath),
             $result->id,

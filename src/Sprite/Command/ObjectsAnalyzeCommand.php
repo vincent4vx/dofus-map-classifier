@@ -10,7 +10,6 @@ use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Map\Command\MapSelectionInput;
 use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Repository\MapFileRepository;
-use MapClassifier\Sprite\Model\ObjectProfile;
 use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
 use MapClassifier\Sprite\Repository\ObjectProfileRepository;
 use MapClassifier\Sprite\Service\MapObjectExtractor;

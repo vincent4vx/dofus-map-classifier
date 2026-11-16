@@ -2,20 +2,24 @@
 
 declare(strict_types=1);
 
-namespace MapClassifier\Sprite\Classification\Report;
+namespace MapClassifier\Sprite\Classification\Export;
 
+use MapClassifier\Infrastructure\Export\ExportFormat;
+use MapClassifier\Infrastructure\Filesystem\Path;
 use MapClassifier\Map\Classification\Model\Biome;
 use MapClassifier\Map\Classification\Model\LocationType;
+use MapClassifier\Sprite\Classification\Model\Export\ObjectExport;
 use MapClassifier\Sprite\Classification\Model\ObjectCategory;
-use MapClassifier\Sprite\Classification\Service\ObjectTypeResolver;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
-use MapClassifier\Sprite\Model\ObjectProfile;
+use Override;
 
 use function array_column;
 use function array_keys;
 use function array_map;
 use function count;
+use function dirname;
+use function file_put_contents;
 use function htmlspecialchars;
 use function implode;
 use function json_encode;
@@ -30,15 +34,41 @@ use const JSON_UNESCAPED_UNICODE;
 /**
  * HTML page displaying sprites with their aggregated data and type, with filters
  * Sprites are rendered by JavaScript from a compact JSON list, with pagination
+ *
+ * @implements ExportFormat<ObjectExport>
  */
-final readonly class SpriteReport
+final readonly class HtmlObjectExportFormat implements ExportFormat
 {
+    public function __construct(
+        /** Directory of the sprites images */
+        private string $spritesDir,
+        private string $defaultOutput,
+    ) {}
+
+    #[Override]
+    public function name(): string
+    {
+        return 'html';
+    }
+
+    #[Override]
+    public function defaultOutput(): string
+    {
+        return $this->defaultOutput;
+    }
+
+    #[Override]
+    public function write(object $export, string $output): array
+    {
+        file_put_contents($output, $this->render($export, Path::relativeUrl(dirname($output), $this->spritesDir)));
+
+        return [$output];
+    }
+
     /**
-     * @param array<string, array<int, ObjectProfile>> $profiles Profiles indexed by set value, then sprite id
-     * @param ObjectTypeResolver $types Resolve the type of each sprite
      * @param string $spritesPath Path or URL of the sprites images directory, from the page
      */
-    public function render(array $profiles, ObjectTypeResolver $types, string $spritesPath): string
+    public function render(ObjectExport $export, string $spritesPath): string
     {
         // Compact list for the page: [set, id, layer, occurrences, maps, classified maps, areas, sub areas, biomes, indoor, location types, type, interactive]
         $items = [];
@@ -46,9 +76,10 @@ final readonly class SpriteReport
         $interactiveTypes = [];
         $named = static fn (array $values) => array_map(static fn (LocationUsage $usage) => [$usage->label(), $usage->maps], $values);
 
-        foreach ($profiles as $sprites) {
-            foreach ($sprites as $profile) {
-                $type = $types->type($profile);
+        foreach ($export->sprites as $sprites) {
+            foreach ($sprites as $sprite) {
+                $profile = $sprite->profile;
+                $type = $sprite->type;
 
                 $items[] = [
                     $profile->set->value,

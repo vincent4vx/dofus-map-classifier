@@ -61,27 +61,24 @@ import: ## Import the results of terminated batches
 discard: ## Discard batches, their results will never be imported: make discard ARGS="batch_xxx"
 	$(CONSOLE) classify:discard $(ARGS)
 
-export: ## Export results to var/maps.json and var/sub_areas.json (--only-ok)
+export: ## Export results: var/maps.json, var/sub_areas.json and var/report.html (ids, --area, --biome, --only-ok, --format=json|html)
 	$(CONSOLE) export $(ARGS)
 
-report: ## Generate the HTML report var/report.html (ids, --area, --biome…)
-	$(CONSOLE) report $(ARGS)
+report: ## Only export the HTML gallery var/report.html (ids, --area, --biome…)
+	$(CONSOLE) export --format=html $(ARGS)
 
-objects-classify: ## Find the type of sprites, export them to var/objects.json and regenerate var/objects.html (ids like o345 g10-20, --set, --limit…)
+objects-classify: ## Find the type of sprites, then export var/objects.json and var/objects.html (ids like o345 g10-20, --set, --limit…)
 	$(CONSOLE) objects:classify $(ARGS)
-	$(CONSOLE) objects:report
 
 objects: ## Analyze sprites (var/sprite_profiles.json), render them to PNG, export var/objects.json and generate var/objects.html (selection, --min-ratio)
 	$(CONSOLE) objects:analyze $(ARGS)
 	$(CONSOLE) objects:sprites
 	$(CONSOLE) objects:export
-	$(CONSOLE) objects:report
 
-objects-export: ## Export sprites profiles with their type to var/objects.json
+objects-export: ## Export sprites profiles with their type: var/objects.json and var/objects.html (--format=json|html)
 	$(CONSOLE) objects:export $(ARGS)
 
-pipeline: ## Render, classify synchronously, export and report the selection: make pipeline ARGS="--area=18"
+pipeline: ## Render, classify synchronously and export the selection: make pipeline ARGS="--area=18"
 	$(CONSOLE) maps:render $(ARGS)
 	$(CONSOLE) classify:run $(ARGS)
 	$(CONSOLE) export
-	$(CONSOLE) report

@@ -43,15 +43,15 @@ All commands are available through `make` (run `make help`), extra arguments are
 make keys                                         # 1. download map keys (MapKeys-DR)
 make render ARGS="--super-area=3"                 # 2. render maps to var/renders/{id}.png (~0.2s per map)
 make classify ARGS="--super-area=3 --concurrency=10"   # 3. classify synchronously (Responses API)
-make export                                       # 4. var/maps.json + var/sub_areas.json
-make report                                       # 5. var/report.html (search and filters)
+make export                                       # 4. var/maps.json + var/sub_areas.json + var/report.html (search and filters)
+make report ARGS="--area=18"                      # 5. only var/report.html, for a selection (= export --format=html)
 make objects                                      # 6. var/sprite_profiles.json (layer, areas, biomes… of each sprite), PNG sprites,
                                                   #    var/objects.json export and var/objects.html
 make objects-classify ARGS="--limit=500"          # 7. type of each sprite (category, name, keywords), most used first,
                                                   #    exported to var/objects.json and displayed in var/objects.html
                                                   #    --interactive: only interactive objects (resources, workshops, doors…)
 
-make pipeline ARGS="--area=18"                    # render + classify + export + report of a selection
+make pipeline ARGS="--area=18"                    # render + classify + export of a selection
 
 # Batch API (cheaper, asynchronous, up to 24h)
 make submit ARGS="--limit=1000"                   # asks confirmation, --dry-run to only build files
@@ -60,7 +60,8 @@ make import
 make discard ARGS="batch_xxx"                   # never import a batch (cancelled, obsolete prompt…)
 ```
 
-Maps selection (render, classify, submit, report): ids or ranges (`10000 100-200`), `--super-area`, `--area`, `--sub-area`, `--limit`.
+Maps selection (render, classify, submit, export): ids or ranges (`10000 100-200`), `--super-area`, `--area`, `--sub-area`, `--limit`.
+Exports (`export`, `objects:export`) write all formats by default: `--format=json` or `--format=html` for a single one, with `--output` to change its file.
 `make pipeline` only accepts selection arguments.
 
 All commands are resumable: rendered / classified maps and maps in a pending batch are skipped.
@@ -95,10 +96,10 @@ Code is split by domain, then by kind of class:
 src/
   Location/               map locations (sub area, area, super area) from the langs
   Map/                    map files, keys and rendering
-    Classification/       biome classification of maps, sub areas biomes, export and HTML report
+    Classification/       biome classification of maps, sub areas biomes, export (JSON and HTML gallery)
       Batch/              OpenAI Batch API workflow
   Sprite/                 sprites used by the maps: extraction, aggregated profiles, PNG export
-    Classification/       type of sprites (category, name, keywords) and HTML report
+    Classification/       type of sprites (category, name, keywords), export (JSON and HTML gallery)
   Infrastructure/         technical tools: OpenAI client, JSON files, lang files, paths
   Application/            configuration and services wiring (Kernel)
 ```
@@ -112,7 +113,7 @@ Inside each domain (and each `Classification`):
 - `Model/`: data structures (value objects, enums), without dependencies on services or storage. Classes written to JSON files implement `JsonSerializable` and document their JSON format (e.g. `Map/Classification/Model/Export` for `maps.json`)
 - `Repository/`: data access (JSON files, lang files, client files)
 - `Service/`: processing (rendering, classification, aggregation, selection…)
-- `Report/`: HTML pages generation
+- `Export/`: export formats (`json`, `html`…), implementing `Infrastructure\Export\ExportFormat`, selected with the `--format` option of the export commands
 - `Exception/`: domain errors
 
 Dependencies go one way: `Location` ← `Map` ← `Map\Classification` ← `Sprite` ← `Sprite\Classification`, all of them may use `Infrastructure`.
