@@ -87,7 +87,7 @@
     const chips = obj => Object.entries(obj).map(([k, v]) => '<span class="chip">' + esc(k) + ' <b>' + v + '</b></span>').join('');
     const label = location => location.name ?? '#' + location.id;
     const list = (locations, max) => locations.slice(0, max).map(l => '<span class="chip">' + esc(label(l)) + ' <b>' + l.maps + '</b></span>').join('')
-        + (values.length > max ? ' <span class="label">+' + (values.length - max) + '</span>' : '');
+        + (locations.length > max ? ' <span class="label">+' + (locations.length - max) + '</span>' : '');
 
     function card(i) {
         return '<article><div class="sprite"><img loading="lazy" src="' + esc(SPRITES + '/' + i.set + '/' + i.id + '.png') + '" alt="' + i.id + '"></div>'
