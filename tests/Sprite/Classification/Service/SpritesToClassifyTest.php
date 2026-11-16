@@ -13,6 +13,7 @@ use MapClassifier\Sprite\Classification\Service\SpritesToClassify;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\RenderedSprite;
+use MapClassifier\Sprite\Model\SpriteFilter;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSelection;
@@ -58,22 +59,18 @@ final class SpritesToClassifyTest extends TestCase
 
     public function testMostUsedFirst(): void
     {
-        $selected = $this->service->select($this->profiles, SpriteSelection::parse([]));
+        $selected = $this->service->select($this->profiles, new SpriteFilter());
 
-        $this->assertSame(['g1', 'o2', 'o3', 'o1'], self::names($selected['sprites']));
-        $this->assertSame(1, $selected['missingImages']);
+        $this->assertSame(['g1', 'o2', 'o3', 'o1'], self::names($selected->sprites));
+        $this->assertSame(1, $selected->missingImages);
     }
 
-    public function testFilters(): void
+    public function testFilterAndLimit(): void
     {
-        $all = SpriteSelection::parse([]);
-
-        $this->assertSame(['o2', 'o3', 'o1'], self::names($this->service->select($this->profiles, $all, set: SpriteSet::Objects)['sprites']));
-        $this->assertSame(['o3', 'o1'], self::names($this->service->select($this->profiles, $all, layer: Layer::Layer2)['sprites']));
-        $this->assertSame(['g1', 'o2'], self::names($this->service->select($this->profiles, $all, minMaps: 25)['sprites']));
-        $this->assertSame(['o3'], self::names($this->service->select($this->profiles, $all, interactiveOnly: true)['sprites']));
-        $this->assertSame(['g1', 'o2'], self::names($this->service->select($this->profiles, $all, limit: 2)['sprites']));
-        $this->assertSame(['o1'], self::names($this->service->select($this->profiles, SpriteSelection::parse(['o1']))['sprites']));
+        $this->assertSame(['o2', 'o3', 'o1'], self::names($this->service->select($this->profiles, new SpriteFilter(set: SpriteSet::Objects))->sprites));
+        $this->assertSame(['o3', 'o1'], self::names($this->service->select($this->profiles, new SpriteFilter(layer: Layer::Layer2))->sprites));
+        $this->assertSame(['g1', 'o2'], self::names($this->service->select($this->profiles, new SpriteFilter(), limit: 2)->sprites));
+        $this->assertSame(['o1'], self::names($this->service->select($this->profiles, new SpriteFilter(SpriteSelection::parse(['o1'])))->sprites));
     }
 
     public function testAlreadyClassified(): void
@@ -81,11 +78,11 @@ final class SpritesToClassifyTest extends TestCase
         $this->types->save(SpriteTypeResult::success(SpriteSet::Objects, 2, new SpriteType(SpriteCategory::Tree, 'tree', [], ''), 'luna'));
         $this->types->save(SpriteTypeResult::failure(SpriteSet::Objects, 3, SpriteTypeError::ClassificationFailed, 'error'));
 
-        $all = SpriteSelection::parse([]);
+        $all = new SpriteFilter();
 
-        $this->assertSame(['g1', 'o1'], self::names($this->service->select($this->profiles, $all)['sprites']));
-        $this->assertSame(['g1', 'o3', 'o1'], self::names($this->service->select($this->profiles, $all, retryErrors: true)['sprites']));
-        $this->assertSame(['g1', 'o2', 'o3', 'o1'], self::names($this->service->select($this->profiles, $all, force: true)['sprites']));
+        $this->assertSame(['g1', 'o1'], self::names($this->service->select($this->profiles, $all)->sprites));
+        $this->assertSame(['g1', 'o3', 'o1'], self::names($this->service->select($this->profiles, $all, retryErrors: true)->sprites));
+        $this->assertSame(['g1', 'o2', 'o3', 'o1'], self::names($this->service->select($this->profiles, $all, force: true)->sprites));
     }
 
     private static function profile(SpriteSet $set, int $id, Layer $layer, int $maps, ?InteractiveObject $interactive = null): SpriteProfile

@@ -9,6 +9,8 @@ use MapClassifier\Infrastructure\Export\ExportFormat;
 use MapClassifier\Infrastructure\Export\ExportFormatOption;
 use MapClassifier\Sprite\Classification\Model\Export\SpriteExport;
 use MapClassifier\Sprite\Classification\Service\SpriteExporter;
+use MapClassifier\Sprite\Command\SpriteFilterInput;
+use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Repository\SpriteProfileRepository;
 use Override;
 use RuntimeException;
@@ -21,7 +23,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use function implode;
 use function sprintf;
 
-#[AsCommand('sprites:export', 'Export the sprites profiles with their type: JSON data and HTML gallery with filters')]
+#[AsCommand('sprites:export', 'Export the sprites profiles with their type (selection, --set, --layer…): JSON data and HTML gallery with filters')]
 final class SpritesExportCommand extends Command
 {
     public function __construct(
@@ -36,6 +38,7 @@ final class SpritesExportCommand extends Command
     #[Override]
     protected function configure(): void
     {
+        SpriteFilterInput::configure($this);
         ExportFormatOption::configure($this, $this->formats);
     }
 
@@ -46,6 +49,7 @@ final class SpritesExportCommand extends Command
 
         try {
             $formats = ExportFormatOption::selected($input, $this->formats);
+            $filter = SpriteFilterInput::filter($input);
             $profiles = $this->profiles->all();
         } catch (InvalidArgumentException $e) {
             $io->error($e->getMessage());
@@ -57,7 +61,7 @@ final class SpritesExportCommand extends Command
             return self::FAILURE;
         }
 
-        $export = $this->exporter->export($profiles);
+        $export = $this->exporter->export(SpriteProfiles::of($filter->filter($profiles)));
 
         foreach ($formats as $file => $format) {
             $io->text(sprintf('%s: %s', $format->name(), implode(', ', $format->write($export, $file))));

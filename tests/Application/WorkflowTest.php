@@ -226,6 +226,11 @@ final class WorkflowTest extends TestCase
         $this->assertStringContainsString('"type":{"category":"tree","name":"snowy pine","keywords":["pine","snow"],"description":"A snowy pine."}', (string) file_get_contents($this->config->varDir . '/sprites.html'));
         $this->assertStringContainsString('<option value="tree">tree</option>', (string) file_get_contents($this->config->varDir . '/sprites.html'));
 
+        // Filtered export
+        $filtered = $this->exec('sprites:export', ['ids' => ['o' . $firstObject], '--format' => ['json'], '--output' => $this->config->varDir . '/filtered.json']);
+        $this->assertStringContainsString('1 sprites exported (1 with a type)', $filtered);
+        $this->assertSame([], json_decode((string) file_get_contents($this->config->varDir . '/filtered.json'), true)['grounds']);
+
         // Export again after a new analyze: stored types are joined
         $this->exec('sprites:analyze', ['ids' => ['10000-10001']]);
         $this->assertStringContainsString($count . ' sprites exported (3 with a type)', $this->exec('sprites:export', ['--format' => ['json']]));
@@ -247,6 +252,11 @@ final class WorkflowTest extends TestCase
 
         $tester = new CommandTester($this->app->find('sprites:export'));
         $this->assertSame(Command::INVALID, $tester->execute(['--format' => ['json', 'html'], '--output' => 'foo.json']));
+
+        $tester = new CommandTester($this->app->find('sprites:classify'));
+        $this->assertSame(Command::INVALID, $tester->execute(['ids' => ['x12']]));
+        $this->assertStringContainsString('Invalid sprite id or range "x12"', $tester->getDisplay());
+        $this->assertSame(Command::INVALID, $tester->execute(['--layer' => 'layer3']));
 
         $tester = new CommandTester($this->app->find('export'));
         $this->assertSame(Command::INVALID, $tester->execute(['--biome' => 'ocean']));

@@ -56,6 +56,7 @@ make pipeline ARGS="--area=18"                    # render + classify + export o
 
 Maps selection (render, classify, export): ids or ranges (`10000 100-200`), `--super-area`, `--area`, `--sub-area`, `--limit`.
 Exports (`export`, `sprites:export`) write all formats by default: `--format=json` or `--format=html` for a single one, with `--output` to change its file.
+Sprites selection (`sprites:classify`, `sprites:export`): prefixed ids or ranges (`o345 g10-20`), `--set`, `--layer`, `--interactive`, `--min-maps`.
 `make pipeline` only accepts selection arguments.
 
 All commands are resumable: rendered / classified maps are skipped.

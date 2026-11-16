@@ -19,6 +19,14 @@ final readonly class SpriteSelection
     ) {}
 
     /**
+     * Select all sprites
+     */
+    public static function all(): self
+    {
+        return new self([]);
+    }
+
+    /**
      * @param list<string> $arguments
      *
      * @throws InvalidArgumentException
