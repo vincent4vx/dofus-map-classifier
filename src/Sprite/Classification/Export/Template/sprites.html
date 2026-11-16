@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map sprites</title>
+<style>
+    body { font-family: system-ui, sans-serif; margin: 0 16px 16px; background: #f4f4f4; color: #222; }
+    header { position: sticky; top: 0; z-index: 1; background: #f4f4f4; padding: 12px 0; border-bottom: 1px solid #ddd; margin-bottom: 16px; }
+    h1 { margin: 0 0 8px; font-size: 20px; }
+    form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    input, select, button { font: inherit; padding: 4px 8px; border: 1px solid #bbb; border-radius: 4px; background: #fff; }
+    input[type=search] { flex: 1 1 220px; }
+    input[type=number] { width: 90px; }
+    #count { margin-left: auto; color: #555; }
+    main { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    article { background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 3px #0002; font-size: 13px; }
+    .sprite { height: 160px; display: flex; align-items: center; justify-content: center; background: #a0a0a0; }
+    .sprite img { max-width: 100%; max-height: 100%; image-rendering: auto; }
+    .info { padding: 8px 10px; }
+    h2 { margin: 0 0 4px; font-size: 15px; }
+    h2 small { font-weight: normal; color: #666; }
+    p { margin: 3px 0; }
+    .chip { display: inline-block; background: #e6eef8; border-radius: 3px; padding: 0 5px; margin: 1px; }
+    .chip b { font-weight: 600; }
+    .label { color: #666; }
+    #more { display: block; margin: 16px auto; }
+    .type { font-size: 14px; }
+    .cat { background: #333; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
+    .kw { display: inline-block; background: #fff3d6; border: 0; border-radius: 3px; padding: 0 5px; margin: 1px; font: inherit; cursor: pointer; }
+    .kw:hover { background: #ffe3a0; }
+    .io { background: #2a7a3b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+    <h1>Map sprites</h1>
+    <form id="filters" onsubmit="return false">
+        <input type="search" name="q" placeholder="Search id, name, category, keyword, interactive object…" autofocus>
+        <select name="category"><option value="">All categories</option>{{categories}}<option value="none">(not classified)</option></select>
+        <select name="interactive"><option value="">Interactive or not</option><option value="any">Interactive objects</option>{{interactiveOptions}}<option value="none">Not interactive</option></select>
+        <select name="set"><option value="">All sets</option><option value="grounds">grounds</option><option value="objects">objects</option></select>
+        <select name="layer"><option value="">All layers</option>{{layers}}</select>
+        <select name="biome"><option value="">All biomes</option>{{biomes}}</select>
+        <select name="area"><option value="">All areas</option>{{areaOptions}}</select>
+        <select name="indoor"><option value="">Indoor &amp; outdoor</option><option value="indoor">Indoor</option><option value="outdoor">Outdoor</option></select>
+        <select name="location"><option value="">All locations</option>{{locations}}</select>
+        <label>Min maps <input type="number" name="min" min="0" value="0"></label>
+        <select name="sort"><option value="maps">Sort: maps</option><option value="occurrences">Sort: occurrences</option><option value="id">Sort: id</option></select>
+        <button type="reset">Reset</button>
+        <span id="count"></span>
+    </form>
+</header>
+<main></main>
+<button id="more" type="button">Show more</button>
+<script id="data" type="application/json">{{json}}</script>
+<script>
+(() => {
+    const SPRITES = JSON.parse('{{spritesPath}}'.replace(/&quot;/g, '"'));
+    const PAGE = 200;
+    // Same format as the JSON export: {set: {id: sprite}}
+    const data = JSON.parse(document.getElementById('data').textContent);
+    const items = Object.entries(data).flatMap(([set, sprites]) => Object.values(sprites).map(s => {
+        const name = (set === 'grounds' ? 'g' : 'o') + s.id;
+
+        return {
+            ...s,
+            set,
+            name,
+            // Search only on the sprite identity and type: other attributes have their own filter
+            search: [
+                name,
+                s.id,
+                ...(s.type ? [s.type.category, s.type.name, ...s.type.keywords] : []),
+                ...(s.interactive ? [s.interactive.name, s.interactive.type] : []),
+            ].join(' ').toLowerCase(),
+        };
+    }));
+    const form = document.getElementById('filters');
+    const main = document.querySelector('main');
+    const count = document.getElementById('count');
+    const more = document.getElementById('more');
+    let matching = [];
+    let shown = 0;
+
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
+    const chips = obj => Object.entries(obj).map(([k, v]) => '<span class="chip">' + esc(k) + ' <b>' + v + '</b></span>').join('');
+    const label = location => location.name ?? '#' + location.id;
+    const list = (locations, max) => locations.slice(0, max).map(l => '<span class="chip">' + esc(label(l)) + ' <b>' + l.maps + '</b></span>').join('')
+        + (values.length > max ? ' <span class="label">+' + (values.length - max) + '</span>' : '');
+
+    function card(i) {
+        return '<article><div class="sprite"><img loading="lazy" src="' + esc(SPRITES + '/' + i.set + '/' + i.id + '.png') + '" alt="' + i.id + '"></div>'
+            + '<div class="info"><h2>' + i.name + ' <small>' + i.layer + ' · ' + i.maps + ' maps · ' + i.occurrences + ' uses</small></h2>'
+            + (i.type ? '<p class="type"><b>' + esc(i.type.name) + '</b> <span class="cat">' + esc(i.type.category) + '</span></p>'
+                + '<p>' + i.type.keywords.map(k => '<button type="button" class="kw">' + esc(k) + '</button>').join('') + '</p>' : '')
+            + (i.interactive ? '<p><span class="io" title="Interactive object (langs)">' + esc(i.interactive.type) + ': ' + esc(i.interactive.name) + '</span></p>' : '')
+            + (Object.keys(i.biomes).length ? '<p><span class="label">Biomes</span> ' + chips(i.biomes) + '</p>' : '')
+            + (i.areas.length ? '<p><span class="label">Areas</span> ' + list(i.areas, 4) + '</p>' : '')
+            + (i.sub_areas.length ? '<p><span class="label">Sub areas</span> ' + list(i.sub_areas, 4) + '</p>' : '')
+            + (i.classified_maps ? '<p><span class="label">' + i.classified_maps + ' classified maps</span> ' + chips(i.indoor) + chips(i.location_types) + '</p>' : '')
+            + '</div></article>';
+    }
+
+    function showMore() {
+        main.insertAdjacentHTML('beforeend', matching.slice(shown, shown + PAGE).map(card).join(''));
+        shown = Math.min(shown + PAGE, matching.length);
+        more.hidden = shown >= matching.length;
+    }
+
+    function apply() {
+        const f = Object.fromEntries(new FormData(form));
+        const words = f.q.toLowerCase().split(/\s+/).filter(Boolean);
+        const min = parseInt(f.min || '0', 10);
+
+        matching = items.filter(i => (!f.set || i.set === f.set)
+            && (!f.layer || i.layer === f.layer)
+            && (!f.interactive || (f.interactive === 'any' ? i.interactive : f.interactive === 'none' ? !i.interactive : i.interactive && i.interactive.type === f.interactive))
+            && (!f.category || (f.category === 'none' ? !i.type : i.type && i.type.category === f.category))
+            && (!f.biome || f.biome in i.biomes)
+            && (!f.area || i.areas.some(a => label(a) === f.area))
+            && (!f.indoor || f.indoor in i.indoor)
+            && (!f.location || f.location in i.location_types)
+            && i.maps >= min
+            && words.every(w => i.search.includes(w)));
+
+        const key = f.sort;
+        matching.sort(key === 'id' ? (a, b) => a.set.localeCompare(b.set) || a.id - b.id : (a, b) => b[key] - a[key]);
+
+        count.textContent = matching.length + ' / ' + items.length + ' sprites';
+        main.innerHTML = '';
+        shown = 0;
+        showMore();
+
+        const params = new URLSearchParams();
+        for (const [k, v] of Object.entries(f)) {
+            if (v && !(k === 'min' && v === '0') && !(k === 'sort' && v === 'maps')) params.set(k, v);
+        }
+        history.replaceState(null, '', params.size ? '#' + params : location.pathname);
+    }
+
+    for (const [name, value] of new URLSearchParams(location.hash.slice(1))) {
+        if (form[name]) form[name].value = value;
+    }
+
+    form.addEventListener('input', apply);
+    form.addEventListener('reset', () => setTimeout(apply));
+    more.addEventListener('click', showMore);
+    main.addEventListener('click', e => {
+        if (e.target.classList.contains('kw')) {
+            form.q.value = e.target.textContent;
+            apply();
+            window.scrollTo({ top: 0 });
+        }
+    });
+    new IntersectionObserver(entries => entries[0].isIntersecting && !more.hidden && showMore()).observe(more);
+    apply();
+})();
+</script>
+</body>
+</html>

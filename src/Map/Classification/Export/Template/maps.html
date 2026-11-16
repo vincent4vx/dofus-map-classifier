@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map classification</title>
+<style>
+    body { font-family: system-ui, sans-serif; margin: 0 16px 16px; background: #f4f4f4; color: #222; }
+    header { position: sticky; top: 0; z-index: 1; background: #f4f4f4; padding: 12px 0; border-bottom: 1px solid #ddd; margin-bottom: 16px; }
+    h1 { margin: 0 0 8px; font-size: 20px; }
+    form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    input, select, button { font: inherit; padding: 4px 8px; border: 1px solid #bbb; border-radius: 4px; background: #fff; }
+    input[type=search] { flex: 1 1 240px; }
+    #count { margin-left: auto; color: #555; }
+    main { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 16px; }
+    figure { margin: 0; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 3px #0002; }
+    figure[hidden] { display: none; }
+    img { width: 100%; display: block; }
+    figcaption { padding: 8px 12px; font-size: 14px; }
+    h2 { margin: 0 0 4px; font-size: 16px; }
+    p { margin: 4px 0; }
+    .tag { display: inline-block; background: #e6eef8; border: 0; border-radius: 3px; padding: 1px 6px; margin: 2px; font-size: 12px; cursor: pointer; }
+    .tag:hover { background: #cddcf0; }
+    .error { color: #b00; }
+    .location { color: #555; }
+</style>
+</head>
+<body>
+<header>
+    <h1>Map classification</h1>
+    <form id="filters" onsubmit="return false">
+        <input type="search" name="q" placeholder="Search id, tags, description… (all words must match)" autofocus>
+        <select name="area"><option value="">All areas</option>{{areaOptions}}</select>
+        <select name="biome"><option value="">All biomes</option>{{biomes}}<option value="none">(none)</option></select>
+        <select name="location"><option value="">All locations</option>{{locations}}</select>
+        <select name="indoor"><option value="">Indoor &amp; outdoor</option><option value="indoor">Indoor</option><option value="outdoor">Outdoor</option></select>
+        <select name="status"><option value="">All statuses</option><option value="ok">OK</option><option value="error">Error</option></select>
+        <button type="reset">Reset</button>
+        <span id="count">{{count}} / {{count}} maps</span>
+    </form>
+</header>
+<main>
+{{cards}}
+</main>
+<script>
+(() => {
+    const form = document.getElementById('filters');
+    const count = document.getElementById('count');
+    const cards = [...document.querySelectorAll('main figure')];
+    const fields = ['area', 'biome', 'location', 'indoor', 'status'];
+
+    function apply() {
+        const words = form.q.value.toLowerCase().split(/\s+/).filter(Boolean);
+        let visible = 0;
+
+        for (const card of cards) {
+            const show = fields.every(f => !form[f].value || card.dataset[f] === form[f].value)
+                && words.every(w => card.dataset.search.includes(w));
+
+            card.hidden = !show;
+            visible += show;
+        }
+
+        count.textContent = visible + ' / ' + cards.length + ' maps';
+
+        // Keep filters in the URL to share or reload them
+        const params = new URLSearchParams();
+        for (const name of ['q', ...fields]) {
+            if (form[name].value) params.set(name, form[name].value);
+        }
+        history.replaceState(null, '', params.size ? '#' + params : location.pathname);
+    }
+
+    const initial = new URLSearchParams(location.hash.slice(1));
+    for (const [name, value] of initial) {
+        if (form[name]) form[name].value = value;
+    }
+
+    form.addEventListener('input', apply);
+    form.addEventListener('reset', () => setTimeout(apply));
+    document.querySelector('main').addEventListener('click', e => {
+        if (e.target.classList.contains('tag')) {
+            form.q.value = e.target.textContent;
+            apply();
+            window.scrollTo({ top: 0 });
+        }
+    });
+
+    apply();
+})();
+</script>
+</body>
+</html>

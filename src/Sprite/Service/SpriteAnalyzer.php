@@ -13,12 +13,11 @@ use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Model\SpriteStats;
 
 use function array_filter;
-use function array_key_first;
 use function array_keys;
 use function array_map;
-use function array_sum;
 use function arsort;
 use function ksort;
 use function reset;
@@ -41,20 +40,7 @@ use function reset;
  */
 final class SpriteAnalyzer
 {
-    /**
-     * Stats indexed by sprite set, then sprite id
-     *
-     * @var array<string, array<int, array{
-     *     layers: array<string, int>,
-     *     maps: int,
-     *     classified: int,
-     *     areas: array<int, int>,
-     *     subAreas: array<int, int>,
-     *     biomes: array<string, int>,
-     *     indoor: array<string, int>,
-     *     locationTypes: array<string, int>,
-     * }>>
-     */
+    /** @var array<string, array<int, SpriteStats>> Stats indexed by sprite set value, then sprite id */
     private array $stats = [];
 
     /** @var array<int, string|null> */
@@ -99,51 +85,20 @@ final class SpriteAnalyzer
         $seen = [];
 
         foreach ($layers as $layerName => $sprites) {
-            $set = Layer::from($layerName)->spriteSet()->value;
+            $layer = Layer::from($layerName);
+            $set = $layer->spriteSet()->value;
 
             foreach ($sprites as $id => $count) {
-                $this->stats[$set][$id] ??= [
-                    'layers' => [],
-                    'maps' => 0,
-                    'classified' => 0,
-                    'areas' => [],
-                    'subAreas' => [],
-                    'biomes' => [],
-                    'indoor' => [],
-                    'locationTypes' => [],
-                ];
-                $stats = &$this->stats[$set][$id];
-                $stats['layers'][$layerName] = ($stats['layers'][$layerName] ?? 0) + $count;
+                $stats = $this->stats[$set][$id] ??= new SpriteStats();
+                $stats->addCells($layer, $count);
 
                 // A sprite can be used on several layers of the same map: count map attributes once
-                if (isset($seen[$set][$id])) {
-                    continue;
-                }
-
-                $seen[$set][$id] = true;
-                ++$stats['maps'];
-
-                if ($location !== null) {
-                    self::increment($stats['subAreas'], $location->subAreaId);
-
-                    if ($location->areaId !== null) {
-                        self::increment($stats['areas'], $location->areaId);
-                    }
-                }
-
-                if ($biome !== null) {
-                    self::increment($stats['biomes'], $biome->value);
-                }
-
-                if ($classification !== null) {
-                    ++$stats['classified'];
-                    self::increment($stats['indoor'], $classification->indoor ? 'indoor' : 'outdoor');
-                    self::increment($stats['locationTypes'], $classification->locationType->value);
+                if (!isset($seen[$set][$id])) {
+                    $seen[$set][$id] = true;
+                    $stats->addMap($location, $biome, $classification);
                 }
             }
         }
-
-        unset($stats);
     }
 
     /**
@@ -157,22 +112,19 @@ final class SpriteAnalyzer
             ksort($sprites);
 
             foreach ($sprites as $id => $stats) {
-                $layers = $stats['layers'];
-                arsort($layers);
-
                 $spriteSet = SpriteSet::from($set);
                 $profiles[] = new SpriteProfile(
                     set: $spriteSet,
                     id: $id,
-                    layer: Layer::from((string) array_key_first($layers)),
-                    occurrences: array_sum($layers),
-                    maps: $stats['maps'],
-                    classifiedMaps: $stats['classified'],
-                    areas: $this->named($stats['areas'], $this->areaNames),
-                    subAreas: $this->named($stats['subAreas'], $this->subAreaNames),
-                    biomes: $this->filter($stats['biomes']),
-                    indoor: $this->filter($stats['indoor']),
-                    locationTypes: $this->filter($stats['locationTypes']),
+                    layer: $stats->mainLayer(),
+                    occurrences: $stats->occurrences(),
+                    maps: $stats->maps,
+                    classifiedMaps: $stats->classifiedMaps,
+                    areas: $this->named($stats->areas, $this->areaNames),
+                    subAreas: $this->named($stats->subAreas, $this->subAreaNames),
+                    biomes: $this->filter($stats->biomes),
+                    indoor: $this->filter($stats->indoor),
+                    locationTypes: $this->filter($stats->locationTypes),
                     interactive: $spriteSet === SpriteSet::Objects ? ($this->interactiveObjects[$id] ?? null) : null,
                 );
             }
@@ -212,13 +164,5 @@ final class SpriteAnalyzer
             array_keys($filtered = $this->filter($counts)),
             $filtered,
         );
-    }
-
-    /**
-     * @param array<array-key, int> $counts
-     */
-    private static function increment(array &$counts, int|string $key): void
-    {
-        $counts[$key] = ($counts[$key] ?? 0) + 1;
     }
 }

@@ -199,7 +199,7 @@ final class WorkflowTest extends TestCase
         $this->assertFileExists($this->config->varDir . '/sprites.json');
         $html = (string) file_get_contents($this->config->varDir . '/sprites.html');
         $this->assertStringContainsString('<option value="Arctic Area">Arctic Area</option>', $html);
-        $this->assertStringContainsString('["Kwismas Island",1]', $html);
+        $this->assertStringContainsString('"sub_areas":[{"id":320,"name":"Kwismas Island","maps":1}]', $html);
         $this->assertStringContainsString('&quot;sprites&quot;', $html);
 
         // Classify sprite types
@@ -223,7 +223,7 @@ final class WorkflowTest extends TestCase
         $this->assertSame($objects['objects'][$firstObject] + ['type' => $joined['objects'][$firstObject]['type']], $joined['objects'][$firstObject]);
 
         // Type is displayed in the HTML gallery, also exported by sprites:classify
-        $this->assertStringContainsString('["tree","snowy pine",["pine","snow"],"A snowy pine."]', (string) file_get_contents($this->config->varDir . '/sprites.html'));
+        $this->assertStringContainsString('"type":{"category":"tree","name":"snowy pine","keywords":["pine","snow"],"description":"A snowy pine."}', (string) file_get_contents($this->config->varDir . '/sprites.html'));
         $this->assertStringContainsString('<option value="tree">tree</option>', (string) file_get_contents($this->config->varDir . '/sprites.html'));
 
         // Export again after a new analyze: stored types are joined

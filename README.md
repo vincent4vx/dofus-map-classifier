@@ -105,6 +105,7 @@ Inside each domain (and each `Classification`):
 - `Repository/`: data access (JSON files, lang files, client files)
 - `Service/`: processing (rendering, classification, aggregation, selection…)
 - `Export/`: export formats (`json`, `html`…), implementing `Infrastructure\Export\ExportFormat`, selected with the `--format` option of the export commands
+  - `Export/Template/`: HTML pages of the galleries, with `{{placeholders}}` (see `Infrastructure\Export\HtmlTemplate`). The sprites gallery reads the same JSON as `sprites.json`
 - `Exception/`: domain errors
 
 Dependencies go one way: `Location` ← `Map` ← `Map\Classification` ← `Sprite` ← `Sprite\Classification`, all of them may use `Infrastructure`.
