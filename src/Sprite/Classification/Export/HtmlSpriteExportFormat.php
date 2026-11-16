@@ -76,34 +76,32 @@ final readonly class HtmlSpriteExportFormat implements ExportFormat
         $interactiveTypes = [];
         $named = static fn (array $values) => array_map(static fn (LocationUsage $usage) => [$usage->label(), $usage->maps], $values);
 
-        foreach ($export->sprites as $sprites) {
-            foreach ($sprites as $sprite) {
-                $profile = $sprite->profile;
-                $type = $sprite->type;
+        foreach ($export as $sprite) {
+            $profile = $sprite->profile;
+            $type = $sprite->type;
 
-                $items[] = [
-                    $profile->set->value,
-                    $profile->id,
-                    $profile->layer->value,
-                    $profile->occurrences,
-                    $profile->maps,
-                    $profile->classifiedMaps,
-                    $named($profile->areas),
-                    $named($profile->subAreas),
-                    (object) $profile->biomes,
-                    (object) $profile->indoor,
-                    (object) $profile->locationTypes,
-                    $type === null ? null : [$type->category->value, $type->name, $type->keywords, $type->description],
-                    $profile->interactive === null ? null : [$profile->interactive->name, $profile->interactive->typeName()],
-                ];
+            $items[] = [
+                $profile->set->value,
+                $profile->id,
+                $profile->layer->value,
+                $profile->occurrences,
+                $profile->maps,
+                $profile->classifiedMaps,
+                $named($profile->areas),
+                $named($profile->subAreas),
+                (object) $profile->biomes,
+                (object) $profile->indoor,
+                (object) $profile->locationTypes,
+                $type === null ? null : [$type->category->value, $type->name, $type->keywords, $type->description],
+                $profile->interactive === null ? null : [$profile->interactive->name, $profile->interactive->typeName()],
+            ];
 
-                if ($profile->interactive !== null) {
-                    $interactiveTypes[$profile->interactive->typeName()] = true;
-                }
+            if ($profile->interactive !== null) {
+                $interactiveTypes[$profile->interactive->typeName()] = true;
+            }
 
-                foreach ($profile->areas as $area) {
-                    $areas[$area->label()] = true;
-                }
+            foreach ($profile->areas as $area) {
+                $areas[$area->label()] = true;
             }
         }
 

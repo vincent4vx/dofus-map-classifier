@@ -7,6 +7,7 @@ namespace MapClassifier\Sprite\Classification\Service;
 use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\SpriteProfile;
+use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSelection;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
@@ -25,7 +26,6 @@ final readonly class SpritesToClassify
     ) {}
 
     /**
-     * @param array<string, array<int, SpriteProfile>> $profiles All profiles, indexed by set value then sprite id
      * @param SpriteSet|null $set Only sprites of this set
      * @param Layer|null $layer Only sprites mainly used on this layer
      * @param bool $interactiveOnly Only sprites of interactive objects
@@ -35,7 +35,7 @@ final readonly class SpritesToClassify
      * @return array{sprites: list<SpriteProfile>, missingImages: int} Selected sprites, and number of sprites ignored because their image is not exported
      */
     public function select(
-        array $profiles,
+        SpriteProfiles $profiles,
         SpriteSelection $selection,
         ?SpriteSet $set = null,
         ?Layer $layer = null,
@@ -48,34 +48,28 @@ final readonly class SpritesToClassify
         $sprites = [];
         $missingImages = 0;
 
-        foreach (SpriteSet::cases() as $spriteSet) {
-            if ($set !== null && $set !== $spriteSet) {
+        foreach ($set !== null ? $profiles->bySet($set) : $profiles as $profile) {
+            if (
+                ($layer !== null && $profile->layer !== $layer)
+                || ($interactiveOnly && $profile->interactive === null)
+                || $profile->maps < $minMaps
+                || !$selection->matches($profile->set, $profile->id)
+            ) {
                 continue;
             }
 
-            foreach ($profiles[$spriteSet->value] ?? [] as $profile) {
-                if (
-                    ($layer !== null && $profile->layer !== $layer)
-                    || ($interactiveOnly && $profile->interactive === null)
-                    || $profile->maps < $minMaps
-                    || !$selection->matches($profile->set, $profile->id)
-                ) {
-                    continue;
-                }
+            $result = $this->types->get($profile->set, $profile->id);
 
-                $result = $this->types->get($profile->set, $profile->id);
-
-                if ($result !== null && !$force && ($result->ok || !$retryErrors)) {
-                    continue;
-                }
-
-                if (!$this->images->exists($profile->set, $profile->id)) {
-                    ++$missingImages;
-                    continue;
-                }
-
-                $sprites[] = $profile;
+            if ($result !== null && !$force && ($result->ok || !$retryErrors)) {
+                continue;
             }
+
+            if (!$this->images->exists($profile->set, $profile->id)) {
+                ++$missingImages;
+                continue;
+            }
+
+            $sprites[] = $profile;
         }
 
         usort($sprites, static fn (SpriteProfile $a, SpriteProfile $b) => $b->maps <=> $a->maps ?: $a->id <=> $b->id);

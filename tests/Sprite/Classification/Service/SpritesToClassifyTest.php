@@ -13,6 +13,7 @@ use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteProfile;
+use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSelection;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\SpriteImageRepository;
@@ -27,8 +28,7 @@ final class SpritesToClassifyTest extends TestCase
 
     private SpriteTypeRepository $types;
     private SpritesToClassify $service;
-    /** @var array<string, array<int, SpriteProfile>> */
-    private array $profiles;
+    private SpriteProfiles $profiles;
 
     protected function setUp(): void
     {
@@ -36,22 +36,18 @@ final class SpritesToClassifyTest extends TestCase
         $this->types = new SpriteTypeRepository($this->tempDir() . '/types');
         $this->service = new SpritesToClassify($this->types, $images);
 
-        $this->profiles = [
-            'grounds' => [1 => self::profile(SpriteSet::Grounds, 1, Layer::Ground, 50)],
-            'objects' => [
-                1 => self::profile(SpriteSet::Objects, 1, Layer::Layer2, 10),
-                2 => self::profile(SpriteSet::Objects, 2, Layer::Layer1, 30),
-                3 => self::profile(SpriteSet::Objects, 3, Layer::Layer2, 20, new InteractiveObject(38, 'Wheat', 1)),
-                4 => self::profile(SpriteSet::Objects, 4, Layer::Layer2, 40),
-            ],
-        ];
+        $this->profiles = SpriteProfiles::of([
+            self::profile(SpriteSet::Grounds, 1, Layer::Ground, 50),
+            self::profile(SpriteSet::Objects, 1, Layer::Layer2, 10),
+            self::profile(SpriteSet::Objects, 2, Layer::Layer1, 30),
+            self::profile(SpriteSet::Objects, 3, Layer::Layer2, 20, new InteractiveObject(38, 'Wheat', 1)),
+            self::profile(SpriteSet::Objects, 4, Layer::Layer2, 40),
+        ]);
 
-        foreach ($this->profiles as $sprites) {
-            foreach ($sprites as $profile) {
-                // Sprite o4 is not exported
-                if ($profile->set !== SpriteSet::Objects || $profile->id !== 4) {
-                    $images->save($profile->set, $profile->id, new RenderedSprite('png', 1.0, 1.0));
-                }
+        foreach ($this->profiles as $profile) {
+            // Sprite o4 is not exported
+            if ($profile->set !== SpriteSet::Objects || $profile->id !== 4) {
+                $images->save($profile->set, $profile->id, new RenderedSprite('png', 1.0, 1.0));
             }
         }
 

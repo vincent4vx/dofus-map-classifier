@@ -11,6 +11,7 @@ use MapClassifier\Sprite\Classification\Service\SpriteExporter;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\SpriteProfile;
+use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
@@ -33,14 +34,17 @@ final class SpriteExporterTest extends TestCase
         $failed = new SpriteProfile(SpriteSet::Objects, 12, Layer::Layer2, 3, 1, 0, [], [], [], [], []);
         $ground = new SpriteProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [], [], ['plain' => 1], [], []);
 
-        $export = new SpriteExporter($types)->export(['grounds' => [0 => $ground], 'objects' => [12 => $failed, 7511 => $wheat]]);
+        $export = new SpriteExporter($types)->export(SpriteProfiles::of([$ground, $failed, $wheat]));
 
-        $this->assertSame(3, $export->count());
+        $this->assertCount(3, $export);
         $this->assertSame(1, $export->classified());
-        $this->assertSame($wheat, $export->sprites['objects'][7511]->profile);
-        $this->assertSame('wheat', $export->sprites['objects'][7511]->type?->name, 'Interactive object name is applied');
-        $this->assertNull($export->sprites['objects'][12]->type);
-        $this->assertNull($export->sprites['grounds'][0]->type);
+        $exportedWheat = $export->get(SpriteSet::Objects, 7511);
+        $this->assertNotNull($exportedWheat);
+        $this->assertSame($wheat, $exportedWheat->profile);
+        $this->assertSame('wheat', $exportedWheat->type?->name, 'Interactive object name is applied');
+        $this->assertNull($export->get(SpriteSet::Objects, 12)?->type);
+        $this->assertNotNull($export->get(SpriteSet::Grounds, 0));
+        $this->assertNull($export->get(SpriteSet::Grounds, 0)->type);
 
         $json = (string) json_encode($export);
         $this->assertStringStartsWith('{"grounds":{"0":{"id":0,', $json, 'Sprites are indexed by id, even if sequential');

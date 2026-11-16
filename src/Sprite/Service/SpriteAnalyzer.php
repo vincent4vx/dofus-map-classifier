@@ -11,6 +11,7 @@ use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\SpriteProfile;
+use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSet;
 
 use function array_filter;
@@ -146,9 +147,9 @@ final class SpriteAnalyzer
     }
 
     /**
-     * @return array<string, array<int, SpriteProfile>> Profiles indexed by sprite set value, then sprite id (sorted)
+     * Profiles of all the sprites, sorted by set then id
      */
-    public function profiles(): array
+    public function profiles(): SpriteProfiles
     {
         $profiles = [];
 
@@ -160,7 +161,7 @@ final class SpriteAnalyzer
                 arsort($layers);
 
                 $spriteSet = SpriteSet::from($set);
-                $profiles[$set][$id] = new SpriteProfile(
+                $profiles[] = new SpriteProfile(
                     set: $spriteSet,
                     id: $id,
                     layer: Layer::from((string) array_key_first($layers)),
@@ -177,9 +178,7 @@ final class SpriteAnalyzer
             }
         }
 
-        ksort($profiles);
-
-        return $profiles;
+        return SpriteProfiles::of($profiles);
     }
 
     /**

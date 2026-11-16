@@ -57,11 +57,13 @@ final class SpriteAnalyzerTest extends TestCase
 
         $profiles = $analyzer->profiles();
 
-        $this->assertSame(['grounds', 'objects'], array_keys($profiles));
-        $this->assertSame([12, 345], array_keys($profiles['grounds']));
-        $this->assertSame([7, 345], array_keys($profiles['objects']));
+        $this->assertCount(4, $profiles);
+        $this->assertSame([12, 345], array_keys($profiles->bySet(SpriteSet::Grounds)));
+        $this->assertSame([7, 345], array_keys($profiles->bySet(SpriteSet::Objects)));
 
-        $object = $profiles['objects'][345];
+        $object = $profiles->get(SpriteSet::Objects, 345);
+
+        $this->assertNotNull($object);
         $this->assertSame(SpriteSet::Objects, $object->set);
         $this->assertSame(Layer::Layer2, $object->layer);
         $this->assertSame(82 * 3 + 30, $object->occurrences);
@@ -75,12 +77,15 @@ final class SpriteAnalyzerTest extends TestCase
         $this->assertEquals([new LocationUsage(1, 'Sub area 1', 80)], $object->subAreas);
         $this->assertEquals([new LocationUsage(10, 'Area', 82)], $object->areas);
 
-        $ground = $profiles['grounds'][345];
+        $ground = $profiles->get(SpriteSet::Grounds, 345);
+
+        $this->assertNotNull($ground);
         $this->assertSame(Layer::Ground, $ground->layer);
         $this->assertSame(820, $ground->occurrences);
 
         // Background and ground on the same map: counted once
-        $background = $profiles['grounds'][12];
+        $background = $profiles->get(SpriteSet::Grounds, 12);
+        $this->assertNotNull($background);
         $this->assertSame(Layer::Ground, $background->layer);
         $this->assertSame(1, $background->maps);
         $this->assertSame(0, $background->classifiedMaps);
@@ -99,7 +104,7 @@ final class SpriteAnalyzerTest extends TestCase
             'indoor' => [],
             'location_types' => [],
             'interactive' => null,
-        ], json_decode((string) json_encode($profiles['objects'][7]), true));
+        ], json_decode((string) json_encode($profiles->get(SpriteSet::Objects, 7)), true));
     }
 
     public function testBiomeFallbackOnSubArea(): void
@@ -119,7 +124,9 @@ final class SpriteAnalyzerTest extends TestCase
         $analyzer->add(2, ['layer1' => [1 => 1]]);
         $analyzer->add(3, ['layer1' => [1 => 1]]); // not classified
 
-        $profile = $analyzer->profiles()['objects'][1];
+        $profile = $analyzer->profiles()->get(SpriteSet::Objects, 1);
+
+        $this->assertNotNull($profile);
 
         $this->assertSame(['jungle' => 3], $profile->biomes);
         $this->assertSame(['outdoor' => 1, 'indoor' => 1], $profile->indoor);
@@ -134,15 +141,16 @@ final class SpriteAnalyzerTest extends TestCase
 
         $profiles = $analyzer->profiles();
 
-        $this->assertSame($wheat, $profiles['objects'][7511]->interactive);
-        $this->assertNull($profiles['objects'][12]->interactive);
-        $this->assertNull($profiles['grounds'][7511]->interactive, 'Interactive objects only use the objects set');
+        $this->assertSame($wheat, $profiles->get(SpriteSet::Objects, 7511)?->interactive);
+        $this->assertNotNull($profiles->get(SpriteSet::Objects, 12));
+        $this->assertNull($profiles->get(SpriteSet::Objects, 12)->interactive);
+        $this->assertNull($profiles->get(SpriteSet::Grounds, 7511)?->interactive, 'Interactive objects only use the objects set');
 
-        $array = json_decode((string) json_encode($profiles['objects'][7511]), true);
+        $array = json_decode((string) json_encode($profiles->get(SpriteSet::Objects, 7511)), true);
         $this->assertIsArray($array);
         $this->assertSame(['id' => 38, 'name' => 'Wheat', 'type' => 'resource'], $array['interactive']);
         $this->assertEquals($wheat, SpriteProfile::fromArray(SpriteSet::Objects, $array)->interactive);
-        $this->assertNull(SpriteProfile::fromArray(SpriteSet::Objects, $profiles['objects'][12]->jsonSerialize())->interactive);
+        $this->assertNull(SpriteProfile::fromArray(SpriteSet::Objects, $profiles->get(SpriteSet::Objects, 12)->jsonSerialize())->interactive);
     }
 
     public function testFilter(): void

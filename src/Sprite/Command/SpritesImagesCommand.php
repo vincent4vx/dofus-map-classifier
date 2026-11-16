@@ -56,7 +56,7 @@ final class SpritesImagesCommand extends Command
         }
 
         foreach (SpriteSet::cases() as $set) {
-            $only = $used === null ? null : ($used[$set->value] ?? []);
+            $only = $used?->bySet($set);
             $progress = $io->createProgressBar($only !== null ? count($only) : 0);
             $progress->setFormat(' ' . $set->value . ' %current%/%max% [%bar%] %elapsed:6s%');
 

@@ -93,8 +93,8 @@ final class SpritesAnalyzeCommand extends Command
         $io->success(sprintf(
             '%d maps analyzed: %d ground sprites and %d object sprites written to %s',
             $analyzed,
-            count($profiles[SpriteSet::Grounds->value] ?? []),
-            count($profiles[SpriteSet::Objects->value] ?? []),
+            count($profiles->bySet(SpriteSet::Grounds)),
+            count($profiles->bySet(SpriteSet::Objects)),
             $this->profiles->file,
         ));
 
