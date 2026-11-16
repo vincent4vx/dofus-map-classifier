@@ -31,6 +31,8 @@ final class SpriteImageRepositoryTest extends TestCase
 
         $this->assertSame($this->tempDir() . '/objects/12.png', $files->path(SpriteSet::Objects, 12));
         $this->assertSame('png-12', file_get_contents($files->path(SpriteSet::Objects, 12)));
+        $this->assertSame('png-12', $files->read(SpriteSet::Objects, 12));
+        $this->assertNull($files->read(SpriteSet::Objects, 404));
         $this->assertEquals(new SpriteSize(53.5, 27.0), $files->size(SpriteSet::Objects, 12));
 
         // Sizes are only persisted on flush

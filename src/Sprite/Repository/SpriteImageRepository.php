@@ -39,6 +39,16 @@ final class SpriteImageRepository
         return $this->dir . '/' . $set->value . '/' . $id . '.png';
     }
 
+    /**
+     * PNG data of the exported sprite, or null if it is not exported
+     */
+    public function read(SpriteSet $set, int $id): ?string
+    {
+        $png = is_file($this->path($set, $id)) ? file_get_contents($this->path($set, $id)) : false;
+
+        return $png === false ? null : $png;
+    }
+
     public function exists(SpriteSet $set, int $id): bool
     {
         return is_file($this->path($set, $id)) && $this->size($set, $id) !== null;

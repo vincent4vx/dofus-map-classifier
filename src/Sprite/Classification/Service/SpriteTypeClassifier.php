@@ -17,7 +17,6 @@ use MapClassifier\Sprite\Repository\SpriteImageRepository;
 use Throwable;
 
 use function base64_encode;
-use function file_get_contents;
 
 /**
  * Find the type of sprites by calling the Responses API, with concurrent requests
@@ -41,10 +40,10 @@ final readonly class SpriteTypeClassifier
     {
         $requests = (function () use ($profiles, $onResult) {
             foreach ($profiles as $profile) {
-                $png = @file_get_contents($this->sprites->path($profile->set, $profile->id));
+                $png = $this->sprites->read($profile->set, $profile->id);
                 $size = $this->sprites->size($profile->set, $profile->id);
 
-                if ($png === false || $size === null) {
+                if ($png === null || $size === null) {
                     $this->save(SpriteTypeResult::failure($profile->set, $profile->id, SpriteTypeError::ImageNotExported), $onResult);
                     continue;
                 }
