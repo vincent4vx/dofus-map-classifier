@@ -8,6 +8,7 @@ use MapClassifier\Location\Model\MapLocation;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Model\SubAreaBiome;
 use MapClassifier\Sprite\Model\InteractiveObject;
+use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\MapSprites;
 use MapClassifier\Sprite\Model\SpriteProfile;
@@ -87,7 +88,7 @@ final class SpriteAnalyzer
         // One usage per sprite: map attributes are counted once per map
         foreach ($sprites as $usage) {
             $this->stats[$usage->set->value][$usage->id] ??= new SpriteStats();
-            $this->stats[$usage->set->value][$usage->id]->addMap($usage, $location, $biome, $classification, $mapId);
+            $this->stats[$usage->set->value][$usage->id]->addMap($usage, $location, $biome, $classification, $mapId, $sprites->groundCells);
         }
     }
 
@@ -121,6 +122,7 @@ final class SpriteAnalyzer
                     movements: $stats->movementFrequencies(),
                     neighbors: $stats->neighbors($layer),
                     example: $stats->example($layer),
+                    groundShare: $layer === Layer::Ground ? $stats->groundShare() : null,
                 );
             }
         }

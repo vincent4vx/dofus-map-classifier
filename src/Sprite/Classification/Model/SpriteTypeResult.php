@@ -60,7 +60,7 @@ final class SpriteTypeResult implements JsonSerializable
             'status' => $this->ok ? 'ok' : 'error',
             'error' => $this->error?->value,
             'error_message' => $this->errorMessage,
-            ...($this->classification?->jsonSerialize() ?? ['category' => null, 'name' => null, 'keywords' => [], 'description' => null, 'transition' => null]),
+            ...($this->classification?->jsonSerialize() ?? ['category' => null, 'name' => null, 'keywords' => [], 'description' => null, 'transition' => null, 'usage' => null]),
             'model' => $this->model,
             'classified_at' => $this->classifiedAt?->format(DateTimeInterface::ATOM),
         ];

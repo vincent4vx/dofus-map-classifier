@@ -7,6 +7,7 @@ namespace MapClassifier\Sprite\Classification\Service;
 use Arakne\MapParser\Parser\Cell;
 use MapClassifier\Infrastructure\OpenAI\ResponsesRequest;
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteUsage;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\SpriteMetadata;
 use MapClassifier\Sprite\Model\SpriteProfile;
@@ -51,7 +52,7 @@ final readonly class SpriteTypePrompt
             self::context($profile, $metadata) . ($exampleUrl !== null ? "\n" . self::EXAMPLE_CONTEXT : ''),
             $exampleUrl !== null ? [$imageUrl, $exampleUrl] : [$imageUrl],
             'sprite_type',
-            self::schema(),
+            self::schema($profile->layer),
             $this->reasoningEffort,
         );
     }
@@ -84,6 +85,10 @@ final readonly class SpriteTypePrompt
             sprintf('Mainly used as: %s (%s).', $profile->layer->value, self::layerDescription($profile->layer)),
             sprintf('Used %d times, on %d maps.', $profile->occurrences, $profile->maps),
         ];
+
+        if ($profile->groundShare !== null) {
+            $lines[] = sprintf('Covers on average %s%% of the ground cells of the maps using it.', round($profile->groundShare * 100, 1));
+        }
 
         if ($profile->slope) {
             $lines[] = 'Also used on sloped ground cells (relief).';
@@ -174,6 +179,13 @@ final readonly class SpriteTypePrompt
             static fn (SpriteCategory $category) => '- ' . $category->value . ': ' . $category->description(),
             SpriteCategory::cases(),
         ));
+        $usages = static fn (Layer $layer) => implode("\n", array_map(
+            static fn (SpriteUsage $usage) => '    - ' . $usage->value . ': ' . $usage->description(),
+            SpriteUsage::of($layer),
+        ));
+        $ground = $usages(Layer::Ground);
+        $layer1 = $usages(Layer::Layer1);
+        $layer2 = $usages(Layer::Layer2);
 
         return <<<PROMPT
             You identify sprites (graphic elements) used to build the maps of the MMORPG Dofus Retro (Dofus 1.29), a 2D isometric game.
@@ -194,6 +206,15 @@ final readonly class SpriteTypePrompt
             - transition: true if the sprite is a transition from one environment or material to another, drawn to join two different areas:
               e.g. water to grass (shore), grass to sand, grass to dirt, path or road border, snow to grass, floor to carpet edge, cliff edge.
               False if the sprite shows a single environment or material, even if it is an object standing on the ground (tree, wall, furniture…).
+            - usage (not for backgrounds): how the sprite is used to build the maps, among the usages of its layer.
+              Use the example map and the usage information: a sprite repeated along a line is a wall, a sprite next to other parts of a house is a building,
+              a ground tile covering a large part of its maps is a fill.
+              ground (tile covering one cell):
+            {$ground}
+              layer1 (drawn flat on the ground):
+            {$layer1}
+              layer2 (standing on the ground):
+            {$layer2}
 
             Notes:
             - Sprites are often parts of larger elements (a wall section, a piece of roof, a corner of a carpet): name the part (e.g. "stone wall section").
@@ -203,11 +224,16 @@ final readonly class SpriteTypePrompt
     }
 
     /**
+     * JSON schema of the output: the usage is only asked for the layers having usages, with only the usages of the layer
+     *
+     * @param Layer|null $layer Main layer of the sprite
+     *
      * @return array<string, mixed>
      */
-    public static function schema(): array
+    public static function schema(?Layer $layer = null): array
     {
-        return [
+        $usages = $layer !== null ? SpriteUsage::of($layer) : [];
+        $schema = [
             'type' => 'object',
             'additionalProperties' => false,
             'required' => ['category', 'name', 'keywords', 'description', 'transition'],
@@ -219,5 +245,12 @@ final readonly class SpriteTypePrompt
                 'transition' => ['type' => 'boolean'],
             ],
         ];
+
+        if ($usages) {
+            $schema['required'][] = 'usage';
+            $schema['properties']['usage'] = ['type' => 'string', 'enum' => array_column($usages, 'value')];
+        }
+
+        return $schema;
     }
 }

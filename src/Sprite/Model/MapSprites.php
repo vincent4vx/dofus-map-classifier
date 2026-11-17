@@ -20,6 +20,9 @@ use function count;
  */
 final class MapSprites implements IteratorAggregate, Countable
 {
+    /** Number of cells with a ground sprite */
+    public private(set) int $groundCells = 0;
+
     /** @var array<string, array<int, MapSpriteUsage>> Indexed by set value, then sprite id */
     private array $usages = [];
 
@@ -33,6 +36,10 @@ final class MapSprites implements IteratorAggregate, Countable
      */
     public function addCell(Layer $layer, int $id, bool $sloped = false, ?int $movement = null, ?int $cellId = null, float $centerDistance = 0.0): void
     {
+        if ($layer === Layer::Ground) {
+            ++$this->groundCells;
+        }
+
         $set = $layer->spriteSet();
         $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
         $this->usages[$set->value][$id]->addCell($layer, $sloped, $movement, $cellId, $centerDistance);

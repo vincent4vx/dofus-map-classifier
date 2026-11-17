@@ -38,7 +38,7 @@ final class SpriteTypeResolverTest extends TestCase
         $this->assertEquals($type, $resolver->type(self::profile(12)));
         $this->assertNull($resolver->type(self::profile(13)));
         $this->assertNull($resolver->type(self::profile(14, new InteractiveObject(38, 'Wheat', 1))));
-        $this->assertSame(['category' => 'crop', 'name' => 'wheat', 'keywords' => ['cereal', 'wheat stalks', 'resource'], 'description' => '', 'transition' => null], $wheatType->jsonSerialize());
+        $this->assertSame(['category' => 'crop', 'name' => 'wheat', 'keywords' => ['cereal', 'wheat stalks', 'resource'], 'description' => '', 'transition' => null, 'usage' => null], $wheatType->jsonSerialize());
     }
 
     private static function profile(int $id, ?InteractiveObject $interactive = null): SpriteProfile

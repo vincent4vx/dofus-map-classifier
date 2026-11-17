@@ -11,6 +11,7 @@ use function array_map;
 use function floatval;
 use function array_values;
 use function is_array;
+use function is_numeric;
 
 /**
  * Aggregated data of a sprite, deduced from the maps using it
@@ -20,7 +21,7 @@ use function is_array;
  *
  * JSON (sprite_profiles.json): {"id", "layer", "slope", "occurrences", "maps", "classified_maps",
  * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: {@see UsageCount}}, "indoor": {"indoor" | "outdoor": {@see UsageCount}},
- * "location_types": {type: {@see UsageCount}}, "movements": {movement: frequency}, "example": {@see SpriteExample} | null, "neighbors": [{@see OrientationNeighbors}], "interactive": {@see InteractiveObject} | null}
+ * "location_types": {type: {@see UsageCount}}, "movements": {movement: frequency}, "ground_share": float | null, "example": {@see SpriteExample} | null, "neighbors": [{@see OrientationNeighbors}], "interactive": {@see InteractiveObject} | null}
  */
 final readonly class SpriteProfile implements JsonSerializable
 {
@@ -61,6 +62,8 @@ final readonly class SpriteProfile implements JsonSerializable
         public array $neighbors = [],
         /** Use of the sprite on a map, on its main layer, to show it in context. Null for a background */
         public ?SpriteExample $example = null,
+        /** Average ratio (0 to 1) of the ground cells of its maps covered by the sprite. Only for the sprites mainly used as ground */
+        public ?float $groundShare = null,
     ) {}
 
     /**
@@ -91,6 +94,7 @@ final readonly class SpriteProfile implements JsonSerializable
             interactive: is_array($data['interactive'] ?? null) ? InteractiveObject::fromArray($data['interactive']) : null,
             slope: ($data['slope'] ?? false) === true,
             movements: array_map(floatval(...), is_array($data['movements'] ?? null) ? $data['movements'] : []),
+            groundShare: is_numeric($data['ground_share'] ?? null) ? (float) $data['ground_share'] : null,
             example: is_array($data['example'] ?? null) ? SpriteExample::fromArray($data['example']) : null,
             neighbors: array_values(array_map(
                 static fn (mixed $value) => OrientationNeighbors::fromArray(is_array($value) ? $value : []),
@@ -118,6 +122,7 @@ final readonly class SpriteProfile implements JsonSerializable
             'indoor' => (object) $this->indoor,
             'location_types' => (object) $this->locationTypes,
             'movements' => (object) $this->movements,
+            'ground_share' => $this->groundShare,
             'example' => $this->example,
             'neighbors' => $this->neighbors,
             'interactive' => $this->interactive,

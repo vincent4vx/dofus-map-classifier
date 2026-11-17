@@ -7,6 +7,7 @@ namespace MapClassifier\Tests\Sprite\Classification\Model;
 use InvalidArgumentException;
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
 use MapClassifier\Sprite\Classification\Model\SpriteType;
+use MapClassifier\Sprite\Classification\Model\SpriteUsage;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
@@ -20,6 +21,7 @@ final class SpriteTypeTest extends TestCase
             'keywords' => ['Tree', ' conifer ', 'tree', '', 'Snowy'],
             'description' => ' A snowy pine tree. ',
             'transition' => false,
+            'usage' => 'big_object',
         ]);
 
         $this->assertSame(SpriteCategory::Tree, $type->category);
@@ -32,6 +34,7 @@ final class SpriteTypeTest extends TestCase
             'keywords' => ['tree', 'conifer', 'snowy'],
             'description' => 'A snowy pine tree.',
             'transition' => false,
+            'usage' => 'big_object',
         ], $type->jsonSerialize());
     }
 
@@ -42,6 +45,15 @@ final class SpriteTypeTest extends TestCase
         $this->assertTrue(SpriteType::fromArray($base + ['transition' => true])->transition);
         $this->assertTrue(SpriteType::fromArray($base + ['transition' => true])->withName('beach')->transition, 'Kept when renamed');
         $this->assertNull(SpriteType::fromArray($base)->transition, 'Stored before the field was asked to the model');
+    }
+
+    public function testUsage(): void
+    {
+        $base = ['category' => 'wall', 'name' => 'rampart', 'keywords' => [], 'description' => ''];
+
+        $this->assertSame(SpriteUsage::Wall, SpriteType::fromArray($base + ['usage' => 'wall'])->usage);
+        $this->assertSame(SpriteUsage::Wall, SpriteType::fromArray($base + ['usage' => 'wall'])->withName('wall')->usage, 'Kept when renamed');
+        $this->assertNull(SpriteType::fromArray($base)->usage, 'Ground, or stored before the field was asked to the model');
     }
 
     public function testWithName(): void
@@ -83,5 +95,7 @@ final class SpriteTypeTest extends TestCase
         yield [['keywords' => [1]], 'Invalid keywords'];
         yield [['description' => null], 'Invalid description'];
         yield [['transition' => 'yes'], 'Invalid transition'];
+        yield [['usage' => 'spaceship'], 'Invalid usage'];
+        yield [['usage' => 1], 'Invalid usage'];
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MapClassifier\Tests\Sprite\Classification\Service;
 
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteUsage;
 use MapClassifier\Sprite\Classification\Service\SpriteTypePrompt;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
@@ -28,7 +29,7 @@ final class SpriteTypePromptTest extends TestCase
         $this->assertSame(['effort' => 'low'], $body['reasoning']);
         $this->assertSame(SpriteTypePrompt::instructions(), $body['instructions']);
         $this->assertSame(['type' => 'input_image', 'image_url' => 'data:image/png;base64,xxx', 'detail' => 'high'], $body['input'][0]['content'][1]);
-        $this->assertSame(SpriteTypePrompt::schema(), $body['text']['format']['schema']);
+        $this->assertSame(SpriteTypePrompt::schema($this->profile()->layer), $body['text']['format']['schema']);
         $this->assertTrue($body['text']['format']['strict']);
         $this->assertCount(2, $body['input'][0]['content'], 'No example map');
         $this->assertStringNotContainsString('magenta', $body['input'][0]['content'][0]['text']);
@@ -87,6 +88,15 @@ final class SpriteTypePromptTest extends TestCase
         $this->assertStringContainsString("\nAlso used on sloped ground cells (relief).", SpriteTypePrompt::context($profile, self::metadata(53.0, 27.0, SpriteSet::Grounds, 15)));
     }
 
+    public function testContextGroundShare(): void
+    {
+        $profile = new SpriteProfile(SpriteSet::Grounds, 69, Layer::Ground, 7, 3, 0, [], [], [], [], [], groundShare: 0.4235);
+        $context = SpriteTypePrompt::context($profile, self::metadata(53.0, 27.0, SpriteSet::Grounds));
+
+        $this->assertStringContainsString("\nCovers on average 42.4% of the ground cells of the maps using it.", $context);
+        $this->assertStringNotContainsString('ground cells of the maps', SpriteTypePrompt::context($this->profile(), self::metadata(53.0, 27.0)));
+    }
+
     public function testContextMinimalAndTeleportMarker(): void
     {
         $profile = new SpriteProfile(SpriteSet::Objects, 1030, Layer::Layer1, 10, 2, 0, [], [], [], [], []);
@@ -113,6 +123,22 @@ final class SpriteTypePromptTest extends TestCase
         $this->assertFalse($schema['additionalProperties']);
         $this->assertSame(['type' => 'boolean'], $schema['properties']['transition']);
         $this->assertStringContainsString('- transition: true if the sprite is a transition', SpriteTypePrompt::instructions());
+        $this->assertArrayNotHasKey('usage', $schema['properties'], 'No layer: no usage');
+
+        foreach (SpriteUsage::cases() as $usage) {
+            $this->assertStringContainsString('    - ' . $usage->value . ': ' . $usage->description(), SpriteTypePrompt::instructions());
+        }
+    }
+
+    public function testSchemaUsage(): void
+    {
+        $this->assertSame(['fill', 'variation'], SpriteTypePrompt::schema(Layer::Ground)['properties']['usage']['enum']);
+        $this->assertSame(['ground', 'small_object', 'shadow'], SpriteTypePrompt::schema(Layer::Layer1)['properties']['usage']['enum']);
+        $this->assertSame(['big_object', 'wall', 'building', 'decoration'], SpriteTypePrompt::schema(Layer::Layer2)['properties']['usage']['enum']);
+        $this->assertContains('usage', SpriteTypePrompt::schema(Layer::Layer2)['required']);
+
+        $this->assertArrayNotHasKey('usage', SpriteTypePrompt::schema(Layer::Background)['properties']);
+        $this->assertNotContains('usage', SpriteTypePrompt::schema(Layer::Background)['required']);
 
         foreach (SpriteCategory::cases() as $category) {
             $this->assertStringContainsString('- ' . $category->value . ': ' . $category->description(), SpriteTypePrompt::instructions());

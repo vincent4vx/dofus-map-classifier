@@ -60,6 +60,12 @@ final class SpriteStats
     /** @var array<string, array{map: int, cell: int, cells: int, distance: float}> Best example of each layer (see {@see example()}), indexed by layer value */
     private array $examples = [];
 
+    /** Sum, over the maps using the sprite as ground, of the ratio of the ground cells of the map using the sprite */
+    private float $groundShares = 0.0;
+
+    /** Number of maps using the sprite as ground, with ground cells */
+    private int $groundMaps = 0;
+
     /**
      * Count a map using the sprite: its usage on the map, and the map attributes. Must be called once per map.
      *
@@ -67,9 +73,15 @@ final class SpriteStats
      * @param Biome|null $biome Biome of the map, or of its sub area
      * @param MapClassification|null $classification Null if the map is not classified
      * @param int|null $mapId Id of the map, to choose an example of use. Null to not use the map as example
+     * @param int $mapGroundCells Number of cells of the map with a ground sprite, to compute {@see groundShare()}
      */
-    public function addMap(MapSpriteUsage $usage, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification, ?int $mapId = null): void
+    public function addMap(MapSpriteUsage $usage, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification, ?int $mapId = null, int $mapGroundCells = 0): void
     {
+        if (($groundCells = $usage->cells[Layer::Ground->value] ?? 0) > 0 && $mapGroundCells > 0) {
+            $this->groundShares += $groundCells / $mapGroundCells;
+            ++$this->groundMaps;
+        }
+
         ++$this->maps;
 
         foreach ($usage->cells as $layer => $count) {
@@ -175,6 +187,15 @@ final class SpriteStats
         $example = $this->examples[$layer->value] ?? null;
 
         return $example !== null ? new SpriteExample($example['map'], $example['cell']) : null;
+    }
+
+    /**
+     * Average ratio (0 to 1) of the ground cells of the maps covered by the sprite, over the maps using it as ground, rounded to 4 decimals
+     * A base tile covers a large part of its maps, a variant tile only a few cells. Null if the sprite is not used as ground
+     */
+    public function groundShare(): ?float
+    {
+        return $this->groundMaps > 0 ? round($this->groundShares / $this->groundMaps, 4) : null;
     }
 
     /**

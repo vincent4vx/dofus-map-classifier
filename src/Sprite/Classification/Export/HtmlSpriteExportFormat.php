@@ -11,6 +11,7 @@ use MapClassifier\Map\Classification\Model\Biome;
 use MapClassifier\Map\Classification\Model\LocationType;
 use MapClassifier\Sprite\Classification\Model\Export\SpriteExport;
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteUsage;
 use MapClassifier\Sprite\Model\Layer;
 use Override;
 
@@ -111,6 +112,7 @@ final readonly class HtmlSpriteExportFormat implements ExportFormat
             'biomes' => $options(array_column(Biome::cases(), 'value')),
             'locations' => $options(array_column(LocationType::cases(), 'value')),
             'categories' => $options(array_column(SpriteCategory::cases(), 'value')),
+            'usages' => $options(array_column(SpriteUsage::cases(), 'value')),
             'areaOptions' => $options($sorted($areas)),
             'interactiveOptions' => $options($sorted($interactiveTypes)),
         ]);

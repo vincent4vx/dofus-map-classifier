@@ -119,6 +119,7 @@ final class SpriteAnalyzerTest extends TestCase
             'indoor' => [],
             'location_types' => [],
             'movements' => [],
+            'ground_share' => null,
             'example' => null,
             'neighbors' => [],
             'interactive' => null,
@@ -164,6 +165,7 @@ final class SpriteAnalyzerTest extends TestCase
         $map1->addCell(Layer::Ground, 1, movement: 0);
         $map1->addCell(Layer::Layer2, 1, movement: 0);
         $map1->addCell(Layer::Background, 2);
+        $map1->addCell(Layer::Ground, 3);
         $analyzer->add(1, $map1);
 
         $map2 = new MapSprites();
@@ -176,6 +178,9 @@ final class SpriteAnalyzerTest extends TestCase
         $this->assertSame([0 => 0.25, 4 => 0.5, 7 => 0.25], $profiles->get(SpriteSet::Grounds, 1)?->movements, 'Frequencies of the 4 ground cells, sorted by movement');
         $this->assertSame([0 => 0.5, 4 => 0.5], $profiles->get(SpriteSet::Objects, 1)?->movements, 'Both object layers');
         $this->assertSame([], $profiles->get(SpriteSet::Grounds, 2)?->movements, 'Background only: no cell');
+        $this->assertSame(0.875, $profiles->get(SpriteSet::Grounds, 1)->groundShare, 'Average of 3 / 4 and 1 / 1 ground cells');
+        $this->assertNull($profiles->get(SpriteSet::Objects, 1)->groundShare, 'Not a ground');
+        $this->assertNull($profiles->get(SpriteSet::Grounds, 2)->groundShare, 'Background');
     }
 
     public function testNeighbors(): void

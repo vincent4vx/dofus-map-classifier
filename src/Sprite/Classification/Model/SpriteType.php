@@ -21,7 +21,7 @@ use function trim;
 /**
  * Type of a sprite, returned by the model
  *
- * JSON: {"category", "name", "keywords", "description", "transition"}, same as the model output schema
+ * JSON: {"category", "name", "keywords", "description", "transition", "usage"}, same as the model output schema
  */
 final readonly class SpriteType implements JsonSerializable
 {
@@ -37,6 +37,8 @@ final readonly class SpriteType implements JsonSerializable
          * Null for the types found before this field was asked to the model
          */
         public ?bool $transition = null,
+        /** How the sprite is used on the maps, depending on its layer. Null for backgrounds, and for the types found before this field was asked */
+        public ?SpriteUsage $usage = null,
     ) {}
 
     /**
@@ -76,12 +78,18 @@ final readonly class SpriteType implements JsonSerializable
             throw new InvalidArgumentException('Invalid transition');
         }
 
+        $usage = $data['usage'] ?? null;
+
+        if ($usage !== null && !($usage = is_string($usage) ? SpriteUsage::tryFrom($usage) : null)) {
+            throw new InvalidArgumentException('Invalid usage');
+        }
+
         $keywords = array_values(array_unique(array_filter(
             array_map(static fn (string $keyword) => mb_strtolower(trim($keyword)), $data['keywords']),
             static fn (string $keyword) => $keyword !== '',
         )));
 
-        return new self($category, mb_strtolower(trim($data['name'])), $keywords, trim($data['description']), $transition);
+        return new self($category, mb_strtolower(trim($data['name'])), $keywords, trim($data['description']), $transition, $usage);
     }
 
     /**
@@ -95,11 +103,11 @@ final readonly class SpriteType implements JsonSerializable
             static fn (string $keyword) => $keyword !== '' && $keyword !== $name,
         )));
 
-        return new self($this->category, $name, $keywords, $this->description, $this->transition);
+        return new self($this->category, $name, $keywords, $this->description, $this->transition, $this->usage);
     }
 
     /**
-     * @return array{category: string, name: string, keywords: list<string>, description: string, transition: bool|null}
+     * @return array{category: string, name: string, keywords: list<string>, description: string, transition: bool|null, usage: string|null}
      */
     #[Override]
     public function jsonSerialize(): array
@@ -110,6 +118,7 @@ final readonly class SpriteType implements JsonSerializable
             'keywords' => $this->keywords,
             'description' => $this->description,
             'transition' => $this->transition,
+            'usage' => $this->usage?->value,
         ];
     }
 }
