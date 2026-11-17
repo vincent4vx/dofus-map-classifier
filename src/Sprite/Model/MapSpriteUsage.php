@@ -22,6 +22,9 @@ final class MapSpriteUsage
     /** @var array<int, int> Number of cells using the sprite, indexed by the movement of the cell (the background has no cell) */
     public private(set) array $movements = [];
 
+    /** @var array<string, array<string, NeighborCounts>> Neighbors of the cells using the sprite, indexed by layer value, then {@see Orientation::key()} */
+    public private(set) array $neighbors = [];
+
     public function __construct(
         public readonly SpriteSet $set,
         public readonly int $id,
@@ -52,5 +55,18 @@ final class MapSpriteUsage
         if ($movement !== null) {
             $this->movements[$movement] = ($this->movements[$movement] ?? 0) + 1;
         }
+    }
+
+    /**
+     * Count the neighbors around a cell using the sprite, on the same layer
+     * The cell itself must also be counted with {@see addCell()}
+     *
+     * @param Orientation $orientation Orientation of the sprite on the cell
+     * @param array<string, OrientedSprite> $neighbors Sprites on the cells around, on the same layer, indexed by {@see \MapClassifier\Map\Model\CellOffset::key()}
+     */
+    public function addNeighbors(Layer $layer, Orientation $orientation, array $neighbors): void
+    {
+        $this->neighbors[$layer->value][$orientation->key()] ??= new NeighborCounts($orientation);
+        $this->neighbors[$layer->value][$orientation->key()]->addCell($neighbors);
     }
 }

@@ -60,7 +60,7 @@ final class SpriteExporterTest extends TestCase
         $this->assertStringStartsWith('{"grounds":{"0":{"id":0,', $json, 'Sprites are indexed by id, even if sequential');
 
         $data = json_decode($json, true);
-        $this->assertSame(['id', 'layer', 'slope', 'occurrences', 'maps', 'classified_maps', 'areas', 'sub_areas', 'biomes', 'indoor', 'location_types', 'movements', 'interactive', 'image', 'type'], array_keys($data['objects']['7511']));
+        $this->assertSame(['id', 'layer', 'slope', 'occurrences', 'maps', 'classified_maps', 'areas', 'sub_areas', 'biomes', 'indoor', 'location_types', 'movements', 'neighbors', 'interactive', 'image', 'type'], array_keys($data['objects']['7511']));
         $this->assertSame(['image' => 'objects/7511.png', 'width' => 20, 'height' => 30, 'frames' => 1], $data['objects']['7511']['image']);
         $this->assertNull($data['objects']['12']['image'], 'Not exported');
         $this->assertTrue($data['grounds']['0']['slope']);

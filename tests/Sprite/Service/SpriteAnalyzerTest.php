@@ -8,10 +8,15 @@ use MapClassifier\Location\Model\MapLocation;
 use MapClassifier\Map\Classification\Model\MapClassification;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
+use MapClassifier\Map\Model\CellOffset;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\MapSprites;
+use MapClassifier\Sprite\Model\Neighbor;
+use MapClassifier\Sprite\Model\Orientation;
+use MapClassifier\Sprite\Model\OrientationNeighbors;
+use MapClassifier\Sprite\Model\OrientedSprite;
 use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
@@ -114,6 +119,7 @@ final class SpriteAnalyzerTest extends TestCase
             'indoor' => [],
             'location_types' => [],
             'movements' => [],
+            'neighbors' => [],
             'interactive' => null,
         ], json_decode((string) json_encode($profiles->get(SpriteSet::Objects, 7)), true));
     }
@@ -169,6 +175,40 @@ final class SpriteAnalyzerTest extends TestCase
         $this->assertSame([0 => 0.25, 4 => 0.5, 7 => 0.25], $profiles->get(SpriteSet::Grounds, 1)?->movements, 'Frequencies of the 4 ground cells, sorted by movement');
         $this->assertSame([0 => 0.5, 4 => 0.5], $profiles->get(SpriteSet::Objects, 1)?->movements, 'Both object layers');
         $this->assertSame([], $profiles->get(SpriteSet::Grounds, 2)?->movements, 'Background only: no cell');
+    }
+
+    public function testNeighbors(): void
+    {
+        $analyzer = new SpriteAnalyzer([], []);
+        $wall = new OrientedSprite(1);
+        $flipped = new Orientation(0, true);
+
+        foreach ([1, 2] as $mapId) {
+            $map = new MapSprites();
+
+            foreach ([['3,-3' => $wall], ['-3,3' => $wall], []] as $neighbors) {
+                $map->addCell(Layer::Layer2, 1);
+                $map->addNeighbors(Layer::Layer2, 1, new Orientation(), $neighbors);
+            }
+
+            $map->addCell(Layer::Layer2, 1);
+            $map->addNeighbors(Layer::Layer2, 1, $flipped, ['1,0' => new OrientedSprite(2)]);
+            // Not the main layer: ignored
+            $map->addCell(Layer::Layer1, 1);
+            $map->addNeighbors(Layer::Layer1, 1, new Orientation(), ['0,1' => new OrientedSprite(3)]);
+            $analyzer->add($mapId, $map);
+        }
+
+        $profile = $analyzer->profiles()->get(SpriteSet::Objects, 1);
+
+        $this->assertNotNull($profile);
+        $this->assertEquals([
+            new OrientationNeighbors(new Orientation(), 6, [
+                new Neighbor(new CellOffset(-3, 3), $wall, 2, 0.3333),
+                new Neighbor(new CellOffset(3, -3), $wall, 2, 0.3333),
+            ]),
+            new OrientationNeighbors($flipped, 2, [new Neighbor(new CellOffset(1, 0), new OrientedSprite(2), 2, 1.0)]),
+        ], $profile->neighbors, 'Main layer only, sorted by number of cells');
     }
 
     public function testBiomeFallbackOnSubArea(): void

@@ -20,7 +20,7 @@ use function is_array;
  *
  * JSON (sprite_profiles.json): {"id", "layer", "slope", "occurrences", "maps", "classified_maps",
  * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: {@see UsageCount}}, "indoor": {"indoor" | "outdoor": {@see UsageCount}},
- * "location_types": {type: {@see UsageCount}}, "movements": {movement: frequency}, "interactive": {@see InteractiveObject} | null}
+ * "location_types": {type: {@see UsageCount}}, "movements": {movement: frequency}, "neighbors": [{@see OrientationNeighbors}], "interactive": {@see InteractiveObject} | null}
  */
 final readonly class SpriteProfile implements JsonSerializable
 {
@@ -54,6 +54,11 @@ final readonly class SpriteProfile implements JsonSerializable
          *     (0: not walkable, 1: interactive object, 2 to 7: walkable). Empty for a sprite only used as background
          */
         public array $movements = [],
+        /**
+         * @var list<OrientationNeighbors> Frequent neighbors on the main layer, for each orientation of the sprite, sorted by number of cells desc.
+         *     Empty for a sprite only used as background
+         */
+        public array $neighbors = [],
     ) {}
 
     /**
@@ -84,6 +89,10 @@ final readonly class SpriteProfile implements JsonSerializable
             interactive: is_array($data['interactive'] ?? null) ? InteractiveObject::fromArray($data['interactive']) : null,
             slope: ($data['slope'] ?? false) === true,
             movements: array_map(floatval(...), is_array($data['movements'] ?? null) ? $data['movements'] : []),
+            neighbors: array_values(array_map(
+                static fn (mixed $value) => OrientationNeighbors::fromArray(is_array($value) ? $value : []),
+                is_array($data['neighbors'] ?? null) ? $data['neighbors'] : [],
+            )),
         );
     }
 
@@ -106,6 +115,7 @@ final readonly class SpriteProfile implements JsonSerializable
             'indoor' => (object) $this->indoor,
             'location_types' => (object) $this->locationTypes,
             'movements' => (object) $this->movements,
+            'neighbors' => $this->neighbors,
             'interactive' => $this->interactive,
         ];
     }

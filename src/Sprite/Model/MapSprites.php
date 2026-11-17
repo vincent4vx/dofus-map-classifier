@@ -36,6 +36,18 @@ final class MapSprites implements IteratorAggregate, Countable
         $this->usages[$set->value][$id]->addCell($layer, $sloped, $movement);
     }
 
+    /**
+     * Count the neighbors around a cell using the sprite, on the same layer (see {@see MapSpriteUsage::addNeighbors()})
+     *
+     * @param array<string, OrientedSprite> $neighbors Indexed by {@see \MapClassifier\Map\Model\CellOffset::key()}
+     */
+    public function addNeighbors(Layer $layer, int $id, Orientation $orientation, array $neighbors): void
+    {
+        $set = $layer->spriteSet();
+        $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
+        $this->usages[$set->value][$id]->addNeighbors($layer, $orientation, $neighbors);
+    }
+
     public function get(SpriteSet $set, int $id): ?MapSpriteUsage
     {
         return $this->usages[$set->value][$id] ?? null;

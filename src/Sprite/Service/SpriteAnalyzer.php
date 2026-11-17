@@ -103,10 +103,11 @@ final class SpriteAnalyzer
 
             foreach ($sprites as $id => $stats) {
                 $spriteSet = SpriteSet::from($set);
+                $layer = $stats->mainLayer();
                 $profiles[] = new SpriteProfile(
                     set: $spriteSet,
                     id: $id,
-                    layer: $stats->mainLayer(),
+                    layer: $layer,
                     occurrences: $stats->occurrences(),
                     maps: $stats->maps,
                     classifiedMaps: $stats->classifiedMaps,
@@ -118,6 +119,7 @@ final class SpriteAnalyzer
                     interactive: $spriteSet === SpriteSet::Objects ? ($this->interactiveObjects[$id] ?? null) : null,
                     slope: $this->slope($spriteSet, $id, $stats),
                     movements: $stats->movementFrequencies(),
+                    neighbors: $stats->neighbors($layer),
                 );
             }
         }

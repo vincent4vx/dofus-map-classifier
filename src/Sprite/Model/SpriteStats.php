@@ -9,8 +9,11 @@ use MapClassifier\Map\Classification\Model\Biome;
 use MapClassifier\Map\Classification\Model\MapClassification;
 
 use function array_sum;
+use function array_map;
+use function array_values;
 use function ksort;
 use function round;
+use function uasort;
 
 /**
  * Usage of a sprite, accumulated over the maps using it (see {@see \MapClassifier\Sprite\Service\SpriteAnalyzer})
@@ -51,6 +54,9 @@ final class SpriteStats
     /** @var array<int, int> Number of cells using the sprite, indexed by the movement of the cell */
     public private(set) array $movements = [];
 
+    /** @var array<string, array<string, NeighborCounts>> Neighbors of the cells using the sprite, indexed by layer value, then {@see Orientation::key()} */
+    private array $neighbors = [];
+
     /**
      * Count a map using the sprite: its usage on the map, and the map attributes. Must be called once per map.
      *
@@ -72,6 +78,12 @@ final class SpriteStats
 
         foreach ($usage->movements as $movement => $count) {
             $this->movements[$movement] = ($this->movements[$movement] ?? 0) + $count;
+        }
+
+        foreach ($usage->neighbors as $layer => $orientations) {
+            foreach ($orientations as $key => $counts) {
+                ($this->neighbors[$layer][$key] ??= new NeighborCounts($counts->orientation))->merge($counts);
+            }
         }
 
         if ($location !== null) {
@@ -129,6 +141,20 @@ final class SpriteStats
         ksort($frequencies);
 
         return $frequencies;
+    }
+
+    /**
+     * Frequent neighbors of the sprite on the given layer, for each orientation, sorted by number of cells desc
+     *
+     * @return list<OrientationNeighbors>
+     */
+    public function neighbors(Layer $layer): array
+    {
+        $orientations = $this->neighbors[$layer->value] ?? [];
+        ksort($orientations);
+        uasort($orientations, static fn (NeighborCounts $a, NeighborCounts $b) => $b->cells <=> $a->cells);
+
+        return array_values(array_map(static fn (NeighborCounts $counts) => $counts->result(), $orientations));
     }
 
     /**

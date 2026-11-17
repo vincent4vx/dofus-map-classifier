@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests\Sprite\Repository;
 
+use MapClassifier\Map\Model\CellOffset;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
+use MapClassifier\Sprite\Model\Neighbor;
+use MapClassifier\Sprite\Model\Orientation;
+use MapClassifier\Sprite\Model\OrientationNeighbors;
+use MapClassifier\Sprite\Model\OrientedSprite;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteProfiles;
 use MapClassifier\Sprite\Model\SpriteSet;
@@ -29,7 +34,9 @@ final class SpriteProfileRepositoryTest extends TestCase
         $this->assertFalse($repository->exists());
 
         $profiles = SpriteProfiles::of([
-            new SpriteProfile(SpriteSet::Objects, 7511, Layer::Layer2, 3, 1, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1)),
+            new SpriteProfile(SpriteSet::Objects, 7511, Layer::Layer2, 3, 1, 0, [], [], [], [], [], new InteractiveObject(38, 'Wheat', 1), neighbors: [
+                new OrientationNeighbors(new Orientation(0, true), 3, [new Neighbor(new CellOffset(0, 1), new OrientedSprite(7512, new Orientation(1)), 2, 0.6667)]),
+            ]),
             new SpriteProfile(SpriteSet::Grounds, 0, Layer::Ground, 5, 2, 1, [new LocationUsage(1, 'Area', 2)], [], ['plain' => new UsageCount(1, 5)], ['outdoor' => new UsageCount(1, 5)], ['wild' => new UsageCount(1, 5)], slope: true, movements: [0 => 0.25, 4 => 0.75]),
         ]);
 

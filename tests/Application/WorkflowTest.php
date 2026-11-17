@@ -16,6 +16,7 @@ use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
+use function array_column;
 use function array_diff_key;
 use function array_find;
 use function array_key_first;
@@ -177,6 +178,13 @@ final class WorkflowTest extends TestCase
             $this->assertArrayHasKey('interactive', $profile);
             // A sprite only used as background has no cell, so no movement
             $this->assertEqualsWithDelta($profile['layer'] === 'background' ? 0.0 : 1.0, array_sum($profile['movements']), 0.001, 'Movement frequencies');
+            // Neighbors on the cell layers, with one entry per orientation of the sprite on its main layer
+            if ($profile['layer'] !== 'background') {
+                $this->assertNotEmpty($profile['neighbors']);
+                $this->assertLessThanOrEqual($profile['occurrences'], array_sum(array_column($profile['neighbors'], 'cells')));
+            } else {
+                $this->assertSame([], $profile['neighbors']);
+            }
         }
 
         // Export used sprites to SVG

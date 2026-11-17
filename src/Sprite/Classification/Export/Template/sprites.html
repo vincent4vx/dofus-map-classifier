@@ -31,6 +31,15 @@
     .kw:hover { background: #ffe3a0; }
     .io { background: #2a7a3b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
     .context { background: #eef6ee; border-radius: 3px; padding: 1px 5px; }
+    /* Neighbors: cells around the sprite drawn as isometric diamonds, 4 cells on each axis */
+    .neighbors { display: inline-grid; grid-template-columns: repeat(18, 7px); grid-template-rows: repeat(18, 4px); margin: 2px 8px 2px 0; vertical-align: top; }
+    .neighbors > * { grid-column-end: span 2; grid-row-end: span 2; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); background: #e4e4e4; }
+    .neighbors .self { background: #333; }
+    .neighbors .same { background: rgb(40, 110, 200, var(--f)); }
+    .neighbors .other { background: rgb(230, 130, 20, var(--f)); }
+    .nb { display: inline-flex; align-items: center; gap: 2px; border: 0; background: #eee; border-radius: 3px; padding: 0 4px 0 0; margin: 1px; font: inherit; cursor: pointer; }
+    .nb img { height: 20px; max-width: 30px; }
+    .nb:hover { background: #ffe3a0; }
     .slope { background: #8a5a2b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; font-weight: normal; }
 </style>
 </head>
@@ -38,8 +47,9 @@
 <header>
     <h1>Map sprites</h1>
     <form id="filters" onsubmit="return false">
-        <input type="search" name="q" placeholder="Search id, name, category, keyword, interactive object…" autofocus>
+        <input type="search" name="q" placeholder="Search id (o123, g45), name, category, keyword, interactive object…" autofocus>
         <select name="category"><option value="">All categories</option>{{categories}}<option value="none">(not classified)</option></select>
+        <select name="neighbors"><option value="">Composed or not</option><option value="composed">Frequent neighbor (&ge; 50%)</option><option value="single">No frequent neighbor</option></select>
         <select name="interactive"><option value="">Interactive or not</option><option value="any">Interactive objects</option>{{interactiveOptions}}<option value="none">Not interactive</option></select>
         <select name="set"><option value="">All sets</option><option value="grounds">grounds</option><option value="objects">objects</option></select>
         <select name="layer"><option value="">All layers</option>{{layers}}</select>
@@ -70,6 +80,8 @@
             ...s,
             set,
             name,
+            // Highest frequency of a neighbor: a sprite often next to the same sprite is likely a part of a composed object
+            linked: Math.max(0, ...(s.neighbors ?? []).flatMap(o => o.neighbors.map(n => n.frequency))),
             // Search only on the sprite identity and type: other attributes have their own filter
             search: [
                 name,
@@ -100,6 +112,40 @@
     const movementName = m => m === '0' ? 'blocked' : m === '1' ? 'interactive' : 'walkable ' + m;
     const movements = obj => Object.entries(obj).map(([m, f]) => '<span class="chip" title="Movement ' + m + '">' + movementName(m) + ' <b>' + Math.round(f * 100) + '%</b></span>').join('');
 
+    // Neighbors on the same layer, for each orientation, at an offset in cell coordinates (x to the south east, y to the south west)
+    const RADIUS = 4;
+    const MIN_NEIGHBOR = 0.1;
+    const orientationName = o => [o.rotation ? 'rotation ' + o.rotation : '', o.flip ? 'flipped' : ''].filter(Boolean).join(', ') || 'default';
+    const thumb = (set, id, o) => {
+        const image = data[set]?.[id]?.image;
+
+        return image ? '<img loading="lazy" src="' + esc(SPRITES + '/' + image.image) + '" alt=""' + (o.flip ? ' style="transform: scaleX(-1)"' : '') + '>' : '';
+    };
+    // Map of the cells around the sprite: the most frequent neighbor of each cell, blue if it is the same sprite, opacity by frequency
+    const neighborsMap = (i, o) => {
+        const top = {};
+        o.neighbors.forEach(n => top[n.x + ',' + n.y] ??= n);
+        const cell = (x, y, content) => '<span style="grid-column-start: ' + (x - y + 2 * RADIUS + 1) + '; grid-row-start: ' + (x + y + 2 * RADIUS + 1) + content;
+        let html = '';
+
+        for (let x = -RADIUS; x <= RADIUS; x++) {
+            for (let y = -RADIUS; y <= RADIUS; y++) {
+                const n = top[x + ',' + y];
+                html += !x && !y ? cell(x, y, '" class="self" title="' + i.name + '"></span>')
+                    : n ? cell(x, y, '; --f: ' + (0.25 + 0.75 * n.frequency) + '" class="' + (n.id === i.id ? 'same' : 'other') + '" title="' + esc(i.name[0] + n.id + ' at ' + x + ',' + y + ': ' + Math.round(n.frequency * 100) + '%') + '"></span>')
+                    : cell(x, y, '"></span>');
+            }
+        }
+
+        return '<span class="neighbors">' + html + '</span>';
+    };
+    const neighborButton = (i, n) => '<button type="button" class="nb" data-q="' + i.name[0] + n.id + '" title="'
+        + esc(i.name[0] + n.id + ' (' + orientationName(n) + ') at ' + n.x + ',' + n.y + ' on ' + n.count + ' cells') + '">'
+        + thumb(i.set, n.id, n) + n.x + ',' + n.y + ' <b>' + Math.round(n.frequency * 100) + '%</b></button>';
+    // Orientations with neighbors, up to 2: map and the most frequent neighbors
+    const neighbors = i => (i.neighbors ?? []).filter(o => o.neighbors.length).slice(0, 2).map(o => '<p><span class="label">Neighbors · '
+        + esc(orientationName(o)) + ' · ' + o.cells + ' cells</span><br>' + neighborsMap(i, o) + o.neighbors.slice(0, 6).map(n => neighborButton(i, n)).join('') + '</p>').join('');
+
     // Usage of the sprite in the context of each active filter (each filter is independent: their counts are not combined)
     const NO_USAGE = {maps: 0, occurrences: 0};
     let filters = {};
@@ -123,6 +169,7 @@
             + (i.areas.length ? '<p><span class="label">Areas</span> ' + list(i.areas, 4) + '</p>' : '')
             + (i.sub_areas.length ? '<p><span class="label">Sub areas</span> ' + list(i.sub_areas, 4) + '</p>' : '')
             + (Object.keys(i.movements).length ? '<p><span class="label">Cells</span> ' + movements(i.movements) + '</p>' : '')
+            + neighbors(i)
             + (i.classified_maps ? '<p><span class="label">' + i.classified_maps + ' classified maps</span> ' + chips(i.indoor) + chips(i.location_types) + '</p>' : '')
             + '</div></article>';
     }
@@ -141,6 +188,7 @@
         matching = items.filter(i => (!f.set || i.set === f.set)
             && (!f.layer || i.layer === f.layer)
             && (!f.slope || i.slope === (f.slope === 'slope'))
+            && (!f.neighbors || (i.linked >= 0.5) === (f.neighbors === 'composed'))
             && (!f.interactive || (f.interactive === 'any' ? i.interactive : f.interactive === 'none' ? !i.interactive : i.interactive && i.interactive.type === f.interactive))
             && (!f.category || (f.category === 'none' ? !i.type : i.type && i.type.category === f.category))
             && (!f.biome || f.biome in i.biomes)
@@ -148,7 +196,8 @@
             && (!f.indoor || f.indoor in i.indoor)
             && (!f.location || f.location in i.location_types)
             && i.maps >= min
-            && words.every(w => i.search.includes(w)));
+            // A sprite name (e.g. o123) is matched exactly, to find a sprite without the ones starting with the same digits
+            && words.every(w => /^[go]\d+$/.test(w) ? i.name === w : i.search.includes(w)));
 
         // Sort by the usage in the context of the filters
         const value = {maps: i => scope(i).maps, occurrences: i => scope(i).occurrences, frequency: i => perMap(scope(i))}[f.sort];
@@ -174,8 +223,10 @@
     form.addEventListener('reset', () => setTimeout(apply));
     more.addEventListener('click', showMore);
     main.addEventListener('click', e => {
-        if (e.target.classList.contains('kw')) {
-            form.q.value = e.target.textContent;
+        const neighbor = e.target.closest('.nb');
+
+        if (e.target.classList.contains('kw') || neighbor) {
+            form.q.value = neighbor ? neighbor.dataset.q : e.target.textContent;
             apply();
             window.scrollTo({ top: 0 });
         }
