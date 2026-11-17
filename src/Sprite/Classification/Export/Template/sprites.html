@@ -44,6 +44,7 @@
     .nb img { height: 20px; max-width: 30px; }
     .nb:hover { background: #ffe3a0; }
     .usage { background: #6a4a9a; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
+    .orientation { background: #555; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
     .transition { background: #2b6f8a; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
     .slope { background: #8a5a2b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; font-weight: normal; }
 </style>
@@ -55,6 +56,7 @@
         <input type="search" name="q" placeholder="Search id (o123, g45), name, category, keyword, interactive object…" autofocus>
         <select name="category"><option value="">All categories</option>{{categories}}<option value="none">(not classified)</option></select>
         <select name="usage"><option value="">All usages</option>{{usages}}<option value="none">(no usage)</option></select>
+        <select name="orientation"><option value="">All orientations</option>{{orientations}}<option value="none">(no orientation)</option></select>
         <select name="transition"><option value="">Transition or not</option><option value="yes">Transitions</option><option value="no">Not transitions</option></select>
         <select name="neighbors"><option value="">Composed or not</option><option value="composed">Frequent neighbor (&ge; 50%)</option><option value="single">No frequent neighbor</option></select>
         <select name="interactive"><option value="">Interactive or not</option><option value="any">Interactive objects</option>{{interactiveOptions}}<option value="none">Not interactive</option></select>
@@ -122,6 +124,8 @@
 
     // Neighbors on the same layer, for each orientation, at an offset in cell coordinates (x to the south east, y to the south west)
     const RADIUS = 4;
+    // Orientation of the sprite type (direction it points to, on the screen)
+    const ARROWS = {top: '↑', top_right: '↗', right: '→', bottom_right: '↘', bottom: '↓', bottom_left: '↙', left: '←', top_left: '↖'};
     const MIN_NEIGHBOR = 0.1;
     const orientationName = o => [o.rotation ? 'rotation ' + o.rotation : '', o.flip ? 'flipped' : ''].filter(Boolean).join(', ') || 'default';
     const thumb = (set, id, o) => {
@@ -173,6 +177,7 @@
             + contexts(i).map(([name, usage]) => '<p class="context"><span class="label">' + esc(name) + '</span> ' + describe(usage) + '</p>').join('')
             + (i.type ? '<p class="type"><b>' + esc(i.type.name) + '</b> <span class="cat">' + esc(i.type.category) + '</span>'
                 + (i.type.usage ? ' <span class="usage" title="Usage on the maps">' + esc(i.type.usage.replace('_', ' ')) + '</span>' : '')
+                + (i.type.orientation ? ' <span class="orientation" title="Orientation: ' + esc(i.type.orientation.replace('_', ' ')) + '">' + ARROWS[i.type.orientation] + '</span>' : '')
                 + (i.type.transition ? ' <span class="transition" title="Transition from an environment or material to another">transition</span>' : '') + '</p>'
                 + '<p>' + i.type.keywords.map(k => '<button type="button" class="kw">' + esc(k) + '</button>').join('') + '</p>' : '')
             + (i.interactive ? '<p><span class="io" title="Interactive object (langs)">' + esc(i.interactive.type) + ': ' + esc(i.interactive.name) + '</span></p>' : '')
@@ -201,6 +206,7 @@
             && (!f.slope || i.slope === (f.slope === 'slope'))
             // Types found before the transition field (null) match neither value
             && (!f.usage || (f.usage === 'none' ? !i.type?.usage : i.type?.usage === f.usage))
+            && (!f.orientation || (f.orientation === 'none' ? !i.type?.orientation : i.type?.orientation === f.orientation))
             && (!f.transition || i.type?.transition === (f.transition === 'yes'))
             && (!f.neighbors || (i.linked >= 0.5) === (f.neighbors === 'composed'))
             && (!f.interactive || (f.interactive === 'any' ? i.interactive : f.interactive === 'none' ? !i.interactive : i.interactive && i.interactive.type === f.interactive))

@@ -57,7 +57,7 @@ final class SpriteStats
     /** @var array<string, array<string, NeighborCounts>> Neighbors of the cells using the sprite, indexed by layer value, then {@see Orientation::key()} */
     private array $neighbors = [];
 
-    /** @var array<string, array{map: int, cell: int, cells: int, distance: float}> Best example of each layer (see {@see example()}), indexed by layer value */
+    /** @var array<string, array{map: int, cell: int, orientation: Orientation, cells: int, distance: float}> Best example of each layer (see {@see example()}), indexed by layer value */
     private array $examples = [];
 
     /** Sum, over the maps using the sprite as ground, of the ratio of the ground cells of the map using the sprite */
@@ -186,7 +186,7 @@ final class SpriteStats
     {
         $example = $this->examples[$layer->value] ?? null;
 
-        return $example !== null ? new SpriteExample($example['map'], $example['cell']) : null;
+        return $example !== null ? new SpriteExample($example['map'], $example['cell'], $example['orientation']) : null;
     }
 
     /**
@@ -208,12 +208,12 @@ final class SpriteStats
 
     private function addExample(MapSpriteUsage $usage, int $mapId): void
     {
-        foreach ($usage->centralCells as $layer => [$cellId, $distance]) {
+        foreach ($usage->centralCells as $layer => [$cellId, $distance, $orientation]) {
             $cells = $usage->cells[$layer] ?? 0;
             $best = $this->examples[$layer] ?? null;
 
             if ($best === null || $cells > $best['cells'] || ($cells === $best['cells'] && $distance < $best['distance'])) {
-                $this->examples[$layer] = ['map' => $mapId, 'cell' => $cellId, 'cells' => $cells, 'distance' => $distance];
+                $this->examples[$layer] = ['map' => $mapId, 'cell' => $cellId, 'orientation' => $orientation, 'cells' => $cells, 'distance' => $distance];
             }
         }
     }

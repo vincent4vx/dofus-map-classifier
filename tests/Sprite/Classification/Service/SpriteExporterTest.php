@@ -64,7 +64,7 @@ final class SpriteExporterTest extends TestCase
         $this->assertSame(['image' => 'objects/7511.png', 'width' => 20, 'height' => 30, 'frames' => 1], $data['objects']['7511']['image']);
         $this->assertNull($data['objects']['12']['image'], 'Not exported');
         $this->assertTrue($data['grounds']['0']['slope']);
-        $this->assertSame(['category' => 'crop', 'name' => 'wheat', 'keywords' => ['cereal', 'wheat stalks', 'resource'], 'description' => 'Wheat.', 'transition' => null, 'usage' => null], $data['objects']['7511']['type']);
+        $this->assertSame(['category' => 'crop', 'name' => 'wheat', 'keywords' => ['cereal', 'wheat stalks', 'resource'], 'description' => 'Wheat.', 'transition' => null, 'usage' => null, 'orientation' => null], $data['objects']['7511']['type']);
         $this->assertNull($data['objects']['12']['type']);
     }
 }

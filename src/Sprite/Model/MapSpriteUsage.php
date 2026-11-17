@@ -6,8 +6,6 @@ namespace MapClassifier\Sprite\Model;
 
 use function array_sum;
 
-use const INF;
-
 /**
  * Usage of a sprite on a map (see {@see \MapClassifier\Sprite\Service\MapSpriteExtractor})
  *
@@ -27,7 +25,11 @@ final class MapSpriteUsage
     /** @var array<string, array<string, NeighborCounts>> Neighbors of the cells using the sprite, indexed by layer value, then {@see Orientation::key()} */
     public private(set) array $neighbors = [];
 
-    /** @var array<string, array{int, float}> Cell using the sprite the closest to the center of the map, with its distance, indexed by layer value */
+    /**
+     * @var array<string, array{int, float, Orientation}> Cell using the sprite the closest to the center of the map, with its distance and the orientation
+     *     of the sprite, indexed by layer value. A cell with the sprite drawn as default (not rotated, not flipped) is preferred, so the sprite is shown
+     *     on the map as on its own image
+     */
     public private(set) array $centralCells = [];
 
     public function __construct(
@@ -50,13 +52,20 @@ final class MapSpriteUsage
      * @param int|null $movement Movement of the cell (0: not walkable, 1: interactive object, 2 to 7: walkable), null for the background
      * @param int|null $cellId Id of the cell, null for the background
      * @param float $centerDistance Distance between the cell and the center of the map
+     * @param Orientation $orientation Rotation and flip of the sprite on the cell
      */
-    public function addCell(Layer $layer, bool $sloped = false, ?int $movement = null, ?int $cellId = null, float $centerDistance = 0.0): void
+    public function addCell(Layer $layer, bool $sloped = false, ?int $movement = null, ?int $cellId = null, float $centerDistance = 0.0, Orientation $orientation = new Orientation()): void
     {
         $this->cells[$layer->value] = ($this->cells[$layer->value] ?? 0) + 1;
 
-        if ($cellId !== null && $centerDistance < ($this->centralCells[$layer->value][1] ?? INF)) {
-            $this->centralCells[$layer->value] = [$cellId, $centerDistance];
+        if ($cellId !== null) {
+            $current = $this->centralCells[$layer->value] ?? null;
+            $default = $orientation->rotation === 0 && !$orientation->flip;
+            $currentDefault = $current !== null && $current[2]->rotation === 0 && !$current[2]->flip;
+
+            if ($current === null || ($default && !$currentDefault) || ($default === $currentDefault && $centerDistance < $current[1])) {
+                $this->centralCells[$layer->value] = [$cellId, $centerDistance, $orientation];
+            }
         }
 
         if ($sloped) {

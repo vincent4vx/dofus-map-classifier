@@ -13,6 +13,7 @@ use function imagecolorallocate;
 use function imagecolorat;
 use function imagecreatetruecolor;
 use function imagefill;
+use function imagesetpixel;
 
 final class SpriteExampleRendererTest extends TestCase
 {
@@ -37,6 +38,21 @@ final class SpriteExampleRendererTest extends TestCase
 
         $this->assertSame(0x008000, imagecolorat($framed, 40, 30), 'Sprite not covered');
         $this->assertSame(0x008000, imagecolorat($framed, 59, 39), 'Sprite not covered');
+    }
+
+    public function testFramedMirrored(): void
+    {
+        $image = imagecreatetruecolor(100, 80) ?: throw new RuntimeException();
+        imagefill($image, 0, 0, imagecolorallocate($image, 0, 128, 0) ?: 0);
+        imagesetpixel($image, 10, 10, imagecolorallocate($image, 255, 255, 255) ?: 0);
+
+        $framed = SpriteExampleRenderer::framed($image, new Rectangle(10, 30, 20, 10), true);
+
+        $this->assertSame(0xFFFFFF, imagecolorat($framed, 89, 10), 'Map mirrored');
+        // Frame from x = 5 to 34 before mirroring: from 65 to 94 after
+        $this->assertSame(self::MAGENTA, imagecolorat($framed, 94, 35));
+        $this->assertSame(self::MAGENTA, imagecolorat($framed, 65, 35));
+        $this->assertSame(0x008000, imagecolorat($framed, 5, 35));
     }
 
     public function testFramedOutOfTheImage(): void

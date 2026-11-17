@@ -52,8 +52,9 @@ final readonly class MapSpriteExtractor
                 if ($object !== null && $object->number > 0) {
                     // Flat ground has the slope 1 (0 is not valid)
                     $sloped = $layer === Layer::Ground && $cell->ground->slope > 1;
-                    $sprites->addCell($layer, $object->number, $sloped, $cell->movement, $cellId, $grid->distanceToCenter($cellId));
-                    $sprites->addNeighbors($layer, $object->number, Orientation::of($object), $this->neighbors($loaded->cells, $grid, $cellId, $layer));
+                    $orientation = Orientation::of($object);
+                    $sprites->addCell($layer, $object->number, $sloped, $cell->movement, $cellId, $grid->distanceToCenter($cellId), $orientation);
+                    $sprites->addNeighbors($layer, $object->number, $orientation, $this->neighbors($loaded->cells, $grid, $cellId, $layer));
                 }
             }
         }

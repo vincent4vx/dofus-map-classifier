@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace MapClassifier\Tests\Sprite\Classification\Service;
 
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteOrientation;
 use MapClassifier\Sprite\Classification\Model\SpriteUsage;
 use MapClassifier\Sprite\Classification\Service\SpriteTypePrompt;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
+use MapClassifier\Sprite\Model\Orientation;
+use MapClassifier\Sprite\Model\SpriteExample;
 use MapClassifier\Sprite\Model\LocationUsage;
 use MapClassifier\Sprite\Model\SpriteMetadata;
 use MapClassifier\Sprite\Model\SpriteProfile;
@@ -88,6 +91,19 @@ final class SpriteTypePromptTest extends TestCase
         $this->assertStringContainsString("\nAlso used on sloped ground cells (relief).", SpriteTypePrompt::context($profile, self::metadata(53.0, 27.0, SpriteSet::Grounds, 15)));
     }
 
+    public function testExampleContext(): void
+    {
+        $profile = static fn (Orientation $orientation) => new SpriteProfile(SpriteSet::Objects, 1, Layer::Layer2, 1, 1, 0, [], [], [], [], [], example: new SpriteExample(10, 20, $orientation));
+
+        $this->assertSame(SpriteTypePrompt::EXAMPLE_CONTEXT, SpriteTypePrompt::exampleContext($profile(new Orientation())));
+        $this->assertSame(SpriteTypePrompt::EXAMPLE_CONTEXT, SpriteTypePrompt::exampleContext($profile(new Orientation(0, true))), 'Flipped: the example map is mirrored');
+        $this->assertSame(
+            SpriteTypePrompt::EXAMPLE_CONTEXT . ' On this map, the sprite is drawn rotated by 2 quarter turns, unlike on the first image: give the orientation of the first image.',
+            SpriteTypePrompt::exampleContext($profile(new Orientation(2, true))),
+        );
+        $this->assertStringEndsWith('rotated by 1 quarter turn, unlike on the first image: give the orientation of the first image.', SpriteTypePrompt::exampleContext($profile(new Orientation(1))));
+    }
+
     public function testContextGroundShare(): void
     {
         $profile = new SpriteProfile(SpriteSet::Grounds, 69, Layer::Ground, 7, 3, 0, [], [], [], [], [], groundShare: 0.4235);
@@ -124,6 +140,9 @@ final class SpriteTypePromptTest extends TestCase
         $this->assertSame(['type' => 'boolean'], $schema['properties']['transition']);
         $this->assertStringContainsString('- transition: true if the sprite is a transition', SpriteTypePrompt::instructions());
         $this->assertArrayNotHasKey('usage', $schema['properties'], 'No layer: no usage');
+        $this->assertSame([...array_column(SpriteOrientation::cases(), 'value'), null], $schema['properties']['orientation']['enum'], 'Nullable');
+        $this->assertSame(['string', 'null'], $schema['properties']['orientation']['type']);
+        $this->assertStringContainsString('- orientation: the direction the sprite points to', SpriteTypePrompt::instructions());
 
         foreach (SpriteUsage::cases() as $usage) {
             $this->assertStringContainsString('    - ' . $usage->value . ': ' . $usage->description(), SpriteTypePrompt::instructions());

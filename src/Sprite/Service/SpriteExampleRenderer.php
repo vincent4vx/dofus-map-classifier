@@ -18,15 +18,19 @@ use function imagecreatefrompng;
 use function imagecreatetruecolor;
 use function imagecopy;
 use function imagefilledrectangle;
+use function imageflip;
 use function imagesx;
 use function imagesy;
 use function is_file;
 use function max;
 use function min;
 
+use const IMG_FLIP_HORIZONTAL;
+
 /**
  * Render the example map of the sprites: the map of {@see SpriteProfile::$example}, with a magenta frame around the sprite,
- * so the model can see the sprite in its context. Magenta is not used by the maps, so the frame cannot be mistaken for the map.
+ * so the model can see the sprite in its context. When the sprite is flipped on the map, the map is mirrored, so the sprite is shown
+ * in the same direction as on its own image (else the model gives the orientation of the flipped sprite). Magenta is not used by the maps, so the frame cannot be mistaken for the map.
  */
 final readonly class SpriteExampleRenderer
 {
@@ -105,7 +109,8 @@ final readonly class SpriteExampleRenderer
                     } elseif (($bounds = $this->renderer->spriteBounds($map, $cellId, $object)) === null) {
                         $report['failed'][$name] = 'Sprite not drawn on the map: empty or missing in the client';
                     } else {
-                        $this->examples->save($profile, self::framed($image, $bounds));
+                        // A flipped sprite is shown as on its own image (not flipped) by mirroring the whole map
+                        $this->examples->save($profile, self::framed($image, $bounds, $profile->example?->orientation->flip ?? false));
                         ++$report['rendered'];
                     }
 
@@ -122,8 +127,10 @@ final readonly class SpriteExampleRenderer
     /**
      * Copy of the image with a magenta frame around the area
      * The frame is kept inside the image, so it stays visible for a sprite on the border of the map
+     *
+     * @param bool $mirror Flip the result horizontally
      */
-    public static function framed(GdImage $image, Rectangle $area): GdImage
+    public static function framed(GdImage $image, Rectangle $area, bool $mirror = false): GdImage
     {
         $width = imagesx($image);
         $height = imagesy($image);
@@ -142,6 +149,10 @@ final readonly class SpriteExampleRenderer
         imagefilledrectangle($framed, $left, $bottom - $inner, $right, $bottom, $color);
         imagefilledrectangle($framed, $left, $top, $left + $inner, $bottom, $color);
         imagefilledrectangle($framed, $right - $inner, $top, $right, $bottom, $color);
+
+        if ($mirror) {
+            imageflip($framed, IMG_FLIP_HORIZONTAL);
+        }
 
         return $framed;
     }

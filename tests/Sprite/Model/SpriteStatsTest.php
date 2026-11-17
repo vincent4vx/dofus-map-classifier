@@ -6,6 +6,7 @@ namespace MapClassifier\Tests\Sprite\Model;
 
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\MapSpriteUsage;
+use MapClassifier\Sprite\Model\Orientation;
 use MapClassifier\Sprite\Model\SpriteExample;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Model\SpriteStats;
@@ -40,7 +41,7 @@ final class SpriteStatsTest extends TestCase
             $usage = new MapSpriteUsage(SpriteSet::Objects, 1);
 
             foreach ($cells as $cellId => $distance) {
-                $usage->addCell(Layer::Layer2, cellId: $cellId, centerDistance: $distance);
+                $usage->addCell(Layer::Layer2, cellId: $cellId, centerDistance: $distance, orientation: new Orientation(0, $cellId === 21));
             }
 
             return $usage;
@@ -50,7 +51,7 @@ final class SpriteStatsTest extends TestCase
         $this->assertEquals(new SpriteExample(1, 10), $stats->example(Layer::Layer2));
 
         $stats->addMap($map([20 => 300.0, 21 => 100.0, 22 => 200.0]), null, null, null, 2);
-        $this->assertEquals(new SpriteExample(2, 21), $stats->example(Layer::Layer2), 'Map with the most uses, cell the closest to the center');
+        $this->assertEquals(new SpriteExample(2, 22), $stats->example(Layer::Layer2), 'Map with the most uses, cell the closest to the center not flipped');
 
         $stats->addMap($map([30 => 90.0, 31 => 500.0, 32 => 400.0]), null, null, null, 3);
         $this->assertEquals(new SpriteExample(3, 30), $stats->example(Layer::Layer2), 'Same number of uses: the closest to the center');
@@ -61,6 +62,13 @@ final class SpriteStatsTest extends TestCase
         $stats->addMap($map([50 => 0.0, 51 => 0.0, 52 => 0.0, 53 => 0.0]), null, null, null);
         $this->assertEquals(new SpriteExample(3, 30), $stats->example(Layer::Layer2), 'Without map id: not used as example');
         $this->assertNull($stats->example(Layer::Layer1));
+
+        $flipped = new SpriteStats();
+        $usage = new MapSpriteUsage(SpriteSet::Objects, 1);
+        $usage->addCell(Layer::Layer2, cellId: 1, centerDistance: 300.0, orientation: new Orientation(0, true));
+        $usage->addCell(Layer::Layer2, cellId: 2, centerDistance: 100.0, orientation: new Orientation(0, true));
+        $flipped->addMap($usage, null, null, null, 5);
+        $this->assertEquals(new SpriteExample(5, 2, new Orientation(0, true)), $flipped->example(Layer::Layer2), 'Only flipped uses: the closest to the center');
     }
 
     public function testGroundShare(): void

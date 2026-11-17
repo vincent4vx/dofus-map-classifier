@@ -7,6 +7,7 @@ namespace MapClassifier\Sprite\Classification\Service;
 use Arakne\MapParser\Parser\Cell;
 use MapClassifier\Infrastructure\OpenAI\ResponsesRequest;
 use MapClassifier\Sprite\Classification\Model\SpriteCategory;
+use MapClassifier\Sprite\Classification\Model\SpriteOrientation;
 use MapClassifier\Sprite\Classification\Model\SpriteUsage;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\SpriteMetadata;
@@ -32,6 +33,19 @@ final readonly class SpriteTypePrompt
     /** Added to the context when the example map is sent */
     public const string EXAMPLE_CONTEXT = 'The second image is an example map using the sprite: the sprite is framed in magenta.';
 
+    /**
+     * Context of the example map: the sprite may be drawn rotated on the map, unlike on the first image
+     * A flipped sprite is not mentioned: the example map is mirrored to show it as on the first image (see {@see \MapClassifier\Sprite\Service\SpriteExampleRenderer})
+     */
+    public static function exampleContext(SpriteProfile $profile): string
+    {
+        $rotation = $profile->example?->orientation->rotation ?? 0;
+
+        return self::EXAMPLE_CONTEXT . ($rotation > 0
+            ? ' On this map, the sprite is drawn rotated by ' . $rotation . ' quarter turn' . ($rotation > 1 ? 's' : '') . ', unlike on the first image: give the orientation of the first image.'
+            : '');
+    }
+
     public function __construct(
         private string $model,
         private ?string $reasoningEffort = null,
@@ -49,7 +63,7 @@ final readonly class SpriteTypePrompt
         return ResponsesRequest::structured(
             $this->model,
             self::instructions(),
-            self::context($profile, $metadata) . ($exampleUrl !== null ? "\n" . self::EXAMPLE_CONTEXT : ''),
+            self::context($profile, $metadata) . ($exampleUrl !== null ? "\n" . self::exampleContext($profile) : ''),
             $exampleUrl !== null ? [$imageUrl, $exampleUrl] : [$imageUrl],
             'sprite_type',
             self::schema($profile->layer),
@@ -215,6 +229,12 @@ final readonly class SpriteTypePrompt
             {$layer1}
               layer2 (standing on the ground):
             {$layer2}
+            - orientation: the direction the sprite points to, on the screen, as drawn in the first image:
+              top, top_right, right, bottom_right, bottom, bottom_left, left or top_left. The maps are isometric: most objects face a diagonal direction.
+              For a transition, the direction of the other environment or material, the sprite being mostly the first one
+              (e.g. a tile mostly of water with grass at its bottom: bottom). For the other sprites, the direction it is used toward:
+              the door of a house, the seat of a chair, the front of a statue, sign or fireplace, the visible face of a wall or fence section.
+              null if the sprite has no clear orientation (symmetrical or round elements, plain tiles, trees, rocks…).
 
             Notes:
             - Sprites are often parts of larger elements (a wall section, a piece of roof, a corner of a carpet): name the part (e.g. "stone wall section").
@@ -236,13 +256,14 @@ final readonly class SpriteTypePrompt
         $schema = [
             'type' => 'object',
             'additionalProperties' => false,
-            'required' => ['category', 'name', 'keywords', 'description', 'transition'],
+            'required' => ['category', 'name', 'keywords', 'description', 'transition', 'orientation'],
             'properties' => [
                 'category' => ['type' => 'string', 'enum' => array_column(SpriteCategory::cases(), 'value')],
                 'name' => ['type' => 'string'],
                 'keywords' => ['type' => 'array', 'items' => ['type' => 'string']],
                 'description' => ['type' => 'string'],
                 'transition' => ['type' => 'boolean'],
+                'orientation' => ['type' => ['string', 'null'], 'enum' => [...array_column(SpriteOrientation::cases(), 'value'), null]],
             ],
         ];
 
