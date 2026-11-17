@@ -96,6 +96,10 @@
     const list = (locations, max) => locations.slice(0, max).map(l => chip(label(l), l)).join('')
         + (locations.length > max ? ' <span class="label">+' + (locations.length - max) + '</span>' : '');
 
+    // Movement of the cells: 0 not walkable, 1 interactive object, 2 to 7 walkable (bigger is preferred by the pathfinding)
+    const movementName = m => m === '0' ? 'blocked' : m === '1' ? 'interactive' : 'walkable ' + m;
+    const movements = obj => Object.entries(obj).map(([m, f]) => '<span class="chip" title="Movement ' + m + '">' + movementName(m) + ' <b>' + Math.round(f * 100) + '%</b></span>').join('');
+
     // Usage of the sprite in the context of each active filter (each filter is independent: their counts are not combined)
     const NO_USAGE = {maps: 0, occurrences: 0};
     let filters = {};
@@ -118,6 +122,7 @@
             + (Object.keys(i.biomes).length ? '<p><span class="label">Biomes</span> ' + chips(i.biomes) + '</p>' : '')
             + (i.areas.length ? '<p><span class="label">Areas</span> ' + list(i.areas, 4) + '</p>' : '')
             + (i.sub_areas.length ? '<p><span class="label">Sub areas</span> ' + list(i.sub_areas, 4) + '</p>' : '')
+            + (Object.keys(i.movements).length ? '<p><span class="label">Cells</span> ' + movements(i.movements) + '</p>' : '')
             + (i.classified_maps ? '<p><span class="label">' + i.classified_maps + ' classified maps</span> ' + chips(i.indoor) + chips(i.location_types) + '</p>' : '')
             + '</div></article>';
     }

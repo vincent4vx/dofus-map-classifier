@@ -117,6 +117,7 @@ final class SpriteAnalyzer
                     locationTypes: $this->filter($stats->locationTypes),
                     interactive: $spriteSet === SpriteSet::Objects ? ($this->interactiveObjects[$id] ?? null) : null,
                     slope: $this->slope($spriteSet, $id, $stats),
+                    movements: $stats->movementFrequencies(),
                 );
             }
         }

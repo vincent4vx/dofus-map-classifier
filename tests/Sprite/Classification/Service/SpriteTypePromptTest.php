@@ -44,7 +44,16 @@ final class SpriteTypePromptTest extends TestCase
             Sub areas: Village (40).
             Indoor / outdoor maps: outdoor (60).
             Kind of places: wild (40), road (20).
+            Map cells where it is placed: 80% blocked (not walkable), 20% walkable.
             TXT, SpriteTypePrompt::context($this->profile(), self::metadata(53.0, 27.5)));
+    }
+
+    public function testMovementsDescription(): void
+    {
+        $this->assertSame('54% walkable, 45% blocked (not walkable)', SpriteTypePrompt::movementsDescription([0 => 0.45118, 1 => 0.004048, 2 => 0.003104, 4 => 0.537199, 5 => 0.003328, 6 => 0.001093, 7 => 0.00005]));
+        $this->assertSame('100% blocked (not walkable)', SpriteTypePrompt::movementsDescription([0 => 1.0]));
+        $this->assertSame('60% interactive object, 40% walkable', SpriteTypePrompt::movementsDescription([1 => 0.6, 4 => 0.4]));
+        $this->assertSame('', SpriteTypePrompt::movementsDescription([]), 'Background only');
     }
 
     public function testContextInteractiveObject(): void
@@ -108,6 +117,7 @@ final class SpriteTypePromptTest extends TestCase
             biomes: ['plain' => new UsageCount(50, 150), 'forest' => new UsageCount(30, 40)],
             indoor: ['outdoor' => new UsageCount(60, 100)],
             locationTypes: ['wild' => new UsageCount(40, 70), 'road' => new UsageCount(20, 30)],
+            movements: [0 => 0.8, 4 => 0.15, 7 => 0.05],
         );
     }
 

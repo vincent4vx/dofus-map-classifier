@@ -27,12 +27,13 @@ final class MapSprites implements IteratorAggregate, Countable
      * Count a cell (or the background) using the sprite
      *
      * @param bool $sloped The cell is a ground cell with a slope
+     * @param int|null $movement Movement of the cell, null for the background
      */
-    public function addCell(Layer $layer, int $id, bool $sloped = false): void
+    public function addCell(Layer $layer, int $id, bool $sloped = false, ?int $movement = null): void
     {
         $set = $layer->spriteSet();
         $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
-        $this->usages[$set->value][$id]->addCell($layer, $sloped);
+        $this->usages[$set->value][$id]->addCell($layer, $sloped, $movement);
     }
 
     public function get(SpriteSet $set, int $id): ?MapSpriteUsage

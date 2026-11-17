@@ -16,7 +16,7 @@ use MapClassifier\Sprite\Model\MapSprites;
 use Throwable;
 
 /**
- * Extract the sprites used by a map, with their usage (cells per layer, slopes…)
+ * Extract the sprites used by a map, with their usage (cells per layer, slopes, movements…)
  */
 final readonly class MapSpriteExtractor
 {
@@ -53,15 +53,15 @@ final readonly class MapSpriteExtractor
         foreach ($loaded->cells as $cell) {
             if ($cell->ground->number > 0) {
                 // Flat ground has the slope 1 (0 is not valid)
-                $sprites->addCell(Layer::Ground, $cell->ground->number, $cell->ground->slope > 1);
+                $sprites->addCell(Layer::Ground, $cell->ground->number, $cell->ground->slope > 1, $cell->movement);
             }
 
             if ($cell->layer1->number > 0) {
-                $sprites->addCell(Layer::Layer1, $cell->layer1->number);
+                $sprites->addCell(Layer::Layer1, $cell->layer1->number, movement: $cell->movement);
             }
 
             if ($cell->layer2->number > 0) {
-                $sprites->addCell(Layer::Layer2, $cell->layer2->number);
+                $sprites->addCell(Layer::Layer2, $cell->layer2->number, movement: $cell->movement);
             }
         }
 

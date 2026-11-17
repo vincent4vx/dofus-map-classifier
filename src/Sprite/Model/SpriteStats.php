@@ -9,6 +9,8 @@ use MapClassifier\Map\Classification\Model\Biome;
 use MapClassifier\Map\Classification\Model\MapClassification;
 
 use function array_sum;
+use function ksort;
+use function round;
 
 /**
  * Usage of a sprite, accumulated over the maps using it (see {@see \MapClassifier\Sprite\Service\SpriteAnalyzer})
@@ -46,6 +48,9 @@ final class SpriteStats
     /** Number of ground cells with a slope (not flat) using the sprite */
     public private(set) int $slopedCells = 0;
 
+    /** @var array<int, int> Number of cells using the sprite, indexed by the movement of the cell */
+    public private(set) array $movements = [];
+
     /**
      * Count a map using the sprite: its usage on the map, and the map attributes. Must be called once per map.
      *
@@ -64,6 +69,10 @@ final class SpriteStats
         $occurrences = $usage->occurrences();
 
         $this->slopedCells += $usage->slopedCells;
+
+        foreach ($usage->movements as $movement => $count) {
+            $this->movements[$movement] = ($this->movements[$movement] ?? 0) + $count;
+        }
 
         if ($location !== null) {
             self::increment($this->subAreas, $location->subAreaId, $occurrences);
@@ -99,6 +108,27 @@ final class SpriteStats
         }
 
         return $main ?? Layer::Background;
+    }
+
+    /**
+     * Frequency of each movement on the cells using the sprite (0 to 1, sum of 1), sorted by movement
+     * The background has no cell: a sprite only used as background has no movement
+     *
+     * @return array<int, float>
+     */
+    public function movementFrequencies(): array
+    {
+        $total = array_sum($this->movements);
+        $frequencies = [];
+
+        foreach ($this->movements as $movement => $count) {
+            // 6 decimals: a single cell of a sprite used on a million cells is still visible
+            $frequencies[$movement] = round($count / $total, 6);
+        }
+
+        ksort($frequencies);
+
+        return $frequencies;
     }
 
     /**

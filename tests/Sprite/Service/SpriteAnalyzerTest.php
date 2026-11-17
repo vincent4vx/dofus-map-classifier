@@ -113,6 +113,7 @@ final class SpriteAnalyzerTest extends TestCase
             'biomes' => [],
             'indoor' => [],
             'location_types' => [],
+            'movements' => [],
             'interactive' => null,
         ], json_decode((string) json_encode($profiles->get(SpriteSet::Objects, 7)), true));
     }
@@ -144,6 +145,30 @@ final class SpriteAnalyzerTest extends TestCase
         $withoutRepository = new SpriteAnalyzer([], []);
         $withoutRepository->add(1, self::sprites(['ground' => [1 => 1]], [1 => 1]));
         $this->assertFalse($withoutRepository->profiles()->get(SpriteSet::Grounds, 1)?->slope);
+    }
+
+    public function testMovements(): void
+    {
+        $analyzer = new SpriteAnalyzer([], []);
+
+        $map1 = new MapSprites();
+        $map1->addCell(Layer::Ground, 1, movement: 4);
+        $map1->addCell(Layer::Ground, 1, movement: 4);
+        $map1->addCell(Layer::Ground, 1, movement: 0);
+        $map1->addCell(Layer::Layer2, 1, movement: 0);
+        $map1->addCell(Layer::Background, 2);
+        $analyzer->add(1, $map1);
+
+        $map2 = new MapSprites();
+        $map2->addCell(Layer::Ground, 1, movement: 7);
+        $map2->addCell(Layer::Layer1, 1, movement: 4);
+        $analyzer->add(2, $map2);
+
+        $profiles = $analyzer->profiles();
+
+        $this->assertSame([0 => 0.25, 4 => 0.5, 7 => 0.25], $profiles->get(SpriteSet::Grounds, 1)?->movements, 'Frequencies of the 4 ground cells, sorted by movement');
+        $this->assertSame([0 => 0.5, 4 => 0.5], $profiles->get(SpriteSet::Objects, 1)?->movements, 'Both object layers');
+        $this->assertSame([], $profiles->get(SpriteSet::Grounds, 2)?->movements, 'Background only: no cell');
     }
 
     public function testBiomeFallbackOnSubArea(): void

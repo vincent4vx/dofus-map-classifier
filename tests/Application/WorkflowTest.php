@@ -23,6 +23,7 @@ use function array_key_last;
 use function array_keys;
 use function array_map;
 use function array_slice;
+use function array_sum;
 use function copy;
 use function count;
 use function file_get_contents;
@@ -174,6 +175,8 @@ final class WorkflowTest extends TestCase
             $this->assertContains($profile['layer'], ['background', 'ground', 'layer1', 'layer2']);
             $this->assertArrayNotHasKey('super_areas', $profile);
             $this->assertArrayHasKey('interactive', $profile);
+            // A sprite only used as background has no cell, so no movement
+            $this->assertEqualsWithDelta($profile['layer'] === 'background' ? 0.0 : 1.0, array_sum($profile['movements']), 0.001, 'Movement frequencies');
         }
 
         // Export used sprites to SVG

@@ -8,6 +8,7 @@ use JsonSerializable;
 use Override;
 
 use function array_map;
+use function floatval;
 use function array_values;
 use function is_array;
 
@@ -19,7 +20,7 @@ use function is_array;
  *
  * JSON (sprite_profiles.json): {"id", "layer", "slope", "occurrences", "maps", "classified_maps",
  * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: {@see UsageCount}}, "indoor": {"indoor" | "outdoor": {@see UsageCount}},
- * "location_types": {type: {@see UsageCount}}, "interactive": {@see InteractiveObject} | null}
+ * "location_types": {type: {@see UsageCount}}, "movements": {movement: frequency}, "interactive": {@see InteractiveObject} | null}
  */
 final readonly class SpriteProfile implements JsonSerializable
 {
@@ -48,6 +49,11 @@ final readonly class SpriteProfile implements JsonSerializable
         public ?InteractiveObject $interactive = null,
         /** Ground sprite drawn on slopes: used on at least one sloped cell (slope other than 0 and 1, i.e. not flat), with one frame per slope value */
         public bool $slope = false,
+        /**
+         * @var array<int, float> Frequency (0 to 1) of each movement of the cells using the sprite, indexed by movement
+         *     (0: not walkable, 1: interactive object, 2 to 7: walkable). Empty for a sprite only used as background
+         */
+        public array $movements = [],
     ) {}
 
     /**
@@ -77,6 +83,7 @@ final readonly class SpriteProfile implements JsonSerializable
             locationTypes: $counts($data['location_types'] ?? null),
             interactive: is_array($data['interactive'] ?? null) ? InteractiveObject::fromArray($data['interactive']) : null,
             slope: ($data['slope'] ?? false) === true,
+            movements: array_map(floatval(...), is_array($data['movements'] ?? null) ? $data['movements'] : []),
         );
     }
 
@@ -98,6 +105,7 @@ final readonly class SpriteProfile implements JsonSerializable
             'biomes' => (object) $this->biomes,
             'indoor' => (object) $this->indoor,
             'location_types' => (object) $this->locationTypes,
+            'movements' => (object) $this->movements,
             'interactive' => $this->interactive,
         ];
     }

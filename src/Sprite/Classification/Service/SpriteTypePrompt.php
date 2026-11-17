@@ -17,8 +17,10 @@ use function array_column;
 use function array_keys;
 use function array_map;
 use function array_slice;
+use function arsort;
 use function implode;
 use function in_array;
+use function round;
 use function sprintf;
 
 /**
@@ -114,7 +116,41 @@ final readonly class SpriteTypePrompt
             $lines[] = 'Kind of places: ' . $counts($profile->locationTypes) . '.';
         }
 
+        if ($movements = self::movementsDescription($profile->movements)) {
+            $lines[] = 'Map cells where it is placed: ' . $movements . '.';
+        }
+
         return implode("\n", $lines);
+    }
+
+    /**
+     * Describe the movement of the cells using the sprite, grouped as walkable, blocked and interactive object
+     *
+     * @param array<int, float> $movements Frequency of each movement (0: not walkable, 1: interactive object, 2 to 7: walkable)
+     */
+    public static function movementsDescription(array $movements): string
+    {
+        $groups = ['walkable' => 0.0, 'blocked (not walkable)' => 0.0, 'interactive object' => 0.0];
+
+        foreach ($movements as $movement => $frequency) {
+            $groups[match ($movement) {
+                0 => 'blocked (not walkable)',
+                1 => 'interactive object',
+                default => 'walkable',
+            }] += $frequency;
+        }
+
+        arsort($groups);
+        $parts = [];
+
+        foreach ($groups as $name => $frequency) {
+            // Rounded to the percent: less than 1% is ignored
+            if (($percent = (int) round($frequency * 100)) > 0) {
+                $parts[] = $percent . '% ' . $name;
+            }
+        }
+
+        return implode(', ', $parts);
     }
 
     public static function layerDescription(Layer $layer): string

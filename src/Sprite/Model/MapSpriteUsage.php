@@ -19,6 +19,9 @@ final class MapSpriteUsage
     /** Number of ground cells with a slope (slope other than 0 and 1, i.e. not flat) using the sprite */
     public private(set) int $slopedCells = 0;
 
+    /** @var array<int, int> Number of cells using the sprite, indexed by the movement of the cell (the background has no cell) */
+    public private(set) array $movements = [];
+
     public function __construct(
         public readonly SpriteSet $set,
         public readonly int $id,
@@ -36,13 +39,18 @@ final class MapSpriteUsage
      * Count a cell (or the background) using the sprite
      *
      * @param bool $sloped The cell is a ground cell with a slope
+     * @param int|null $movement Movement of the cell (0: not walkable, 1: interactive object, 2 to 7: walkable), null for the background
      */
-    public function addCell(Layer $layer, bool $sloped = false): void
+    public function addCell(Layer $layer, bool $sloped = false, ?int $movement = null): void
     {
         $this->cells[$layer->value] = ($this->cells[$layer->value] ?? 0) + 1;
 
         if ($sloped) {
             ++$this->slopedCells;
+        }
+
+        if ($movement !== null) {
+            $this->movements[$movement] = ($this->movements[$movement] ?? 0) + 1;
         }
     }
 }
