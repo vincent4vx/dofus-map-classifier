@@ -191,6 +191,9 @@ final readonly class SpriteTypePrompt
             - keywords: 3 to 10 lowercase English search keywords describing the sprite itself: what it is, material, colors, shape, style, and synonyms (e.g. "tree", "conifer", "pine", "green", "snowy").
               Do not use biome, area or place names from the usage information (they are already known), nor generic words like "isometric", "sprite", "tile", "game", "dofus".
             - description: one short English sentence describing the sprite.
+            - transition: true if the sprite is a transition from one environment or material to another, drawn to join two different areas:
+              e.g. water to grass (shore), grass to sand, grass to dirt, path or road border, snow to grass, floor to carpet edge, cliff edge.
+              False if the sprite shows a single environment or material, even if it is an object standing on the ground (tree, wall, furniture…).
 
             Notes:
             - Sprites are often parts of larger elements (a wall section, a piece of roof, a corner of a carpet): name the part (e.g. "stone wall section").
@@ -207,12 +210,13 @@ final readonly class SpriteTypePrompt
         return [
             'type' => 'object',
             'additionalProperties' => false,
-            'required' => ['category', 'name', 'keywords', 'description'],
+            'required' => ['category', 'name', 'keywords', 'description', 'transition'],
             'properties' => [
                 'category' => ['type' => 'string', 'enum' => array_column(SpriteCategory::cases(), 'value')],
                 'name' => ['type' => 'string'],
                 'keywords' => ['type' => 'array', 'items' => ['type' => 'string']],
                 'description' => ['type' => 'string'],
+                'transition' => ['type' => 'boolean'],
             ],
         ];
     }

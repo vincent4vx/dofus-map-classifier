@@ -19,6 +19,7 @@ final class SpriteTypeTest extends TestCase
             'name' => ' Pine Tree ',
             'keywords' => ['Tree', ' conifer ', 'tree', '', 'Snowy'],
             'description' => ' A snowy pine tree. ',
+            'transition' => false,
         ]);
 
         $this->assertSame(SpriteCategory::Tree, $type->category);
@@ -30,7 +31,17 @@ final class SpriteTypeTest extends TestCase
             'name' => 'pine tree',
             'keywords' => ['tree', 'conifer', 'snowy'],
             'description' => 'A snowy pine tree.',
+            'transition' => false,
         ], $type->jsonSerialize());
+    }
+
+    public function testTransition(): void
+    {
+        $base = ['category' => 'ground', 'name' => 'shore', 'keywords' => [], 'description' => ''];
+
+        $this->assertTrue(SpriteType::fromArray($base + ['transition' => true])->transition);
+        $this->assertTrue(SpriteType::fromArray($base + ['transition' => true])->withName('beach')->transition, 'Kept when renamed');
+        $this->assertNull(SpriteType::fromArray($base)->transition, 'Stored before the field was asked to the model');
     }
 
     public function testWithName(): void
@@ -71,5 +82,6 @@ final class SpriteTypeTest extends TestCase
         yield [['keywords' => 'tree'], 'Invalid keywords'];
         yield [['keywords' => [1]], 'Invalid keywords'];
         yield [['description' => null], 'Invalid description'];
+        yield [['transition' => 'yes'], 'Invalid transition'];
     }
 }

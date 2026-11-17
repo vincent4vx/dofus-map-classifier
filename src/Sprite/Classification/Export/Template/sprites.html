@@ -43,6 +43,7 @@
     .nb { display: inline-flex; align-items: center; gap: 2px; border: 0; background: #eee; border-radius: 3px; padding: 0 4px 0 0; margin: 1px; font: inherit; cursor: pointer; }
     .nb img { height: 20px; max-width: 30px; }
     .nb:hover { background: #ffe3a0; }
+    .transition { background: #2b6f8a; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; }
     .slope { background: #8a5a2b; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 12px; font-weight: normal; }
 </style>
 </head>
@@ -52,6 +53,7 @@
     <form id="filters" onsubmit="return false">
         <input type="search" name="q" placeholder="Search id (o123, g45), name, category, keyword, interactive object…" autofocus>
         <select name="category"><option value="">All categories</option>{{categories}}<option value="none">(not classified)</option></select>
+        <select name="transition"><option value="">Transition or not</option><option value="yes">Transitions</option><option value="no">Not transitions</option></select>
         <select name="neighbors"><option value="">Composed or not</option><option value="composed">Frequent neighbor (&ge; 50%)</option><option value="single">No frequent neighbor</option></select>
         <select name="interactive"><option value="">Interactive or not</option><option value="any">Interactive objects</option>{{interactiveOptions}}<option value="none">Not interactive</option></select>
         <select name="set"><option value="">All sets</option><option value="grounds">grounds</option><option value="objects">objects</option></select>
@@ -167,7 +169,8 @@
             + (i.example_image ? '<a class="example" target="_blank" href="' + esc(EXAMPLES + '/' + i.example_image) + '" title="Example map ' + i.example.map + ', cell ' + i.example.cell + ', the sprite framed in magenta">map</a>' : '') + '</div>'
             + '<div class="info"><h2>' + i.name + (i.slope ? ' <span class="slope" title="Used on sloped ground cells">slope</span>' : '') + ' <small>' + i.layer + ' · ' + describe(i) + '</small></h2>'
             + contexts(i).map(([name, usage]) => '<p class="context"><span class="label">' + esc(name) + '</span> ' + describe(usage) + '</p>').join('')
-            + (i.type ? '<p class="type"><b>' + esc(i.type.name) + '</b> <span class="cat">' + esc(i.type.category) + '</span></p>'
+            + (i.type ? '<p class="type"><b>' + esc(i.type.name) + '</b> <span class="cat">' + esc(i.type.category) + '</span>'
+                + (i.type.transition ? ' <span class="transition" title="Transition from an environment or material to another">transition</span>' : '') + '</p>'
                 + '<p>' + i.type.keywords.map(k => '<button type="button" class="kw">' + esc(k) + '</button>').join('') + '</p>' : '')
             + (i.interactive ? '<p><span class="io" title="Interactive object (langs)">' + esc(i.interactive.type) + ': ' + esc(i.interactive.name) + '</span></p>' : '')
             + (Object.keys(i.biomes).length ? '<p><span class="label">Biomes</span> ' + chips(i.biomes) + '</p>' : '')
@@ -193,6 +196,8 @@
         matching = items.filter(i => (!f.set || i.set === f.set)
             && (!f.layer || i.layer === f.layer)
             && (!f.slope || i.slope === (f.slope === 'slope'))
+            // Types found before the transition field (null) match neither value
+            && (!f.transition || i.type?.transition === (f.transition === 'yes'))
             && (!f.neighbors || (i.linked >= 0.5) === (f.neighbors === 'composed'))
             && (!f.interactive || (f.interactive === 'any' ? i.interactive : f.interactive === 'none' ? !i.interactive : i.interactive && i.interactive.type === f.interactive))
             && (!f.category || (f.category === 'none' ? !i.type : i.type && i.type.category === f.category))

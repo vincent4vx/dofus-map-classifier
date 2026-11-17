@@ -13,6 +13,7 @@ use function array_map;
 use function array_unique;
 use function array_values;
 use function is_array;
+use function is_bool;
 use function is_string;
 use function mb_strtolower;
 use function trim;
@@ -20,7 +21,7 @@ use function trim;
 /**
  * Type of a sprite, returned by the model
  *
- * JSON: {"category", "name", "keywords", "description"}, same as the model output schema
+ * JSON: {"category", "name", "keywords", "description", "transition"}, same as the model output schema
  */
 final readonly class SpriteType implements JsonSerializable
 {
@@ -31,6 +32,11 @@ final readonly class SpriteType implements JsonSerializable
         /** @var list<string> Lowercase search keywords */
         public array $keywords,
         public string $description,
+        /**
+         * The sprite is a transition from an environment or material to another (e.g. water to grass, grass to sand)
+         * Null for the types found before this field was asked to the model
+         */
+        public ?bool $transition = null,
     ) {}
 
     /**
@@ -64,12 +70,18 @@ final readonly class SpriteType implements JsonSerializable
             throw new InvalidArgumentException('Invalid description');
         }
 
+        $transition = $data['transition'] ?? null;
+
+        if ($transition !== null && !is_bool($transition)) {
+            throw new InvalidArgumentException('Invalid transition');
+        }
+
         $keywords = array_values(array_unique(array_filter(
             array_map(static fn (string $keyword) => mb_strtolower(trim($keyword)), $data['keywords']),
             static fn (string $keyword) => $keyword !== '',
         )));
 
-        return new self($category, mb_strtolower(trim($data['name'])), $keywords, trim($data['description']));
+        return new self($category, mb_strtolower(trim($data['name'])), $keywords, trim($data['description']), $transition);
     }
 
     /**
@@ -83,11 +95,11 @@ final readonly class SpriteType implements JsonSerializable
             static fn (string $keyword) => $keyword !== '' && $keyword !== $name,
         )));
 
-        return new self($this->category, $name, $keywords, $this->description);
+        return new self($this->category, $name, $keywords, $this->description, $this->transition);
     }
 
     /**
-     * @return array{category: string, name: string, keywords: list<string>, description: string}
+     * @return array{category: string, name: string, keywords: list<string>, description: string, transition: bool|null}
      */
     #[Override]
     public function jsonSerialize(): array
@@ -97,6 +109,7 @@ final readonly class SpriteType implements JsonSerializable
             'name' => $this->name,
             'keywords' => $this->keywords,
             'description' => $this->description,
+            'transition' => $this->transition,
         ];
     }
 }

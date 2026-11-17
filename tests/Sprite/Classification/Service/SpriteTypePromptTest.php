@@ -111,6 +111,8 @@ final class SpriteTypePromptTest extends TestCase
         $this->assertSame(array_column(SpriteCategory::cases(), 'value'), $schema['properties']['category']['enum']);
         $this->assertSame(array_keys($schema['properties']), $schema['required']);
         $this->assertFalse($schema['additionalProperties']);
+        $this->assertSame(['type' => 'boolean'], $schema['properties']['transition']);
+        $this->assertStringContainsString('- transition: true if the sprite is a transition', SpriteTypePrompt::instructions());
 
         foreach (SpriteCategory::cases() as $category) {
             $this->assertStringContainsString('- ' . $category->value . ': ' . $category->description(), SpriteTypePrompt::instructions());

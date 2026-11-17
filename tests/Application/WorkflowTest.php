@@ -246,6 +246,7 @@ final class WorkflowTest extends TestCase
             'name' => 'snowy pine',
             'keywords' => ['pine', 'snow'],
             'description' => 'A snowy pine.',
+            'transition' => false,
         ]));
 
         $sent = count($this->requests);
@@ -269,7 +270,7 @@ final class WorkflowTest extends TestCase
         $this->assertSame('objects/' . $firstObject . '.png', $joined['objects'][$firstObject]['image']['image']);
 
         // Type is displayed in the HTML gallery, also exported by sprites:classify
-        $this->assertStringContainsString('"type":{"category":"tree","name":"snowy pine","keywords":["pine","snow"],"description":"A snowy pine."}', (string) file_get_contents($this->config->varDir . '/sprites.html'));
+        $this->assertStringContainsString('"type":{"category":"tree","name":"snowy pine","keywords":["pine","snow"],"description":"A snowy pine.","transition":false}', (string) file_get_contents($this->config->varDir . '/sprites.html'));
         $this->assertStringContainsString('<option value="tree">tree</option>', (string) file_get_contents($this->config->varDir . '/sprites.html'));
 
         // Filtered export
@@ -281,7 +282,7 @@ final class WorkflowTest extends TestCase
         $this->exec('sprites:analyze', ['ids' => ['10000-10001']]);
         $this->assertStringContainsString($count . ' sprites exported (3 with a type)', $this->exec('sprites:export', ['--format' => ['json']]));
         $objects = json_decode((string) file_get_contents($this->config->varDir . '/sprites.json'), true);
-        $this->assertSame(['category' => 'tree', 'name' => 'snowy pine', 'keywords' => ['pine', 'snow'], 'description' => 'A snowy pine.'], $objects['objects'][$firstObject]['type']);
+        $this->assertSame(['category' => 'tree', 'name' => 'snowy pine', 'keywords' => ['pine', 'snow'], 'description' => 'A snowy pine.', 'transition' => false], $objects['objects'][$firstObject]['type']);
         $this->assertArrayHasKey('type', $objects['objects'][array_key_last($objects['objects'])]);
         $this->assertNull($objects['objects'][array_key_last($objects['objects'])]['type']);
     }
