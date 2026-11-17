@@ -16,7 +16,10 @@
     main { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
     article { background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 3px #0002; font-size: 13px; }
     .sprite { height: 160px; display: flex; align-items: center; justify-content: center; background: #a0a0a0; }
+    .sprite { position: relative; }
     .sprite img { max-width: 100%; max-height: 100%; image-rendering: auto; }
+    .example { position: absolute; right: 4px; bottom: 4px; background: #fff; color: #b0b; border-radius: 3px; padding: 0 5px; font-size: 12px; text-decoration: none; }
+    .example:hover { background: #ffe3f8; }
     .info { padding: 8px 10px; }
     h2 { margin: 0 0 4px; font-size: 15px; }
     h2 small { font-weight: normal; color: #666; }
@@ -70,6 +73,7 @@
 <script>
 (() => {
     const SPRITES = JSON.parse('{{spritesPath}}'.replace(/&quot;/g, '"'));
+    const EXAMPLES = JSON.parse('{{examplesPath}}'.replace(/&quot;/g, '"'));
     const PAGE = 200;
     // Same format as the JSON export: {set: {id: sprite}}
     const data = JSON.parse(document.getElementById('data').textContent);
@@ -159,7 +163,8 @@
     const scope = i => contexts(i)[0]?.[1] ?? i;
 
     function card(i) {
-        return '<article><div class="sprite">' + (i.image ? '<img loading="lazy" src="' + esc(SPRITES + '/' + i.image.image) + '" alt="' + i.id + '">' : '') + '</div>'
+        return '<article><div class="sprite">' + (i.image ? '<img loading="lazy" src="' + esc(SPRITES + '/' + i.image.image) + '" alt="' + i.id + '">' : '')
+            + (i.example_image ? '<a class="example" target="_blank" href="' + esc(EXAMPLES + '/' + i.example_image) + '" title="Example map ' + i.example.map + ', cell ' + i.example.cell + ', the sprite framed in magenta">map</a>' : '') + '</div>'
             + '<div class="info"><h2>' + i.name + (i.slope ? ' <span class="slope" title="Used on sloped ground cells">slope</span>' : '') + ' <small>' + i.layer + ' · ' + describe(i) + '</small></h2>'
             + contexts(i).map(([name, usage]) => '<p class="context"><span class="label">' + esc(name) + '</span> ' + describe(usage) + '</p>').join('')
             + (i.type ? '<p class="type"><b>' + esc(i.type.name) + '</b> <span class="cat">' + esc(i.type.category) + '</span></p>'

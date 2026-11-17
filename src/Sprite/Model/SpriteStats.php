@@ -57,14 +57,18 @@ final class SpriteStats
     /** @var array<string, array<string, NeighborCounts>> Neighbors of the cells using the sprite, indexed by layer value, then {@see Orientation::key()} */
     private array $neighbors = [];
 
+    /** @var array<string, array{map: int, cell: int, cells: int, distance: float}> Best example of each layer (see {@see example()}), indexed by layer value */
+    private array $examples = [];
+
     /**
      * Count a map using the sprite: its usage on the map, and the map attributes. Must be called once per map.
      *
      * @param MapSpriteUsage $usage Usage of the sprite on the map
      * @param Biome|null $biome Biome of the map, or of its sub area
      * @param MapClassification|null $classification Null if the map is not classified
+     * @param int|null $mapId Id of the map, to choose an example of use. Null to not use the map as example
      */
-    public function addMap(MapSpriteUsage $usage, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification): void
+    public function addMap(MapSpriteUsage $usage, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification, ?int $mapId = null): void
     {
         ++$this->maps;
 
@@ -78,6 +82,10 @@ final class SpriteStats
 
         foreach ($usage->movements as $movement => $count) {
             $this->movements[$movement] = ($this->movements[$movement] ?? 0) + $count;
+        }
+
+        if ($mapId !== null) {
+            $this->addExample($usage, $mapId);
         }
 
         foreach ($usage->neighbors as $layer => $orientations) {
@@ -158,11 +166,35 @@ final class SpriteStats
     }
 
     /**
+     * Use of the sprite to show as example, on the given layer: the map using the sprite on the most cells (so the sprite is shown
+     * in its usual context, e.g. a wall with its other sections), and on this map, the cell the closest to the center (so the sprite is not cut)
+     * On equality, the first map is kept
+     */
+    public function example(Layer $layer): ?SpriteExample
+    {
+        $example = $this->examples[$layer->value] ?? null;
+
+        return $example !== null ? new SpriteExample($example['map'], $example['cell']) : null;
+    }
+
+    /**
      * Total number of cells (or backgrounds) using the sprite
      */
     public function occurrences(): int
     {
         return array_sum($this->cells);
+    }
+
+    private function addExample(MapSpriteUsage $usage, int $mapId): void
+    {
+        foreach ($usage->centralCells as $layer => [$cellId, $distance]) {
+            $cells = $usage->cells[$layer] ?? 0;
+            $best = $this->examples[$layer] ?? null;
+
+            if ($best === null || $cells > $best['cells'] || ($cells === $best['cells'] && $distance < $best['distance'])) {
+                $this->examples[$layer] = ['map' => $mapId, 'cell' => $cellId, 'cells' => $cells, 'distance' => $distance];
+            }
+        }
     }
 
     /**

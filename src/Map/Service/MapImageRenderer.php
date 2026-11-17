@@ -5,11 +5,18 @@ declare(strict_types=1);
 namespace MapClassifier\Map\Service;
 
 use Arakne\MapParser\DofusMapParser;
+use Arakne\MapParser\Loader\Map;
 use Arakne\MapParser\Loader\MapStructure;
+use Arakne\MapParser\Parser\GroundObject;
+use Arakne\MapParser\Parser\LayerObjectInterface;
+use Arakne\MapParser\Renderer\CellShape;
+use Arakne\MapParser\Renderer\MapScale;
 use Arakne\MapParser\Sprite\Cache\SqliteSpriteCache;
 use Arakne\Swf\SwfFile;
+use GdImage;
 use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Model\MapFile;
+use MapClassifier\Map\Model\Rectangle;
 use MapClassifier\Map\Model\RenderError;
 use MapClassifier\Map\Repository\MapKeyRepository;
 use RuntimeException;
@@ -40,25 +47,11 @@ final class MapImageRenderer
     ) {}
 
     /**
-     * Render the map and save it as PNG to $target
-     *
-     * @throws RenderException
+     * @throws RenderException When the map key is missing, or the map cannot be loaded or rendered
      */
     public function renderTo(MapFile $map, string $target): void
     {
-        $attachments = [];
-
-        if ($map->encrypted) {
-            $attachments[] = $this->keys->find($map)
-                ?? throw new RenderException(RenderError::MissingKey, 'No key found for map ' . $map->id . ' version ' . $map->version);
-        }
-
-        try {
-            $structure = MapStructure::fromSwfFile(new SwfFile($map->path), ...$attachments);
-            $image = $this->parser->render($structure);
-        } catch (Throwable $e) {
-            throw new RenderException(RenderError::RenderFailed, $e->getMessage(), $e);
-        }
+        $image = $this->render($this->load($map));
 
         $dir = dirname($target);
 
@@ -72,5 +65,69 @@ final class MapImageRenderer
         if (!imagepng($image, $tmp) || !rename($tmp, $target)) {
             throw new RuntimeException('Cannot write image ' . $target);
         }
+    }
+
+    /**
+     * Load the cells of the map, decrypted with its key
+     *
+     * @throws RenderException When the map key is missing, or the map cannot be loaded
+     */
+    public function load(MapFile $map): Map
+    {
+        $attachments = [];
+
+        if ($map->encrypted) {
+            $attachments[] = $this->keys->find($map)
+                ?? throw new RenderException(RenderError::MissingKey, 'No key found for map ' . $map->id . ' version ' . $map->version);
+        }
+
+        try {
+            return $this->parser->loader->load(MapStructure::fromSwfFile(new SwfFile($map->path)), ...$attachments);
+        } catch (Throwable $e) {
+            throw new RenderException(RenderError::RenderFailed, $e->getMessage(), $e);
+        }
+    }
+
+    /**
+     * @throws RenderException When the map cannot be rendered
+     */
+    public function render(Map $map): GdImage
+    {
+        try {
+            return $this->parser->renderer->render($map);
+        } catch (Throwable $e) {
+            throw new RenderException(RenderError::RenderFailed, $e->getMessage(), $e);
+        }
+    }
+
+    /**
+     * Area of the rendered map image covered by a sprite drawn on a cell, computed like the renderer draws it
+     * The area may exceed the image for a sprite on the border of the map
+     *
+     * @param LayerObjectInterface $object Ground or object of the cell
+     *
+     * @return Rectangle|null Null if the cell does not exist, or the sprite cannot be drawn
+     */
+    public function spriteBounds(Map $map, int $cellId, LayerObjectInterface $object): ?Rectangle
+    {
+        $shape = $cellId >= 0 ? CellShape::fromCellId($map, $cellId) : null;
+        $sprite = ($object instanceof GroundObject ? $this->parser->grounds : $this->parser->objects)->get($object->number);
+
+        if ($shape === null || !$sprite->valid) {
+            return null;
+        }
+
+        if ($object->rotation !== 0) {
+            $sprite = $sprite->rotate($object->rotation);
+        }
+
+        if ($object->flip) {
+            $sprite = $sprite->flip();
+        }
+
+        $scale = MapScale::for($map);
+        $position = $scale->applyToCoordinates((int) ($shape->x + $sprite->offsetX), (int) ($shape->y + $sprite->offsetY));
+
+        return new Rectangle($position->x, $position->y, (int) ($sprite->width * $scale->scale), (int) ($sprite->height * $scale->scale));
     }
 }

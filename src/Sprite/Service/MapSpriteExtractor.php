@@ -4,22 +4,16 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Service;
 
-use Arakne\MapParser\Loader\MapLoader;
-use Arakne\MapParser\Loader\MapStructure;
 use Arakne\MapParser\Parser\Cell;
-use Arakne\MapParser\Parser\LayerObjectInterface;
-use Arakne\Swf\SwfFile;
 use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Model\CellGrid;
 use MapClassifier\Map\Model\CellOffset;
 use MapClassifier\Map\Model\MapFile;
-use MapClassifier\Map\Model\RenderError;
-use MapClassifier\Map\Repository\MapKeyRepository;
+use MapClassifier\Map\Service\MapImageRenderer;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\MapSprites;
 use MapClassifier\Sprite\Model\Orientation;
 use MapClassifier\Sprite\Model\OrientedSprite;
-use Throwable;
 
 /**
  * Extract the sprites used by a map, with their usage (cells per layer, slopes, movements, neighbors…)
@@ -27,33 +21,21 @@ use Throwable;
 final readonly class MapSpriteExtractor
 {
     public function __construct(
-        private MapKeyRepository $keys,
+        /** Used to load the maps */
+        private MapImageRenderer $maps,
         /**
          * Neighbors are searched up to this number of cells on each axis of the grid
          * Large sprites (walls…) cover several cells: their parts are repeated every few cells
          */
         private int $neighborsRadius = 4,
-        private MapLoader $loader = new MapLoader(),
     ) {}
 
     /**
-     *
      * @throws RenderException When the map cannot be loaded
      */
     public function extract(MapFile $map): MapSprites
     {
-        $attachments = [];
-
-        if ($map->encrypted) {
-            $attachments[] = $this->keys->find($map)
-                ?? throw new RenderException(RenderError::MissingKey, 'No key found for map ' . $map->id . ' version ' . $map->version);
-        }
-
-        try {
-            $loaded = $this->loader->load(MapStructure::fromSwfFile(new SwfFile($map->path)), ...$attachments);
-        } catch (Throwable $e) {
-            throw new RenderException(RenderError::RenderFailed, $e->getMessage(), $e);
-        }
+        $loaded = $this->maps->load($map);
 
         $sprites = new MapSprites();
 
@@ -65,11 +47,12 @@ final readonly class MapSpriteExtractor
 
         foreach ($loaded->cells as $cellId => $cell) {
             foreach ([Layer::Ground, Layer::Layer1, Layer::Layer2] as $layer) {
-                $object = self::object($cell, $layer);
+                $object = $layer->object($cell);
 
-                if ($object->number > 0) {
+                if ($object !== null && $object->number > 0) {
                     // Flat ground has the slope 1 (0 is not valid)
-                    $sprites->addCell($layer, $object->number, $layer === Layer::Ground && $cell->ground->slope > 1, $cell->movement);
+                    $sloped = $layer === Layer::Ground && $cell->ground->slope > 1;
+                    $sprites->addCell($layer, $object->number, $sloped, $cell->movement, $cellId, $grid->distanceToCenter($cellId));
                     $sprites->addNeighbors($layer, $object->number, Orientation::of($object), $this->neighbors($loaded->cells, $grid, $cellId, $layer));
                 }
             }
@@ -95,26 +78,14 @@ final readonly class MapSpriteExtractor
                     continue;
                 }
 
-                $object = self::object($cells[$neighborId], $layer);
+                $object = $layer->object($cells[$neighborId]);
 
-                if ($object->number > 0) {
+                if ($object !== null && $object->number > 0) {
                     $neighbors[new CellOffset($dx, $dy)->key()] = new OrientedSprite($object->number, Orientation::of($object));
                 }
             }
         }
 
         return $neighbors;
-    }
-
-    /**
-     * Sprite of the cell on the given layer (the background is not drawn on cells: the ground is returned)
-     */
-    private static function object(Cell $cell, Layer $layer): LayerObjectInterface
-    {
-        return match ($layer) {
-            Layer::Layer1 => $cell->layer1,
-            Layer::Layer2 => $cell->layer2,
-            default => $cell->ground,
-        };
     }
 }

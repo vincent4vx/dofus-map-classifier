@@ -14,7 +14,7 @@ final class CellGridTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->grid = new CellGrid(15, 479);
+        $this->grid = new CellGrid(15, 479, 17);
     }
 
     public function testCoordinates(): void
@@ -41,6 +41,15 @@ final class CellGridTest extends TestCase
         $this->assertSame(58, $this->grid->cellId(2, 2), 'south west');
         $this->assertSame(29, $this->grid->cellId(1, 1), 'north west');
         $this->assertNull($this->grid->cellId(1, 2), 'west: out of the map');
+    }
+
+    public function testDistanceToCenter(): void
+    {
+        // Center of the default map: cell 239, on the middle of the 9th line
+        $this->assertSame(0.0, $this->grid->distanceToCenter(239));
+        $this->assertSame(53.0, $this->grid->distanceToCenter(240), 'Next cell on the line: one cell width');
+        $this->assertSame(27.0, $this->grid->distanceToCenter(239 + 29), 'Next line: one cell height');
+        $this->assertGreaterThan($this->grid->distanceToCenter(239 + 15), $this->grid->distanceToCenter(0));
     }
 
     public function testCellIdOutOfTheMap(): void

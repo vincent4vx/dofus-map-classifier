@@ -119,6 +119,7 @@ final class SpriteAnalyzerTest extends TestCase
             'indoor' => [],
             'location_types' => [],
             'movements' => [],
+            'example' => null,
             'neighbors' => [],
             'interactive' => null,
         ], json_decode((string) json_encode($profiles->get(SpriteSet::Objects, 7)), true));

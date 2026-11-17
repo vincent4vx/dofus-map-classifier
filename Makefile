@@ -58,11 +58,12 @@ report: ## Only export the HTML gallery var/report.html (ids, --area, --biome…
 sprites-classify: ## Find the type of sprites, then export var/sprites.json and var/sprites.html (ids like o345 g10-20, --set, --limit…)
 	$(CONSOLE) sprites:classify $(ARGS)
 
-sprites: ## Analyze sprites (var/sprite_profiles.json), render them to PNG, export var/sprites.json and generate var/sprites.html (selection, --min-ratio)
+sprites: ## Analyze sprites (var/sprite_profiles.json), render them and their example map to PNG, export var/sprites.json and generate var/sprites.html (selection, --min-ratio)
 	$(CONSOLE) sprites:analyze $(ARGS)
 	$(CONSOLE) sprites:images
-	@# Analyze again: the slope flag needs the frames of the exported images (fast, ~5s)
+	@# Analyze again: the slope flag needs the frames of the exported images (~30s)
 	$(CONSOLE) sprites:analyze $(ARGS)
+	$(CONSOLE) sprites:examples
 	$(CONSOLE) sprites:export
 
 sprites-export: ## Export sprites profiles with their type: var/sprites.json and var/sprites.html (--format=json|html)

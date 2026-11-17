@@ -28,12 +28,14 @@ final class MapSprites implements IteratorAggregate, Countable
      *
      * @param bool $sloped The cell is a ground cell with a slope
      * @param int|null $movement Movement of the cell, null for the background
+     * @param int|null $cellId Id of the cell, null for the background
+     * @param float $centerDistance Distance between the cell and the center of the map
      */
-    public function addCell(Layer $layer, int $id, bool $sloped = false, ?int $movement = null): void
+    public function addCell(Layer $layer, int $id, bool $sloped = false, ?int $movement = null, ?int $cellId = null, float $centerDistance = 0.0): void
     {
         $set = $layer->spriteSet();
         $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
-        $this->usages[$set->value][$id]->addCell($layer, $sloped, $movement);
+        $this->usages[$set->value][$id]->addCell($layer, $sloped, $movement, $cellId, $centerDistance);
     }
 
     /**

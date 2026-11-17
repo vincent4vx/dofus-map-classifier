@@ -6,6 +6,7 @@ namespace MapClassifier\Tests\Sprite\Model;
 
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\MapSpriteUsage;
+use MapClassifier\Sprite\Model\SpriteExample;
 use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Model\SpriteStats;
 use PHPUnit\Framework\TestCase;
@@ -28,6 +29,38 @@ final class SpriteStatsTest extends TestCase
         $ground = new SpriteStats();
         $ground->addMap(self::usage([Layer::Background, Layer::Ground]), null, null, null);
         $this->assertSame(Layer::Ground, $ground->mainLayer());
+    }
+
+    public function testExample(): void
+    {
+        $stats = new SpriteStats();
+        $this->assertNull($stats->example(Layer::Layer2));
+
+        $map = static function (array $cells): MapSpriteUsage {
+            $usage = new MapSpriteUsage(SpriteSet::Objects, 1);
+
+            foreach ($cells as $cellId => $distance) {
+                $usage->addCell(Layer::Layer2, cellId: $cellId, centerDistance: $distance);
+            }
+
+            return $usage;
+        };
+
+        $stats->addMap($map([10 => 50.0]), null, null, null, 1);
+        $this->assertEquals(new SpriteExample(1, 10), $stats->example(Layer::Layer2));
+
+        $stats->addMap($map([20 => 300.0, 21 => 100.0, 22 => 200.0]), null, null, null, 2);
+        $this->assertEquals(new SpriteExample(2, 21), $stats->example(Layer::Layer2), 'Map with the most uses, cell the closest to the center');
+
+        $stats->addMap($map([30 => 90.0, 31 => 500.0, 32 => 400.0]), null, null, null, 3);
+        $this->assertEquals(new SpriteExample(3, 30), $stats->example(Layer::Layer2), 'Same number of uses: the closest to the center');
+
+        $stats->addMap($map([40 => 300.0, 41 => 90.0, 42 => 400.0]), null, null, null, 4);
+        $this->assertEquals(new SpriteExample(3, 30), $stats->example(Layer::Layer2), 'Equality: the first map is kept');
+
+        $stats->addMap($map([50 => 0.0, 51 => 0.0, 52 => 0.0, 53 => 0.0]), null, null, null);
+        $this->assertEquals(new SpriteExample(3, 30), $stats->example(Layer::Layer2), 'Without map id: not used as example');
+        $this->assertNull($stats->example(Layer::Layer1));
     }
 
     public function testSlope(): void

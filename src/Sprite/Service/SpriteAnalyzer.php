@@ -87,7 +87,7 @@ final class SpriteAnalyzer
         // One usage per sprite: map attributes are counted once per map
         foreach ($sprites as $usage) {
             $this->stats[$usage->set->value][$usage->id] ??= new SpriteStats();
-            $this->stats[$usage->set->value][$usage->id]->addMap($usage, $location, $biome, $classification);
+            $this->stats[$usage->set->value][$usage->id]->addMap($usage, $location, $biome, $classification, $mapId);
         }
     }
 
@@ -120,6 +120,7 @@ final class SpriteAnalyzer
                     slope: $this->slope($spriteSet, $id, $stats),
                     movements: $stats->movementFrequencies(),
                     neighbors: $stats->neighbors($layer),
+                    example: $stats->example($layer),
                 );
             }
         }

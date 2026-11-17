@@ -13,8 +13,8 @@ use Override;
 /**
  * Sprite of the export file (sprites.json): its profile, with its type
  *
- * JSON: the fields of {@see SpriteProfile}, then "image" ({@see SpriteMetadata}, null if not exported)
- * and "type" ({@see SpriteType}, null if not classified)
+ * JSON: the fields of {@see SpriteProfile}, then "image" ({@see SpriteMetadata}, null if not exported),
+ * "example_image" (path of the example map, relative to the examples directory, null if not rendered) and "type" ({@see SpriteType}, null if not classified)
  */
 final readonly class ExportedSprite implements JsonSerializable
 {
@@ -24,6 +24,8 @@ final readonly class ExportedSprite implements JsonSerializable
         public ?SpriteMetadata $metadata,
         /** Type of the sprite, with the interactive object name applied (see {@see \MapClassifier\Sprite\Classification\Service\SpriteTypeResolver}) */
         public ?SpriteType $type,
+        /** Path of the example map image, relative to the examples directory, null if not rendered (see {@see \MapClassifier\Sprite\Repository\SpriteExampleRepository}) */
+        public ?string $exampleImage = null,
     ) {}
 
     /**
@@ -34,6 +36,7 @@ final readonly class ExportedSprite implements JsonSerializable
     {
         return $this->profile->jsonSerialize() + [
             'image' => $this->metadata,
+            'example_image' => $this->exampleImage,
             'type' => $this->type,
         ];
     }

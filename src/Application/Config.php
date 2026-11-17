@@ -43,6 +43,8 @@ final class Config
     public string $mapsDir { get => $this->dofusPath . '/data/maps'; }
     public string $spritesDir { get => $this->varDir . '/sprites'; }
     public string $spriteTypesDir { get => $this->varDir . '/sprite_types'; }
+    /** Example maps of the sprites, with a frame around the sprite */
+    public string $spriteExamplesDir { get => $this->varDir . '/sprite_examples'; }
     /** Profiles of the sprites, aggregated from the maps */
     public string $spriteProfilesFile { get => $this->varDir . '/sprite_profiles.json'; }
     /** Export of the sprites, with their type */

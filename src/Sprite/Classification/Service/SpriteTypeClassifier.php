@@ -8,11 +8,13 @@ use InvalidArgumentException;
 use MapClassifier\Infrastructure\OpenAI\ConcurrentResponsesClient;
 use MapClassifier\Infrastructure\OpenAI\ResponseFailure;
 use MapClassifier\Infrastructure\OpenAI\StructuredResponse;
+use MapClassifier\Map\Classification\Service\ImageEncoder;
 use MapClassifier\Sprite\Classification\Model\SpriteType;
 use MapClassifier\Sprite\Classification\Model\SpriteTypeError;
 use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
 use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Model\SpriteProfile;
+use MapClassifier\Sprite\Repository\SpriteExampleRepository;
 use MapClassifier\Sprite\Repository\SpriteRepository;
 use Throwable;
 
@@ -29,6 +31,10 @@ final readonly class SpriteTypeClassifier
         private SpriteRepository $sprites,
         private SpriteTypeRepository $storage,
         private string $model,
+        /** Example maps sent with the sprite image, when rendered (see sprites:examples) */
+        private ?SpriteExampleRepository $examples = null,
+        /** Encode the example maps: like the classified maps, upscaled to give enough details to the model */
+        private ImageEncoder $exampleEncoder = new ImageEncoder(),
     ) {}
 
     /**
@@ -48,7 +54,14 @@ final readonly class SpriteTypeClassifier
                     continue;
                 }
 
-                yield $profile => fn () => $this->prompt->requestBody($profile, $metadata, 'data:image/png;base64,' . base64_encode($png));
+                $example = $this->examples?->file($profile);
+
+                yield $profile => fn () => $this->prompt->requestBody(
+                    $profile,
+                    $metadata,
+                    'data:image/png;base64,' . base64_encode($png),
+                    $example !== null ? $this->exampleEncoder->dataUrl($example) : null,
+                );
             }
         })();
 

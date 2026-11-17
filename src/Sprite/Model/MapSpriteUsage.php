@@ -6,6 +6,8 @@ namespace MapClassifier\Sprite\Model;
 
 use function array_sum;
 
+use const INF;
+
 /**
  * Usage of a sprite on a map (see {@see \MapClassifier\Sprite\Service\MapSpriteExtractor})
  *
@@ -25,6 +27,9 @@ final class MapSpriteUsage
     /** @var array<string, array<string, NeighborCounts>> Neighbors of the cells using the sprite, indexed by layer value, then {@see Orientation::key()} */
     public private(set) array $neighbors = [];
 
+    /** @var array<string, array{int, float}> Cell using the sprite the closest to the center of the map, with its distance, indexed by layer value */
+    public private(set) array $centralCells = [];
+
     public function __construct(
         public readonly SpriteSet $set,
         public readonly int $id,
@@ -43,10 +48,16 @@ final class MapSpriteUsage
      *
      * @param bool $sloped The cell is a ground cell with a slope
      * @param int|null $movement Movement of the cell (0: not walkable, 1: interactive object, 2 to 7: walkable), null for the background
+     * @param int|null $cellId Id of the cell, null for the background
+     * @param float $centerDistance Distance between the cell and the center of the map
      */
-    public function addCell(Layer $layer, bool $sloped = false, ?int $movement = null): void
+    public function addCell(Layer $layer, bool $sloped = false, ?int $movement = null, ?int $cellId = null, float $centerDistance = 0.0): void
     {
         $this->cells[$layer->value] = ($this->cells[$layer->value] ?? 0) + 1;
+
+        if ($cellId !== null && $centerDistance < ($this->centralCells[$layer->value][1] ?? INF)) {
+            $this->centralCells[$layer->value] = [$cellId, $centerDistance];
+        }
 
         if ($sloped) {
             ++$this->slopedCells;

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Model;
 
+use Arakne\MapParser\Parser\Cell;
+use Arakne\MapParser\Parser\LayerObjectInterface;
+
 /**
  * Layer of a map where a sprite is used
  */
@@ -23,6 +26,19 @@ enum Layer: string
         return match ($this) {
             self::Background, self::Ground => SpriteSet::Grounds,
             self::Layer1, self::Layer2 => SpriteSet::Objects,
+        };
+    }
+
+    /**
+     * Sprite drawn on the cell on this layer, or null for the background (not drawn on cells)
+     */
+    public function object(Cell $cell): ?LayerObjectInterface
+    {
+        return match ($this) {
+            self::Background => null,
+            self::Ground => $cell->ground,
+            self::Layer1 => $cell->layer1,
+            self::Layer2 => $cell->layer2,
         };
     }
 }

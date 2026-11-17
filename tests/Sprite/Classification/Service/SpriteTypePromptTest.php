@@ -30,6 +30,20 @@ final class SpriteTypePromptTest extends TestCase
         $this->assertSame(['type' => 'input_image', 'image_url' => 'data:image/png;base64,xxx', 'detail' => 'high'], $body['input'][0]['content'][1]);
         $this->assertSame(SpriteTypePrompt::schema(), $body['text']['format']['schema']);
         $this->assertTrue($body['text']['format']['strict']);
+        $this->assertCount(2, $body['input'][0]['content'], 'No example map');
+        $this->assertStringNotContainsString('magenta', $body['input'][0]['content'][0]['text']);
+    }
+
+    public function testRequestBodyWithExample(): void
+    {
+        $body = (new SpriteTypePrompt('luna'))->requestBody($this->profile(), self::metadata(53.0, 27.5), 'data:image/png;base64,xxx', 'data:image/jpeg;base64,yyy');
+        $content = $body['input'][0]['content'];
+
+        $this->assertCount(3, $content);
+        $this->assertSame('data:image/png;base64,xxx', $content[1]['image_url'], 'Sprite first');
+        $this->assertSame(['type' => 'input_image', 'image_url' => 'data:image/jpeg;base64,yyy', 'detail' => 'high'], $content[2]);
+        $this->assertStringEndsWith("\n" . SpriteTypePrompt::EXAMPLE_CONTEXT, $content[0]['text']);
+        $this->assertStringContainsString('magenta rectangle', SpriteTypePrompt::instructions());
     }
 
     public function testContext(): void

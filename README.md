@@ -46,7 +46,7 @@ make classify ARGS="--super-area=3 --concurrency=10"   # 3. classify with the Op
 make export                                       # 4. var/maps.json + var/sub_areas.json + var/report.html (search and filters)
 make report ARGS="--area=18"                      # 5. only var/report.html, for a selection (= export --format=html)
 make sprites                                      # 6. var/sprite_profiles.json (layer, areas, biomes… of each sprite), PNG sprites,
-                                                  #    var/sprites.json export and var/sprites.html
+                                                  #    example maps with the sprite framed, var/sprites.json export and var/sprites.html
 make sprites-classify ARGS="--limit=500"          # 7. type of each sprite (category, name, keywords), most used first,
                                                   #    exported to var/sprites.json and displayed in var/sprites.html
                                                   #    --interactive: only interactive objects (resources, workshops, doors…)
@@ -75,6 +75,7 @@ var/
   sprite_profiles.json        data of each sprite (layer, areas, biomes…), aggregated from the maps
   sprites.json                export of sprites: profile and type of each sprite
   sprites/{grounds|objects}/  sprites rendered as PNG (as sent to the model), with metadata.json (size, frames)
+  sprite_examples/{set}/{id}-{map}-{cell}.png  example map of each sprite, framed in magenta (sent to the model)
   sprites.html                visual report of sprites, with filters
   sprite_types/{set}/{id}.json  type of each sprite (category, name, keywords)
   report.html                 visual report

@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests\Application;
 
+use GdImage;
 use MapClassifier\Application\Config;
 use MapClassifier\Application\Kernel;
 use MapClassifier\Tests\ResponseFixtures;
 use MapClassifier\Tests\TempDirTrait;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -30,6 +32,10 @@ use function count;
 use function file_get_contents;
 use function getenv;
 use function getimagesize;
+use function imagecolorat;
+use function imagecreatefrompng;
+use function imagesx;
+use function imagesy;
 use function is_dir;
 use function json_decode;
 use function mkdir;
@@ -44,6 +50,9 @@ final class WorkflowTest extends TestCase
 
     private Application $app;
     private Config $config;
+
+    /** @var list<array<string, mixed>> Bodies of the requests sent to the fake OpenAI API */
+    private array $requests = [];
 
     protected function setUp(): void
     {
@@ -180,9 +189,11 @@ final class WorkflowTest extends TestCase
             $this->assertEqualsWithDelta($profile['layer'] === 'background' ? 0.0 : 1.0, array_sum($profile['movements']), 0.001, 'Movement frequencies');
             // Neighbors on the cell layers, with one entry per orientation of the sprite on its main layer
             if ($profile['layer'] !== 'background') {
+                $this->assertSame(10000, $profile['example']['map'], 'Example on the only analyzed map');
                 $this->assertNotEmpty($profile['neighbors']);
                 $this->assertLessThanOrEqual($profile['occurrences'], array_sum(array_column($profile['neighbors'], 'cells')));
             } else {
+                $this->assertNull($profile['example']);
                 $this->assertSame([], $profile['neighbors']);
             }
         }
@@ -206,6 +217,20 @@ final class WorkflowTest extends TestCase
         $this->assertSame('image/png', $size['mime']);
         $this->assertMatchesRegularExpression('/objects: 0 exported, \d+ already exported/', $this->exec('sprites:images'));
 
+        // Example maps, with a magenta frame around the sprite
+        $firstObject = array_key_first($objects['objects']);
+        $this->exec('maps:render', ['ids' => ['10000']]);
+        $examples = $this->exec('sprites:examples');
+        $this->assertMatchesRegularExpression('/\d+ examples rendered, 0 already rendered, 0 failed/', $examples);
+        $this->assertMatchesRegularExpression('/0 examples rendered, \d+ already rendered/', $this->exec('sprites:examples'));
+        $example = $this->config->spriteExamplesDir . '/objects/' . $firstObject . '-10000-' . $objects['objects'][$firstObject]['example']['cell'] . '.png';
+        $this->assertFileExists($example);
+        $image = imagecreatefrompng($example);
+        $this->assertNotFalse($image);
+        $this->assertSame([742, 432], [imagesx($image), imagesy($image)]);
+        $this->assertTrue(self::hasMagenta($image), 'Frame drawn');
+        $this->assertFalse(self::hasMagenta(imagecreatefrompng($this->config->rendersDir . '/10000.png') ?: throw new RuntimeException()), 'No magenta on the map');
+
         // Export: JSON and HTML gallery
         $count = count($objects['grounds']) + count($objects['objects']);
         $this->assertStringContainsString($count . ' sprites exported (0 with a type)', $this->exec('sprites:export'));
@@ -223,8 +248,14 @@ final class WorkflowTest extends TestCase
             'description' => 'A snowy pine.',
         ]));
 
-        $firstObject = array_key_first($objects['objects']);
+        $sent = count($this->requests);
         $this->assertStringContainsString('1 sprites classified', $this->exec('sprites:classify', ['ids' => ['o' . $firstObject]]));
+        $this->assertCount($sent + 1, $this->requests);
+        $content = $this->requests[$sent]['input'][0]['content'];
+        $this->assertSame(['input_text', 'input_image', 'input_image'], array_column($content, 'type'), 'Sprite and example map');
+        $this->assertStringStartsWith('data:image/png;base64,', $content[1]['image_url']);
+        $this->assertStringStartsWith('data:image/jpeg;base64,', $content[2]['image_url']);
+        $this->assertStringEndsWith('framed in magenta.', $content[0]['text']);
         $this->assertStringContainsString('Nothing to classify', $this->exec('sprites:classify', ['ids' => ['o' . $firstObject]]));
         $this->assertStringContainsString('1 sprites classified', $this->exec('sprites:classify', ['ids' => ['o' . $firstObject], '--force' => true]));
         $this->assertStringContainsString('2 sprites classified', $this->exec('sprites:classify', ['--set' => 'grounds', '--limit' => '2']));
@@ -233,7 +264,8 @@ final class WorkflowTest extends TestCase
         $joined = json_decode((string) file_get_contents($this->config->varDir . '/sprites.json'), true);
         $this->assertSame('snowy pine', $joined['objects'][$firstObject]['type']['name']);
         $this->assertSame(array_keys($objects['objects']), array_keys($joined['objects']));
-        $this->assertSame($objects['objects'][$firstObject], array_diff_key($joined['objects'][$firstObject], ['image' => 0, 'type' => 0]), 'Profile, with image and type');
+        $this->assertSame($objects['objects'][$firstObject], array_diff_key($joined['objects'][$firstObject], ['image' => 0, 'example_image' => 0, 'type' => 0]), 'Profile, with image and type');
+        $this->assertStringStartsWith('objects/' . $firstObject . '-10000-', $joined['objects'][$firstObject]['example_image']);
         $this->assertSame('objects/' . $firstObject . '.png', $joined['objects'][$firstObject]['image']['image']);
 
         // Type is displayed in the HTML gallery, also exported by sprites:classify
@@ -293,8 +325,25 @@ final class WorkflowTest extends TestCase
      */
     private function openAi(array $body, int $status = 200): void
     {
-        $http = new MockHttpClient(static fn (): ResponseInterface => new JsonMockResponse($body, ['http_code' => $status]));
+        $http = new MockHttpClient(function (string $method, string $url, array $options) use ($body, $status): ResponseInterface {
+            $this->requests[] = (array) json_decode((string) ($options['body'] ?? ''), true);
+
+            return new JsonMockResponse($body, ['http_code' => $status]);
+        });
         $this->app = (new Kernel($this->config, $http))->application();
+    }
+
+    private static function hasMagenta(GdImage $image): bool
+    {
+        for ($x = 0; $x < imagesx($image); ++$x) {
+            for ($y = 0; $y < imagesy($image); ++$y) {
+                if ((imagecolorat($image, $x, $y) & 0xFFFFFF) === 0xFF00FF) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     /**

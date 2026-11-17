@@ -28,6 +28,9 @@ use function sprintf;
  */
 final readonly class SpriteTypePrompt
 {
+    /** Added to the context when the example map is sent */
+    public const string EXAMPLE_CONTEXT = 'The second image is an example map using the sprite: the sprite is framed in magenta.';
+
     public function __construct(
         private string $model,
         private ?string $reasoningEffort = null,
@@ -35,16 +38,18 @@ final readonly class SpriteTypePrompt
 
     /**
      * @param SpriteMetadata $metadata Metadata of the exported sprite (size, frames)
+     * @param string $imageUrl Image of the sprite
+     * @param string|null $exampleUrl Example map using the sprite, with a magenta frame around it (see {@see \MapClassifier\Sprite\Service\SpriteExampleRenderer})
      *
      * @return array<string, mixed>
      */
-    public function requestBody(SpriteProfile $profile, SpriteMetadata $metadata, string $imageUrl): array
+    public function requestBody(SpriteProfile $profile, SpriteMetadata $metadata, string $imageUrl, ?string $exampleUrl = null): array
     {
         return ResponsesRequest::structured(
             $this->model,
             self::instructions(),
-            self::context($profile, $metadata),
-            $imageUrl,
+            self::context($profile, $metadata) . ($exampleUrl !== null ? "\n" . self::EXAMPLE_CONTEXT : ''),
+            $exampleUrl !== null ? [$imageUrl, $exampleUrl] : [$imageUrl],
             'sprite_type',
             self::schema(),
             $this->reasoningEffort,
@@ -174,6 +179,10 @@ final readonly class SpriteTypePrompt
             You identify sprites (graphic elements) used to build the maps of the MMORPG Dofus Retro (Dofus 1.29), a 2D isometric game.
             You receive the image of one sprite, cropped and enlarged, on a neutral grey background (the grey is not part of the sprite),
             and information about how the sprite is used in the game maps. Use the image first; use the usage information to resolve ambiguities.
+            You may also receive a second image: a screenshot of a game map using the sprite, where one use of the sprite is surrounded by a magenta rectangle.
+            The magenta frame is not part of the map. Inside the frame, the sprite may be partly hidden by elements drawn above it,
+            and other copies of the sprite may be visible elsewhere on the map. Use this map to understand what the sprite is and what it is part of
+            (e.g. a section of a wall, a piece of a house, a part of a ground pattern), but describe the sprite itself, not the whole map.
 
             Fields:
             - category: the closest category.

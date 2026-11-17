@@ -39,12 +39,15 @@ use MapClassifier\Sprite\Classification\Service\SpritesToClassify;
 use MapClassifier\Sprite\Classification\Service\SpriteTypeClassifier;
 use MapClassifier\Sprite\Classification\Service\SpriteTypePrompt;
 use MapClassifier\Sprite\Command\SpritesAnalyzeCommand;
+use MapClassifier\Sprite\Command\SpritesExamplesCommand;
 use MapClassifier\Sprite\Command\SpritesImagesCommand;
 use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
+use MapClassifier\Sprite\Repository\SpriteExampleRepository;
 use MapClassifier\Sprite\Repository\SpriteProfileRepository;
 use MapClassifier\Sprite\Repository\SpriteRepository;
 use MapClassifier\Sprite\Service\MapSpriteExtractor;
 use MapClassifier\Sprite\Service\SpriteAnalysis;
+use MapClassifier\Sprite\Service\SpriteExampleRenderer;
 use MapClassifier\Sprite\Service\SpriteImageExporter;
 use RuntimeException;
 use Symfony\Component\Console\Application;
@@ -101,6 +104,10 @@ final class Kernel
         get => $this->spritesToClassify ??= new SpritesToClassify($this->spriteTypes, $this->sprites);
     }
 
+    public SpriteExampleRepository $spriteExamples {
+        get => $this->spriteExamples ??= new SpriteExampleRepository($this->config->spriteExamplesDir);
+    }
+
     public SpriteTypeRepository $spriteTypes {
         get => $this->spriteTypes ??= new SpriteTypeRepository($this->config->spriteTypesDir);
     }
@@ -144,6 +151,7 @@ final class Kernel
             $this->sprites,
             $this->spriteTypes,
             $this->config->openAiModel,
+            $this->spriteExamples,
         );
     }
 
@@ -165,13 +173,13 @@ final class Kernel
     {
         return [
             new JsonSpriteExportFormat($this->config->spritesFile),
-            new HtmlSpriteExportFormat($this->config->spritesDir, $this->config->varDir . '/sprites.html'),
+            new HtmlSpriteExportFormat($this->config->spritesDir, $this->config->varDir . '/sprites.html', $this->config->spriteExamplesDir),
         ];
     }
 
     public function spriteExporter(): SpriteExporter
     {
-        return new SpriteExporter($this->spriteTypes, $this->sprites);
+        return new SpriteExporter($this->spriteTypes, $this->sprites, $this->spriteExamples);
     }
 
     public function prompt(): ClassificationPrompt
@@ -187,8 +195,9 @@ final class Kernel
         $app->addCommand(new KeysDownloadCommand(new MapKeyDownloader($this->httpClient), $this->config->keysDir, $this->config->keysArchiveUrl));
         $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, new ResultRenderErrorRepository($this->results), $this->config->rendersDir)));
         $app->addCommand(new ClassifyRunCommand($this->mapsToClassify, $this->locations, $this->mapClassifier(), $this->config->openAiModel));
-        $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->keys), $this->locations, $this->results, $this->interactiveObjects, $this->sprites), $this->spriteProfiles));
+        $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->renderer), $this->locations, $this->results, $this->interactiveObjects, $this->sprites), $this->spriteProfiles));
         $app->addCommand(new SpritesImagesCommand(new SpriteImageExporter($this->sprites), $this->spriteProfiles, $this->config->spritesDir));
+        $app->addCommand(new SpritesExamplesCommand(new SpriteExampleRenderer($this->maps, $this->renderer, $this->spriteExamples, $this->config->rendersDir), $this->spriteProfiles, $this->config->spriteExamplesDir));
         $app->addCommand(new SpritesClassifyCommand($this->spriteProfiles, $this->spritesToClassify, $this->spriteTypeClassifier(), $this->spriteExporter(), $this->spriteExportFormats(), $this->config->openAiModel));
         $app->addCommand(new SpritesExportCommand($this->spriteProfiles, $this->spriteExporter(), $this->spriteExportFormats()));
         $app->addCommand(new ExportCommand(new MapExporter($this->results), $this->locations, $this->mapExportFormats()));

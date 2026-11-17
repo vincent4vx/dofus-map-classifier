@@ -7,6 +7,7 @@ namespace MapClassifier\Map\Model;
 use Arakne\MapParser\Loader\Map;
 
 use function count;
+use function hypot;
 use function intdiv;
 
 /**
@@ -26,6 +27,8 @@ final readonly class CellGrid
         public int $width,
         /** Total number of cells */
         public int $cells,
+        /** Number of lines of width cells */
+        public int $height,
     ) {
         $ids = [];
 
@@ -39,7 +42,7 @@ final readonly class CellGrid
 
     public static function of(Map $map): self
     {
-        return new self($map->width, count($map->cells));
+        return new self($map->width, count($map->cells), $map->height);
     }
 
     /**
@@ -51,6 +54,17 @@ final readonly class CellGrid
         $y = $line - ($cellId - $line * (2 * $this->width - 1)) % $this->width;
 
         return [intdiv($cellId - ($this->width - 1) * $y, $this->width), $y];
+    }
+
+    /**
+     * Distance between the cell and the center of the map, on the screen, in pixels (ignoring the cells level)
+     */
+    public function distanceToCenter(int $cellId): float
+    {
+        [$x, $y] = $this->coordinates($cellId);
+
+        // Position on the screen, in half cells: the first cell is on the top left, the last cell of the first line on the top right
+        return hypot(($x - $y - ($this->width - 1)) * 26.5, ($x + $y - ($this->height - 1)) * 13.5);
     }
 
     /**

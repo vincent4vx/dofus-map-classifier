@@ -34,7 +34,7 @@ final readonly class ClassificationPrompt
             $this->model,
             self::instructions(),
             'Classify the map ' . $mapId . '.',
-            $imageUrl,
+            [$imageUrl],
             'map_classification',
             self::schema(),
             $this->reasoningEffort,

@@ -42,6 +42,8 @@ final readonly class HtmlSpriteExportFormat implements ExportFormat
         /** Directory of the sprites images */
         private string $spritesDir,
         private string $defaultOutput,
+        /** Directory of the example maps images */
+        private ?string $examplesDir = null,
     ) {}
 
     #[Override]
@@ -59,7 +61,11 @@ final readonly class HtmlSpriteExportFormat implements ExportFormat
     #[Override]
     public function write(object $export, string $output): array
     {
-        file_put_contents($output, $this->render($export, Path::relativeUrl(dirname($output), $this->spritesDir)));
+        file_put_contents($output, $this->render(
+            $export,
+            Path::relativeUrl(dirname($output), $this->spritesDir),
+            $this->examplesDir !== null ? Path::relativeUrl(dirname($output), $this->examplesDir) : '',
+        ));
 
         return [$output];
     }
@@ -68,8 +74,9 @@ final readonly class HtmlSpriteExportFormat implements ExportFormat
      * The page contains the export, in the same format as the JSON export: sprites are rendered by JavaScript, with pagination
      *
      * @param string $spritesPath Path or URL of the sprites images directory, from the page
+     * @param string $examplesPath Path or URL of the example maps directory, from the page
      */
-    public function render(SpriteExport $export, string $spritesPath): string
+    public function render(SpriteExport $export, string $spritesPath, string $examplesPath = ''): string
     {
         $areas = [];
         $interactiveTypes = [];
@@ -99,6 +106,7 @@ final readonly class HtmlSpriteExportFormat implements ExportFormat
             // Avoid closing the script tag from the data
             'json' => str_replace('</', '<\/', json_encode($export, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR)),
             'spritesPath' => htmlspecialchars(json_encode($spritesPath, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)),
+            'examplesPath' => htmlspecialchars(json_encode($examplesPath, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)),
             'layers' => $options(array_column(Layer::cases(), 'value')),
             'biomes' => $options(array_column(Biome::cases(), 'value')),
             'locations' => $options(array_column(LocationType::cases(), 'value')),
