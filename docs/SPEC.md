@@ -24,7 +24,7 @@ Classification automatique des maps (et à terme des objets de maps) de Dofus Re
 - Configuration par variables d'environnement :
   - `DOFUS_PATH` : chemin du client Dofus
   - `OPENAI_API_KEY`
-  - `OPENAI_MODEL` (défaut : `luna`)
+  - `OPENAI_MODEL` (défaut : `gpt-6-luna`)
   - `VAR_DIR` (défaut : `var/`)
 
 ### Commandes CLI
@@ -56,7 +56,7 @@ Enums en anglais, tags et description en anglais.
   "location_type": "wild",
   "tags": ["river", "bridge"],
   "description": "…",
-  "model": "luna",
+  "model": "gpt-6-luna",
   "classified_at": "2026-11-12T12:00:00+00:00"
 }
 ```

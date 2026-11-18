@@ -22,7 +22,7 @@ final class Config
         /** Directory used to store all generated data (keys, renders, results, cache, exports) */
         public readonly string $varDir,
         public readonly ?string $openAiApiKey = null,
-        public readonly string $openAiModel = 'luna',
+        public readonly string $openAiModel = 'gpt-6-luna',
         /** Reasoning effort sent to the model (only for reasoning models). Null to omit. */
         public readonly ?string $openAiReasoningEffort = null,
         public readonly string $openAiBaseUrl = 'https://api.openai.com/v1',
@@ -58,7 +58,7 @@ final class Config
             dofusPath: rtrim($env('DOFUS_PATH') ?? '/dofus', '/'),
             varDir: rtrim($env('VAR_DIR') ?? $projectDir . '/var', '/'),
             openAiApiKey: $env('OPENAI_API_KEY'),
-            openAiModel: $env('OPENAI_MODEL') ?? 'luna',
+            openAiModel: $env('OPENAI_MODEL') ?? 'gpt-6-luna',
             openAiReasoningEffort: $env('OPENAI_REASONING_EFFORT'),
             openAiBaseUrl: rtrim($env('OPENAI_BASE_URL') ?? 'https://api.openai.com/v1', '/'),
             keysArchiveUrl: $env('MAP_KEYS_ARCHIVE_URL') ?? self::DEFAULT_KEYS_ARCHIVE_URL,
