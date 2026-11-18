@@ -29,7 +29,7 @@ Environment variables (container side):
 | `DOFUS_PATH` | `/dofus` | Dofus client path (mounted from `DOFUS_CLIENT_DIR`) |
 | `CLIENT_ARCHIVE_URL` | dofedex 1.41.7 classic | Client zip archive downloaded by `client:download` |
 | `OPENAI_API_KEY` | | OpenAI API key |
-| `OPENAI_MODEL` | `luna` | Model used for classification |
+| `OPENAI_MODEL` | `gpt-6-luna` | Model used for classification |
 | `OPENAI_REASONING_EFFORT` | | Reasoning effort (`minimal`, `low`…), only for reasoning models |
 | `VAR_DIR` | `var/` | Data directory |
 | `LANG_DIR` | `/lang` | Lang swf files directory (mounted from `DOFUS_LANG_DIR`) |
@@ -80,6 +80,9 @@ var/
   sprite_types/{set}/{id}.json  type of each sprite (category, name, keywords)
   report.html                 visual report
 ```
+
+The exported results are versioned in `data/` (copies of `var/maps.json`, `var/sub_areas.json` and `var/sprites.json`). Their structure and possible values are described in [docs/data](docs/data):
+[maps.json](docs/data/maps.md), [sub_areas.json](docs/data/sub_areas.md), [objects.json](docs/data/objects.md).
 
 ## Code organization
 
