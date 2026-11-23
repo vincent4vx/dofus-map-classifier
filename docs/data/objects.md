@@ -44,6 +44,7 @@ In the gallery and in the model context, a sprite is written as the first letter
   "location_types": {"city": {"maps": 42, "occurrences": 53}},
   "movements": {"0": 1},
   "ground_share": null,
+  "path": {"cells": 55, "distances": {"0": 0, "1": 0, "2": 0.1273}},
   "example": {"map": 4172, "cell": 292, "rotation": 0, "flip": false},
   "neighbors": [
     {
@@ -90,6 +91,7 @@ All the decodable maps of the client are taken into account, even the ones that 
 | `location_types` | object | Location types of the classified maps. Keys: see [maps.md](maps.md#location-types) |
 | `movements` | object | Frequency of each movement value of the cells using the sprite (see [Movements](#movements)) |
 | `ground_share` | float \| null | For a sprite whose main layer is `ground`: average share of the ground cells of its maps that it covers, from 0 to 1 with 4 decimals. A base tile covers a large share of its maps, a variant only a few cells. null for the other layers |
+| `path` | object \| null | Position of the cells relative to the preferred path of the maps (see [Path](#path)). null if the sprite is never used on a map with a preferred path |
 | `example` | object \| null | Use shown to the model as an example (see [Example](#example)). null for a background |
 | `neighbors` | object[] | Frequent neighbors on the same layer, to find composed objects (see [Neighbors](#neighbors)) |
 | `interactive` | object \| null | Interactive object drawn by the sprite, from the game langs (see [Interactive objects](#interactive-objects)). null for non-interactive sprites |
@@ -126,6 +128,17 @@ Rare values are ignored as noise: a value is kept only if its number of maps is 
 | `0` | Not walkable (blocked) cell |
 | `1` | Interactive object |
 | `2` to `7` | Walkable cell; the higher the value, the more the path is preferred |
+
+### Path
+
+The cells with a preferred movement (`5` to `7`, on active cells) draw the path the characters walk on: a line of one cell wide, placed by hand on the middle of the roads, streets and bridges. It is precise (the line is almost always on a drawn road) but often incomplete, and only about 15% of the maps have one (40% of the `road` maps, 60% of the `city` maps, almost no `indoor` map).
+
+`path` tells where the cells of the sprite are relative to this line, on the maps that have one:
+
+- `cells`: number of cells using the sprite on these maps.
+- `distances`: frequency, from 0 to 1 with 4 decimals, of the cells at each distance from the line (string key `0` to `2`): `0` on the line, `1` touching it (including by a corner), `2` one cell away. The distance is counted in cells on the grid, diagonals included. The remainder (1 minus the sum) is the frequency of the cells farther away.
+
+Compare with all the cells of these maps: about 15% at `0`, 12% at `1`, 8% at `2` and 65% farther. A road tile is mostly at `0` (e.g. the Amakna dirt road `g10`: 70%), a road border or a decoration along the road mostly at `1` (e.g. `o120`: 8% at `0`, but 83% within 1 cell). With few `cells`, the frequencies are not reliable.
 
 ### Example
 

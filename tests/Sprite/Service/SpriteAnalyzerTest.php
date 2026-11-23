@@ -9,6 +9,7 @@ use MapClassifier\Map\Classification\Model\MapClassification;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Map\Model\CellOffset;
+use MapClassifier\Map\Model\PreferredPath;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
@@ -17,6 +18,7 @@ use MapClassifier\Sprite\Model\Neighbor;
 use MapClassifier\Sprite\Model\Orientation;
 use MapClassifier\Sprite\Model\OrientationNeighbors;
 use MapClassifier\Sprite\Model\OrientedSprite;
+use MapClassifier\Sprite\Model\PathProximity;
 use MapClassifier\Sprite\Model\RenderedSprite;
 use MapClassifier\Sprite\Model\SpriteProfile;
 use MapClassifier\Sprite\Model\SpriteSet;
@@ -120,6 +122,7 @@ final class SpriteAnalyzerTest extends TestCase
             'location_types' => [],
             'movements' => [],
             'ground_share' => null,
+            'path' => null,
             'example' => null,
             'neighbors' => [],
             'interactive' => null,
@@ -181,6 +184,32 @@ final class SpriteAnalyzerTest extends TestCase
         $this->assertSame(0.875, $profiles->get(SpriteSet::Grounds, 1)->groundShare, 'Average of 3 / 4 and 1 / 1 ground cells');
         $this->assertNull($profiles->get(SpriteSet::Objects, 1)->groundShare, 'Not a ground');
         $this->assertNull($profiles->get(SpriteSet::Grounds, 2)->groundShare, 'Background');
+    }
+
+    public function testPathProximity(): void
+    {
+        $analyzer = new SpriteAnalyzer([], []);
+
+        $map1 = new MapSprites();
+        $map1->addCell(Layer::Ground, 1, pathDistance: 0);
+        $map1->addCell(Layer::Ground, 1, pathDistance: 0);
+        $map1->addCell(Layer::Ground, 1, pathDistance: 1);
+        $map1->addCell(Layer::Ground, 1, pathDistance: PreferredPath::FAR);
+        $map1->addCell(Layer::Layer1, 2, pathDistance: 1);
+        $analyzer->add(1, $map1);
+
+        // No preferred path: not counted
+        $map2 = new MapSprites();
+        $map2->addCell(Layer::Ground, 1);
+        $map2->addCell(Layer::Ground, 3);
+        $analyzer->add(2, $map2);
+
+        $profiles = $analyzer->profiles();
+
+        $this->assertEquals(new PathProximity(4, [0 => 0.5, 1 => 0.25, 2 => 0.0]), $profiles->get(SpriteSet::Grounds, 1)?->path, 'Only the 4 cells of the map with a path');
+        $this->assertEquals(new PathProximity(1, [0 => 0.0, 1 => 1.0, 2 => 0.0]), $profiles->get(SpriteSet::Objects, 2)?->path);
+        $this->assertNull($profiles->get(SpriteSet::Grounds, 3)?->path, 'Never on a map with a path');
+        $this->assertSame(['cells' => 4, 'distances' => [0 => 0.5, 1 => 0.25, 2 => 0]], json_decode((string) json_encode($profiles->get(SpriteSet::Grounds, 1)?->path), true));
     }
 
     public function testNeighbors(): void

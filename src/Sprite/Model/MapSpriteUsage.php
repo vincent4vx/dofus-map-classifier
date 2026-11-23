@@ -22,6 +22,12 @@ final class MapSpriteUsage
     /** @var array<int, int> Number of cells using the sprite, indexed by the movement of the cell (the background has no cell) */
     public private(set) array $movements = [];
 
+    /**
+     * @var array<int, int> Number of cells using the sprite, indexed by their distance to the preferred path of the map (0 to 2, 3 for the farther cells,
+     *     see {@see \MapClassifier\Map\Model\PreferredPath::distance()}). Empty if the map has no preferred path
+     */
+    public private(set) array $pathDistances = [];
+
     /** @var array<string, array<string, NeighborCounts>> Neighbors of the cells using the sprite, indexed by layer value, then {@see Orientation::key()} */
     public private(set) array $neighbors = [];
 
@@ -53,8 +59,9 @@ final class MapSpriteUsage
      * @param int|null $cellId Id of the cell, null for the background
      * @param float $centerDistance Distance between the cell and the center of the map
      * @param Orientation $orientation Rotation and flip of the sprite on the cell
+     * @param int|null $pathDistance Distance between the cell and the preferred path of the map, null if the map has no preferred path
      */
-    public function addCell(Layer $layer, bool $sloped = false, ?int $movement = null, ?int $cellId = null, float $centerDistance = 0.0, Orientation $orientation = new Orientation()): void
+    public function addCell(Layer $layer, bool $sloped = false, ?int $movement = null, ?int $cellId = null, float $centerDistance = 0.0, Orientation $orientation = new Orientation(), ?int $pathDistance = null): void
     {
         $this->cells[$layer->value] = ($this->cells[$layer->value] ?? 0) + 1;
 
@@ -74,6 +81,10 @@ final class MapSpriteUsage
 
         if ($movement !== null) {
             $this->movements[$movement] = ($this->movements[$movement] ?? 0) + 1;
+        }
+
+        if ($pathDistance !== null) {
+            $this->pathDistances[$pathDistance] = ($this->pathDistances[$pathDistance] ?? 0) + 1;
         }
     }
 

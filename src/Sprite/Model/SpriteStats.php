@@ -7,6 +7,7 @@ namespace MapClassifier\Sprite\Model;
 use MapClassifier\Location\Model\MapLocation;
 use MapClassifier\Map\Classification\Model\Biome;
 use MapClassifier\Map\Classification\Model\MapClassification;
+use MapClassifier\Map\Model\PreferredPath;
 
 use function array_sum;
 use function array_map;
@@ -54,6 +55,9 @@ final class SpriteStats
     /** @var array<int, int> Number of cells using the sprite, indexed by the movement of the cell */
     public private(set) array $movements = [];
 
+    /** @var array<int, int> Number of cells on maps with a preferred path, indexed by distance to the path (see {@see MapSpriteUsage::$pathDistances}) */
+    private array $pathDistances = [];
+
     /** @var array<string, array<string, NeighborCounts>> Neighbors of the cells using the sprite, indexed by layer value, then {@see Orientation::key()} */
     private array $neighbors = [];
 
@@ -94,6 +98,10 @@ final class SpriteStats
 
         foreach ($usage->movements as $movement => $count) {
             $this->movements[$movement] = ($this->movements[$movement] ?? 0) + $count;
+        }
+
+        foreach ($usage->pathDistances as $distance => $count) {
+            $this->pathDistances[$distance] = ($this->pathDistances[$distance] ?? 0) + $count;
         }
 
         if ($mapId !== null) {
@@ -161,6 +169,26 @@ final class SpriteStats
         ksort($frequencies);
 
         return $frequencies;
+    }
+
+    /**
+     * Position of the cells relative to the preferred path, on the maps with one. Null if the sprite is never used on such a map
+     */
+    public function pathProximity(): ?PathProximity
+    {
+        $total = array_sum($this->pathDistances);
+
+        if ($total === 0) {
+            return null;
+        }
+
+        $frequencies = [];
+
+        for ($distance = 0; $distance <= PreferredPath::MAX_DISTANCE; ++$distance) {
+            $frequencies[$distance] = round(($this->pathDistances[$distance] ?? 0) / $total, 4);
+        }
+
+        return new PathProximity($total, $frequencies);
     }
 
     /**

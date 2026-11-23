@@ -34,8 +34,9 @@ final class MapSprites implements IteratorAggregate, Countable
      * @param int|null $cellId Id of the cell, null for the background
      * @param float $centerDistance Distance between the cell and the center of the map
      * @param Orientation $orientation Rotation and flip of the sprite on the cell
+     * @param int|null $pathDistance Distance between the cell and the preferred path of the map, null if the map has no preferred path
      */
-    public function addCell(Layer $layer, int $id, bool $sloped = false, ?int $movement = null, ?int $cellId = null, float $centerDistance = 0.0, Orientation $orientation = new Orientation()): void
+    public function addCell(Layer $layer, int $id, bool $sloped = false, ?int $movement = null, ?int $cellId = null, float $centerDistance = 0.0, Orientation $orientation = new Orientation(), ?int $pathDistance = null): void
     {
         if ($layer === Layer::Ground) {
             ++$this->groundCells;
@@ -43,7 +44,7 @@ final class MapSprites implements IteratorAggregate, Countable
 
         $set = $layer->spriteSet();
         $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
-        $this->usages[$set->value][$id]->addCell($layer, $sloped, $movement, $cellId, $centerDistance, $orientation);
+        $this->usages[$set->value][$id]->addCell($layer, $sloped, $movement, $cellId, $centerDistance, $orientation, $pathDistance);
     }
 
     /**

@@ -21,7 +21,7 @@ use function is_numeric;
  *
  * JSON (sprite_profiles.json): {"id", "layer", "slope", "occurrences", "maps", "classified_maps",
  * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: {@see UsageCount}}, "indoor": {"indoor" | "outdoor": {@see UsageCount}},
- * "location_types": {type: {@see UsageCount}}, "movements": {movement: frequency}, "ground_share": float | null, "example": {@see SpriteExample} | null, "neighbors": [{@see OrientationNeighbors}], "interactive": {@see InteractiveObject} | null}
+ * "location_types": {type: {@see UsageCount}}, "movements": {movement: frequency}, "ground_share": float | null, "path": {@see PathProximity} | null, "example": {@see SpriteExample} | null, "neighbors": [{@see OrientationNeighbors}], "interactive": {@see InteractiveObject} | null}
  */
 final readonly class SpriteProfile implements JsonSerializable
 {
@@ -64,6 +64,8 @@ final readonly class SpriteProfile implements JsonSerializable
         public ?SpriteExample $example = null,
         /** Average ratio (0 to 1) of the ground cells of its maps covered by the sprite. Only for the sprites mainly used as ground */
         public ?float $groundShare = null,
+        /** Position of the cells relative to the preferred path, on the maps with one. Null if the sprite is never used on such a map */
+        public ?PathProximity $path = null,
     ) {}
 
     /**
@@ -95,6 +97,7 @@ final readonly class SpriteProfile implements JsonSerializable
             slope: ($data['slope'] ?? false) === true,
             movements: array_map(floatval(...), is_array($data['movements'] ?? null) ? $data['movements'] : []),
             groundShare: is_numeric($data['ground_share'] ?? null) ? (float) $data['ground_share'] : null,
+            path: is_array($data['path'] ?? null) ? PathProximity::fromArray($data['path']) : null,
             example: is_array($data['example'] ?? null) ? SpriteExample::fromArray($data['example']) : null,
             neighbors: array_values(array_map(
                 static fn (mixed $value) => OrientationNeighbors::fromArray(is_array($value) ? $value : []),
@@ -123,6 +126,7 @@ final readonly class SpriteProfile implements JsonSerializable
             'location_types' => (object) $this->locationTypes,
             'movements' => (object) $this->movements,
             'ground_share' => $this->groundShare,
+            'path' => $this->path,
             'example' => $this->example,
             'neighbors' => $this->neighbors,
             'interactive' => $this->interactive,

@@ -9,6 +9,7 @@ use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Model\CellGrid;
 use MapClassifier\Map\Model\CellOffset;
 use MapClassifier\Map\Model\MapFile;
+use MapClassifier\Map\Model\PreferredPath;
 use MapClassifier\Map\Service\MapImageRenderer;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\MapSprites;
@@ -16,7 +17,7 @@ use MapClassifier\Sprite\Model\Orientation;
 use MapClassifier\Sprite\Model\OrientedSprite;
 
 /**
- * Extract the sprites used by a map, with their usage (cells per layer, slopes, movements, neighbors…)
+ * Extract the sprites used by a map, with their usage (cells per layer, slopes, movements, distance to the preferred path, neighbors…)
  */
 final readonly class MapSpriteExtractor
 {
@@ -44,6 +45,7 @@ final readonly class MapSpriteExtractor
         }
 
         $grid = CellGrid::of($loaded);
+        $path = PreferredPath::of($loaded, $grid);
 
         foreach ($loaded->cells as $cellId => $cell) {
             foreach ([Layer::Ground, Layer::Layer1, Layer::Layer2] as $layer) {
@@ -53,7 +55,7 @@ final readonly class MapSpriteExtractor
                     // Flat ground has the slope 1 (0 is not valid)
                     $sloped = $layer === Layer::Ground && $cell->ground->slope > 1;
                     $orientation = Orientation::of($object);
-                    $sprites->addCell($layer, $object->number, $sloped, $cell->movement, $cellId, $grid->distanceToCenter($cellId), $orientation);
+                    $sprites->addCell($layer, $object->number, $sloped, $cell->movement, $cellId, $grid->distanceToCenter($cellId), $orientation, $path->distance($cellId));
                     $sprites->addNeighbors($layer, $object->number, $orientation, $this->neighbors($loaded->cells, $grid, $cellId, $layer));
                 }
             }

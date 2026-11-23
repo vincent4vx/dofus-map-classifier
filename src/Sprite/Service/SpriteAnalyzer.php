@@ -123,6 +123,7 @@ final class SpriteAnalyzer
                     neighbors: $stats->neighbors($layer),
                     example: $stats->example($layer),
                     groundShare: $layer === Layer::Ground ? $stats->groundShare() : null,
+                    path: $stats->pathProximity(),
                 );
             }
         }
