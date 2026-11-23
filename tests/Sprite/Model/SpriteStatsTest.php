@@ -83,6 +83,18 @@ final class SpriteStatsTest extends TestCase
         $this->assertSame(0.375, $stats->groundShare(), 'Average of 25% and 50%, the map using it as background is ignored');
     }
 
+    public function testBareShare(): void
+    {
+        $stats = new SpriteStats();
+        $this->assertNull($stats->bareShare());
+
+        $stats->addMap(self::usage([Layer::Background]), null, null, null, mapBareShare: 0.9);
+        $stats->addMap(self::usage([Layer::Background, Layer::Ground]), null, null, null, mapBareShare: 0.5);
+        $stats->addMap(self::usage([Layer::Ground]), null, null, null, mapBareShare: 0.0);
+
+        $this->assertSame(0.7, $stats->bareShare(), 'Average of 90% and 50%, the map using it only as ground is ignored');
+    }
+
     public function testSlope(): void
     {
         $stats = new SpriteStats();

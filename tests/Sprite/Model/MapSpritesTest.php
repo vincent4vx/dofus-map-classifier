@@ -40,4 +40,18 @@ final class MapSpritesTest extends TestCase
 
         $this->assertNull($sprites->get(SpriteSet::Grounds, 7));
     }
+
+    public function testBareShare(): void
+    {
+        $sprites = new MapSprites();
+        $this->assertNull($sprites->bareShare(), 'No active cell');
+
+        $sprites->addActiveCell(true);
+        $sprites->addActiveCell(true);
+        $sprites->addActiveCell(true);
+        $sprites->addActiveCell(false);
+
+        $this->assertSame(4, $sprites->activeCells);
+        $this->assertSame(0.75, $sprites->bareShare());
+    }
 }

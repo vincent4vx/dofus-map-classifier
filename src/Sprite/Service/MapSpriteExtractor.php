@@ -48,6 +48,10 @@ final readonly class MapSpriteExtractor
         $path = PreferredPath::of($loaded, $grid);
 
         foreach ($loaded->cells as $cellId => $cell) {
+            if ($cell->active) {
+                $sprites->addActiveCell($cell->ground->number <= 0);
+            }
+
             foreach ([Layer::Ground, Layer::Layer1, Layer::Layer2] as $layer) {
                 $object = $layer->object($cell);
 

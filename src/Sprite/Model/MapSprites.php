@@ -23,6 +23,12 @@ final class MapSprites implements IteratorAggregate, Countable
     /** Number of cells with a ground sprite */
     public private(set) int $groundCells = 0;
 
+    /** Number of active (usable) cells */
+    public private(set) int $activeCells = 0;
+
+    /** Number of active cells without ground sprite: the background is visible through them */
+    public private(set) int $bareCells = 0;
+
     /** @var array<string, array<int, MapSpriteUsage>> Indexed by set value, then sprite id */
     private array $usages = [];
 
@@ -57,6 +63,28 @@ final class MapSprites implements IteratorAggregate, Countable
         $set = $layer->spriteSet();
         $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
         $this->usages[$set->value][$id]->addNeighbors($layer, $orientation, $neighbors);
+    }
+
+    /**
+     * Count an active cell of the map
+     *
+     * @param bool $bare The cell has no ground sprite
+     */
+    public function addActiveCell(bool $bare): void
+    {
+        ++$this->activeCells;
+
+        if ($bare) {
+            ++$this->bareCells;
+        }
+    }
+
+    /**
+     * Ratio (0 to 1) of the active cells without ground sprite. Null if the map has no active cell
+     */
+    public function bareShare(): ?float
+    {
+        return $this->activeCells > 0 ? $this->bareCells / $this->activeCells : null;
     }
 
     public function get(SpriteSet $set, int $id): ?MapSpriteUsage

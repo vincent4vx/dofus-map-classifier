@@ -70,6 +70,12 @@ final class SpriteStats
     /** Number of maps using the sprite as ground, with ground cells */
     private int $groundMaps = 0;
 
+    /** Sum, over the maps using the sprite as background, of the ratio of their active cells without ground */
+    private float $bareShares = 0.0;
+
+    /** Number of maps using the sprite as background, with active cells */
+    private int $bareMaps = 0;
+
     /**
      * Count a map using the sprite: its usage on the map, and the map attributes. Must be called once per map.
      *
@@ -78,9 +84,15 @@ final class SpriteStats
      * @param MapClassification|null $classification Null if the map is not classified
      * @param int|null $mapId Id of the map, to choose an example of use. Null to not use the map as example
      * @param int $mapGroundCells Number of cells of the map with a ground sprite, to compute {@see groundShare()}
+     * @param float|null $mapBareShare Ratio of the active cells of the map without ground, to compute {@see bareShare()}
      */
-    public function addMap(MapSpriteUsage $usage, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification, ?int $mapId = null, int $mapGroundCells = 0): void
+    public function addMap(MapSpriteUsage $usage, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification, ?int $mapId = null, int $mapGroundCells = 0, ?float $mapBareShare = null): void
     {
+        if (($usage->cells[Layer::Background->value] ?? 0) > 0 && $mapBareShare !== null) {
+            $this->bareShares += $mapBareShare;
+            ++$this->bareMaps;
+        }
+
         if (($groundCells = $usage->cells[Layer::Ground->value] ?? 0) > 0 && $mapGroundCells > 0) {
             $this->groundShares += $groundCells / $mapGroundCells;
             ++$this->groundMaps;
@@ -169,6 +181,15 @@ final class SpriteStats
         ksort($frequencies);
 
         return $frequencies;
+    }
+
+    /**
+     * Average ratio (0 to 1) of the active cells without ground, over the maps using the sprite as background, rounded to 4 decimals
+     * A background visible on most of the map is the terrain itself, a hidden one only fills the holes. Null if the sprite is not used as background
+     */
+    public function bareShare(): ?float
+    {
+        return $this->bareMaps > 0 ? round($this->bareShares / $this->bareMaps, 4) : null;
     }
 
     /**

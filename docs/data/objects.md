@@ -44,6 +44,7 @@ In the gallery and in the model context, a sprite is written as the first letter
   "location_types": {"city": {"maps": 42, "occurrences": 53}},
   "movements": {"0": 1},
   "ground_share": null,
+  "bare_share": null,
   "path": {"cells": 55, "distances": {"0": 0, "1": 0, "2": 0.1273}},
   "example": {"map": 4172, "cell": 292, "rotation": 0, "flip": false},
   "neighbors": [
@@ -91,6 +92,7 @@ All the decodable maps of the client are taken into account, even the ones that 
 | `location_types` | object | Location types of the classified maps. Keys: see [maps.md](maps.md#location-types) |
 | `movements` | object | Frequency of each movement value of the cells using the sprite (see [Movements](#movements)) |
 | `ground_share` | float \| null | For a sprite whose main layer is `ground`: average share of the ground cells of its maps that it covers, from 0 to 1 with 4 decimals. A base tile covers a large share of its maps, a variant only a few cells. null for the other layers |
+| `bare_share` | float \| null | For a sprite whose main layer is `background`: average share of the active cells without ground of its maps, from 0 to 1 with 4 decimals. A background visible on most of the map is the terrain itself (e.g. the grass `g71`), a background hidden under ground tiles only fills the holes. null for the other layers |
 | `path` | object \| null | Position of the cells relative to the preferred path of the maps (see [Path](#path)). null if the sprite is never used on a map with a preferred path |
 | `example` | object \| null | Use shown to the model as an example (see [Example](#example)). null for a background |
 | `neighbors` | object[] | Frequent neighbors on the same layer, to find composed objects (see [Neighbors](#neighbors)) |
