@@ -81,8 +81,8 @@ var/
   report.html                 visual report
 ```
 
-The exported results are versioned in `data/` (copies of `var/maps.json`, `var/sub_areas.json` and `var/sprites.json`). Their structure and possible values are described in [docs/data](docs/data):
-[maps.json](docs/data/maps.md), [sub_areas.json](docs/data/sub_areas.md), [objects.json](docs/data/objects.md).
+The exported results are versioned in `data/` (copies of `var/maps.json`, `var/sub_areas.json`, `var/sprites.json` and `var/areas/`). Their structure and possible values are described in [docs/data](docs/data):
+[maps.json](docs/data/maps.md), [sub_areas.json](docs/data/sub_areas.md), [objects.json](docs/data/objects.md), [areas/{id}.json](docs/data/areas.md).
 
 ## Code organization
 

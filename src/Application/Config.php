@@ -50,6 +50,10 @@ final class Config
     /** Export of the sprites, with their type */
     public string $spritesFile { get => $this->varDir . '/sprites.json'; }
 
+    public string $areaProfilesDir { get => $this->varDir . '/area_profiles'; }
+
+    public string $areasDir { get => $this->varDir . '/areas'; }
+
     public static function fromEnv(string $projectDir): self
     {
         $env = static fn (string $name): ?string => ($value = getenv($name)) === false || $value === '' ? null : $value;

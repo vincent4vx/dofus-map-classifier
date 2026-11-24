@@ -7,6 +7,8 @@ namespace MapClassifier\Sprite\Service;
 use MapClassifier\Location\Model\MapLocation;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Model\SubAreaBiome;
+use MapClassifier\Sprite\Model\AreaProfile;
+use MapClassifier\Sprite\Model\AreaStats;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
@@ -21,6 +23,7 @@ use MapClassifier\Sprite\Repository\SpriteRepository;
 use function array_filter;
 use function array_keys;
 use function array_map;
+use function array_values;
 use function ksort;
 use function reset;
 use function uasort;
@@ -45,6 +48,9 @@ final class SpriteAnalyzer
 {
     /** @var array<string, array<int, SpriteStats>> Stats indexed by sprite set value, then sprite id */
     private array $stats = [];
+
+    /** @var array<int, AreaStats> Stats of the maps of each area, indexed by area id */
+    private array $areas = [];
 
     /** @var array<int, string|null> */
     private array $areaNames = [];
@@ -83,6 +89,11 @@ final class SpriteAnalyzer
             if ($location->areaId !== null) {
                 $this->areaNames[$location->areaId] = $location->areaName;
             }
+        }
+
+        if ($location?->areaId !== null) {
+            ($this->areas[$location->areaId] ??= new AreaStats($location->areaId, $location->areaName))
+                ->addMap($sprites, $location, $biome, $classification);
         }
 
         // One usage per sprite: map attributes are counted once per map
@@ -130,6 +141,18 @@ final class SpriteAnalyzer
         }
 
         return SpriteProfiles::of($profiles);
+    }
+
+    /**
+     * Profiles of the areas: the usage of the sprites on the maps of each area, sorted by area id
+     *
+     * @return list<AreaProfile>
+     */
+    public function areaProfiles(): array
+    {
+        ksort($this->areas);
+
+        return array_values(array_map(static fn (AreaStats $area) => $area->profile(), $this->areas));
     }
 
     /**

@@ -76,6 +76,14 @@ final class SpriteStats
     /** Number of maps using the sprite as background, with active cells */
     private int $bareMaps = 0;
 
+    public function __construct(
+        /**
+         * Also accumulate the neighbors and the example of use. False for a light breakdown (by location type in an area),
+         * whose neighbors would only repeat the ones of the area at a high memory cost
+         */
+        private readonly bool $detailed = true,
+    ) {}
+
     /**
      * Count a map using the sprite: its usage on the map, and the map attributes. Must be called once per map.
      *
@@ -116,13 +124,15 @@ final class SpriteStats
             $this->pathDistances[$distance] = ($this->pathDistances[$distance] ?? 0) + $count;
         }
 
-        if ($mapId !== null) {
+        if ($this->detailed && $mapId !== null) {
             $this->addExample($usage, $mapId);
         }
 
-        foreach ($usage->neighbors as $layer => $orientations) {
-            foreach ($orientations as $key => $counts) {
-                ($this->neighbors[$layer][$key] ??= new NeighborCounts($counts->orientation))->merge($counts);
+        if ($this->detailed) {
+            foreach ($usage->neighbors as $layer => $orientations) {
+                foreach ($orientations as $key => $counts) {
+                    ($this->neighbors[$layer][$key] ??= new NeighborCounts($counts->orientation))->merge($counts);
+                }
             }
         }
 

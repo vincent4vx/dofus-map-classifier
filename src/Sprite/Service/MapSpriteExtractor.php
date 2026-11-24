@@ -46,6 +46,7 @@ final readonly class MapSpriteExtractor
 
         $grid = CellGrid::of($loaded);
         $path = PreferredPath::of($loaded, $grid);
+        $sprites->hasPreferredPath = $path->exists();
 
         foreach ($loaded->cells as $cellId => $cell) {
             if ($cell->active) {

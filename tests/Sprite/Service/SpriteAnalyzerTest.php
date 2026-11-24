@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace MapClassifier\Tests\Sprite\Service;
 
 use MapClassifier\Location\Model\MapLocation;
+use MapClassifier\Map\Classification\Model\LocationType;
 use MapClassifier\Map\Classification\Model\MapClassification;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Map\Model\CellOffset;
 use MapClassifier\Map\Model\PreferredPath;
+use MapClassifier\Sprite\Model\AreaMaps;
+use MapClassifier\Sprite\Model\AreaProfile;
+use MapClassifier\Sprite\Model\AreaSpriteUsage;
 use MapClassifier\Sprite\Model\InteractiveObject;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\LocationUsage;
@@ -305,13 +309,79 @@ final class SpriteAnalyzerTest extends TestCase
         $this->assertEquals($counts(['a' => 1, 'b' => 1]), $analyzer->filter($counts(['a' => 1, 'b' => 1])));
     }
 
-    private function classified(int $id, ?string $biome, bool $indoor): MapResult
+    public function testAreaProfiles(): void
+    {
+        // Area 19: 10 road maps (2 with a preferred path) and 4 village maps. Area 7: 30 maps
+        $locations = $results = [];
+
+        for ($id = 1; $id <= 44; ++$id) {
+            $area = $id <= 14 ? 19 : 7;
+            $locations[$id] = new MapLocation($id, $area * 10, 'Sub area', $area, $area === 19 ? 'Pandala' : 'Bonta');
+            $results[$id] = $this->classified($id, $id <= 12 ? 'jungle' : 'plain', false, $id <= 10 ? 'road' : 'village');
+        }
+
+        $analyzer = new SpriteAnalyzer($locations, $results);
+
+        for ($id = 1; $id <= 44; ++$id) {
+            $map = new MapSprites();
+            $map->addCell(Layer::Background, 253);
+            $map->addActiveCell(true);
+            $map->addActiveCell(false);
+            $pathDistance = $id <= 2 ? 0 : null;
+            $map->hasPreferredPath = $pathDistance !== null;
+
+            // o991 draws the roads of area 19 only; o2250 paves its villages and every map of area 7
+            if ($id <= 10) {
+                $map->addCell(Layer::Layer1, 991, pathDistance: $pathDistance);
+                $map->addCell(Layer::Layer1, 991, pathDistance: $pathDistance);
+            } else {
+                $map->addCell(Layer::Layer1, 2250);
+            }
+
+            $analyzer->add($id, $map);
+        }
+
+        $areas = $analyzer->areaProfiles();
+
+        $this->assertSame([7, 19], array_map(static fn (AreaProfile $area) => $area->id, $areas));
+        $pandala = $areas[1];
+        $this->assertSame('Pandala', $pandala->name);
+        $this->assertEquals(new AreaMaps(14, 14, 2, ['outdoor' => 14], ['jungle' => 12, 'plain' => 2], [
+            'road' => ['maps' => 10, 'with_path' => 2],
+            'village' => ['maps' => 4, 'with_path' => 0],
+        ]), $pandala->maps);
+
+        $cobbles = $pandala->sprite(SpriteSet::Objects, 991);
+        $this->assertNotNull($cobbles);
+        $this->assertSame(10, $cobbles->maps);
+        $this->assertSame(20, $cobbles->occurrences);
+        $this->assertEquals(['jungle' => new UsageCount(10, 20)], $cobbles->biomes);
+        $this->assertEquals(new AreaSpriteUsage(10, 20, path: new PathProximity(4, [0 => 1.0, 1 => 0.0, 2 => 0.0])), $cobbles->on(LocationType::Road));
+        $this->assertNull($cobbles->on(LocationType::Village));
+
+        $slabs = $pandala->sprite(SpriteSet::Objects, 2250);
+        $this->assertNotNull($slabs);
+        $this->assertSame(4, $slabs->maps, 'The maps of area 7 are not counted');
+        $this->assertSame(['village'], array_keys($slabs->byLocationType));
+        $this->assertEquals(['plain' => new UsageCount(2, 2), 'jungle' => new UsageCount(2, 2)], $slabs->biomes, 'Complete distributions: no value ignored as noise');
+
+        $background = $pandala->sprite(SpriteSet::Grounds, 253);
+        $this->assertNotNull($background);
+        $this->assertSame(0.5, $background->bareShare);
+        $this->assertSame(0.5, $background->on(LocationType::Road)?->bareShare);
+
+        $json = json_decode((string) json_encode($pandala), true);
+        $this->assertSame(['id', 'name', 'maps', 'sprites'], array_keys($json));
+        $this->assertEquals($pandala, AreaProfile::fromArray($json), 'Read back from its JSON');
+    }
+
+    private function classified(int $id, ?string $biome, bool $indoor, string $locationType = 'wild'): MapResult
     {
         return MapResult::success($id, 'v', MapClassification::fromArray([
             'biome' => $biome,
             'biome_other' => null,
             'indoor' => $indoor,
-            'location_type' => 'wild',
+            'location_type' => $locationType,
             'tags' => [],
             'description' => '',
         ]), 'luna');

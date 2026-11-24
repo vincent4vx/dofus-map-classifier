@@ -29,6 +29,9 @@ final class MapSprites implements IteratorAggregate, Countable
     /** Number of active cells without ground sprite: the background is visible through them */
     public private(set) int $bareCells = 0;
 
+    /** The map has a preferred path (see {@see \MapClassifier\Map\Model\PreferredPath}) */
+    public bool $hasPreferredPath = false;
+
     /** @var array<string, array<int, MapSpriteUsage>> Indexed by set value, then sprite id */
     private array $usages = [];
 

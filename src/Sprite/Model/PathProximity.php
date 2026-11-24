@@ -22,6 +22,9 @@ use function is_array;
  */
 final readonly class PathProximity implements JsonSerializable
 {
+    /** Frequency of the cells of all the sprites at each distance, on the maps with a preferred path: the reference to compare with */
+    public const array BASELINE = [0 => 0.154, 1 => 0.123, 2 => 0.080];
+
     public function __construct(
         /** Number of cells using the sprite on maps with a preferred path */
         public int $cells,
@@ -31,6 +34,21 @@ final readonly class PathProximity implements JsonSerializable
          */
         public array $distances,
     ) {}
+
+    /**
+     * How much more often than an average sprite the cells are on the path or within the given distance of it: 1 is the average
+     */
+    public function liftWithin(int $distance): float
+    {
+        $share = $reference = 0.0;
+
+        for ($d = 0; $d <= $distance; ++$d) {
+            $share += $this->distances[$d] ?? 0.0;
+            $reference += self::BASELINE[$d] ?? 0.0;
+        }
+
+        return $reference > 0 ? $share / $reference : 0.0;
+    }
 
     /**
      * @param array<array-key, mixed> $data

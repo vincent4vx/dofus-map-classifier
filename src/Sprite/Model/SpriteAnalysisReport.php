@@ -17,5 +17,7 @@ final readonly class SpriteAnalysisReport
         public int $analyzedMaps,
         /** @var array<string, int> Number of maps which cannot be loaded, indexed by {@see RenderError} value */
         public array $skippedMaps = [],
+        /** @var list<AreaProfile> Usage of the sprites on the maps of each area */
+        public array $areas = [],
     ) {}
 }

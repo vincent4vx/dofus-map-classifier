@@ -64,6 +64,6 @@ final readonly class SpriteAnalysis
             }
         }
 
-        return new SpriteAnalysisReport($analyzer->profiles(), $analyzed, $skipped);
+        return new SpriteAnalysisReport($analyzer->profiles(), $analyzed, $skipped, $analyzer->areaProfiles());
     }
 }

@@ -29,6 +29,7 @@ use MapClassifier\Map\Service\MapImageRenderer;
 use MapClassifier\Map\Service\MapKeyDownloader;
 use MapClassifier\Map\Service\MapRenderService;
 use MapClassifier\Sprite\Classification\Command\SpritesClassifyCommand;
+use MapClassifier\Sprite\Classification\Command\AreasExportCommand;
 use MapClassifier\Sprite\Classification\Command\SpritesExportCommand;
 use MapClassifier\Sprite\Classification\Export\HtmlSpriteExportFormat;
 use MapClassifier\Sprite\Classification\Export\JsonSpriteExportFormat;
@@ -43,6 +44,7 @@ use MapClassifier\Sprite\Command\SpritesExamplesCommand;
 use MapClassifier\Sprite\Command\SpritesImagesCommand;
 use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
 use MapClassifier\Sprite\Repository\SpriteExampleRepository;
+use MapClassifier\Sprite\Repository\AreaProfileRepository;
 use MapClassifier\Sprite\Repository\SpriteProfileRepository;
 use MapClassifier\Sprite\Repository\SpriteRepository;
 use MapClassifier\Sprite\Service\MapSpriteExtractor;
@@ -94,6 +96,10 @@ final class Kernel
 
     public SpriteRepository $sprites {
         get => $this->sprites ??= new SpriteRepository($this->config->dofusPath, $this->config->spritesDir);
+    }
+
+    public AreaProfileRepository $areaProfiles {
+        get => $this->areaProfiles ??= new AreaProfileRepository($this->config->areaProfilesDir);
     }
 
     public SpriteProfileRepository $spriteProfiles {
@@ -195,11 +201,12 @@ final class Kernel
         $app->addCommand(new KeysDownloadCommand(new MapKeyDownloader($this->httpClient), $this->config->keysDir, $this->config->keysArchiveUrl));
         $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, new ResultRenderErrorRepository($this->results), $this->config->rendersDir)));
         $app->addCommand(new ClassifyRunCommand($this->mapsToClassify, $this->locations, $this->mapClassifier(), $this->config->openAiModel));
-        $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->renderer), $this->locations, $this->results, $this->interactiveObjects, $this->sprites), $this->spriteProfiles));
+        $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->renderer), $this->locations, $this->results, $this->interactiveObjects, $this->sprites), $this->spriteProfiles, $this->areaProfiles));
         $app->addCommand(new SpritesImagesCommand(new SpriteImageExporter($this->sprites), $this->spriteProfiles, $this->config->spritesDir));
         $app->addCommand(new SpritesExamplesCommand(new SpriteExampleRenderer($this->maps, $this->renderer, $this->spriteExamples, $this->config->rendersDir), $this->spriteProfiles, $this->config->spriteExamplesDir));
         $app->addCommand(new SpritesClassifyCommand($this->spriteProfiles, $this->spritesToClassify, $this->spriteTypeClassifier(), $this->spriteExporter(), $this->spriteExportFormats(), $this->config->openAiModel));
         $app->addCommand(new SpritesExportCommand($this->spriteProfiles, $this->spriteExporter(), $this->spriteExportFormats()));
+        $app->addCommand(new AreasExportCommand($this->areaProfiles, $this->spriteProfiles, $this->spriteTypes, $this->config->areasDir));
         $app->addCommand(new ExportCommand(new MapExporter($this->results), $this->locations, $this->mapExportFormats()));
 
         return $app;

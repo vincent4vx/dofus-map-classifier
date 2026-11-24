@@ -8,6 +8,7 @@ use MapClassifier\Location\Repository\MapLocationRepository;
 use MapClassifier\Map\Command\MapSelectionInput;
 use MapClassifier\Map\Repository\MapFileRepository;
 use MapClassifier\Sprite\Model\SpriteSet;
+use MapClassifier\Sprite\Repository\AreaProfileRepository;
 use MapClassifier\Sprite\Repository\SpriteProfileRepository;
 use MapClassifier\Sprite\Service\SpriteAnalysis;
 use Override;
@@ -29,6 +30,7 @@ final class SpritesAnalyzeCommand extends Command
         private readonly MapLocationRepository $locations,
         private readonly SpriteAnalysis $analysis,
         private readonly SpriteProfileRepository $profiles,
+        private readonly AreaProfileRepository $areas,
     ) {
         parent::__construct();
     }
@@ -61,6 +63,7 @@ final class SpritesAnalyzeCommand extends Command
 
         $profiles = $report->profiles;
         $this->profiles->save($profiles);
+        $this->areas->saveAll($report->areas);
 
         foreach ($report->skippedMaps as $error => $count) {
             $io->text(sprintf('%d maps skipped: %s', $count, $error));
@@ -73,6 +76,7 @@ final class SpritesAnalyzeCommand extends Command
             count($profiles->bySet(SpriteSet::Objects)),
             $this->profiles->file,
         ));
+        $io->text(sprintf('%d area profiles written to %s', count($report->areas), $this->areas->directory));
 
         return self::SUCCESS;
     }
