@@ -15,8 +15,8 @@ use function is_array;
 /**
  * Number of maps of an area, overall and by attribute: the denominators of the sprite usages of the area
  *
- * JSON: {"total": int, "classified": int, "with_path": int, "indoor": {"indoor" | "outdoor": int},
- * "biomes": {biome: int}, "location_types": {type: {"maps": int, "with_path": int}}}
+ * JSON: {"total": int, "classified": int, "with_path": int, "floored": int, "indoor": {"indoor" | "outdoor": int},
+ * "biomes": {biome: int}, "location_types": {type: {"maps": int, "with_path": int, "floored": int}}}
  */
 final readonly class AreaMaps implements JsonSerializable
 {
@@ -31,8 +31,16 @@ final readonly class AreaMaps implements JsonSerializable
         public array $indoor = [],
         /** @var array<string, int> Maps indexed by biome value (the map biome, or else the one of its sub area) */
         public array $biomes = [],
-        /** @var array<string, array{maps: int, with_path: int}> Classified maps, indexed by location type value */
+        /**
+         * @var array<string, array{maps: int, with_path: int, floored: int}> Classified maps, indexed by location type value: all of them,
+         *     those with a preferred path, and the floored ones
+         */
         public array $locationTypes = [],
+        /**
+         * Maps floored by layer 1 objects: their floor objects (ground usage) cover at least 80 % of their active cells, as the grass
+         * hiding the floating rocks of Incarnam
+         */
+        public int $floored = 0,
     ) {}
 
     /**
@@ -52,6 +60,14 @@ final readonly class AreaMaps implements JsonSerializable
     }
 
     /**
+     * Number of classified maps of a location type floored by layer 1 objects
+     */
+    public function flooredOf(LocationType $type): int
+    {
+        return $this->locationTypes[$type->value]['floored'] ?? 0;
+    }
+
+    /**
      * @param array<array-key, mixed> $data
      */
     public static function fromArray(array $data): self
@@ -60,7 +76,7 @@ final readonly class AreaMaps implements JsonSerializable
         $types = [];
 
         foreach (is_array($data['location_types'] ?? null) ? $data['location_types'] : [] as $type => $counts) {
-            $types[(string) $type] = ['maps' => (int) ($counts['maps'] ?? 0), 'with_path' => (int) ($counts['with_path'] ?? 0)];
+            $types[(string) $type] = ['maps' => (int) ($counts['maps'] ?? 0), 'with_path' => (int) ($counts['with_path'] ?? 0), 'floored' => (int) ($counts['floored'] ?? 0)];
         }
 
         return new self(
@@ -70,6 +86,7 @@ final readonly class AreaMaps implements JsonSerializable
             $ints($data['indoor'] ?? null),
             $ints($data['biomes'] ?? null),
             $types,
+            (int) ($data['floored'] ?? 0),
         );
     }
 
@@ -83,6 +100,7 @@ final readonly class AreaMaps implements JsonSerializable
             'total' => $this->total,
             'classified' => $this->classified,
             'with_path' => $this->withPath,
+            'floored' => $this->floored,
             'indoor' => (object) $this->indoor,
             'biomes' => (object) $this->biomes,
             'location_types' => (object) $this->locationTypes,

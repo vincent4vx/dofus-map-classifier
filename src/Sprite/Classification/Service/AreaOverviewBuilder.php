@@ -64,6 +64,7 @@ final readonly class AreaOverviewBuilder
             $types[$value] = new LocationOverview(
                 $counts['maps'],
                 $counts['with_path'],
+                $counts['floored'],
                 array_values(array_filter($sprites, static fn (OverviewSprite $s) => $s->sprite->layer === Layer::Background)),
                 array_slice(array_values(array_filter($sprites, self::isBaseGround(...))), 0, self::MAX_GROUNDS),
                 array_values(array_filter($sprites, self::drawsPaths(...))),

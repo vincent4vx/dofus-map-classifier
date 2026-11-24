@@ -201,7 +201,7 @@ final class Kernel
         $app->addCommand(new KeysDownloadCommand(new MapKeyDownloader($this->httpClient), $this->config->keysDir, $this->config->keysArchiveUrl));
         $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, new ResultRenderErrorRepository($this->results), $this->config->rendersDir)));
         $app->addCommand(new ClassifyRunCommand($this->mapsToClassify, $this->locations, $this->mapClassifier(), $this->config->openAiModel));
-        $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->renderer), $this->locations, $this->results, $this->interactiveObjects, $this->sprites), $this->spriteProfiles, $this->areaProfiles));
+        $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->renderer), $this->locations, $this->results, $this->interactiveObjects, $this->sprites, types: $this->spriteTypes), $this->spriteProfiles, $this->areaProfiles));
         $app->addCommand(new SpritesImagesCommand(new SpriteImageExporter($this->sprites), $this->spriteProfiles, $this->config->spritesDir));
         $app->addCommand(new SpritesExamplesCommand(new SpriteExampleRenderer($this->maps, $this->renderer, $this->spriteExamples, $this->config->rendersDir), $this->spriteProfiles, $this->config->spriteExamplesDir));
         $app->addCommand(new SpritesClassifyCommand($this->spriteProfiles, $this->spritesToClassify, $this->spriteTypeClassifier(), $this->spriteExporter(), $this->spriteExportFormats(), $this->config->openAiModel));

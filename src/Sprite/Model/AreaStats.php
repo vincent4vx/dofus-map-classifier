@@ -21,6 +21,10 @@ final class AreaStats
     private int $maps = 0;
     private int $classified = 0;
     private int $withPath = 0;
+    private int $floored = 0;
+
+    /** A map is floored when the floor objects of layer 1 cover at least this share of its active cells */
+    public const float FLOORED_SHARE = 0.8;
 
     /** @var array<string, int> */
     private array $indoor = [];
@@ -28,7 +32,7 @@ final class AreaStats
     /** @var array<string, int> */
     private array $biomes = [];
 
-    /** @var array<string, array{maps: int, with_path: int}> */
+    /** @var array<string, array{maps: int, with_path: int, floored: int}> */
     private array $locationTypes = [];
 
     /** @var array<string, array<int, SpriteStats>> Indexed by sprite set value, then sprite id */
@@ -47,11 +51,14 @@ final class AreaStats
      *
      * @param Biome|null $biome Biome of the map, or of its sub area
      * @param MapClassification|null $classification Null if the map is not classified
+     * @param float|null $floorShare Share of the active cells of the map under the floor objects of layer 1
      */
-    public function addMap(MapSprites $sprites, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification): void
+    public function addMap(MapSprites $sprites, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification, ?float $floorShare = null): void
     {
+        $floored = ($floorShare ?? 0.0) >= self::FLOORED_SHARE ? 1 : 0;
         ++$this->maps;
         $this->withPath += $sprites->hasPreferredPath ? 1 : 0;
+        $this->floored += $floored;
 
         if ($biome !== null) {
             $this->biomes[$biome->value] = ($this->biomes[$biome->value] ?? 0) + 1;
@@ -64,9 +71,10 @@ final class AreaStats
             $indoor = $classification->indoor ? 'indoor' : 'outdoor';
             $this->indoor[$indoor] = ($this->indoor[$indoor] ?? 0) + 1;
             $type = $classification->locationType->value;
-            $this->locationTypes[$type] ??= ['maps' => 0, 'with_path' => 0];
+            $this->locationTypes[$type] ??= ['maps' => 0, 'with_path' => 0, 'floored' => 0];
             ++$this->locationTypes[$type]['maps'];
             $this->locationTypes[$type]['with_path'] += $sprites->hasPreferredPath ? 1 : 0;
+            $this->locationTypes[$type]['floored'] += $floored;
         }
 
         foreach ($sprites as $usage) {
@@ -106,7 +114,7 @@ final class AreaStats
         return new AreaProfile(
             $this->id,
             $this->name,
-            new AreaMaps($this->maps, $this->classified, $this->withPath, $this->indoor, $this->biomes, $this->locationTypes),
+            new AreaMaps($this->maps, $this->classified, $this->withPath, $this->indoor, $this->biomes, $this->locationTypes, $this->floored),
             $sprites,
         );
     }

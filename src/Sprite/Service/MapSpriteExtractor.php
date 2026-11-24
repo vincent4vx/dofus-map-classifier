@@ -55,7 +55,7 @@ final readonly class MapSpriteExtractor
 
         foreach ($loaded->cells as $cellId => $cell) {
             if ($cell->active) {
-                $sprites->addActiveCell($cell->ground->number <= 0);
+                $sprites->addActiveCell($cell->ground->number <= 0, $cellId);
             }
 
             foreach ([Layer::Ground, Layer::Layer1, Layer::Layer2] as $layer) {

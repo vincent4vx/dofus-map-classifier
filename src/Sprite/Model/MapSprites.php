@@ -9,6 +9,7 @@ use IteratorAggregate;
 use Override;
 use Traversable;
 
+use function array_intersect_key;
 use function array_map;
 use function array_sum;
 use function count;
@@ -34,6 +35,9 @@ final class MapSprites implements IteratorAggregate, Countable
 
     /** Number of cells of the map, inactive ones included: the denominator of the covered shares */
     public int $cells = 0;
+
+    /** @var array<int, true> Active cells, when their id is known */
+    private array $activeCellIds = [];
 
     /** @var array<string, array<int, MapSpriteUsage>> Indexed by set value, then sprite id */
     private array $usages = [];
@@ -95,14 +99,42 @@ final class MapSprites implements IteratorAggregate, Countable
      * Count an active cell of the map
      *
      * @param bool $bare The cell has no ground sprite
+     * @param int|null $cellId Id of the cell, to compute {@see floorShare()}
      */
-    public function addActiveCell(bool $bare): void
+    public function addActiveCell(bool $bare, ?int $cellId = null): void
     {
         ++$this->activeCells;
+
+        if ($cellId !== null) {
+            $this->activeCellIds[$cellId] = true;
+        }
 
         if ($bare) {
             ++$this->bareCells;
         }
+    }
+
+    /**
+     * Ratio (0 to 1) of the active cells lying under any of the given object sprites (their union, see
+     * {@see MapSpriteUsage::addCover()}). Null if the active cells are unknown
+     *
+     * @param array<int, true> $objects Ids of object sprites, as keys
+     */
+    public function floorShare(array $objects): ?float
+    {
+        if ($this->activeCellIds === []) {
+            return null;
+        }
+
+        $covered = [];
+
+        foreach ($this->usages[SpriteSet::Objects->value] ?? [] as $id => $usage) {
+            if (isset($objects[$id])) {
+                $covered += array_intersect_key($usage->coveredCells, $this->activeCellIds);
+            }
+        }
+
+        return count($covered) / count($this->activeCellIds);
     }
 
     /**

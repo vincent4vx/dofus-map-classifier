@@ -45,7 +45,7 @@ final class AreaOverviewBuilderTest extends TestCase
 
         $sprite = static fn (SpriteSet $set, int $id, Layer $layer, array $byType) => new AreaSprite($set, $id, $layer, 0, 0, 0, byLocationType: $byType);
         $road = static fn (int $maps, ?float $ground = null, ?float $bare = null, ?PathProximity $path = null) => ['road' => new AreaSpriteUsage($maps, $maps * 3, $ground, $bare, $path)];
-        $area = new AreaProfile(19, 'Neutral Pandala', new AreaMaps(40, 40, 10, locationTypes: ['road' => ['maps' => 40, 'with_path' => 10]]), [
+        $area = new AreaProfile(19, 'Neutral Pandala', new AreaMaps(40, 40, 10, locationTypes: ['road' => ['maps' => 40, 'with_path' => 10, 'floored' => 0]]), [
             'grounds' => [
                 253 => $sprite(SpriteSet::Grounds, 253, Layer::Background, $road(30, bare: 0.8)),
                 264 => $sprite(SpriteSet::Grounds, 264, Layer::Ground, $road(20, ground: 0.4)),

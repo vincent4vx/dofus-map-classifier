@@ -36,9 +36,10 @@ The denominators of the usages: to know how often a sprite is used, compare its 
   "total": 249,
   "classified": 249,
   "with_path": 0,
+  "floored": 106,
   "indoor": {"outdoor": 165, "indoor": 84},
   "biomes": {"jungle": 140, "other": 60},
-  "location_types": {"road": {"maps": 42, "with_path": 0}, "village": {"maps": 29, "with_path": 0}}
+  "location_types": {"road": {"maps": 42, "with_path": 0, "floored": 31}, "village": {"maps": 29, "with_path": 0, "floored": 12}}
 }
 ```
 
@@ -47,9 +48,10 @@ The denominators of the usages: to know how often a sprite is used, compare its 
 | `total` | int | Analyzed maps of the area (maps without a decryption key are not analyzed) |
 | `classified` | int | Classified maps among them |
 | `with_path` | int | Maps with a preferred path (see [Path](objects.md#path)) |
+| `floored` | int | Maps floored by layer 1 objects: the objects classified with the `ground` usage cover at least 80% of their active cells (the centre of the cell under one of them). On these maps, the ground or background hardly shows: the grass of Incarnam hides its floating rocks, the dusty and grassy patches of Pandala its earth |
 | `indoor` | object | Classified maps, by `indoor` / `outdoor` |
 | `biomes` | object | Maps by biome: the map biome, or else the biome of its sub area |
-| `location_types` | object | Classified maps of each location type (`maps`), and those with a preferred path (`with_path`). Keys: see [maps.md](maps.md#location-types) |
+| `location_types` | object | Classified maps of each location type (`maps`), those with a preferred path (`with_path`) and the floored ones (`floored`). Keys: see [maps.md](maps.md#location-types) |
 
 ## Location overview
 
@@ -59,6 +61,7 @@ For each location type of the area, the sprites building its terrain and its pat
 {
   "maps": 42,
   "with_path": 0,
+  "floored": 31,
   "backgrounds": [OverviewSprite],
   "grounds": [OverviewSprite],
   "paths": [OverviewSprite]
@@ -69,6 +72,7 @@ For each location type of the area, the sprites building its terrain and its pat
 |---|---|---|
 | `maps` | int | Classified maps of the type in the area |
 | `with_path` | int | Those with a preferred path |
+| `floored` | int | Those floored by layer 1 objects (see [Maps](#maps)) |
 | `backgrounds` | object[] | Backgrounds of the maps. With a large `bare_share`, the background is the terrain itself; with a small one, it only fills the holes of the ground tiles |
 | `grounds` | object[] | Base ground tiles: grounds covering at least 10% of the ground cells of their maps (`ground_share`), transitions excluded. At most 8 |
 | `paths` | object[] | Sprites drawing the paths, roads and streets, on the ground or on layer 1: classified in the `path` category, or lying on the preferred path of the maps (`path_lift` of at least 2). A transition (`transition: true`) is a path border |

@@ -348,8 +348,8 @@ final class SpriteAnalyzerTest extends TestCase
         $pandala = $areas[1];
         $this->assertSame('Pandala', $pandala->name);
         $this->assertEquals(new AreaMaps(14, 14, 2, ['outdoor' => 14], ['jungle' => 12, 'plain' => 2], [
-            'road' => ['maps' => 10, 'with_path' => 2],
-            'village' => ['maps' => 4, 'with_path' => 0],
+            'road' => ['maps' => 10, 'with_path' => 2, 'floored' => 0],
+            'village' => ['maps' => 4, 'with_path' => 0, 'floored' => 0],
         ]), $pandala->maps);
 
         $cobbles = $pandala->sprite(SpriteSet::Objects, 991);
@@ -374,6 +374,37 @@ final class SpriteAnalyzerTest extends TestCase
         $json = json_decode((string) json_encode($pandala), true);
         $this->assertSame(['id', 'name', 'maps', 'sprites'], array_keys($json));
         $this->assertEquals($pandala, AreaProfile::fromArray($json), 'Read back from its JSON');
+    }
+
+    public function testFlooredMaps(): void
+    {
+        $locations = $results = [];
+
+        for ($id = 1; $id <= 3; ++$id) {
+            $locations[$id] = new MapLocation($id, 450, 'Incarnam', 45, 'Incarnam');
+            $results[$id] = $this->classified($id, 'plain', false);
+        }
+
+        // o3745 is a floor patch (ground usage), o5 a tree
+        $analyzer = new SpriteAnalyzer($locations, $results, floorObjects: [3745 => true]);
+
+        foreach ([1 => [3745, 10], 2 => [3745, 5], 3 => [5, 10]] as $id => [$sprite, $covered]) {
+            $map = new MapSprites();
+
+            for ($cell = 0; $cell < 10; ++$cell) {
+                $map->addActiveCell(true, $cell);
+            }
+
+            $map->addCell(Layer::Layer1, $sprite, cellId: 0);
+            $map->addCover(Layer::Layer1, $sprite, range(0, $covered - 1));
+            $analyzer->add($id, $map);
+        }
+
+        $maps = $analyzer->areaProfiles()[0]->maps;
+
+        $this->assertSame(1, $maps->floored, 'Only the map whose floor patches cover its active cells; half of them is not enough, a tree is no floor');
+        $this->assertSame(1, $maps->flooredOf(LocationType::Wild));
+        $this->assertSame(1, json_decode((string) json_encode($maps), true)['location_types']['wild']['floored']);
     }
 
     private function classified(int $id, ?string $biome, bool $indoor, string $locationType = 'wild'): MapResult

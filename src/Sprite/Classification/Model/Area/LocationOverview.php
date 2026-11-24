@@ -12,7 +12,7 @@ use Override;
  *
  * Only the sprites used on at least {@see MIN_SHARE} of the maps of the type are listed, by number of maps desc.
  *
- * JSON: {"maps": int, "with_path": int, "backgrounds": [{@see OverviewSprite}], "grounds": [{@see OverviewSprite}], "paths": [{@see OverviewSprite}]}
+ * JSON: {"maps": int, "with_path": int, "floored": int, "backgrounds": [{@see OverviewSprite}], "grounds": [{@see OverviewSprite}], "paths": [{@see OverviewSprite}]}
  */
 final readonly class LocationOverview implements JsonSerializable
 {
@@ -33,6 +33,8 @@ final readonly class LocationOverview implements JsonSerializable
         public int $maps,
         /** Those with a preferred path */
         public int $withPath,
+        /** Those floored by layer 1 objects (see {@see \MapClassifier\Sprite\Model\AreaMaps::$floored}) */
+        public int $floored,
         /**
          * @var list<OverviewSprite> Backgrounds of the maps. With a large bare_share, the background is the terrain itself;
          *     with a small one, it only fills the holes of the ground tiles
@@ -56,6 +58,7 @@ final readonly class LocationOverview implements JsonSerializable
         return [
             'maps' => $this->maps,
             'with_path' => $this->withPath,
+            'floored' => $this->floored,
             'backgrounds' => $this->backgrounds,
             'grounds' => $this->grounds,
             'paths' => $this->paths,

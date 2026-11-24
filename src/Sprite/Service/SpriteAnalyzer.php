@@ -7,6 +7,7 @@ namespace MapClassifier\Sprite\Service;
 use MapClassifier\Location\Model\MapLocation;
 use MapClassifier\Map\Classification\Model\MapResult;
 use MapClassifier\Map\Classification\Model\SubAreaBiome;
+use MapClassifier\Sprite\Model\AreaMaps;
 use MapClassifier\Sprite\Model\AreaProfile;
 use MapClassifier\Sprite\Model\AreaStats;
 use MapClassifier\Sprite\Model\InteractiveObject;
@@ -70,6 +71,11 @@ final class SpriteAnalyzer
         private readonly array $interactiveObjects = [],
         /** Exported sprites, used to check the frames of the ground sprites used on slopes. Without it, no sprite is flagged as slope */
         private readonly ?SpriteRepository $sprites = null,
+        /**
+         * @var array<int, true> Object sprites drawing a floor on layer 1 (classified with the ground usage), as keys: the maps
+         *     they cover almost entirely are counted in the area profiles (see {@see AreaMaps::$locationTypes})
+         */
+        private readonly array $floorObjects = [],
     ) {}
 
     /**
@@ -93,7 +99,7 @@ final class SpriteAnalyzer
 
         if ($location?->areaId !== null) {
             ($this->areas[$location->areaId] ??= new AreaStats($location->areaId, $location->areaName))
-                ->addMap($sprites, $location, $biome, $classification);
+                ->addMap($sprites, $location, $biome, $classification, $sprites->floorShare($this->floorObjects));
         }
 
         // One usage per sprite: map attributes are counted once per map

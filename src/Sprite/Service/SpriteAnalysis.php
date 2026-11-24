@@ -9,7 +9,10 @@ use MapClassifier\Map\Classification\Repository\MapResultRepository;
 use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Model\MapFile;
+use MapClassifier\Sprite\Classification\Model\SpriteUsage;
+use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Model\SpriteAnalysisReport;
+use MapClassifier\Sprite\Model\SpriteSet;
 use MapClassifier\Sprite\Repository\InteractiveObjectRepository;
 use MapClassifier\Sprite\Repository\SpriteRepository;
 
@@ -26,6 +29,8 @@ final readonly class SpriteAnalysis
         private InteractiveObjectRepository $interactiveObjects,
         private SpriteRepository $sprites,
         private SubAreaBiomeResolver $subAreaBiomes = new SubAreaBiomeResolver(),
+        /** Stored classifications: the objects classified with the ground usage draw a floor on layer 1 (no model call) */
+        private ?SpriteTypeRepository $types = null,
     ) {}
 
     /**
@@ -46,6 +51,7 @@ final readonly class SpriteAnalysis
             $minRatio,
             $this->interactiveObjects->tryByGfx(static fn (string $error) => $onWarning('Interactive objects not available: ' . $error)),
             $this->sprites,
+            $this->floorObjects(),
         );
 
         $analyzed = 0;
@@ -65,5 +71,23 @@ final readonly class SpriteAnalysis
         }
 
         return new SpriteAnalysisReport($analyzer->profiles(), $analyzed, $skipped, $analyzer->areaProfiles());
+    }
+
+    /**
+     * Object sprites classified with the ground usage: patches drawn flat on layer 1, which may floor a map
+     *
+     * @return array<int, true>
+     */
+    private function floorObjects(): array
+    {
+        $objects = [];
+
+        foreach ($this->types?->all(SpriteSet::Objects) ?? [] as $id => $result) {
+            if ($result->classification?->usage === SpriteUsage::Ground) {
+                $objects[$id] = true;
+            }
+        }
+
+        return $objects;
     }
 }
