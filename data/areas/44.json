@@ -1,0 +1,2209 @@
+{
+    "id": 44,
+    "name": "Dreggon Dungeon",
+    "maps": {
+        "total": 9,
+        "classified": 9,
+        "with_path": 0,
+        "indoor": {
+            "indoor": 9
+        },
+        "biomes": {
+            "underground": 5,
+            "cave": 4
+        },
+        "location_types": {
+            "dungeon": {
+                "maps": 8,
+                "with_path": 0
+            },
+            "mine": {
+                "maps": 1,
+                "with_path": 0
+            }
+        }
+    },
+    "location_types": {
+        "dungeon": {
+            "maps": 8,
+            "with_path": 0,
+            "backgrounds": [],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 316,
+                    "layer": "ground",
+                    "name": "brown dungeon floor tile",
+                    "category": "floor",
+                    "transition": false,
+                    "maps": 8,
+                    "share": 1,
+                    "per_map": 29,
+                    "ground_share": 0.2941,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 319,
+                    "layer": "ground",
+                    "name": "wooden platform tile",
+                    "category": "bridge",
+                    "transition": false,
+                    "maps": 8,
+                    "share": 1,
+                    "per_map": 13.13,
+                    "ground_share": 0.1357,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 333,
+                    "layer": "ground",
+                    "name": "brown stone floor tile",
+                    "category": "floor",
+                    "transition": false,
+                    "maps": 8,
+                    "share": 1,
+                    "per_map": 24.13,
+                    "ground_share": 0.2541,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": []
+        },
+        "mine": {
+            "maps": 1,
+            "with_path": 0,
+            "backgrounds": [],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 315,
+                    "layer": "ground",
+                    "name": "wooden bridge tile",
+                    "category": "bridge",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 1,
+                    "per_map": 52,
+                    "ground_share": 0.5253,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 316,
+                    "layer": "ground",
+                    "name": "brown dungeon floor tile",
+                    "category": "floor",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 1,
+                    "per_map": 45,
+                    "ground_share": 0.4545,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": []
+        }
+    },
+    "sprites": {
+        "grounds": {
+            "315": {
+                "layer": "ground",
+                "occurrences": 113,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "underground": {
+                        "maps": 5,
+                        "occurrences": 73
+                    },
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 40
+                    }
+                },
+                "movements": {
+                    "0": 0.00885,
+                    "4": 0.99115
+                },
+                "ground_share": 0.1276,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 8,
+                        "occurrences": 61,
+                        "ground_share": 0.0779,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 52,
+                        "ground_share": 0.5253,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "316": {
+                "layer": "ground",
+                "occurrences": 277,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "underground": {
+                        "maps": 5,
+                        "occurrences": 191
+                    },
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 86
+                    }
+                },
+                "movements": {
+                    "0": 0.256318,
+                    "4": 0.743682
+                },
+                "ground_share": 0.312,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 8,
+                        "occurrences": 232,
+                        "ground_share": 0.2941,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 45,
+                        "ground_share": 0.4545,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "317": {
+                "layer": "ground",
+                "occurrences": 18,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 13
+                    },
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": 0.0415,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 4,
+                        "occurrences": 18,
+                        "ground_share": 0.0415,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "318": {
+                "layer": "ground",
+                "occurrences": 13,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 10
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.076923,
+                    "4": 0.923077
+                },
+                "ground_share": 0.0356,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 4,
+                        "occurrences": 13,
+                        "ground_share": 0.0356,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "319": {
+                "layer": "ground",
+                "occurrences": 105,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 41
+                    },
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 64
+                    }
+                },
+                "movements": {
+                    "0": 0.047619,
+                    "4": 0.952381
+                },
+                "ground_share": 0.1357,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 8,
+                        "occurrences": 105,
+                        "ground_share": 0.1357,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "320": {
+                "layer": "ground",
+                "occurrences": 32,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 19
+                    },
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 13
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": 0.0389,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 8,
+                        "occurrences": 32,
+                        "ground_share": 0.0389,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "323": {
+                "layer": "ground",
+                "occurrences": 27,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 25
+                    },
+                    "underground": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": 0.0939,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 2,
+                        "occurrences": 27,
+                        "ground_share": 0.0939,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "325": {
+                "layer": "ground",
+                "occurrences": 13,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 13
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": 0.0878,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 13,
+                        "ground_share": 0.0878,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "330": {
+                "layer": "ground",
+                "occurrences": 47,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 25
+                    },
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 22
+                    }
+                },
+                "movements": {
+                    "0": 0.021277,
+                    "4": 0.978723
+                },
+                "ground_share": 0.0714,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 6,
+                        "occurrences": 47,
+                        "ground_share": 0.0714,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "331": {
+                "layer": "ground",
+                "occurrences": 30,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 20
+                    },
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 10
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": 0.0462,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 6,
+                        "occurrences": 30,
+                        "ground_share": 0.0462,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "333": {
+                "layer": "ground",
+                "occurrences": 195,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "underground": {
+                        "maps": 5,
+                        "occurrences": 71
+                    },
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 124
+                    }
+                },
+                "movements": {
+                    "0": 0.34359,
+                    "4": 0.65641
+                },
+                "ground_share": 0.2281,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 8,
+                        "occurrences": 193,
+                        "ground_share": 0.2541,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": 0.0202,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "335": {
+                "layer": "ground",
+                "occurrences": 34,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 22
+                    },
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 12
+                    }
+                },
+                "movements": {
+                    "0": 0.441176,
+                    "4": 0.558824
+                },
+                "ground_share": 0.0695,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 4,
+                        "occurrences": 34,
+                        "ground_share": 0.0695,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "336": {
+                "layer": "ground",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": 0.0131,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": 0.0131,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            }
+        },
+        "objects": {
+            "17": {
+                "layer": "layer2",
+                "occurrences": 8,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 5
+                    },
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 5,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "18": {
+                "layer": "layer1",
+                "occurrences": 103,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "underground": {
+                        "maps": 5,
+                        "occurrences": 63
+                    },
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 40
+                    }
+                },
+                "movements": {
+                    "0": 0.427184,
+                    "4": 0.572816
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 8,
+                        "occurrences": 93,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "103": {
+                "layer": "layer1",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "930": {
+                "layer": "layer1",
+                "occurrences": 21,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 11
+                    },
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 10
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 5,
+                        "occurrences": 21,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1711": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "underground": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1712": {
+                "layer": "layer2",
+                "occurrences": 8,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 4
+                    },
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 0.25,
+                    "1": 0.75
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 7,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1713": {
+                "layer": "layer2",
+                "occurrences": 8,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 6
+                    },
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.75,
+                    "4": 0.25
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 5,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1714": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 5
+                    },
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 6,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1715": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1716": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1717": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "underground": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1718": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "underground": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1719": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1721": {
+                "layer": "layer2",
+                "occurrences": 37,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 16
+                    },
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 21
+                    }
+                },
+                "movements": {
+                    "0": 0.27027,
+                    "4": 0.72973
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 7,
+                        "occurrences": 30,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1722": {
+                "layer": "layer2",
+                "occurrences": 33,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 16
+                    },
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 17
+                    }
+                },
+                "movements": {
+                    "0": 0.30303,
+                    "4": 0.69697
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 7,
+                        "occurrences": 28,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2224": {
+                "layer": "layer1",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2850": {
+                "layer": "layer1",
+                "occurrences": 10,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 5
+                    },
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 7,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3285": {
+                "layer": "layer2",
+                "occurrences": 17,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 8
+                    },
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 9
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 6,
+                        "occurrences": 17,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3286": {
+                "layer": "layer2",
+                "occurrences": 5,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 5,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3287": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3288": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 7
+                    },
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 5,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3289": {
+                "layer": "layer2",
+                "occurrences": 23,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "underground": {
+                        "maps": 5,
+                        "occurrences": 14
+                    },
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 9
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 8,
+                        "occurrences": 20,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3290": {
+                "layer": "layer2",
+                "occurrences": 24,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 15
+                    },
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 9
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 6,
+                        "occurrences": 24,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3293": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3294": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "underground": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3295": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3296": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3297": {
+                "layer": "layer2",
+                "occurrences": 7,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 5
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3298": {
+                "layer": "layer2",
+                "occurrences": 5,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 3
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3299": {
+                "layer": "layer2",
+                "occurrences": 7,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 6
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3300": {
+                "layer": "layer2",
+                "occurrences": 11,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 7
+                    },
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 5,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3301": {
+                "layer": "layer2",
+                "occurrences": 6,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 4
+                    },
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 5,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3302": {
+                "layer": "layer2",
+                "occurrences": 8,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 3
+                    },
+                    "underground": {
+                        "maps": 2,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 4,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3303": {
+                "layer": "layer2",
+                "occurrences": 23,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "underground": {
+                        "maps": 5,
+                        "occurrences": 13
+                    },
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 10
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 8,
+                        "occurrences": 19,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3304": {
+                "layer": "layer2",
+                "occurrences": 12,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "underground": {
+                        "maps": 5,
+                        "occurrences": 8
+                    },
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 7,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3305": {
+                "layer": "layer2",
+                "occurrences": 16,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 7
+                    },
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 9
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 5,
+                        "occurrences": 13,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3306": {
+                "layer": "layer2",
+                "occurrences": 14,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 8
+                    },
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 6
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 6,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3307": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "underground": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3308": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "underground": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3310": {
+                "layer": "layer1",
+                "occurrences": 16,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "underground": {
+                        "maps": 5,
+                        "occurrences": 11
+                    },
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 0.875,
+                    "4": 0.125
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 6,
+                        "occurrences": 14,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3311": {
+                "layer": "layer1",
+                "occurrences": 6,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 5
+                    },
+                    "underground": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.666667,
+                    "4": 0.333333
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3319": {
+                "layer": "layer1",
+                "occurrences": 44,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "underground": {
+                        "maps": 5,
+                        "occurrences": 26
+                    },
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 18
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 8,
+                        "occurrences": 38,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3321": {
+                "layer": "layer1",
+                "occurrences": 21,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 8
+                    },
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 13
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 7,
+                        "occurrences": 19,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3322": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3323": {
+                "layer": "layer2",
+                "occurrences": 54,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 28
+                    },
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 26
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 6,
+                        "occurrences": 54,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3324": {
+                "layer": "layer2",
+                "occurrences": 48,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 35
+                    },
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 13
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 7,
+                        "occurrences": 48,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3327": {
+                "layer": "layer2",
+                "occurrences": 33,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 20
+                    },
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 13
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 6,
+                        "occurrences": 33,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3328": {
+                "layer": "layer1",
+                "occurrences": 14,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "cave": {
+                        "maps": 4,
+                        "occurrences": 5
+                    },
+                    "underground": {
+                        "maps": 4,
+                        "occurrences": 9
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 7,
+                        "occurrences": 13,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3329": {
+                "layer": "layer1",
+                "occurrences": 18,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "underground": {
+                        "maps": 3,
+                        "occurrences": 10
+                    },
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 8
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 5,
+                        "occurrences": 16,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "mine": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            }
+        }
+    }
+}

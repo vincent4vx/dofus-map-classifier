@@ -1,0 +1,1518 @@
+{
+    "id": 36,
+    "name": "Pet Sanctuary",
+    "maps": {
+        "total": 7,
+        "classified": 7,
+        "with_path": 0,
+        "indoor": {
+            "outdoor": 7
+        },
+        "biomes": {
+            "plain": 3,
+            "forest": 2,
+            "mountain": 2
+        },
+        "location_types": {
+            "road": {
+                "maps": 1,
+                "with_path": 0
+            },
+            "village": {
+                "maps": 2,
+                "with_path": 0
+            },
+            "wild": {
+                "maps": 4,
+                "with_path": 0
+            }
+        }
+    },
+    "location_types": {
+        "road": {
+            "maps": 1,
+            "with_path": 0,
+            "backgrounds": [
+                {
+                    "set": "grounds",
+                    "id": 106,
+                    "layer": "background",
+                    "name": "pale sandy ground",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 1,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 0.9854,
+                    "path_lift": null
+                }
+            ],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 167,
+                    "layer": "ground",
+                    "name": "cobblestone paving",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 1,
+                    "per_map": 7,
+                    "ground_share": 1,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": [
+                {
+                    "set": "grounds",
+                    "id": 167,
+                    "layer": "ground",
+                    "name": "cobblestone paving",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 1,
+                    "per_map": 7,
+                    "ground_share": 1,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "objects",
+                    "id": 991,
+                    "layer": "layer1",
+                    "name": "cobblestone patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 1,
+                    "per_map": 16,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        },
+        "village": {
+            "maps": 2,
+            "with_path": 0,
+            "backgrounds": [
+                {
+                    "set": "grounds",
+                    "id": 106,
+                    "layer": "background",
+                    "name": "pale sandy ground",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 0.9144,
+                    "path_lift": null
+                }
+            ],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 167,
+                    "layer": "ground",
+                    "name": "cobblestone paving",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 41,
+                    "ground_share": 1,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": [
+                {
+                    "set": "grounds",
+                    "id": 167,
+                    "layer": "ground",
+                    "name": "cobblestone paving",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 41,
+                    "ground_share": 1,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        },
+        "wild": {
+            "maps": 4,
+            "with_path": 0,
+            "backgrounds": [
+                {
+                    "set": "grounds",
+                    "id": 106,
+                    "layer": "background",
+                    "name": "pale sandy ground",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 4,
+                    "share": 1,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 1,
+                    "path_lift": null
+                }
+            ],
+            "grounds": [],
+            "paths": [
+                {
+                    "set": "objects",
+                    "id": 991,
+                    "layer": "layer1",
+                    "name": "cobblestone patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 4,
+                    "share": 1,
+                    "per_map": 14.5,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        }
+    },
+    "sprites": {
+        "grounds": {
+            "106": {
+                "layer": "background",
+                "occurrences": 7,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {},
+                "ground_share": null,
+                "bare_share": 0.9735,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": 0.9854,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": 0.9144,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": 1,
+                        "path": null
+                    }
+                }
+            },
+            "167": {
+                "layer": "ground",
+                "occurrences": 89,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 82
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 7
+                    }
+                },
+                "movements": {
+                    "0": 0.303371,
+                    "4": 0.696629
+                },
+                "ground_share": 1,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 7,
+                        "ground_share": 1,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 82,
+                        "ground_share": 1,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            }
+        },
+        "objects": {
+            "204": {
+                "layer": "layer2",
+                "occurrences": 14,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 6
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 6
+                    }
+                },
+                "movements": {
+                    "0": 0.142857,
+                    "4": 0.857143
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 14,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "216": {
+                "layer": "layer2",
+                "occurrences": 42,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 21
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 7
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 14
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 16,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "228": {
+                "layer": "layer2",
+                "occurrences": 18,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 7
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 6
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "229": {
+                "layer": "layer2",
+                "occurrences": 14,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 6
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "230": {
+                "layer": "layer2",
+                "occurrences": 15,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 7
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 6
+                    },
+                    "forest": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "231": {
+                "layer": "layer2",
+                "occurrences": 18,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 9
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 6
+                    },
+                    "forest": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "232": {
+                "layer": "layer2",
+                "occurrences": 16,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 4
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 6
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 6
+                    }
+                },
+                "movements": {
+                    "0": 0.9375,
+                    "4": 0.0625
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "233": {
+                "layer": "layer2",
+                "occurrences": 17,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 9
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 6
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 13,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "234": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 3
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 6
+                    }
+                },
+                "movements": {
+                    "0": 0.888889,
+                    "4": 0.111111
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "235": {
+                "layer": "layer2",
+                "occurrences": 17,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 8
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 5
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 14,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "237": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "238": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "forest": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "239": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "forest": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "282": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "283": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 6
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.111111,
+                    "4": 0.888889
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "289": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "341": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "708": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "955": {
+                "layer": "layer2",
+                "occurrences": 30,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 12
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 10
+                    },
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 8
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "986": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 8
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.444444,
+                    "4": 0.555556
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "991": {
+                "layer": "layer1",
+                "occurrences": 74,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 28
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 34
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 12
+                    }
+                },
+                "movements": {
+                    "0": 0.067568,
+                    "4": 0.932432
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 16,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 58,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2224": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2246": {
+                "layer": "layer1",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "forest": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2366": {
+                "layer": "layer2",
+                "occurrences": 30,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 14
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 7
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 9
+                    }
+                },
+                "movements": {
+                    "0": 0.9,
+                    "4": 0.1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 13,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2367": {
+                "layer": "layer2",
+                "occurrences": 32,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 15
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 7
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 10
+                    }
+                },
+                "movements": {
+                    "0": 0.78125,
+                    "4": 0.21875
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 17,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2368": {
+                "layer": "layer2",
+                "occurrences": 30,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 13
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 5
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 12
+                    }
+                },
+                "movements": {
+                    "0": 0.8,
+                    "4": 0.2
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2369": {
+                "layer": "layer2",
+                "occurrences": 33,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 12
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 8
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 13
+                    }
+                },
+                "movements": {
+                    "0": 0.878788,
+                    "4": 0.121212
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 17,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2370": {
+                "layer": "layer2",
+                "occurrences": 35,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 13
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 9
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 13
+                    }
+                },
+                "movements": {
+                    "0": 0.857143,
+                    "4": 0.142857
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2371": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "forest": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2403": {
+                "layer": "layer2",
+                "occurrences": 331,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 159
+                    },
+                    "forest": {
+                        "maps": 2,
+                        "occurrences": 113
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 59
+                    }
+                },
+                "movements": {
+                    "0": 0.870091,
+                    "4": 0.129909
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "road": {
+                        "maps": 1,
+                        "occurrences": 29,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "village": {
+                        "maps": 2,
+                        "occurrences": 78,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 224,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            }
+        }
+    }
+}

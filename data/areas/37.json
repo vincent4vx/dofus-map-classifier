@@ -1,0 +1,3132 @@
+{
+    "id": 37,
+    "name": "Crackler Dungeon",
+    "maps": {
+        "total": 10,
+        "classified": 10,
+        "with_path": 0,
+        "indoor": {
+            "outdoor": 10
+        },
+        "biomes": {
+            "plain": 7,
+            "mountain": 3
+        },
+        "location_types": {
+            "wild": {
+                "maps": 10,
+                "with_path": 0
+            }
+        }
+    },
+    "location_types": {
+        "wild": {
+            "maps": 10,
+            "with_path": 0,
+            "backgrounds": [
+                {
+                    "set": "grounds",
+                    "id": 71,
+                    "layer": "background",
+                    "name": "bright grass ground",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 6,
+                    "share": 0.6,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 0.7411,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 212,
+                    "layer": "background",
+                    "name": "grassy field background",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 4,
+                    "share": 0.4,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 0.6357,
+                    "path_lift": null
+                }
+            ],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 57,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 9,
+                    "share": 0.9,
+                    "per_map": 27.78,
+                    "ground_share": 0.2323,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 69,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 6,
+                    "share": 0.6,
+                    "per_map": 54.5,
+                    "ground_share": 0.3781,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 4,
+                    "layer": "ground",
+                    "name": "grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 5,
+                    "share": 0.5,
+                    "per_map": 131,
+                    "ground_share": 0.7588,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 501,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 4,
+                    "share": 0.4,
+                    "per_map": 37.5,
+                    "ground_share": 0.3341,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": [
+                {
+                    "set": "objects",
+                    "id": 101,
+                    "layer": "layer1",
+                    "name": "stone paving patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 6,
+                    "share": 0.6,
+                    "per_map": 1.67,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "objects",
+                    "id": 105,
+                    "layer": "layer1",
+                    "name": "broken stone paving",
+                    "category": "path",
+                    "transition": true,
+                    "maps": 4,
+                    "share": 0.4,
+                    "per_map": 1.5,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "objects",
+                    "id": 116,
+                    "layer": "layer1",
+                    "name": "stone paving patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 4,
+                    "share": 0.4,
+                    "per_map": 1.5,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "objects",
+                    "id": 104,
+                    "layer": "layer1",
+                    "name": "pale stone paving patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 3,
+                    "share": 0.3,
+                    "per_map": 1.67,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        }
+    },
+    "sprites": {
+        "grounds": {
+            "4": {
+                "layer": "ground",
+                "occurrences": 655,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 653
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.233588,
+                    "1": 0.007634,
+                    "2": 0.001527,
+                    "4": 0.757252
+                },
+                "ground_share": 0.7588,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 655,
+                        "ground_share": 0.7588,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "57": {
+                "layer": "ground",
+                "occurrences": 250,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "plain": {
+                        "maps": 6,
+                        "occurrences": 136
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 114
+                    }
+                },
+                "movements": {
+                    "0": 0.372,
+                    "4": 0.628
+                },
+                "ground_share": 0.2323,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 250,
+                        "ground_share": 0.2323,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "58": {
+                "layer": "ground",
+                "occurrences": 15,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 7
+                    },
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 8
+                    }
+                },
+                "movements": {
+                    "0": 0.266667,
+                    "4": 0.733333
+                },
+                "ground_share": 0.0215,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 15,
+                        "ground_share": 0.0215,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "59": {
+                "layer": "ground",
+                "occurrences": 41,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 22
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 19
+                    }
+                },
+                "movements": {
+                    "0": 0.243902,
+                    "4": 0.756098
+                },
+                "ground_share": 0.0438,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 41,
+                        "ground_share": 0.0438,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "69": {
+                "layer": "ground",
+                "occurrences": 327,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 255
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 72
+                    }
+                },
+                "movements": {
+                    "0": 0.642202,
+                    "4": 0.357798
+                },
+                "ground_share": 0.3781,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 327,
+                        "ground_share": 0.3781,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "71": {
+                "layer": "background",
+                "occurrences": 6,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {},
+                "ground_share": null,
+                "bare_share": 0.7411,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": 0.7411,
+                        "path": null
+                    }
+                }
+            },
+            "212": {
+                "layer": "background",
+                "occurrences": 4,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {},
+                "ground_share": null,
+                "bare_share": 0.6357,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": 0.6357,
+                        "path": null
+                    }
+                }
+            },
+            "456": {
+                "layer": "ground",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": 0.0049,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": 0.0049,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "501": {
+                "layer": "ground",
+                "occurrences": 150,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 57
+                    },
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 93
+                    }
+                },
+                "movements": {
+                    "0": 0.34,
+                    "4": 0.66
+                },
+                "ground_share": 0.3341,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 150,
+                        "ground_share": 0.3341,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "503": {
+                "layer": "ground",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": 0.0131,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": 0.0131,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            }
+        },
+        "objects": {
+            "24": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "29": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "30": {
+                "layer": "layer1",
+                "occurrences": 14,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 14
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 14,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "40": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "43": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "61": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "87": {
+                "layer": "layer1",
+                "occurrences": 3,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.333333,
+                    "4": 0.666667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "88": {
+                "layer": "layer2",
+                "occurrences": 6,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 6
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "89": {
+                "layer": "layer1",
+                "occurrences": 46,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 45
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.173913,
+                    "4": 0.826087
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 46,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "90": {
+                "layer": "layer2",
+                "occurrences": 45,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 20
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 25
+                    }
+                },
+                "movements": {
+                    "0": 0.977778,
+                    "4": 0.022222
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 45,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "91": {
+                "layer": "layer2",
+                "occurrences": 42,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 29
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 13
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 42,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "92": {
+                "layer": "layer2",
+                "occurrences": 20,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 16
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 20,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "93": {
+                "layer": "layer2",
+                "occurrences": 12,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "plain": {
+                        "maps": 6,
+                        "occurrences": 9
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "94": {
+                "layer": "layer2",
+                "occurrences": 12,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "plain": {
+                        "maps": 6,
+                        "occurrences": 10
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "95": {
+                "layer": "layer2",
+                "occurrences": 112,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "plain": {
+                        "maps": 7,
+                        "occurrences": 70
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 42
+                    }
+                },
+                "movements": {
+                    "0": 0.294643,
+                    "4": 0.705357
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 10,
+                        "occurrences": 112,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "96": {
+                "layer": "layer2",
+                "occurrences": 129,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "plain": {
+                        "maps": 6,
+                        "occurrences": 88
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 41
+                    }
+                },
+                "movements": {
+                    "0": 0.348837,
+                    "4": 0.651163
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 129,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "97": {
+                "layer": "layer2",
+                "occurrences": 41,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "plain": {
+                        "maps": 7,
+                        "occurrences": 24
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 17
+                    }
+                },
+                "movements": {
+                    "0": 0.317073,
+                    "4": 0.682927
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 10,
+                        "occurrences": 41,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "98": {
+                "layer": "layer2",
+                "occurrences": 10,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 8
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.9,
+                    "4": 0.1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "99": {
+                "layer": "layer2",
+                "occurrences": 20,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 11
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 9
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 20,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "100": {
+                "layer": "layer2",
+                "occurrences": 11,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 4
+                    },
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 7
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "101": {
+                "layer": "layer1",
+                "occurrences": 10,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 7
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "102": {
+                "layer": "layer1",
+                "occurrences": 4,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 0.75,
+                    "4": 0.25
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "104": {
+                "layer": "layer1",
+                "occurrences": 5,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "105": {
+                "layer": "layer1",
+                "occurrences": 6,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 4
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "116": {
+                "layer": "layer1",
+                "occurrences": 6,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 4
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "146": {
+                "layer": "layer1",
+                "occurrences": 4,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "147": {
+                "layer": "layer1",
+                "occurrences": 6,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 5
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "159": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "204": {
+                "layer": "layer2",
+                "occurrences": 10,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 8
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.4,
+                    "4": 0.6
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "211": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "212": {
+                "layer": "layer2",
+                "occurrences": 5,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 4
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "215": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "216": {
+                "layer": "layer2",
+                "occurrences": 30,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 20
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 10
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 30,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "217": {
+                "layer": "layer2",
+                "occurrences": 10,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 7
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "218": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "219": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "220": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.333333,
+                    "4": 0.666667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "221": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "225": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "228": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "229": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "230": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 6
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "231": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "232": {
+                "layer": "layer2",
+                "occurrences": 5,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 4
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "233": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "234": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "235": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "236": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "237": {
+                "layer": "layer2",
+                "occurrences": 7,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 5
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "238": {
+                "layer": "layer2",
+                "occurrences": 6,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 4
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.833333,
+                    "4": 0.166667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "239": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "279": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "281": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "282": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "284": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.333333,
+                    "4": 0.666667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "286": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "287": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 7
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.111111,
+                    "4": 0.888889
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "289": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.333333,
+                    "1": 0.333333,
+                    "4": 0.333333
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "432": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "529": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "543": {
+                "layer": "layer1",
+                "occurrences": 17,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 6,
+                        "occurrences": 16
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.058824,
+                    "4": 0.941176
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 17,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "544": {
+                "layer": "layer2",
+                "occurrences": 6,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "545": {
+                "layer": "layer2",
+                "occurrences": 90,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "plain": {
+                        "maps": 7,
+                        "occurrences": 74
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 16
+                    }
+                },
+                "movements": {
+                    "0": 0.088889,
+                    "1": 0.011111,
+                    "4": 0.9
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 90,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "550": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "556": {
+                "layer": "layer2",
+                "occurrences": 5,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "711": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "820": {
+                "layer": "layer1",
+                "occurrences": 90,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "plain": {
+                        "maps": 7,
+                        "occurrences": 69
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 21
+                    }
+                },
+                "movements": {
+                    "0": 0.055556,
+                    "1": 0.011111,
+                    "4": 0.933333
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 10,
+                        "occurrences": 90,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "821": {
+                "layer": "layer1",
+                "occurrences": 44,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "plain": {
+                        "maps": 7,
+                        "occurrences": 28
+                    },
+                    "mountain": {
+                        "maps": 3,
+                        "occurrences": 16
+                    }
+                },
+                "movements": {
+                    "0": 0.068182,
+                    "4": 0.931818
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 10,
+                        "occurrences": 44,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "822": {
+                "layer": "layer1",
+                "occurrences": 46,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "plain": {
+                        "maps": 7,
+                        "occurrences": 42
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 0.086957,
+                    "4": 0.913043
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 46,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "920": {
+                "layer": "layer1",
+                "occurrences": 32,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 32
+                    }
+                },
+                "movements": {
+                    "2": 0.03125,
+                    "4": 0.96875
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 32,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "987": {
+                "layer": "layer2",
+                "occurrences": 12,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 9
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.5,
+                    "4": 0.5
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "988": {
+                "layer": "layer2",
+                "occurrences": 20,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "plain": {
+                        "maps": 3,
+                        "occurrences": 13
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 7
+                    }
+                },
+                "movements": {
+                    "0": 0.5,
+                    "4": 0.5
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 20,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1030": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "2": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1045": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 8
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.222222,
+                    "4": 0.777778
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1060": {
+                "layer": "layer2",
+                "occurrences": 27,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 6,
+                        "occurrences": 23
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 0.555556,
+                    "4": 0.444444
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 27,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1063": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1278": {
+                "layer": "layer2",
+                "occurrences": 7,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 5
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.428571,
+                    "4": 0.571429
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1279": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1638": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1644": {
+                "layer": "layer2",
+                "occurrences": 11,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "plain": {
+                        "maps": 5,
+                        "occurrences": 8
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1648": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "plain": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.333333,
+                    "4": 0.666667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1649": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1651": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.5,
+                    "4": 0.5
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1659": {
+                "layer": "layer1",
+                "occurrences": 8,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 5
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.25,
+                    "4": 0.75
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1683": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "plain": {
+                        "maps": 4,
+                        "occurrences": 6
+                    },
+                    "mountain": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.888889,
+                    "4": 0.111111
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1699": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2224": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3091": {
+                "layer": "layer2",
+                "occurrences": 7,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 7
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "7506": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "1": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "7509": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "1": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            }
+        }
+    }
+}

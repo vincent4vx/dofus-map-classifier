@@ -1,0 +1,2447 @@
+{
+    "id": 32,
+    "name": "Lord Crow's Library",
+    "maps": {
+        "total": 17,
+        "classified": 17,
+        "with_path": 0,
+        "indoor": {
+            "indoor": 15,
+            "outdoor": 2
+        },
+        "biomes": {},
+        "location_types": {
+            "city": {
+                "maps": 2,
+                "with_path": 0
+            },
+            "other": {
+                "maps": 6,
+                "with_path": 0
+            },
+            "shop": {
+                "maps": 9,
+                "with_path": 0
+            }
+        }
+    },
+    "location_types": {
+        "city": {
+            "maps": 2,
+            "with_path": 0,
+            "backgrounds": [
+                {
+                    "set": "grounds",
+                    "id": 172,
+                    "layer": "background",
+                    "name": "cracked earth",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 0.9144,
+                    "path_lift": null
+                }
+            ],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 136,
+                    "layer": "ground",
+                    "name": "black ground tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 41,
+                    "ground_share": 1,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": [
+                {
+                    "set": "objects",
+                    "id": 991,
+                    "layer": "layer1",
+                    "name": "cobblestone patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 0.5,
+                    "per_map": 2,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        },
+        "other": {
+            "maps": 6,
+            "with_path": 0,
+            "backgrounds": [
+                {
+                    "set": "grounds",
+                    "id": 172,
+                    "layer": "background",
+                    "name": "cracked earth",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 6,
+                    "share": 1,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 0.6294,
+                    "path_lift": null
+                }
+            ],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 136,
+                    "layer": "ground",
+                    "name": "black ground tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 6,
+                    "share": 1,
+                    "per_map": 177.5,
+                    "ground_share": 1,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": [
+                {
+                    "set": "objects",
+                    "id": 991,
+                    "layer": "layer1",
+                    "name": "cobblestone patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 0.1667,
+                    "per_map": 2,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        },
+        "shop": {
+            "maps": 9,
+            "with_path": 0,
+            "backgrounds": [
+                {
+                    "set": "grounds",
+                    "id": 172,
+                    "layer": "background",
+                    "name": "cracked earth",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 9,
+                    "share": 1,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 0.8782,
+                    "path_lift": null
+                }
+            ],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 136,
+                    "layer": "ground",
+                    "name": "black ground tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 9,
+                    "share": 1,
+                    "per_map": 58.33,
+                    "ground_share": 1,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": [
+                {
+                    "set": "objects",
+                    "id": 991,
+                    "layer": "layer1",
+                    "name": "cobblestone patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 6,
+                    "share": 0.6667,
+                    "per_map": 1.83,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        }
+    },
+    "sprites": {
+        "grounds": {
+            "136": {
+                "layer": "ground",
+                "occurrences": 1672,
+                "maps": 17,
+                "classified_maps": 17,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": 1,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 82,
+                        "ground_share": 1,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 1065,
+                        "ground_share": 1,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 9,
+                        "occurrences": 525,
+                        "ground_share": 1,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "172": {
+                "layer": "background",
+                "occurrences": 17,
+                "maps": 17,
+                "classified_maps": 17,
+                "biomes": {},
+                "movements": {},
+                "ground_share": null,
+                "bare_share": 0.7947,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": 0.9144,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": 0.6294,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 9,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": 0.8782,
+                        "path": null
+                    }
+                }
+            }
+        },
+        "objects": {
+            "411": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "414": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "434": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "930": {
+                "layer": "layer1",
+                "occurrences": 89,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {},
+                "movements": {
+                    "0": 0.674157,
+                    "4": 0.325843
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 5,
+                        "occurrences": 26,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 7,
+                        "occurrences": 63,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "991": {
+                "layer": "layer1",
+                "occurrences": 15,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {},
+                "movements": {
+                    "0": 0.133333,
+                    "4": 0.866667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 6,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1030": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1220": {
+                "layer": "layer1",
+                "occurrences": 9,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {},
+                "movements": {
+                    "0": 0.444444,
+                    "4": 0.555556
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 4,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1221": {
+                "layer": "layer1",
+                "occurrences": 12,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {},
+                "movements": {
+                    "0": 0.5,
+                    "4": 0.5
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 4,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1268": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2224": {
+                "layer": "layer1",
+                "occurrences": 164,
+                "maps": 15,
+                "classified_maps": 15,
+                "biomes": {},
+                "movements": {
+                    "0": 0.408537,
+                    "4": 0.591463
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 29,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 5,
+                        "occurrences": 32,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 8,
+                        "occurrences": 103,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2481": {
+                "layer": "layer2",
+                "occurrences": 12,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 5,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2482": {
+                "layer": "layer2",
+                "occurrences": 18,
+                "maps": 13,
+                "classified_maps": 13,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 6,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2483": {
+                "layer": "layer2",
+                "occurrences": 19,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 5,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2484": {
+                "layer": "layer2",
+                "occurrences": 37,
+                "maps": 15,
+                "classified_maps": 15,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 15,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 8,
+                        "occurrences": 20,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2485": {
+                "layer": "layer2",
+                "occurrences": 36,
+                "maps": 14,
+                "classified_maps": 14,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 5,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 8,
+                        "occurrences": 22,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2486": {
+                "layer": "layer2",
+                "occurrences": 20,
+                "maps": 13,
+                "classified_maps": 13,
+                "biomes": {},
+                "movements": {
+                    "0": 0.9,
+                    "4": 0.1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 6,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2488": {
+                "layer": "layer2",
+                "occurrences": 7,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2490": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2491": {
+                "layer": "layer2",
+                "occurrences": 14,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 7,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2492": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2493": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2494": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2495": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2496": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2903": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2929": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2967": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2968": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2971": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2973": {
+                "layer": "layer2",
+                "occurrences": 88,
+                "maps": 14,
+                "classified_maps": 14,
+                "biomes": {},
+                "movements": {
+                    "0": 0.943182,
+                    "4": 0.056818
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 36,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 6,
+                        "occurrences": 34,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2974": {
+                "layer": "layer2",
+                "occurrences": 97,
+                "maps": 15,
+                "classified_maps": 15,
+                "biomes": {},
+                "movements": {
+                    "0": 0.958763,
+                    "4": 0.041237
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 19,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 40,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 7,
+                        "occurrences": 38,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2975": {
+                "layer": "layer2",
+                "occurrences": 36,
+                "maps": 14,
+                "classified_maps": 14,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 5,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 7,
+                        "occurrences": 21,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2976": {
+                "layer": "layer1",
+                "occurrences": 137,
+                "maps": 17,
+                "classified_maps": 17,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 66,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 9,
+                        "occurrences": 61,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2977": {
+                "layer": "layer1",
+                "occurrences": 117,
+                "maps": 17,
+                "classified_maps": 17,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 13,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 46,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 9,
+                        "occurrences": 58,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2978": {
+                "layer": "layer1",
+                "occurrences": 27,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 15,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 5,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2979": {
+                "layer": "layer1",
+                "occurrences": 20,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 4,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2980": {
+                "layer": "layer1",
+                "occurrences": 32,
+                "maps": 16,
+                "classified_maps": 16,
+                "biomes": {},
+                "movements": {
+                    "0": 0.9375,
+                    "4": 0.0625
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 14,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 8,
+                        "occurrences": 16,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2981": {
+                "layer": "layer1",
+                "occurrences": 12,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2982": {
+                "layer": "layer2",
+                "occurrences": 37,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 30,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 2,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2983": {
+                "layer": "layer2",
+                "occurrences": 17,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {},
+                "movements": {
+                    "0": 0.941176,
+                    "4": 0.058824
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 6,
+                        "occurrences": 15,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2984": {
+                "layer": "layer2",
+                "occurrences": 8,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 6,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2985": {
+                "layer": "layer2",
+                "occurrences": 77,
+                "maps": 17,
+                "classified_maps": 17,
+                "biomes": {},
+                "movements": {
+                    "0": 0.077922,
+                    "4": 0.922078
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 37,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 9,
+                        "occurrences": 37,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2986": {
+                "layer": "layer2",
+                "occurrences": 13,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 4,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2987": {
+                "layer": "layer2",
+                "occurrences": 29,
+                "maps": 13,
+                "classified_maps": 13,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 5,
+                        "occurrences": 14,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 6,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2988": {
+                "layer": "layer2",
+                "occurrences": 6,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {},
+                "movements": {
+                    "0": 0.833333,
+                    "4": 0.166667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2989": {
+                "layer": "layer2",
+                "occurrences": 63,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 21,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 7,
+                        "occurrences": 42,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2990": {
+                "layer": "layer2",
+                "occurrences": 12,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 4,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 4,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2991": {
+                "layer": "layer2",
+                "occurrences": 27,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 17,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 6,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2992": {
+                "layer": "layer2",
+                "occurrences": 8,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2993": {
+                "layer": "layer2",
+                "occurrences": 16,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 4,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 4,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2994": {
+                "layer": "layer2",
+                "occurrences": 103,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 72,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 4,
+                        "occurrences": 31,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2995": {
+                "layer": "layer2",
+                "occurrences": 9,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 4,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2996": {
+                "layer": "layer2",
+                "occurrences": 134,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 41,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 7,
+                        "occurrences": 93,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2997": {
+                "layer": "layer2",
+                "occurrences": 57,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 9,
+                        "occurrences": 43,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2998": {
+                "layer": "layer2",
+                "occurrences": 70,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 9,
+                        "occurrences": 51,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2999": {
+                "layer": "layer2",
+                "occurrences": 11,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {},
+                "movements": {
+                    "0": 0.181818,
+                    "4": 0.818182
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 5,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3001": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3002": {
+                "layer": "layer1",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {},
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3003": {
+                "layer": "layer1",
+                "occurrences": 293,
+                "maps": 16,
+                "classified_maps": 16,
+                "biomes": {},
+                "movements": {
+                    "0": 0.088737,
+                    "4": 0.911263
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 43,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 114,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 8,
+                        "occurrences": 136,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3004": {
+                "layer": "layer1",
+                "occurrences": 9,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {},
+                "movements": {
+                    "0": 0.333333,
+                    "4": 0.666667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3005": {
+                "layer": "layer1",
+                "occurrences": 9,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {},
+                "movements": {
+                    "0": 0.222222,
+                    "4": 0.777778
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3006": {
+                "layer": "layer1",
+                "occurrences": 8,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {},
+                "movements": {
+                    "0": 0.125,
+                    "4": 0.875
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3007": {
+                "layer": "layer1",
+                "occurrences": 134,
+                "maps": 14,
+                "classified_maps": 14,
+                "biomes": {},
+                "movements": {
+                    "0": 0.231343,
+                    "4": 0.768657
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 5,
+                        "occurrences": 47,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 7,
+                        "occurrences": 78,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3028": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3029": {
+                "layer": "layer1",
+                "occurrences": 8,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3030": {
+                "layer": "layer1",
+                "occurrences": 9,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 5,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3031": {
+                "layer": "layer1",
+                "occurrences": 11,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3032": {
+                "layer": "layer1",
+                "occurrences": 7,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 2,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3033": {
+                "layer": "layer1",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "shop": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3274": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3276": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3281": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {},
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "3331": {
+                "layer": "layer1",
+                "occurrences": 190,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {},
+                "movements": {
+                    "0": 0.994737,
+                    "4": 0.005263
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "city": {
+                        "maps": 1,
+                        "occurrences": 21,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 6,
+                        "occurrences": 109,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "shop": {
+                        "maps": 5,
+                        "occurrences": 60,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            }
+        }
+    }
+}

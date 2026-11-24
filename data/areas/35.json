@@ -1,0 +1,4525 @@
+{
+    "id": 35,
+    "name": "Skeunk's Hideout",
+    "maps": {
+        "total": 14,
+        "classified": 14,
+        "with_path": 0,
+        "indoor": {
+            "outdoor": 11,
+            "indoor": 3
+        },
+        "biomes": {
+            "jungle": 7,
+            "cave": 3,
+            "cemetery": 2,
+            "mountain": 1,
+            "plain": 1
+        },
+        "location_types": {
+            "dungeon": {
+                "maps": 3,
+                "with_path": 0
+            },
+            "other": {
+                "maps": 2,
+                "with_path": 0
+            },
+            "wild": {
+                "maps": 9,
+                "with_path": 0
+            }
+        }
+    },
+    "location_types": {
+        "dungeon": {
+            "maps": 3,
+            "with_path": 0,
+            "backgrounds": [],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 49,
+                    "layer": "ground",
+                    "name": "bright green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 0.3333,
+                    "per_map": 133,
+                    "ground_share": 0.4196,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 57,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 0.3333,
+                    "per_map": 46,
+                    "ground_share": 0.1451,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 511,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 0.3333,
+                    "per_map": 46,
+                    "ground_share": 0.1451,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": [
+                {
+                    "set": "objects",
+                    "id": 991,
+                    "layer": "layer1",
+                    "name": "cobblestone patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 0.3333,
+                    "per_map": 6,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        },
+        "other": {
+            "maps": 2,
+            "with_path": 0,
+            "backgrounds": [
+                {
+                    "set": "grounds",
+                    "id": 71,
+                    "layer": "background",
+                    "name": "bright grass ground",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 0.5355,
+                    "path_lift": null
+                }
+            ],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 57,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 36.5,
+                    "ground_share": 0.1674,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 502,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 63.5,
+                    "ground_share": 0.2859,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 511,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 32.5,
+                    "ground_share": 0.1464,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 34,
+                    "layer": "ground",
+                    "name": "dark ground tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 0.5,
+                    "per_map": 57,
+                    "ground_share": 0.2375,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": [
+                {
+                    "set": "objects",
+                    "id": 991,
+                    "layer": "layer1",
+                    "name": "cobblestone patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 2,
+                    "share": 1,
+                    "per_map": 12.5,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        },
+        "wild": {
+            "maps": 9,
+            "with_path": 0,
+            "backgrounds": [
+                {
+                    "set": "grounds",
+                    "id": 71,
+                    "layer": "background",
+                    "name": "bright grass ground",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 9,
+                    "share": 1,
+                    "per_map": 1,
+                    "ground_share": null,
+                    "bare_share": 0.6305,
+                    "path_lift": null
+                }
+            ],
+            "grounds": [
+                {
+                    "set": "grounds",
+                    "id": 57,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 8,
+                    "share": 0.8889,
+                    "per_map": 35.5,
+                    "ground_share": 0.1891,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 502,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 8,
+                    "share": 0.8889,
+                    "per_map": 81.88,
+                    "ground_share": 0.3816,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 511,
+                    "layer": "ground",
+                    "name": "green grass tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 8,
+                    "share": 0.8889,
+                    "per_map": 30.25,
+                    "ground_share": 0.1486,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 228,
+                    "layer": "ground",
+                    "name": "evergreen foliage tile",
+                    "category": "ground",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 0.1111,
+                    "per_map": 1,
+                    "ground_share": 1,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ],
+            "paths": [
+                {
+                    "set": "objects",
+                    "id": 991,
+                    "layer": "layer1",
+                    "name": "cobblestone patch",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 8,
+                    "share": 0.8889,
+                    "per_map": 13.25,
+                    "ground_share": null,
+                    "bare_share": null,
+                    "path_lift": null
+                },
+                {
+                    "set": "grounds",
+                    "id": 270,
+                    "layer": "ground",
+                    "name": "mossy cobblestone paving",
+                    "category": "path",
+                    "transition": false,
+                    "maps": 1,
+                    "share": 0.1111,
+                    "per_map": 1,
+                    "ground_share": 0.008,
+                    "bare_share": null,
+                    "path_lift": null
+                }
+            ]
+        }
+    },
+    "sprites": {
+        "grounds": {
+            "34": {
+                "layer": "ground",
+                "occurrences": 57,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 57
+                    }
+                },
+                "movements": {
+                    "0": 0.719298,
+                    "4": 0.280702
+                },
+                "ground_share": 0.2375,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 57,
+                        "ground_share": 0.2375,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "40": {
+                "layer": "ground",
+                "occurrences": 43,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 28
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 12
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.604651,
+                    "4": 0.395349
+                },
+                "ground_share": 0.0511,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 28,
+                        "ground_share": 0.0883,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 12,
+                        "ground_share": 0.05,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": 0.0149,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "41": {
+                "layer": "ground",
+                "occurrences": 8,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 4
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.375,
+                    "4": 0.625
+                },
+                "ground_share": 0.01,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": 0.0126,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": 0.0125,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": 0.005,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "42": {
+                "layer": "ground",
+                "occurrences": 11,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 4
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 4
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.454545,
+                    "4": 0.545455
+                },
+                "ground_share": 0.0147,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": 0.0126,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": 0.0167,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": 0.0149,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "49": {
+                "layer": "ground",
+                "occurrences": 133,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 133
+                    }
+                },
+                "movements": {
+                    "0": 0.135338,
+                    "4": 0.864662
+                },
+                "ground_share": 0.4196,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 133,
+                        "ground_share": 0.4196,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "57": {
+                "layer": "ground",
+                "occurrences": 403,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 179
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 73
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 53
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 46
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 52
+                    }
+                },
+                "movements": {
+                    "0": 0.359801,
+                    "4": 0.640199
+                },
+                "ground_share": 0.1811,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 46,
+                        "ground_share": 0.1451,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 73,
+                        "ground_share": 0.1674,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 284,
+                        "ground_share": 0.1891,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "58": {
+                "layer": "ground",
+                "occurrences": 144,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 65
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 26
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 21
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 16
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 16
+                    }
+                },
+                "movements": {
+                    "0": 0.361111,
+                    "4": 0.638889
+                },
+                "ground_share": 0.0646,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 16,
+                        "ground_share": 0.0505,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 26,
+                        "ground_share": 0.0606,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 102,
+                        "ground_share": 0.0674,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "59": {
+                "layer": "ground",
+                "occurrences": 141,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 59
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 29
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 29
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 12
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 12
+                    }
+                },
+                "movements": {
+                    "0": 0.248227,
+                    "4": 0.751773
+                },
+                "ground_share": 0.0658,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 12,
+                        "ground_share": 0.0379,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 29,
+                        "ground_share": 0.0682,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 100,
+                        "ground_share": 0.0686,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "61": {
+                "layer": "ground",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.333333,
+                    "4": 0.666667
+                },
+                "ground_share": 0.0068,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": 0.0042,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": 0.0093,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "69": {
+                "layer": "ground",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": 0.008,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": 0.008,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "71": {
+                "layer": "background",
+                "occurrences": 11,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 7
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {},
+                "ground_share": null,
+                "bare_share": 0.6132,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": 0.5355,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": 0.6305,
+                        "path": null
+                    }
+                }
+            },
+            "136": {
+                "layer": "ground",
+                "occurrences": 5,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": 0.0249,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 5,
+                        "ground_share": 0.0249,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "228": {
+                "layer": "ground",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": 1,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": 1,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "270": {
+                "layer": "ground",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": 0.008,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": 0.008,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "501": {
+                "layer": "ground",
+                "occurrences": 53,
+                "maps": 6,
+                "classified_maps": 6,
+                "biomes": {
+                    "jungle": {
+                        "maps": 3,
+                        "occurrences": 20
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 29
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.792453,
+                    "4": 0.207547
+                },
+                "ground_share": 0.0615,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": 0.0032,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": 0.0146,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 49,
+                        "ground_share": 0.0878,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "502": {
+                "layer": "ground",
+                "occurrences": 791,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 541
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 127
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 9
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 112
+                    }
+                },
+                "movements": {
+                    "0": 0.543616,
+                    "2": 0.002528,
+                    "4": 0.453856
+                },
+                "ground_share": 0.3321,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 9,
+                        "ground_share": 0.0284,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 127,
+                        "ground_share": 0.2859,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 655,
+                        "ground_share": 0.3816,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "507": {
+                "layer": "ground",
+                "occurrences": 97,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 55
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 19
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 8
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 15
+                    }
+                },
+                "movements": {
+                    "0": 0.412371,
+                    "4": 0.587629
+                },
+                "ground_share": 0.0459,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 8,
+                        "ground_share": 0.0252,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 19,
+                        "ground_share": 0.0431,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 70,
+                        "ground_share": 0.0496,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "509": {
+                "layer": "ground",
+                "occurrences": 110,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 59
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 26
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 10
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 12
+                    }
+                },
+                "movements": {
+                    "0": 0.254545,
+                    "2": 0.018182,
+                    "4": 0.727273
+                },
+                "ground_share": 0.0479,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 10,
+                        "ground_share": 0.0315,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 26,
+                        "ground_share": 0.0606,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 74,
+                        "ground_share": 0.0468,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "511": {
+                "layer": "ground",
+                "occurrences": 353,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 175
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 65
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 7
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 46
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 60
+                    }
+                },
+                "movements": {
+                    "0": 0.439093,
+                    "2": 0.008499,
+                    "4": 0.552408
+                },
+                "ground_share": 0.1479,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 46,
+                        "ground_share": 0.1451,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 65,
+                        "ground_share": 0.1464,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 242,
+                        "ground_share": 0.1486,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            }
+        },
+        "objects": {
+            "103": {
+                "layer": "layer1",
+                "occurrences": 4,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "204": {
+                "layer": "layer2",
+                "occurrences": 60,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "jungle": {
+                        "maps": 5,
+                        "occurrences": 31
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 11
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 10
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 0.3,
+                    "4": 0.7
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 46,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "216": {
+                "layer": "layer2",
+                "occurrences": 104,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 63
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 17
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 9
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 4
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 11
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 17,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 83,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "218": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "jungle": {
+                        "maps": 3,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "235": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "282": {
+                "layer": "layer2",
+                "occurrences": 23,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 17
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 5
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.086957,
+                    "4": 0.913043
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "283": {
+                "layer": "layer2",
+                "occurrences": 17,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "jungle": {
+                        "maps": 5,
+                        "occurrences": 11
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 0.352941,
+                    "4": 0.647059
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "820": {
+                "layer": "layer1",
+                "occurrences": 23,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 23
+                    }
+                },
+                "movements": {
+                    "0": 0.043478,
+                    "4": 0.956522
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 23,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "963": {
+                "layer": "layer1",
+                "occurrences": 18,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 18
+                    }
+                },
+                "movements": {
+                    "0": 0.055556,
+                    "4": 0.944444
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "964": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "986": {
+                "layer": "layer2",
+                "occurrences": 12,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 5
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 4
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 2,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "989": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.333333,
+                    "4": 0.666667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "990": {
+                "layer": "layer2",
+                "occurrences": 5,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.4,
+                    "4": 0.6
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "991": {
+                "layer": "layer1",
+                "occurrences": 137,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 86
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 25
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 6
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 20
+                    }
+                },
+                "movements": {
+                    "0": 0.160584,
+                    "4": 0.839416
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 25,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 106,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "992": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "995": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "997": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1030": {
+                "layer": "layer1",
+                "occurrences": 38,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "jungle": {
+                        "maps": 5,
+                        "occurrences": 14
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 6
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 14
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "2": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 14,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1045": {
+                "layer": "layer2",
+                "occurrences": 55,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "jungle": {
+                        "maps": 4,
+                        "occurrences": 29
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 9
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 5
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 12
+                    }
+                },
+                "movements": {
+                    "0": 0.290909,
+                    "4": 0.709091
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 41,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1056": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1060": {
+                "layer": "layer2",
+                "occurrences": 30,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 26
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 0.7,
+                    "4": 0.3
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 30,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1257": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1266": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1465": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1468": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1472": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1527": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1528": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1530": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1531": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1533": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1711": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cave": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1713": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.333333,
+                    "4": 0.666667
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1714": {
+                "layer": "layer2",
+                "occurrences": 5,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 0.2,
+                    "4": 0.8
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1718": {
+                "layer": "layer2",
+                "occurrences": 10,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 10
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1719": {
+                "layer": "layer2",
+                "occurrences": 10,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 10
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1732": {
+                "layer": "layer2",
+                "occurrences": 38,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 28
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 10
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 28,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1733": {
+                "layer": "layer2",
+                "occurrences": 35,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 24
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 11
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 24,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1734": {
+                "layer": "layer2",
+                "occurrences": 41,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 31
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 10
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 31,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "1853": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2115": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2206": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "jungle": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2207": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2208": {
+                "layer": "layer2",
+                "occurrences": 7,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "jungle": {
+                        "maps": 2,
+                        "occurrences": 7
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 7,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2218": {
+                "layer": "layer2",
+                "occurrences": 5,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "jungle": {
+                        "maps": 3,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2224": {
+                "layer": "layer1",
+                "occurrences": 36,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "jungle": {
+                        "maps": 2,
+                        "occurrences": 34
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.694444,
+                    "4": 0.305556
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 35,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2226": {
+                "layer": "layer1",
+                "occurrences": 15,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 15
+                    }
+                },
+                "movements": {
+                    "0": 0.2,
+                    "4": 0.8
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 15,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2403": {
+                "layer": "layer2",
+                "occurrences": 188,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 182
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 6
+                    }
+                },
+                "movements": {
+                    "0": 0.962766,
+                    "4": 0.037234
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 182,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 6,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2710": {
+                "layer": "layer2",
+                "occurrences": 5,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "jungle": {
+                        "maps": 3,
+                        "occurrences": 3
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 4,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2711": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "jungle": {
+                        "maps": 2,
+                        "occurrences": 2
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2712": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "jungle": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2713": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "jungle": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2714": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2715": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2716": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2718": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2720": {
+                "layer": "layer2",
+                "occurrences": 13,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "jungle": {
+                        "maps": 4,
+                        "occurrences": 8
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 3
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 0.384615,
+                    "4": 0.615385
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2721": {
+                "layer": "layer2",
+                "occurrences": 18,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "jungle": {
+                        "maps": 5,
+                        "occurrences": 13
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.277778,
+                    "4": 0.722222
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 6,
+                        "occurrences": 16,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2722": {
+                "layer": "layer2",
+                "occurrences": 30,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 20
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 4
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 23,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2723": {
+                "layer": "layer2",
+                "occurrences": 31,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 19
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 5
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 23,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2724": {
+                "layer": "layer2",
+                "occurrences": 34,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 23
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 5
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 26,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2725": {
+                "layer": "layer2",
+                "occurrences": 12,
+                "maps": 7,
+                "classified_maps": 7,
+                "biomes": {
+                    "jungle": {
+                        "maps": 5,
+                        "occurrences": 10
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.166667,
+                    "4": 0.833333
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 10,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2726": {
+                "layer": "layer2",
+                "occurrences": 30,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 18
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 8
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 21,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2727": {
+                "layer": "layer2",
+                "occurrences": 41,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 23
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 12
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 12,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 28,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2728": {
+                "layer": "layer2",
+                "occurrences": 25,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 14
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 4
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 5
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 20,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2729": {
+                "layer": "layer2",
+                "occurrences": 19,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 13
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 4
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 15,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2730": {
+                "layer": "layer2",
+                "occurrences": 110,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 79
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 11
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 16
+                    }
+                },
+                "movements": {
+                    "0": 0.263636,
+                    "4": 0.736364
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 96,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2731": {
+                "layer": "layer2",
+                "occurrences": 123,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 60
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 28
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 7
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 17
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 11
+                    }
+                },
+                "movements": {
+                    "0": 0.260163,
+                    "4": 0.739837
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 17,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 28,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 78,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2732": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2733": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2756": {
+                "layer": "layer2",
+                "occurrences": 34,
+                "maps": 9,
+                "classified_maps": 9,
+                "biomes": {
+                    "jungle": {
+                        "maps": 5,
+                        "occurrences": 9
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 21
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 21,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 13,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2757": {
+                "layer": "layer2",
+                "occurrences": 66,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 19
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 36
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 8
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 36,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 29,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2758": {
+                "layer": "layer2",
+                "occurrences": 33,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 14
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 14
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 14,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2759": {
+                "layer": "layer2",
+                "occurrences": 37,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 15
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 16
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 16,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 20,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2760": {
+                "layer": "layer2",
+                "occurrences": 29,
+                "maps": 10,
+                "classified_maps": 10,
+                "biomes": {
+                    "jungle": {
+                        "maps": 6,
+                        "occurrences": 7
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 18
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 18,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 8,
+                        "occurrences": 11,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2765": {
+                "layer": "layer2",
+                "occurrences": 16,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 15
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 15,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2766": {
+                "layer": "layer2",
+                "occurrences": 30,
+                "maps": 11,
+                "classified_maps": 11,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 18
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 8
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 8,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 22,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2767": {
+                "layer": "layer2",
+                "occurrences": 25,
+                "maps": 12,
+                "classified_maps": 12,
+                "biomes": {
+                    "jungle": {
+                        "maps": 7,
+                        "occurrences": 12
+                    },
+                    "cemetery": {
+                        "maps": 2,
+                        "occurrences": 5
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 3
+                    },
+                    "cave": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 2,
+                        "occurrences": 5,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 9,
+                        "occurrences": 19,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2768": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "4": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2769": {
+                "layer": "layer2",
+                "occurrences": 31,
+                "maps": 8,
+                "classified_maps": 8,
+                "biomes": {
+                    "jungle": {
+                        "maps": 5,
+                        "occurrences": 16
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 6
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 4
+                    },
+                    "plain": {
+                        "maps": 1,
+                        "occurrences": 5
+                    }
+                },
+                "movements": {
+                    "0": 0.096774,
+                    "4": 0.903226
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 7,
+                        "occurrences": 27,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2805": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2809": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "jungle": {
+                        "maps": 2,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 2,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2810": {
+                "layer": "layer2",
+                "occurrences": 3,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "jungle": {
+                        "maps": 2,
+                        "occurrences": 3
+                    }
+                },
+                "movements": {
+                    "0": 0.666667,
+                    "4": 0.333333
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 2,
+                        "occurrences": 3,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2811": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2813": {
+                "layer": "layer2",
+                "occurrences": 4,
+                "maps": 3,
+                "classified_maps": 3,
+                "biomes": {
+                    "jungle": {
+                        "maps": 3,
+                        "occurrences": 4
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 3,
+                        "occurrences": 4,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2814": {
+                "layer": "layer2",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2815": {
+                "layer": "layer1",
+                "occurrences": 2,
+                "maps": 2,
+                "classified_maps": 2,
+                "biomes": {
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 1
+                    },
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 0.5,
+                    "4": 0.5
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2829": {
+                "layer": "layer2",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "jungle": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2832": {
+                "layer": "layer2",
+                "occurrences": 15,
+                "maps": 5,
+                "classified_maps": 5,
+                "biomes": {
+                    "jungle": {
+                        "maps": 4,
+                        "occurrences": 13
+                    },
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 2
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 5,
+                        "occurrences": 15,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2850": {
+                "layer": "layer1",
+                "occurrences": 72,
+                "maps": 4,
+                "classified_maps": 4,
+                "biomes": {
+                    "cave": {
+                        "maps": 3,
+                        "occurrences": 63
+                    },
+                    "cemetery": {
+                        "maps": 1,
+                        "occurrences": 9
+                    }
+                },
+                "movements": {
+                    "0": 0.263889,
+                    "4": 0.736111
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "dungeon": {
+                        "maps": 3,
+                        "occurrences": 63,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    },
+                    "other": {
+                        "maps": 1,
+                        "occurrences": 9,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            },
+            "2851": {
+                "layer": "layer1",
+                "occurrences": 1,
+                "maps": 1,
+                "classified_maps": 1,
+                "biomes": {
+                    "mountain": {
+                        "maps": 1,
+                        "occurrences": 1
+                    }
+                },
+                "movements": {
+                    "0": 1
+                },
+                "ground_share": null,
+                "bare_share": null,
+                "path": null,
+                "location_types": {
+                    "wild": {
+                        "maps": 1,
+                        "occurrences": 1,
+                        "ground_share": null,
+                        "bare_share": null,
+                        "path": null
+                    }
+                }
+            }
+        }
+    }
+}
