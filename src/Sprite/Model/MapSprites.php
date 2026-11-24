@@ -32,6 +32,9 @@ final class MapSprites implements IteratorAggregate, Countable
     /** The map has a preferred path (see {@see \MapClassifier\Map\Model\PreferredPath}) */
     public bool $hasPreferredPath = false;
 
+    /** Number of cells of the map, inactive ones included: the denominator of the covered shares */
+    public int $cells = 0;
+
     /** @var array<string, array<int, MapSpriteUsage>> Indexed by set value, then sprite id */
     private array $usages = [];
 
@@ -66,6 +69,26 @@ final class MapSprites implements IteratorAggregate, Countable
         $set = $layer->spriteSet();
         $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
         $this->usages[$set->value][$id]->addNeighbors($layer, $orientation, $neighbors);
+    }
+
+    /**
+     * Count the cells whose centre lies under one use of an object sprite (see {@see MapSpriteUsage::addCover()})
+     *
+     * @param list<int> $cellIds
+     */
+    public function addCover(Layer $layer, int $id, array $cellIds): void
+    {
+        $set = $layer->spriteSet();
+        $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
+        $this->usages[$set->value][$id]->addCover($cellIds);
+    }
+
+    /**
+     * Ratio (0 to 1) of the cells of the map lying under the uses of a sprite. Null if the map has no cell
+     */
+    public function coverShare(MapSpriteUsage $usage): ?float
+    {
+        return $this->cells > 0 ? count($usage->coveredCells) / $this->cells : null;
     }
 
     /**

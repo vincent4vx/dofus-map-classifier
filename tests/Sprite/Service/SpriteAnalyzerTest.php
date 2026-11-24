@@ -127,6 +127,7 @@ final class SpriteAnalyzerTest extends TestCase
             'movements' => [],
             'ground_share' => null,
             'bare_share' => null,
+            'cover_share' => null,
             'path' => null,
             'example' => null,
             'neighbors' => [],

@@ -25,7 +25,7 @@ use function uasort;
  *
  * JSON: {"layer", "occurrences", "maps", "classified_maps", "biomes": {biome: {@see UsageCount}},
  * "movements": {movement: frequency}, "ground_share": float | null, "bare_share": float | null, "path": {@see PathProximity} | null,
- * "location_types": {type: {@see AreaSpriteUsage}}}
+ * "cover_share": float | null, "location_types": {type: {@see AreaSpriteUsage}}}
  */
 final readonly class AreaSprite implements JsonSerializable
 {
@@ -47,6 +47,7 @@ final readonly class AreaSprite implements JsonSerializable
         public ?float $groundShare = null,
         public ?float $bareShare = null,
         public ?PathProximity $path = null,
+        public ?float $coverShare = null,
         /** @var array<string, AreaSpriteUsage> Usage on the classified maps of each location type, indexed by {@see LocationType} value */
         public array $byLocationType = [],
     ) {}
@@ -73,6 +74,7 @@ final readonly class AreaSprite implements JsonSerializable
             groundShare: $layer === Layer::Ground ? $stats->groundShare() : null,
             bareShare: $layer === Layer::Background ? $stats->bareShare() : null,
             path: $stats->pathProximity(),
+            coverShare: $stats->coverShare(),
             byLocationType: array_map(static fn (SpriteStats $type) => AreaSpriteUsage::of($type, $layer), $byLocationType),
         );
     }
@@ -104,6 +106,7 @@ final readonly class AreaSprite implements JsonSerializable
             groundShare: is_numeric($data['ground_share'] ?? null) ? (float) $data['ground_share'] : null,
             bareShare: is_numeric($data['bare_share'] ?? null) ? (float) $data['bare_share'] : null,
             path: is_array($data['path'] ?? null) ? PathProximity::fromArray($data['path']) : null,
+            coverShare: is_numeric($data['cover_share'] ?? null) ? (float) $data['cover_share'] : null,
             byLocationType: array_map(static fn (mixed $value) => AreaSpriteUsage::fromArray($array($value)), $array($data['location_types'] ?? null)),
         );
     }
@@ -124,6 +127,7 @@ final readonly class AreaSprite implements JsonSerializable
             'ground_share' => $this->groundShare,
             'bare_share' => $this->bareShare,
             'path' => $this->path,
+            'cover_share' => $this->coverShare,
             'location_types' => (object) $this->byLocationType,
         ];
     }

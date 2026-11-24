@@ -13,7 +13,7 @@ use function is_numeric;
 /**
  * Usage of a sprite on the maps of one location type of an area (see {@see AreaSprite::$byLocationType})
  *
- * JSON: {"maps": int, "occurrences": int, "ground_share": float | null, "bare_share": float | null, "path": {@see PathProximity} | null}
+ * JSON: {"maps": int, "occurrences": int, "ground_share": float | null, "bare_share": float | null, "path": {@see PathProximity} | null, "cover_share": float | null}
  */
 final readonly class AreaSpriteUsage implements JsonSerializable
 {
@@ -28,6 +28,8 @@ final readonly class AreaSpriteUsage implements JsonSerializable
         public ?float $bareShare = null,
         /** As {@see SpriteProfile::$path}, on these maps */
         public ?PathProximity $path = null,
+        /** As {@see SpriteProfile::$coverShare}, on these maps */
+        public ?float $coverShare = null,
     ) {}
 
     public static function of(SpriteStats $stats, Layer $layer): self
@@ -38,6 +40,7 @@ final readonly class AreaSpriteUsage implements JsonSerializable
             $layer === Layer::Ground ? $stats->groundShare() : null,
             $layer === Layer::Background ? $stats->bareShare() : null,
             $stats->pathProximity(),
+            $stats->coverShare(),
         );
     }
 
@@ -52,6 +55,7 @@ final readonly class AreaSpriteUsage implements JsonSerializable
             is_numeric($data['ground_share'] ?? null) ? (float) $data['ground_share'] : null,
             is_numeric($data['bare_share'] ?? null) ? (float) $data['bare_share'] : null,
             is_array($data['path'] ?? null) ? PathProximity::fromArray($data['path']) : null,
+            is_numeric($data['cover_share'] ?? null) ? (float) $data['cover_share'] : null,
         );
     }
 
@@ -67,6 +71,7 @@ final readonly class AreaSpriteUsage implements JsonSerializable
             'ground_share' => $this->groundShare,
             'bare_share' => $this->bareShare,
             'path' => $this->path,
+            'cover_share' => $this->coverShare,
         ];
     }
 }

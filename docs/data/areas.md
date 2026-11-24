@@ -121,8 +121,9 @@ The usage of a sprite on the maps of the area: the same statistics as the global
   "ground_share": null,
   "bare_share": null,
   "path": null,
+  "cover_share": 0.18,
   "location_types": {
-    "road": {"maps": 34, "occurrences": 420, "ground_share": null, "bare_share": null, "path": null}
+    "road": {"maps": 34, "occurrences": 420, "ground_share": null, "bare_share": null, "path": null, "cover_share": 0.21}
   }
 }
 ```
@@ -132,5 +133,5 @@ The usage of a sprite on the maps of the area: the same statistics as the global
 | `layer` | string | Main layer in the area |
 | `occurrences`, `maps`, `classified_maps` | int | As in [objects.json](objects.md#profile-fields), on the maps of the area |
 | `biomes` | object | Usage by biome (`{"maps", "occurrences"}`), complete |
-| `movements`, `ground_share`, `bare_share`, `path` | | As in [objects.json](objects.md#profile-fields), on the maps of the area |
-| `location_types` | object | Usage on the classified maps of each location type: `maps`, `occurrences`, and `ground_share`, `bare_share`, `path` on these maps |
+| `movements`, `ground_share`, `bare_share`, `path`, `cover_share` | | As in [objects.json](objects.md#profile-fields), on the maps of the area |
+| `location_types` | object | Usage on the classified maps of each location type: `maps`, `occurrences`, and `ground_share`, `bare_share`, `path`, `cover_share` on these maps |

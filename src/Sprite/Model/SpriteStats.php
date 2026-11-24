@@ -12,6 +12,7 @@ use MapClassifier\Map\Model\PreferredPath;
 use function array_sum;
 use function array_map;
 use function array_values;
+use function count;
 use function ksort;
 use function round;
 use function uasort;
@@ -76,6 +77,12 @@ final class SpriteStats
     /** Number of maps using the sprite as background, with active cells */
     private int $bareMaps = 0;
 
+    /** Sum, over the maps using the sprite as an object, of the ratio of their cells lying under it */
+    private float $coverShares = 0.0;
+
+    /** Number of maps using the sprite as an object, covering at least one cell */
+    private int $coverMaps = 0;
+
     public function __construct(
         /**
          * Also accumulate the neighbors and the example of use. False for a light breakdown (by location type in an area),
@@ -93,9 +100,15 @@ final class SpriteStats
      * @param int|null $mapId Id of the map, to choose an example of use. Null to not use the map as example
      * @param int $mapGroundCells Number of cells of the map with a ground sprite, to compute {@see groundShare()}
      * @param float|null $mapBareShare Ratio of the active cells of the map without ground, to compute {@see bareShare()}
+     * @param int $mapCells Number of cells of the map, to compute {@see coverShare()}
      */
-    public function addMap(MapSpriteUsage $usage, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification, ?int $mapId = null, int $mapGroundCells = 0, ?float $mapBareShare = null): void
+    public function addMap(MapSpriteUsage $usage, ?MapLocation $location, ?Biome $biome, ?MapClassification $classification, ?int $mapId = null, int $mapGroundCells = 0, ?float $mapBareShare = null, int $mapCells = 0): void
     {
+        if ($usage->coveredCells !== [] && $mapCells > 0) {
+            $this->coverShares += count($usage->coveredCells) / $mapCells;
+            ++$this->coverMaps;
+        }
+
         if (($usage->cells[Layer::Background->value] ?? 0) > 0 && $mapBareShare !== null) {
             $this->bareShares += $mapBareShare;
             ++$this->bareMaps;
@@ -200,6 +213,16 @@ final class SpriteStats
     public function bareShare(): ?float
     {
         return $this->bareMaps > 0 ? round($this->bareShares / $this->bareMaps, 4) : null;
+    }
+
+    /**
+     * Average ratio (0 to 1) of the cells of its maps lying under the sprite (the centre of the cell inside the sprite), over the maps
+     * using it as an object, rounded to 4 decimals. A large patch of grass repeated over the map covers most of it. Null for a ground
+     * or a background, which covers its own cell or the whole map
+     */
+    public function coverShare(): ?float
+    {
+        return $this->coverMaps > 0 ? round($this->coverShares / $this->coverMaps, 4) : null;
     }
 
     /**

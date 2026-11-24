@@ -6,6 +6,7 @@ namespace MapClassifier\Sprite\Service;
 
 use Arakne\MapParser\Parser\Cell;
 use MapClassifier\Map\Exception\RenderException;
+use MapClassifier\Map\Model\CellCentres;
 use MapClassifier\Map\Model\CellGrid;
 use MapClassifier\Map\Model\CellOffset;
 use MapClassifier\Map\Model\MapFile;
@@ -15,6 +16,8 @@ use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\MapSprites;
 use MapClassifier\Sprite\Model\Orientation;
 use MapClassifier\Sprite\Model\OrientedSprite;
+
+use function count;
 
 /**
  * Extract the sprites used by a map, with their usage (cells per layer, slopes, movements, distance to the preferred path, neighbors…)
@@ -47,6 +50,8 @@ final readonly class MapSpriteExtractor
         $grid = CellGrid::of($loaded);
         $path = PreferredPath::of($loaded, $grid);
         $sprites->hasPreferredPath = $path->exists();
+        $sprites->cells = count($loaded->cells);
+        $centres = CellCentres::of($loaded);
 
         foreach ($loaded->cells as $cellId => $cell) {
             if ($cell->active) {
@@ -62,6 +67,11 @@ final readonly class MapSpriteExtractor
                     $orientation = Orientation::of($object);
                     $sprites->addCell($layer, $object->number, $sloped, $cell->movement, $cellId, $grid->distanceToCenter($cellId), $orientation, $path->distance($cellId));
                     $sprites->addNeighbors($layer, $object->number, $orientation, $this->neighbors($loaded->cells, $grid, $cellId, $layer));
+
+                    // The objects overflow their cell: the cells under them give how much of the map they cover
+                    if ($layer !== Layer::Ground && ($box = $this->maps->spriteBox($loaded, $cellId, $object)) !== null) {
+                        $sprites->addCover($layer, $object->number, $centres->under($box));
+                    }
                 }
             }
         }

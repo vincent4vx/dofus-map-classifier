@@ -95,6 +95,25 @@ final class SpriteStatsTest extends TestCase
         $this->assertSame(0.7, $stats->bareShare(), 'Average of 90% and 50%, the map using it only as ground is ignored');
     }
 
+    public function testCoverShare(): void
+    {
+        $stats = new SpriteStats();
+        $this->assertNull($stats->coverShare(), 'Never used as an object');
+
+        // A large patch covering 120 of the 480 cells of a map, then 240 cells over two uses on another map
+        $first = self::usage([Layer::Layer1]);
+        $first->addCover(range(0, 119));
+        $stats->addMap($first, null, null, null, mapCells: 480);
+        $second = self::usage([Layer::Layer1, Layer::Layer1]);
+        $second->addCover(range(0, 159));
+        $second->addCover(range(80, 239));
+        $stats->addMap($second, null, null, null, mapCells: 480);
+        // A ground covers no cell: the map is ignored
+        $stats->addMap(self::usage([Layer::Ground]), null, null, null, mapCells: 480);
+
+        $this->assertSame(0.375, $stats->coverShare(), 'Average of 25% and 50%: overlapping uses count their cells once');
+    }
+
     public function testSlope(): void
     {
         $stats = new SpriteStats();

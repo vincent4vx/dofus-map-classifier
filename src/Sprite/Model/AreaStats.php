@@ -71,11 +71,11 @@ final class AreaStats
 
         foreach ($sprites as $usage) {
             ($this->sprites[$usage->set->value][$usage->id] ??= new SpriteStats(detailed: false))
-                ->addMap($usage, $location, $biome, $classification, null, $sprites->groundCells, $sprites->bareShare());
+                ->addMap($usage, $location, $biome, $classification, null, $sprites->groundCells, $sprites->bareShare(), $sprites->cells);
 
             if ($type !== null) {
                 ($this->byLocationType[$type][$usage->set->value][$usage->id] ??= new SpriteStats(detailed: false))
-                    ->addMap($usage, $location, $biome, $classification, null, $sprites->groundCells, $sprites->bareShare());
+                    ->addMap($usage, $location, $biome, $classification, null, $sprites->groundCells, $sprites->bareShare(), $sprites->cells);
             }
         }
     }

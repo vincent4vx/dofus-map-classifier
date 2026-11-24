@@ -99,7 +99,7 @@ final class SpriteAnalyzer
         // One usage per sprite: map attributes are counted once per map
         foreach ($sprites as $usage) {
             $this->stats[$usage->set->value][$usage->id] ??= new SpriteStats();
-            $this->stats[$usage->set->value][$usage->id]->addMap($usage, $location, $biome, $classification, $mapId, $sprites->groundCells, $sprites->bareShare());
+            $this->stats[$usage->set->value][$usage->id]->addMap($usage, $location, $biome, $classification, $mapId, $sprites->groundCells, $sprites->bareShare(), $sprites->cells);
         }
     }
 
@@ -136,6 +136,7 @@ final class SpriteAnalyzer
                     groundShare: $layer === Layer::Ground ? $stats->groundShare() : null,
                     path: $stats->pathProximity(),
                     bareShare: $layer === Layer::Background ? $stats->bareShare() : null,
+                    coverShare: $stats->coverShare(),
                 );
             }
         }

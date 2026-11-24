@@ -38,10 +38,25 @@ final class MapSpriteUsage
      */
     public private(set) array $centralCells = [];
 
+    /** @var array<int, true> Cells of the map whose centre lies under the sprite, on any of its uses (see {@see addCover()}) */
+    public private(set) array $coveredCells = [];
+
     public function __construct(
         public readonly SpriteSet $set,
         public readonly int $id,
     ) {}
+
+    /**
+     * Count the cells whose centre lies under one use of the sprite
+     *
+     * @param list<int> $cellIds
+     */
+    public function addCover(array $cellIds): void
+    {
+        foreach ($cellIds as $cellId) {
+            $this->coveredCells[$cellId] = true;
+        }
+    }
 
     /**
      * Total number of cells (or backgrounds) using the sprite on the map

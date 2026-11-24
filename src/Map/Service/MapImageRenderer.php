@@ -110,6 +110,27 @@ final class MapImageRenderer
      */
     public function spriteBounds(Map $map, int $cellId, LayerObjectInterface $object): ?Rectangle
     {
+        $box = $this->spriteBox($map, $cellId, $object);
+
+        if ($box === null) {
+            return null;
+        }
+
+        $scale = MapScale::for($map);
+        $position = $scale->applyToCoordinates($box->x, $box->y);
+
+        return new Rectangle($position->x, $position->y, (int) ($box->width * $scale->scale), (int) ($box->height * $scale->scale));
+    }
+
+    /**
+     * Area covered by a sprite drawn on a cell, in game pixels (the coordinates of the cells, before the scaling of the image)
+     *
+     * @param LayerObjectInterface $object Ground or object of the cell
+     *
+     * @return Rectangle|null Null if the cell does not exist, or the sprite cannot be drawn
+     */
+    public function spriteBox(Map $map, int $cellId, LayerObjectInterface $object): ?Rectangle
+    {
         $shape = $cellId >= 0 ? CellShape::fromCellId($map, $cellId) : null;
         $sprite = ($object instanceof GroundObject ? $this->parser->grounds : $this->parser->objects)->get($object->number);
 
@@ -125,9 +146,6 @@ final class MapImageRenderer
             $sprite = $sprite->flip();
         }
 
-        $scale = MapScale::for($map);
-        $position = $scale->applyToCoordinates((int) ($shape->x + $sprite->offsetX), (int) ($shape->y + $sprite->offsetY));
-
-        return new Rectangle($position->x, $position->y, (int) ($sprite->width * $scale->scale), (int) ($sprite->height * $scale->scale));
+        return new Rectangle((int) ($shape->x + $sprite->offsetX), (int) ($shape->y + $sprite->offsetY), (int) $sprite->width, (int) $sprite->height);
     }
 }
