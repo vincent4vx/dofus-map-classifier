@@ -47,6 +47,7 @@ In the gallery and in the model context, a sprite is written as the first letter
   "bare_share": null,
   "cover_share": 0.0712,
   "path": {"cells": 55, "distances": {"0": 0, "1": 0, "2": 0.1273}},
+  "shore": null,
   "example": {"map": 4172, "cell": 292, "rotation": 0, "flip": false},
   "neighbors": [
     {
@@ -96,6 +97,7 @@ All the decodable maps of the client are taken into account, even the ones that 
 | `bare_share` | float \| null | For a sprite whose main layer is `background`: average share of the active cells without ground of its maps, from 0 to 1 with 4 decimals. A background visible on most of the map is the terrain itself (e.g. the grass `g71`), a background hidden under ground tiles only fills the holes. null for the other layers |
 | `cover_share` | float \| null | For a sprite used on `layer1` or `layer2`: average share of the cells of its maps lying under it (their centre inside the sprite, on any of its uses), from 0 to 1 with 4 decimals. A large patch of grass repeated over the map covers most of it (the yellow grass `o3745` of Incarnam), a small flower a cell or two. null for a ground or a background, which covers its own cell or the whole map |
 | `path` | object \| null | Position of the cells relative to the preferred path of the maps (see [Path](#path)). null if the sprite is never used on a map with a preferred path |
+| `shore` | object \| null | For a sprite used on `layer1` or `layer2`: position of its cells relative to the water of the maps (see [Shore](#shore)). null for a ground, a background, or an object never used on a map with water |
 | `example` | object \| null | Use shown to the model as an example (see [Example](#example)). null for a background |
 | `neighbors` | object[] | Frequent neighbors on the same layer, to find composed objects (see [Neighbors](#neighbors)) |
 | `interactive` | object \| null | Interactive object drawn by the sprite, from the game langs (see [Interactive objects](#interactive-objects)). null for non-interactive sprites |
@@ -143,6 +145,17 @@ The cells with a preferred movement (`5` to `7`, on active cells) draw the path 
 - `distances`: frequency, from 0 to 1 with 4 decimals, of the cells at each distance from the line (string key `0` to `2`): `0` on the line, `1` touching it (including by a corner), `2` one cell away. The distance is counted in cells on the grid, diagonals included. The remainder (1 minus the sum) is the frequency of the cells farther away.
 
 Compare with all the cells of these maps: about 15% at `0`, 12% at `1`, 8% at `2` and 65% farther. A road tile is mostly at `0` (e.g. the Amakna dirt road `g10`: 70%), a road border or a decoration along the road mostly at `1` (e.g. `o120`: 8% at `0`, but 83% within 1 cell). With few `cells`, the frequencies are not reliable.
+
+### Shore
+
+A water cell shows water: a ground classified as `water` (see [Type](#type)), or no ground over a background classified as `water`. On the maps with at least one water cell, `shore` tells where the cells of the object are relative to the water:
+
+- `cells`: number of cells using the object on these maps.
+- `water_share`: share of these cells that are water cells, from 0 to 1 with 4 decimals.
+- `fills`: frequency of the water sprites (ground id, or the background id) under the object, on its water cells.
+- `land`: frequency of the land around its water cells, by the directions of the land cells among the 8 around: `n` (the cell above, two half rows up), `ne`, `e` (the next cell of the row), `se`, `s`, `sw`, `w`, `nw`. `ne`, `se`, `sw` and `nw` share an edge with the cell, `n`, `e`, `s` and `w` only a point. The directions are listed in this order, separated by a space; `""` is open water. The cells outside the map are not counted as land. Values below 2% are removed.
+
+Frequencies have 4 decimals, sorted by frequency. A lily pad lies on open water (`o226`: `water_share` 1, 68% `""`). A shore piece lies on the water cells along the land, and the land around them tells which edge of the water it draws, which the model cannot see on the sprite alone. The grassy cliffs of Astrub and Wabbit Island are drawn under the land, on the water cells of its front edges (`o377`: land `n ne nw`; `o379`: `n w nw`), and the back edges are covered by grass edges on the water that the model takes for tufts (`o374`: `e se s`, `o375`: `s sw w`, `o376`: `s`). The riverbanks of Amakna (`o804` to `o815`) lie on the land cells instead (`water_share` 0): they draw the water over the land, around the corners of the cells.
 
 ### Example
 

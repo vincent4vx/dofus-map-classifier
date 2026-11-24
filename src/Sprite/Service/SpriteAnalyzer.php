@@ -143,6 +143,7 @@ final class SpriteAnalyzer
                     path: $stats->pathProximity(),
                     bareShare: $layer === Layer::Background ? $stats->bareShare() : null,
                     coverShare: $stats->coverShare(),
+                    shore: $layer === Layer::Layer1 || $layer === Layer::Layer2 ? $stats->shore() : null,
                 );
             }
         }

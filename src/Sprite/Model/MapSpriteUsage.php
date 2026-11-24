@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MapClassifier\Sprite\Model;
 
+use MapClassifier\Map\Model\Direction;
+
 use function array_sum;
 
 /**
@@ -38,6 +40,15 @@ final class MapSpriteUsage
      */
     public private(set) array $centralCells = [];
 
+    /** Number of cells using the object on a map with water (see {@see addShore()}) */
+    public private(set) int $shoreCells = 0;
+
+    /** @var array<int, int> Number of water cells using the object, indexed by the water sprite of the cell */
+    public private(set) array $waterFills = [];
+
+    /** @var array<string, int> Number of water cells using the object, indexed by the land around them ({@see Direction::key()}) */
+    public private(set) array $shoreLand = [];
+
     /** @var array<int, true> Cells of the map whose centre lies under the sprite, on any of its uses (see {@see addCover()}) */
     public private(set) array $coveredCells = [];
 
@@ -55,6 +66,23 @@ final class MapSpriteUsage
     {
         foreach ($cellIds as $cellId) {
             $this->coveredCells[$cellId] = true;
+        }
+    }
+
+    /**
+     * Count a cell using the object, on a map with water
+     *
+     * @param int|null $fill Water sprite of the cell, null for a land cell
+     * @param list<Direction> $land Directions of the land cells around a water cell
+     */
+    public function addShore(?int $fill, array $land = []): void
+    {
+        ++$this->shoreCells;
+
+        if ($fill !== null) {
+            $this->waterFills[$fill] = ($this->waterFills[$fill] ?? 0) + 1;
+            $key = Direction::key($land);
+            $this->shoreLand[$key] = ($this->shoreLand[$key] ?? 0) + 1;
         }
     }
 

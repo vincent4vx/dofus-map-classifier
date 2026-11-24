@@ -88,6 +88,18 @@ final class MapSprites implements IteratorAggregate, Countable
     }
 
     /**
+     * Count a cell using an object on a map with water (see {@see MapSpriteUsage::addShore()})
+     *
+     * @param list<\MapClassifier\Map\Model\Direction> $land
+     */
+    public function addShore(Layer $layer, int $id, ?int $fill, array $land = []): void
+    {
+        $set = $layer->spriteSet();
+        $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
+        $this->usages[$set->value][$id]->addShore($fill, $land);
+    }
+
+    /**
      * Ratio (0 to 1) of the cells of the map lying under the uses of a sprite. Null if the map has no cell
      */
     public function coverShare(MapSpriteUsage $usage): ?float

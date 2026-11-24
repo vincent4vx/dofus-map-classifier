@@ -9,6 +9,7 @@ use MapClassifier\Map\Classification\Repository\MapResultRepository;
 use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Model\MapFile;
+use MapClassifier\Sprite\Classification\Model\SpriteCategory;
 use MapClassifier\Sprite\Classification\Model\SpriteUsage;
 use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Model\SpriteAnalysisReport;
@@ -54,12 +55,13 @@ final readonly class SpriteAnalysis
             $this->floorObjects(),
         );
 
+        $waterGrounds = $this->waterGrounds();
         $analyzed = 0;
         $skipped = [];
 
         foreach ($maps as $map) {
             try {
-                $analyzer->add($map->id, $this->extractor->extract($map));
+                $analyzer->add($map->id, $this->extractor->extract($map, $waterGrounds));
                 ++$analyzed;
             } catch (RenderException $e) {
                 $skipped[$e->error->value] = ($skipped[$e->error->value] ?? 0) + 1;
@@ -71,6 +73,24 @@ final readonly class SpriteAnalysis
         }
 
         return new SpriteAnalysisReport($analyzer->profiles(), $analyzed, $skipped, $analyzer->areaProfiles());
+    }
+
+    /**
+     * Ground sprites (and backgrounds) classified as water
+     *
+     * @return array<int, true>
+     */
+    private function waterGrounds(): array
+    {
+        $grounds = [];
+
+        foreach ($this->types?->all(SpriteSet::Grounds) ?? [] as $id => $result) {
+            if ($result->classification?->category === SpriteCategory::Water) {
+                $grounds[$id] = true;
+            }
+        }
+
+        return $grounds;
     }
 
     /**

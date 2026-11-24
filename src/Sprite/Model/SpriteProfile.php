@@ -21,7 +21,7 @@ use function is_numeric;
  *
  * JSON (sprite_profiles.json): {"id", "layer", "slope", "occurrences", "maps", "classified_maps",
  * "areas": [{@see LocationUsage}], "sub_areas": [{@see LocationUsage}], "biomes": {biome: {@see UsageCount}}, "indoor": {"indoor" | "outdoor": {@see UsageCount}},
- * "location_types": {type: {@see UsageCount}}, "movements": {movement: frequency}, "ground_share": float | null, "bare_share": float | null, "cover_share": float | null, "path": {@see PathProximity} | null, "example": {@see SpriteExample} | null, "neighbors": [{@see OrientationNeighbors}], "interactive": {@see InteractiveObject} | null}
+ * "location_types": {type: {@see UsageCount}}, "movements": {movement: frequency}, "ground_share": float | null, "bare_share": float | null, "cover_share": float | null, "path": {@see PathProximity} | null, "shore": {@see ShoreContext} | null, "example": {@see SpriteExample} | null, "neighbors": [{@see OrientationNeighbors}], "interactive": {@see InteractiveObject} | null}
  */
 final readonly class SpriteProfile implements JsonSerializable
 {
@@ -70,6 +70,8 @@ final readonly class SpriteProfile implements JsonSerializable
         public ?float $bareShare = null,
         /** Average ratio (0 to 1) of the cells of its maps lying under the sprite, on the maps using it as an object. Null for grounds and backgrounds */
         public ?float $coverShare = null,
+        /** Position of the cells relative to the water, on the maps with water. Null for grounds, backgrounds, and objects never used near water */
+        public ?ShoreContext $shore = null,
     ) {}
 
     /**
@@ -104,6 +106,7 @@ final readonly class SpriteProfile implements JsonSerializable
             bareShare: is_numeric($data['bare_share'] ?? null) ? (float) $data['bare_share'] : null,
             coverShare: is_numeric($data['cover_share'] ?? null) ? (float) $data['cover_share'] : null,
             path: is_array($data['path'] ?? null) ? PathProximity::fromArray($data['path']) : null,
+            shore: is_array($data['shore'] ?? null) ? ShoreContext::fromArray($data['shore']) : null,
             example: is_array($data['example'] ?? null) ? SpriteExample::fromArray($data['example']) : null,
             neighbors: array_values(array_map(
                 static fn (mixed $value) => OrientationNeighbors::fromArray(is_array($value) ? $value : []),
@@ -135,6 +138,7 @@ final readonly class SpriteProfile implements JsonSerializable
             'bare_share' => $this->bareShare,
             'cover_share' => $this->coverShare,
             'path' => $this->path,
+            'shore' => $this->shore,
             'example' => $this->example,
             'neighbors' => $this->neighbors,
             'interactive' => $this->interactive,

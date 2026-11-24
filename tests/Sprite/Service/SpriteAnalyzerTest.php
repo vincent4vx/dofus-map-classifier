@@ -129,6 +129,7 @@ final class SpriteAnalyzerTest extends TestCase
             'bare_share' => null,
             'cover_share' => null,
             'path' => null,
+            'shore' => null,
             'example' => null,
             'neighbors' => [],
             'interactive' => null,

@@ -12,6 +12,7 @@ use MapClassifier\Map\Model\PreferredPath;
 use function array_sum;
 use function array_map;
 use function array_values;
+use function arsort;
 use function count;
 use function ksort;
 use function round;
@@ -77,6 +78,15 @@ final class SpriteStats
     /** Number of maps using the sprite as background, with active cells */
     private int $bareMaps = 0;
 
+    /** Number of cells using the object on maps with water */
+    private int $shoreCells = 0;
+
+    /** @var array<int, int> Number of water cells using the object, indexed by water sprite */
+    private array $waterFills = [];
+
+    /** @var array<string, int> Number of water cells using the object, indexed by the land around them */
+    private array $shoreLand = [];
+
     /** Sum, over the maps using the sprite as an object, of the ratio of their cells lying under it */
     private float $coverShares = 0.0;
 
@@ -120,6 +130,16 @@ final class SpriteStats
         }
 
         ++$this->maps;
+
+        $this->shoreCells += $usage->shoreCells;
+
+        foreach ($usage->waterFills as $fill => $count) {
+            $this->waterFills[$fill] = ($this->waterFills[$fill] ?? 0) + $count;
+        }
+
+        foreach ($usage->shoreLand as $land => $count) {
+            $this->shoreLand[$land] = ($this->shoreLand[$land] ?? 0) + $count;
+        }
 
         foreach ($usage->cells as $layer => $count) {
             $this->cells[$layer] = ($this->cells[$layer] ?? 0) + $count;
@@ -223,6 +243,40 @@ final class SpriteStats
     public function coverShare(): ?float
     {
         return $this->coverMaps > 0 ? round($this->coverShares / $this->coverMaps, 4) : null;
+    }
+
+    /**
+     * Position of the cells relative to the water, on the maps with water. Null if the sprite is never used as an object on such a map
+     *
+     * @param float $minFrequency Land values less frequent than this are removed
+     */
+    public function shore(float $minFrequency = 0.02): ?ShoreContext
+    {
+        if ($this->shoreCells === 0) {
+            return null;
+        }
+
+        $water = array_sum($this->waterFills);
+        $frequencies = static function (array $counts) use ($water, $minFrequency): array {
+            $result = [];
+
+            foreach ($counts as $key => $count) {
+                if ($count / $water >= $minFrequency) {
+                    $result[$key] = round($count / $water, 4);
+                }
+            }
+
+            arsort($result);
+
+            return $result;
+        };
+
+        return new ShoreContext(
+            $this->shoreCells,
+            round($water / $this->shoreCells, 4),
+            $water > 0 ? $frequencies($this->waterFills) : [],
+            $water > 0 ? $frequencies($this->shoreLand) : [],
+        );
     }
 
     /**

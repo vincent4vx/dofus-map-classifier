@@ -11,6 +11,7 @@ use MapClassifier\Map\Model\CellGrid;
 use MapClassifier\Map\Model\CellOffset;
 use MapClassifier\Map\Model\MapFile;
 use MapClassifier\Map\Model\PreferredPath;
+use MapClassifier\Map\Model\WaterCells;
 use MapClassifier\Map\Service\MapImageRenderer;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\MapSprites;
@@ -37,7 +38,11 @@ final readonly class MapSpriteExtractor
     /**
      * @throws RenderException When the map cannot be loaded
      */
-    public function extract(MapFile $map): MapSprites
+    /**
+     * @param array<int, true> $waterGrounds Ground sprites (and backgrounds) drawing water, indexed by id: the objects on a map with water
+     *     are located relative to it (see {@see \MapClassifier\Sprite\Model\ShoreContext})
+     */
+    public function extract(MapFile $map, array $waterGrounds = []): MapSprites
     {
         $loaded = $this->maps->load($map);
 
@@ -52,6 +57,7 @@ final readonly class MapSpriteExtractor
         $sprites->hasPreferredPath = $path->exists();
         $sprites->cells = count($loaded->cells);
         $centres = CellCentres::of($loaded);
+        $water = WaterCells::of($loaded, $grid, $waterGrounds);
 
         foreach ($loaded->cells as $cellId => $cell) {
             if ($cell->active) {
@@ -67,6 +73,11 @@ final readonly class MapSpriteExtractor
                     $orientation = Orientation::of($object);
                     $sprites->addCell($layer, $object->number, $sloped, $cell->movement, $cellId, $grid->distanceToCenter($cellId), $orientation, $path->distance($cellId));
                     $sprites->addNeighbors($layer, $object->number, $orientation, $this->neighbors($loaded->cells, $grid, $cellId, $layer));
+
+                    if ($layer !== Layer::Ground && $water->exists()) {
+                        $fill = $water->fill($cellId);
+                        $sprites->addShore($layer, $object->number, $fill, $fill !== null ? $water->landAround($cellId) : []);
+                    }
 
                     // The objects overflow their cell: the cells under them give how much of the map they cover
                     if ($layer !== Layer::Ground && ($box = $this->maps->spriteBox($loaded, $cellId, $object)) !== null) {

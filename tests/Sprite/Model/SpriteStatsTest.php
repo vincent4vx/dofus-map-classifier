@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MapClassifier\Tests\Sprite\Model;
 
+use MapClassifier\Map\Model\Direction;
 use MapClassifier\Sprite\Model\Layer;
 use MapClassifier\Sprite\Model\MapSpriteUsage;
 use MapClassifier\Sprite\Model\Orientation;
@@ -112,6 +113,28 @@ final class SpriteStatsTest extends TestCase
         $stats->addMap(self::usage([Layer::Ground]), null, null, null, mapCells: 480);
 
         $this->assertSame(0.375, $stats->coverShare(), 'Average of 25% and 50%: overlapping uses count their cells once');
+    }
+
+    public function testShore(): void
+    {
+        $stats = new SpriteStats();
+        $this->assertNull($stats->shore(), 'Never used on a map with water');
+
+        // A cliff on three water cells under the land on their north west, and once on the land
+        $usage = self::usage([Layer::Layer1, Layer::Layer1, Layer::Layer1, Layer::Layer1]);
+        $usage->addShore(44, [Direction::NorthWest]);
+        $usage->addShore(44, [Direction::NorthWest]);
+        $usage->addShore(45, [Direction::North, Direction::NorthWest]);
+        $usage->addShore(null);
+        $stats->addMap($usage, null, null, null);
+
+        $shore = $stats->shore();
+        $this->assertNotNull($shore);
+        $this->assertSame(4, $shore->cells);
+        $this->assertSame(0.75, $shore->waterShare);
+        $this->assertSame([44 => 0.6667, 45 => 0.3333], $shore->fills);
+        $this->assertSame(['nw' => 0.6667, 'n nw' => 0.3333], $shore->land);
+        $this->assertSame(['nw' => 0.6667], $stats->shore(0.5)?->land, 'Rare land values are removed');
     }
 
     public function testSlope(): void
