@@ -5,6 +5,7 @@
         "total": 12,
         "classified": 12,
         "with_path": 2,
+        "floored": 7,
         "indoor": {
             "indoor": 12
         },
@@ -15,7 +16,8 @@
         "location_types": {
             "dungeon": {
                 "maps": 12,
-                "with_path": 2
+                "with_path": 2,
+                "floored": 7
             }
         }
     },
@@ -23,6 +25,7 @@
         "dungeon": {
             "maps": 12,
             "with_path": 2,
+            "floored": 7,
             "backgrounds": [],
             "grounds": [
                 {

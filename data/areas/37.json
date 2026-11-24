@@ -5,6 +5,7 @@
         "total": 10,
         "classified": 10,
         "with_path": 0,
+        "floored": 0,
         "indoor": {
             "outdoor": 10
         },
@@ -15,7 +16,8 @@
         "location_types": {
             "wild": {
                 "maps": 10,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             }
         }
     },
@@ -23,6 +25,7 @@
         "wild": {
             "maps": 10,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",

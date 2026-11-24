@@ -5,6 +5,7 @@
         "total": 24,
         "classified": 24,
         "with_path": 1,
+        "floored": 0,
         "indoor": {
             "outdoor": 19,
             "indoor": 5
@@ -18,23 +19,28 @@
         "location_types": {
             "arena": {
                 "maps": 9,
-                "with_path": 1
+                "with_path": 1,
+                "floored": 0
             },
             "dungeon": {
                 "maps": 1,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "other": {
                 "maps": 6,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "temple": {
                 "maps": 5,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "wild": {
                 "maps": 3,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             }
         }
     },
@@ -42,6 +48,7 @@
         "arena": {
             "maps": 9,
             "with_path": 1,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -93,6 +100,7 @@
         "dungeon": {
             "maps": 1,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -130,6 +138,7 @@
         "other": {
             "maps": 6,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -167,6 +176,7 @@
         "temple": {
             "maps": 5,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -260,6 +270,7 @@
         "wild": {
             "maps": 3,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {

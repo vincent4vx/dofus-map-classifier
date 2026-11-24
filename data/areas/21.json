@@ -5,6 +5,7 @@
         "total": 60,
         "classified": 60,
         "with_path": 0,
+        "floored": 37,
         "indoor": {
             "outdoor": 45,
             "indoor": 15
@@ -18,31 +19,38 @@
         "location_types": {
             "arena": {
                 "maps": 2,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "house": {
                 "maps": 10,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "other": {
                 "maps": 2,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 1
             },
             "road": {
                 "maps": 9,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 8
             },
             "shop": {
                 "maps": 3,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 1
             },
             "village": {
                 "maps": 15,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 15
             },
             "wild": {
                 "maps": 19,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 12
             }
         }
     },
@@ -50,6 +58,7 @@
         "arena": {
             "maps": 2,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [],
             "paths": [
@@ -72,6 +81,7 @@
         "house": {
             "maps": 10,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -122,6 +132,7 @@
         "other": {
             "maps": 2,
             "with_path": 0,
+            "floored": 1,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -202,6 +213,7 @@
         "road": {
             "maps": 9,
             "with_path": 0,
+            "floored": 8,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -352,6 +364,7 @@
         "shop": {
             "maps": 3,
             "with_path": 0,
+            "floored": 1,
             "backgrounds": [],
             "grounds": [
                 {
@@ -388,6 +401,7 @@
         "village": {
             "maps": 15,
             "with_path": 0,
+            "floored": 15,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -524,6 +538,7 @@
         "wild": {
             "maps": 19,
             "with_path": 0,
+            "floored": 12,
             "backgrounds": [
                 {
                     "set": "grounds",

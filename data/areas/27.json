@@ -5,6 +5,7 @@
         "total": 24,
         "classified": 24,
         "with_path": 0,
+        "floored": 1,
         "indoor": {
             "outdoor": 16,
             "indoor": 8
@@ -19,15 +20,18 @@
         "location_types": {
             "dungeon": {
                 "maps": 8,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "road": {
                 "maps": 2,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "wild": {
                 "maps": 14,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 1
             }
         }
     },
@@ -35,6 +39,7 @@
         "dungeon": {
             "maps": 8,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -114,6 +119,7 @@
         "road": {
             "maps": 2,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -263,6 +269,7 @@
         "wild": {
             "maps": 14,
             "with_path": 0,
+            "floored": 1,
             "backgrounds": [
                 {
                     "set": "grounds",

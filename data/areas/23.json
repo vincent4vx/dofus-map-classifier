@@ -5,6 +5,7 @@
         "total": 65,
         "classified": 65,
         "with_path": 0,
+        "floored": 44,
         "indoor": {
             "outdoor": 51,
             "indoor": 14
@@ -18,27 +19,33 @@
         "location_types": {
             "arena": {
                 "maps": 1,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "house": {
                 "maps": 10,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 1
             },
             "road": {
                 "maps": 10,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 8
             },
             "shop": {
                 "maps": 4,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 1
             },
             "village": {
                 "maps": 13,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 11
             },
             "wild": {
                 "maps": 27,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 23
             }
         }
     },
@@ -46,6 +53,7 @@
         "arena": {
             "maps": 1,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [],
             "paths": []
@@ -53,6 +61,7 @@
         "house": {
             "maps": 10,
             "with_path": 0,
+            "floored": 1,
             "backgrounds": [],
             "grounds": [
                 {
@@ -103,6 +112,7 @@
         "road": {
             "maps": 10,
             "with_path": 0,
+            "floored": 8,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -239,6 +249,7 @@
         "shop": {
             "maps": 4,
             "with_path": 0,
+            "floored": 1,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -347,6 +358,7 @@
         "village": {
             "maps": 13,
             "with_path": 0,
+            "floored": 11,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -525,6 +537,7 @@
         "wild": {
             "maps": 27,
             "with_path": 0,
+            "floored": 23,
             "backgrounds": [
                 {
                     "set": "grounds",

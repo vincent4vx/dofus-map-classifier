@@ -5,6 +5,7 @@
         "total": 6,
         "classified": 6,
         "with_path": 0,
+        "floored": 0,
         "indoor": {
             "outdoor": 5,
             "indoor": 1
@@ -16,11 +17,13 @@
         "location_types": {
             "other": {
                 "maps": 5,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "wild": {
                 "maps": 1,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             }
         }
     },
@@ -28,6 +31,7 @@
         "other": {
             "maps": 5,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -64,6 +68,7 @@
         "wild": {
             "maps": 1,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {

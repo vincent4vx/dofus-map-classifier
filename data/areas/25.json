@@ -5,6 +5,7 @@
         "total": 23,
         "classified": 23,
         "with_path": 7,
+        "floored": 1,
         "indoor": {
             "outdoor": 23
         },
@@ -17,11 +18,13 @@
         "location_types": {
             "other": {
                 "maps": 8,
-                "with_path": 4
+                "with_path": 4,
+                "floored": 0
             },
             "wild": {
                 "maps": 15,
-                "with_path": 3
+                "with_path": 3,
+                "floored": 1
             }
         }
     },
@@ -29,6 +32,7 @@
         "other": {
             "maps": 8,
             "with_path": 4,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -207,6 +211,7 @@
         "wild": {
             "maps": 15,
             "with_path": 3,
+            "floored": 1,
             "backgrounds": [
                 {
                     "set": "grounds",

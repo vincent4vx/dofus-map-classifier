@@ -5,6 +5,7 @@
         "total": 66,
         "classified": 66,
         "with_path": 28,
+        "floored": 0,
         "indoor": {
             "outdoor": 57,
             "indoor": 9
@@ -20,19 +21,23 @@
         "location_types": {
             "house": {
                 "maps": 2,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "other": {
                 "maps": 9,
-                "with_path": 1
+                "with_path": 1,
+                "floored": 0
             },
             "road": {
                 "maps": 4,
-                "with_path": 4
+                "with_path": 4,
+                "floored": 0
             },
             "wild": {
                 "maps": 51,
-                "with_path": 23
+                "with_path": 23,
+                "floored": 0
             }
         }
     },
@@ -40,6 +45,7 @@
         "house": {
             "maps": 2,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -76,6 +82,7 @@
         "other": {
             "maps": 9,
             "with_path": 1,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -268,6 +275,7 @@
         "road": {
             "maps": 4,
             "with_path": 4,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -502,6 +510,7 @@
         "wild": {
             "maps": 51,
             "with_path": 23,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",

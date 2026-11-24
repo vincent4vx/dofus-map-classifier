@@ -5,6 +5,7 @@
         "total": 39,
         "classified": 39,
         "with_path": 3,
+        "floored": 10,
         "indoor": {
             "outdoor": 24,
             "indoor": 15
@@ -21,39 +22,48 @@
         "location_types": {
             "arena": {
                 "maps": 2,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "city": {
                 "maps": 1,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "dungeon": {
                 "maps": 11,
-                "with_path": 3
+                "with_path": 3,
+                "floored": 3
             },
             "mine": {
                 "maps": 1,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "other": {
                 "maps": 1,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "road": {
                 "maps": 3,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "shop": {
                 "maps": 1,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "village": {
                 "maps": 10,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 0
             },
             "wild": {
                 "maps": 9,
-                "with_path": 0
+                "with_path": 0,
+                "floored": 7
             }
         }
     },
@@ -61,6 +71,7 @@
         "arena": {
             "maps": 2,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -127,6 +138,7 @@
         "city": {
             "maps": 1,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -192,6 +204,7 @@
         "dungeon": {
             "maps": 11,
             "with_path": 3,
+            "floored": 3,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -342,6 +355,7 @@
         "mine": {
             "maps": 1,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -421,6 +435,7 @@
         "other": {
             "maps": 1,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -458,6 +473,7 @@
         "road": {
             "maps": 3,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -495,6 +511,7 @@
         "shop": {
             "maps": 1,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -546,6 +563,7 @@
         "village": {
             "maps": 10,
             "with_path": 0,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -654,6 +672,7 @@
         "wild": {
             "maps": 9,
             "with_path": 0,
+            "floored": 7,
             "backgrounds": [
                 {
                     "set": "grounds",

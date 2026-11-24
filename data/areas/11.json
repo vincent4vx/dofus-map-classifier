@@ -5,6 +5,7 @@
         "total": 708,
         "classified": 708,
         "with_path": 154,
+        "floored": 21,
         "indoor": {
             "indoor": 541,
             "outdoor": 167
@@ -22,47 +23,58 @@
         "location_types": {
             "arena": {
                 "maps": 6,
-                "with_path": 2
+                "with_path": 2,
+                "floored": 0
             },
             "city": {
                 "maps": 93,
-                "with_path": 76
+                "with_path": 76,
+                "floored": 0
             },
             "dungeon": {
                 "maps": 121,
-                "with_path": 23
+                "with_path": 23,
+                "floored": 2
             },
             "house": {
                 "maps": 266,
-                "with_path": 1
+                "with_path": 1,
+                "floored": 0
             },
             "mine": {
                 "maps": 4,
-                "with_path": 3
+                "with_path": 3,
+                "floored": 1
             },
             "other": {
                 "maps": 17,
-                "with_path": 5
+                "with_path": 5,
+                "floored": 2
             },
             "road": {
                 "maps": 6,
-                "with_path": 5
+                "with_path": 5,
+                "floored": 2
             },
             "shop": {
                 "maps": 139,
-                "with_path": 1
+                "with_path": 1,
+                "floored": 2
             },
             "temple": {
                 "maps": 1,
-                "with_path": 1
+                "with_path": 1,
+                "floored": 0
             },
             "village": {
                 "maps": 12,
-                "with_path": 11
+                "with_path": 11,
+                "floored": 0
             },
             "wild": {
                 "maps": 43,
-                "with_path": 26
+                "with_path": 26,
+                "floored": 12
             }
         }
     },
@@ -70,6 +82,7 @@
         "arena": {
             "maps": 6,
             "with_path": 2,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -332,6 +345,7 @@
         "city": {
             "maps": 93,
             "with_path": 76,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -566,6 +580,7 @@
         "dungeon": {
             "maps": 121,
             "with_path": 23,
+            "floored": 2,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -800,6 +815,7 @@
         "house": {
             "maps": 266,
             "with_path": 1,
+            "floored": 0,
             "backgrounds": [],
             "grounds": [
                 {
@@ -864,6 +880,7 @@
         "mine": {
             "maps": 4,
             "with_path": 3,
+            "floored": 1,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -1000,6 +1017,7 @@
         "other": {
             "maps": 17,
             "with_path": 5,
+            "floored": 2,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -1304,6 +1322,7 @@
         "road": {
             "maps": 6,
             "with_path": 5,
+            "floored": 2,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -1482,6 +1501,7 @@
         "shop": {
             "maps": 139,
             "with_path": 1,
+            "floored": 2,
             "backgrounds": [],
             "grounds": [
                 {
@@ -1574,6 +1594,7 @@
         "temple": {
             "maps": 1,
             "with_path": 1,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -1696,6 +1717,7 @@
         "village": {
             "maps": 12,
             "with_path": 11,
+            "floored": 0,
             "backgrounds": [
                 {
                     "set": "grounds",
@@ -1888,6 +1910,7 @@
         "wild": {
             "maps": 43,
             "with_path": 26,
+            "floored": 12,
             "backgrounds": [
                 {
                     "set": "grounds",
