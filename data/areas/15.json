@@ -831,13 +831,15 @@
                 "ground_share": 0.0256,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": 0.0256,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -859,13 +861,15 @@
                 "ground_share": 0.188,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 22,
                         "ground_share": 0.188,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -895,6 +899,7 @@
                         "2": 0.0209
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -908,14 +913,16 @@
                                 "1": 0,
                                 "2": 0.0209
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 196,
                         "ground_share": 0.8604,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -931,13 +938,15 @@
                 "ground_share": 0.0133,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": 0.0133,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -953,13 +962,15 @@
                 "ground_share": 0.1067,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 24,
                         "ground_share": 0.1067,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -980,13 +991,15 @@
                 "ground_share": 0.0062,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": 0.0062,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1015,6 +1028,7 @@
                         "2": 0.0291
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 4,
@@ -1028,21 +1042,24 @@
                                 "1": 0.037,
                                 "2": 0.037
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 3,
                         "occurrences": 61,
                         "ground_share": 0.1475,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 12,
                         "ground_share": 0.1212,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 7,
@@ -1056,7 +1073,8 @@
                                 "1": 0,
                                 "2": 0.0263
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1085,6 +1103,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 3,
@@ -1098,21 +1117,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 11,
                         "ground_share": 0.0597,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 25,
                         "ground_share": 0.2525,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 7,
@@ -1126,7 +1148,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1156,6 +1179,7 @@
                         "2": 0.1
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 3,
@@ -1169,21 +1193,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 3,
                         "occurrences": 11,
                         "ground_share": 0.0339,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 28,
                         "ground_share": 0.2828,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 7,
@@ -1197,7 +1224,8 @@
                                 "1": 0,
                                 "2": 0.1111
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1226,20 +1254,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 14,
                         "ground_share": 0.1537,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 13,
                         "ground_share": 0.0424,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 6,
@@ -1253,7 +1284,8 @@
                                 "1": 0.0256,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1271,13 +1303,15 @@
                 "ground_share": 0.3333,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 75,
                         "ground_share": 0.3333,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1299,13 +1333,15 @@
                 "ground_share": 0.2051,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 24,
                         "ground_share": 0.2051,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1334,6 +1370,7 @@
                         "2": 0.0018
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 4,
@@ -1347,21 +1384,24 @@
                                 "1": 0.013,
                                 "2": 0.013
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 3,
                         "occurrences": 195,
                         "ground_share": 0.4947,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 15,
                         "ground_share": 0.1515,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 8,
@@ -1375,7 +1415,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1398,41 +1439,47 @@
                 "ground_share": null,
                 "bare_share": 0.7494,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 4,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": 0.7709,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 4,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": 0.666,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": 0.7933,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 11,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": 0.7622,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": 0.8121,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1449,13 +1496,15 @@
                 "ground_share": 0.4311,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 97,
                         "ground_share": 0.4311,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1471,13 +1520,15 @@
                 "ground_share": 0.0578,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 13,
                         "ground_share": 0.0578,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1493,13 +1544,15 @@
                 "ground_share": 0.0578,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 13,
                         "ground_share": 0.0578,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1533,6 +1586,7 @@
                         "2": 0.1277
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 3,
@@ -1546,7 +1600,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 6,
@@ -1560,14 +1615,16 @@
                                 "1": 0.0217,
                                 "2": 0.1304
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 57,
                         "ground_share": 0.6333,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1601,13 +1658,15 @@
                         "2": 0.0417
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": 0.0116,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 4,
@@ -1621,14 +1680,16 @@
                                 "1": 0,
                                 "2": 0.0417
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 28,
                         "ground_share": 0.3111,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1656,6 +1717,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 2,
@@ -1669,7 +1731,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 1,
@@ -1683,7 +1746,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1711,6 +1775,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -1724,7 +1789,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1761,6 +1827,7 @@
                         "2": 0.2035
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 4,
@@ -1774,7 +1841,8 @@
                                 "1": 0,
                                 "2": 0.0625
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 4,
@@ -1788,14 +1856,16 @@
                                 "1": 0.3333,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 19,
                         "ground_share": 0.1919,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 11,
@@ -1809,14 +1879,16 @@
                                 "1": 0.16,
                                 "2": 0.24
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": 0.0556,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1846,6 +1918,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "village": {
                         "maps": 3,
@@ -1859,7 +1932,8 @@
                                 "1": 0.1667,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1887,6 +1961,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -1900,7 +1975,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 3,
@@ -1914,7 +1990,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1943,6 +2020,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -1956,7 +2034,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 1,
@@ -1970,7 +2049,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 2,
@@ -1984,7 +2064,8 @@
                                 "1": 0.125,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2006,13 +2087,15 @@
                 "ground_share": 0.4,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": 0.4,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -2033,13 +2116,15 @@
                 "ground_share": 0.6,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": 0.6,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -2060,13 +2145,15 @@
                 "ground_share": 1,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -2095,13 +2182,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 27,
                         "ground_share": 0.1677,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 1,
@@ -2115,7 +2204,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2136,13 +2226,15 @@
                 "ground_share": 0.0672,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 8,
                         "ground_share": 0.0672,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -2171,13 +2263,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": 0.0186,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "village": {
                         "maps": 4,
@@ -2191,7 +2285,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             }
@@ -2221,6 +2316,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0741,
                 "location_types": {
                     "village": {
                         "maps": 4,
@@ -2234,7 +2330,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0741
                     }
                 }
             },
@@ -2266,6 +2363,7 @@
                         "2": 0.0323
                     }
                 },
+                "cover_share": 0.1322,
                 "location_types": {
                     "city": {
                         "maps": 3,
@@ -2279,14 +2377,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1677
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0522
                     },
                     "village": {
                         "maps": 7,
@@ -2300,14 +2400,16 @@
                                 "1": 0,
                                 "2": 0.05
                             }
-                        }
+                        },
+                        "cover_share": 0.1309
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1148
                     }
                 }
             },
@@ -2335,6 +2437,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0522,
                 "location_types": {
                     "village": {
                         "maps": 3,
@@ -2348,7 +2451,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0522
                     }
                 }
             },
@@ -2381,20 +2485,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0501,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "other": {
                         "maps": 1,
@@ -2408,7 +2515,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0752
                     }
                 }
             },
@@ -2429,13 +2537,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -2464,6 +2574,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0418,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -2477,7 +2588,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -2506,20 +2618,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0052,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "village": {
                         "maps": 6,
@@ -2533,7 +2648,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -2561,6 +2677,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0401,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -2574,7 +2691,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0313
                     },
                     "village": {
                         "maps": 4,
@@ -2588,7 +2706,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0423
                     }
                 }
             },
@@ -2616,6 +2735,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0183,
                 "location_types": {
                     "village": {
                         "maps": 4,
@@ -2629,7 +2749,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0183
                     }
                 }
             },
@@ -2661,27 +2782,31 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0559,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0752
                     },
                     "other": {
                         "maps": 3,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0759
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0355
                     },
                     "village": {
                         "maps": 4,
@@ -2695,14 +2820,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0491
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -2734,6 +2861,7 @@
                         "2": 0.0494
                     }
                 },
+                "cover_share": 0.1223,
                 "location_types": {
                     "city": {
                         "maps": 4,
@@ -2747,21 +2875,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.155
                     },
                     "other": {
                         "maps": 3,
                         "occurrences": 33,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1009
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     },
                     "village": {
                         "maps": 11,
@@ -2775,14 +2906,16 @@
                                 "1": 0.0137,
                                 "2": 0.0548
                             }
-                        }
+                        },
+                        "cover_share": 0.1234
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1044
                     }
                 }
             },
@@ -2814,13 +2947,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0598,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "village": {
                         "maps": 1,
@@ -2834,14 +2969,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0376
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1044
                     }
                 }
             },
@@ -2869,6 +3006,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0438,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -2882,7 +3020,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0313
                     },
                     "village": {
                         "maps": 4,
@@ -2896,7 +3035,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.047
                     }
                 }
             },
@@ -2924,6 +3064,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.055,
                 "location_types": {
                     "village": {
                         "maps": 3,
@@ -2937,7 +3078,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.055
                     }
                 }
             },
@@ -2965,20 +3107,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0497,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.048
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0386
                     },
                     "village": {
                         "maps": 2,
@@ -2992,7 +3137,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0616
                     }
                 }
             },
@@ -3013,13 +3159,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0334,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0334
                     }
                 }
             },
@@ -3051,13 +3199,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0647,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0397
                     },
                     "village": {
                         "maps": 1,
@@ -3071,14 +3221,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1086
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     }
                 }
             },
@@ -3106,13 +3258,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0731,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0877
                     },
                     "village": {
                         "maps": 3,
@@ -3126,7 +3280,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0682
                     }
                 }
             },
@@ -3158,20 +3313,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0772,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1837
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     },
                     "village": {
                         "maps": 8,
@@ -3185,14 +3343,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0639
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1086
                     }
                 }
             },
@@ -3225,20 +3385,23 @@
                         "2": 0.1667
                     }
                 },
+                "cover_share": 0.062,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0658
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0355
                     },
                     "village": {
                         "maps": 6,
@@ -3252,14 +3415,16 @@
                                 "1": 0,
                                 "2": 0.1667
                             }
-                        }
+                        },
+                        "cover_share": 0.0602
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0919
                     }
                 }
             },
@@ -3291,13 +3456,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.064,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     },
                     "village": {
                         "maps": 1,
@@ -3311,14 +3478,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0835
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0919
                     }
                 }
             },
@@ -3350,6 +3519,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0459,
                 "location_types": {
                     "city": {
                         "maps": 2,
@@ -3363,14 +3533,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0459
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     }
                 }
             },
@@ -3398,13 +3570,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0418,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     },
                     "village": {
                         "maps": 1,
@@ -3418,7 +3592,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -3446,20 +3621,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0397,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0814
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     },
                     "village": {
                         "maps": 3,
@@ -3473,7 +3651,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.032
                     }
                 }
             },
@@ -3494,13 +3673,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0459,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     }
                 }
             },
@@ -3532,6 +3713,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0313,
                 "location_types": {
                     "village": {
                         "maps": 3,
@@ -3545,14 +3727,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0292
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     }
                 }
             },
@@ -3584,20 +3768,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0609,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0522
                     },
                     "village": {
                         "maps": 2,
@@ -3611,14 +3798,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0626
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     }
                 }
             },
@@ -3646,6 +3835,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0529,
                 "location_types": {
                     "village": {
                         "maps": 3,
@@ -3659,7 +3849,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0529
                     }
                 }
             },
@@ -3688,6 +3879,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0227,
                 "location_types": {
                     "city": {
                         "maps": 2,
@@ -3701,14 +3893,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0261
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     },
                     "village": {
                         "maps": 5,
@@ -3722,7 +3916,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0225
                     }
                 }
             },
@@ -3750,6 +3945,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0251,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -3763,7 +3959,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -3795,6 +3992,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0211,
                 "location_types": {
                     "city": {
                         "maps": 2,
@@ -3808,21 +4006,24 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0177
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.023
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "village": {
                         "maps": 5,
@@ -3836,14 +4037,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.02
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -3872,6 +4075,7 @@
                         "2": 0.125
                     }
                 },
+                "cover_share": 0.0042,
                 "location_types": {
                     "city": {
                         "maps": 3,
@@ -3885,21 +4089,24 @@
                                 "1": 0,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "village": {
                         "maps": 3,
@@ -3913,7 +4120,8 @@
                                 "1": 0.1667,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -3941,6 +4149,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0063,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -3954,7 +4163,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -3982,6 +4192,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0209,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -3995,7 +4206,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -4029,6 +4241,7 @@
                         "2": 0.0317
                     }
                 },
+                "cover_share": 0.4859,
                 "location_types": {
                     "city": {
                         "maps": 4,
@@ -4042,7 +4255,8 @@
                                 "1": 0.0625,
                                 "2": 0.0625
                             }
-                        }
+                        },
+                        "cover_share": 0.5919
                     },
                     "other": {
                         "maps": 4,
@@ -4056,14 +4270,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.4348
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4927
                     },
                     "village": {
                         "maps": 11,
@@ -4077,14 +4293,16 @@
                                 "1": 0.0652,
                                 "2": 0.0217
                             }
-                        }
+                        },
+                        "cover_share": 0.4619
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.524
                     }
                 }
             },
@@ -4118,6 +4336,7 @@
                         "2": 0.0658
                     }
                 },
+                "cover_share": 0.4336,
                 "location_types": {
                     "city": {
                         "maps": 3,
@@ -4131,7 +4350,8 @@
                                 "1": 0.0769,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.428
                     },
                     "other": {
                         "maps": 4,
@@ -4145,14 +4365,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.3737
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3507
                     },
                     "village": {
                         "maps": 11,
@@ -4166,14 +4388,16 @@
                                 "1": 0.0169,
                                 "2": 0.0847
                             }
-                        }
+                        },
+                        "cover_share": 0.4678
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3967
                     }
                 }
             },
@@ -4206,6 +4430,7 @@
                         "2": 0.1667
                     }
                 },
+                "cover_share": 0.083,
                 "location_types": {
                     "city": {
                         "maps": 2,
@@ -4219,7 +4444,8 @@
                                 "1": 0,
                                 "2": 0.2857
                             }
-                        }
+                        },
+                        "cover_share": 0.0658
                     },
                     "other": {
                         "maps": 4,
@@ -4233,14 +4459,16 @@
                                 "1": 0,
                                 "2": 0.1667
                             }
-                        }
+                        },
+                        "cover_share": 0.1013
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1378
                     },
                     "village": {
                         "maps": 8,
@@ -4254,14 +4482,16 @@
                                 "1": 0,
                                 "2": 0.0909
                             }
-                        }
+                        },
+                        "cover_share": 0.0741
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0605
                     }
                 }
             },
@@ -4290,6 +4520,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0348,
                 "location_types": {
                     "city": {
                         "maps": 3,
@@ -4303,7 +4534,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0383
                     },
                     "other": {
                         "maps": 1,
@@ -4317,14 +4549,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0564
                     },
                     "village": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -4353,6 +4587,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.045,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -4366,7 +4601,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.023
                     },
                     "other": {
                         "maps": 1,
@@ -4380,7 +4616,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.023
                     },
                     "village": {
                         "maps": 5,
@@ -4394,7 +4631,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0539
                     }
                 }
             },
@@ -4423,6 +4661,7 @@
                         "2": 0.1
                     }
                 },
+                "cover_share": 0.0716,
                 "location_types": {
                     "city": {
                         "maps": 2,
@@ -4436,7 +4675,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0553
                     },
                     "other": {
                         "maps": 4,
@@ -4450,14 +4690,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0877
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0647
                     },
                     "village": {
                         "maps": 4,
@@ -4471,7 +4713,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0652
                     }
                 }
             },
@@ -4504,6 +4747,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1253,
                 "location_types": {
                     "other": {
                         "maps": 3,
@@ -4517,7 +4761,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1447
                     },
                     "village": {
                         "maps": 4,
@@ -4531,14 +4776,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.13
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.048
                     }
                 }
             },
@@ -4567,6 +4814,7 @@
                         "2": 0.1429
                     }
                 },
+                "cover_share": 0.0515,
                 "location_types": {
                     "city": {
                         "maps": 4,
@@ -4580,14 +4828,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0501
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     },
                     "village": {
                         "maps": 7,
@@ -4601,7 +4851,8 @@
                                 "1": 0,
                                 "2": 0.1818
                             }
-                        }
+                        },
+                        "cover_share": 0.0552
                     }
                 }
             },
@@ -4629,6 +4880,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0626,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -4642,7 +4894,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0626
                     }
                 }
             },
@@ -4670,6 +4923,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0209,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -4683,7 +4937,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -4704,13 +4959,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0418,
                 "location_types": {
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -4732,13 +4989,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0167,
                 "location_types": {
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -4759,13 +5018,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "shop": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -4793,6 +5054,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0084,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -4806,7 +5068,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -4834,6 +5097,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0188,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -4847,7 +5111,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -4868,13 +5133,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0084,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -4895,20 +5162,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0188,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -4929,13 +5199,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "shop": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -4956,13 +5228,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0167,
                 "location_types": {
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -4983,13 +5257,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -5010,13 +5286,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "shop": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -5044,6 +5322,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0689,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -5057,7 +5336,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0689
                     }
                 }
             },
@@ -5085,6 +5365,7 @@
                         "2": 0.2308
                     }
                 },
+                "cover_share": 0.0793,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -5098,7 +5379,8 @@
                                 "1": 0.4615,
                                 "2": 0.3077
                             }
-                        }
+                        },
+                        "cover_share": 0.0522
                     },
                     "other": {
                         "maps": 1,
@@ -5112,7 +5394,8 @@
                                 "1": 0,
                                 "2": 0.1923
                             }
-                        }
+                        },
+                        "cover_share": 0.1065
                     }
                 }
             },
@@ -5133,13 +5416,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -5160,20 +5445,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -5194,13 +5482,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -5229,13 +5519,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.009,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     },
                     "village": {
                         "maps": 2,
@@ -5249,7 +5541,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0094
                     }
                 }
             },
@@ -5281,6 +5574,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1159,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -5294,14 +5588,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0167
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 52,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.215
                     }
                 }
             },
@@ -5329,6 +5625,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0063,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -5342,7 +5639,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -5363,13 +5661,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0376,
                 "location_types": {
                     "shop": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     }
                 }
             },
@@ -5390,27 +5690,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0341,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0647
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -5426,13 +5730,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0543,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0543
                     }
                 }
             },
@@ -5448,13 +5754,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -5475,13 +5783,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -5502,13 +5812,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -5530,20 +5842,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1451,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.238
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0522
                     }
                 }
             },
@@ -5572,13 +5887,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2067,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3069
                     },
                     "village": {
                         "maps": 2,
@@ -5592,7 +5909,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1566
                     }
                 }
             },
@@ -5620,6 +5938,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1775,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -5633,7 +5952,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1775
                     }
                 }
             },
@@ -5654,13 +5974,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1795,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1795
                     }
                 }
             },
@@ -5681,13 +6003,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0564,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -5713,20 +6037,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1127,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1597
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -5748,13 +6075,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1253,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1253
                     }
                 }
             },
@@ -5775,13 +6104,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1023,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1023
                     }
                 }
             },
@@ -5802,13 +6133,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0835,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0835
                     }
                 }
             },
@@ -5829,13 +6162,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1002,
                 "location_types": {
                     "shop": {
                         "maps": 3,
                         "occurrences": 27,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1002
                     }
                 }
             },
@@ -5856,13 +6191,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0842,
                 "location_types": {
                     "shop": {
                         "maps": 3,
                         "occurrences": 23,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0842
                     }
                 }
             },
@@ -5883,13 +6220,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0292,
                 "location_types": {
                     "shop": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     }
                 }
             },
@@ -5917,6 +6256,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0042,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -5930,7 +6270,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -5951,13 +6292,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -5985,6 +6328,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0042,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -5998,7 +6342,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -6019,20 +6364,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -6053,20 +6401,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     },
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -6087,13 +6438,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0188,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -6131,13 +6484,15 @@
                         "2": 0.0741
                     }
                 },
+                "cover_share": 0.0058,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "city": {
                         "maps": 4,
@@ -6151,35 +6506,40 @@
                                 "1": 0.25,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0073
                     },
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0031
                     },
                     "other": {
                         "maps": 4,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     },
                     "shop": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "village": {
                         "maps": 11,
@@ -6193,14 +6553,16 @@
                                 "1": 0.2174,
                                 "2": 0.087
                             }
-                        }
+                        },
+                        "cover_share": 0.0066
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -6228,6 +6590,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0334,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6241,7 +6604,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0334
                     }
                 }
             },
@@ -6269,6 +6633,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0438,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6282,7 +6647,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0438
                     }
                 }
             },
@@ -6298,13 +6664,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.19,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 21,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.19
                     }
                 }
             },
@@ -6332,6 +6700,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0063,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6345,7 +6714,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -6366,13 +6736,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0418,
                 "location_types": {
                     "shop": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -6393,13 +6765,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -6420,13 +6794,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -6447,13 +6823,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1044,
                 "location_types": {
                     "village": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1044
                     }
                 }
             },
@@ -6469,13 +6847,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0167,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -6491,13 +6871,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -6518,13 +6900,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -6556,6 +6940,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.016,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6569,7 +6954,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0063
                     },
                     "village": {
                         "maps": 1,
@@ -6583,14 +6969,16 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0125
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     }
                 }
             },
@@ -6618,6 +7006,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0125,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6631,7 +7020,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -6659,6 +7049,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0094,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6672,14 +7063,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0125
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -6711,13 +7104,15 @@
                         "2": 0.5
                     }
                 },
+                "cover_share": 0.0084,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "other": {
                         "maps": 1,
@@ -6731,14 +7126,16 @@
                                 "1": 0,
                                 "2": 0.6667
                             }
-                        }
+                        },
+                        "cover_share": 0.0188
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "village": {
                         "maps": 2,
@@ -6752,14 +7149,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0063
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -6791,13 +7190,15 @@
                         "2": 0.2
                     }
                 },
+                "cover_share": 0.0814,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0877
                     },
                     "other": {
                         "maps": 1,
@@ -6811,14 +7212,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0438
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0501
                     },
                     "village": {
                         "maps": 3,
@@ -6832,14 +7235,16 @@
                                 "1": 0,
                                 "2": 0.25
                             }
-                        }
+                        },
+                        "cover_share": 0.119
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -6867,6 +7272,7 @@
                         "2": 0.0092
                     }
                 },
+                "cover_share": 0.0809,
                 "location_types": {
                     "city": {
                         "maps": 4,
@@ -6880,14 +7286,16 @@
                                 "1": 0,
                                 "2": 0.0588
                             }
-                        }
+                        },
+                        "cover_share": 0.0778
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 18,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     },
                     "village": {
                         "maps": 9,
@@ -6901,7 +7309,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0877
                     }
                 }
             },
@@ -6929,6 +7338,7 @@
                         "2": 0.0106
                     }
                 },
+                "cover_share": 0.078,
                 "location_types": {
                     "city": {
                         "maps": 3,
@@ -6942,7 +7352,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0731
                     },
                     "other": {
                         "maps": 3,
@@ -6956,7 +7367,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0529
                     },
                     "village": {
                         "maps": 8,
@@ -6970,7 +7382,8 @@
                                 "1": 0,
                                 "2": 0.0128
                             }
-                        }
+                        },
+                        "cover_share": 0.0892
                     }
                 }
             },
@@ -6998,13 +7411,15 @@
                         "2": 0.0909
                     }
                 },
+                "cover_share": 0.115,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1127
                     },
                     "city": {
                         "maps": 4,
@@ -7018,7 +7433,8 @@
                                 "1": 0.1667,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1331
                     },
                     "other": {
                         "maps": 2,
@@ -7032,7 +7448,8 @@
                                 "1": 0,
                                 "2": 0.3333
                             }
-                        }
+                        },
+                        "cover_share": 0.1827
                     },
                     "village": {
                         "maps": 7,
@@ -7046,7 +7463,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0856
                     }
                 }
             },
@@ -7074,6 +7492,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1162,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -7087,7 +7506,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0668
                     },
                     "other": {
                         "maps": 1,
@@ -7101,14 +7521,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1336
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1482
                     }
                 }
             },
@@ -7140,20 +7562,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.072,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0501
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0334
                     },
                     "village": {
                         "maps": 5,
@@ -7167,14 +7592,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0839
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0731
                     }
                 }
             },
@@ -7202,6 +7629,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1221,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -7215,7 +7643,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1566
                     },
                     "village": {
                         "maps": 1,
@@ -7229,7 +7658,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0877
                     }
                 }
             },
@@ -7257,13 +7687,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0042,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "village": {
                         "maps": 1,
@@ -7277,7 +7709,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -7305,6 +7738,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0619,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -7318,21 +7752,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0543
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0501
                     },
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0814
                     }
                 }
             },
@@ -7364,6 +7801,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1566,
                 "location_types": {
                     "city": {
                         "maps": 2,
@@ -7377,14 +7815,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1983
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0731
                     }
                 }
             },
@@ -7416,13 +7856,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.079,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0668
                     },
                     "village": {
                         "maps": 4,
@@ -7436,14 +7878,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.083
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0752
                     }
                 }
             },
@@ -7472,13 +7916,15 @@
                         "2": 0.125
                     }
                 },
+                "cover_share": 0.0789,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1649
                     },
                     "city": {
                         "maps": 3,
@@ -7492,7 +7938,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1079
                     },
                     "other": {
                         "maps": 3,
@@ -7506,14 +7953,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0926
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0772
                     },
                     "village": {
                         "maps": 8,
@@ -7527,7 +7976,8 @@
                                 "1": 0,
                                 "2": 0.2
                             }
-                        }
+                        },
+                        "cover_share": 0.0527
                     }
                 }
             },
@@ -7560,13 +8010,15 @@
                         "2": 0.1
                     }
                 },
+                "cover_share": 0.0202,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "city": {
                         "maps": 3,
@@ -7580,21 +8032,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0251
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     },
                     "shop": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     },
                     "village": {
                         "maps": 7,
@@ -7608,14 +8063,16 @@
                                 "1": 0,
                                 "2": 0.2
                             }
-                        }
+                        },
+                        "cover_share": 0.0146
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0814
                     }
                 }
             },
@@ -7636,13 +8093,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1253,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1253
                     }
                 }
             },
@@ -7663,20 +8122,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0814,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0814
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0814
                     }
                 }
             },
@@ -7697,20 +8159,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0146,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0146
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0146
                     }
                 }
             },
@@ -7731,13 +8196,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0501,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0501
                     }
                 }
             },
@@ -7758,13 +8225,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.096,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.096
                     }
                 }
             },
@@ -7785,13 +8254,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0522,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0522
                     }
                 }
             },
@@ -7812,13 +8283,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0731,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0731
                     }
                 }
             },
@@ -7846,6 +8319,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.5428,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -7859,7 +8333,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.5428
                     }
                 }
             },
@@ -7887,6 +8362,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.1837,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -7900,7 +8376,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.1837
                     }
                 }
             },
@@ -7928,6 +8405,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.072,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -7941,14 +8419,16 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0793
                     },
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0647
                     }
                 }
             },
@@ -7969,13 +8449,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1775,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1775
                     }
                 }
             },
@@ -7996,13 +8478,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -8023,13 +8507,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3455,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3455
                     }
                 }
             },
@@ -8050,13 +8536,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.477,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.477
                     }
                 }
             },
@@ -8077,13 +8565,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0397,
                 "location_types": {
                     "village": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0397
                     }
                 }
             },
@@ -8099,13 +8589,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.023,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.023
                     }
                 }
             },
@@ -8133,20 +8625,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.3101,
                 "location_types": {
                     "city": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3278
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4697
                     },
                     "village": {
                         "maps": 6,
@@ -8160,7 +8655,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2481
                     }
                 }
             },
@@ -8188,13 +8684,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2046,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1127
                     },
                     "village": {
                         "maps": 3,
@@ -8208,7 +8706,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2352
                     }
                 }
             },
@@ -8236,6 +8735,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.3758,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -8249,7 +8749,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.3758
                     }
                 }
             },
@@ -8270,13 +8771,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1253,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1253
                     }
                 }
             },
@@ -8297,20 +8800,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0292,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     }
                 }
             },
@@ -8331,13 +8837,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -8358,13 +8866,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -8385,13 +8895,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -8412,13 +8924,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -8439,13 +8953,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0084,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -8466,13 +8982,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0209,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -8500,13 +9018,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1809,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1253
                     },
                     "village": {
                         "maps": 2,
@@ -8520,7 +9040,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2088
                     }
                 }
             },
@@ -8536,13 +9057,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3173,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 22,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3173
                     }
                 }
             },
@@ -8570,6 +9093,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0042,
                 "location_types": {
                     "city": {
                         "maps": 1,
@@ -8583,7 +9107,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -8604,13 +9129,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -8631,13 +9158,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0418,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -8665,6 +9194,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.0501,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -8678,7 +9208,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0501
                     }
                 }
             },
@@ -8699,13 +9230,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -8726,13 +9259,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -8753,13 +9288,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0564,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -8780,13 +9317,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.4144,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4144
                     }
                 }
             },
@@ -8807,20 +9346,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0271,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0271
                     },
                     "village": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0271
                     }
                 }
             },
@@ -8841,13 +9383,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.023,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.023
                     }
                 }
             },
@@ -8875,6 +9419,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.0376,
                 "location_types": {
                     "village": {
                         "maps": 1,
@@ -8888,7 +9433,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0376
                     }
                 }
             }

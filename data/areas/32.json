@@ -197,27 +197,31 @@
                 "ground_share": 1,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 82,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 1065,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "shop": {
                         "maps": 9,
                         "occurrences": 525,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -231,27 +235,31 @@
                 "ground_share": null,
                 "bare_share": 0.7947,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": 0.9144,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": 0.6294,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "shop": {
                         "maps": 9,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": 0.8782,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             }
@@ -269,13 +277,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -291,13 +301,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -313,13 +325,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -336,20 +350,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2265,
                 "location_types": {
                     "other": {
                         "maps": 5,
                         "occurrences": 26,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1808
                     },
                     "shop": {
                         "maps": 7,
                         "occurrences": 63,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2592
                     }
                 }
             },
@@ -366,27 +383,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1339,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.142
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1503
                     },
                     "shop": {
                         "maps": 6,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1298
                     }
                 }
             },
@@ -402,13 +423,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -425,20 +448,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0271,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0287
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -455,27 +481,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0267,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0198
                     },
                     "other": {
                         "maps": 4,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0245
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0341
                     }
                 }
             },
@@ -491,13 +521,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1232,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1232
                     }
                 }
             },
@@ -514,27 +546,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.6387,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 29,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.7265
                     },
                     "other": {
                         "maps": 5,
                         "occurrences": 32,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.5545
                     },
                     "shop": {
                         "maps": 8,
                         "occurrences": 103,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.6694
                     }
                 }
             },
@@ -550,27 +586,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "shop": {
                         "maps": 5,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -586,27 +626,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0029,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0031
                     },
                     "shop": {
                         "maps": 6,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0024
                     }
                 }
             },
@@ -622,27 +666,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0033,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0035
                     },
                     "shop": {
                         "maps": 5,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0029
                     }
                 }
             },
@@ -658,27 +706,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0099,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0101
                     },
                     "shop": {
                         "maps": 8,
                         "occurrences": 20,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0099
                     }
                 }
             },
@@ -694,27 +746,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0103,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     },
                     "other": {
                         "maps": 5,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0092
                     },
                     "shop": {
                         "maps": 8,
                         "occurrences": 22,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0107
                     }
                 }
             },
@@ -731,27 +787,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0064,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0056
                     },
                     "shop": {
                         "maps": 6,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0077
                     }
                 }
             },
@@ -767,27 +827,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0301,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     }
                 }
             },
@@ -803,13 +867,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.023,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.023
                     }
                 }
             },
@@ -825,27 +891,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0179,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "shop": {
                         "maps": 7,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0158
                     }
                 }
             },
@@ -861,13 +931,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -883,13 +955,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -905,13 +979,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -927,13 +1003,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -949,13 +1027,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -971,13 +1051,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -993,13 +1075,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -1015,13 +1099,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0334,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0334
                     }
                 }
             },
@@ -1037,13 +1123,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0668,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0668
                     }
                 }
             },
@@ -1059,13 +1147,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0271,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0271
                     }
                 }
             },
@@ -1082,27 +1172,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0131,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 18,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 36,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     },
                     "shop": {
                         "maps": 6,
                         "occurrences": 34,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0118
                     }
                 }
             },
@@ -1119,27 +1213,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0135,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 19,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0198
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 40,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0139
                     },
                     "shop": {
                         "maps": 7,
                         "occurrences": 38,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0113
                     }
                 }
             },
@@ -1155,27 +1253,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0115
                     },
                     "other": {
                         "maps": 5,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     },
                     "shop": {
                         "maps": 7,
                         "occurrences": 21,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0143
                     }
                 }
             },
@@ -1191,27 +1293,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0946,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0386
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 66,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1472
                     },
                     "shop": {
                         "maps": 9,
                         "occurrences": 61,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0719
                     }
                 }
             },
@@ -1227,27 +1333,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0783,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 13,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0699
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 46,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0946
                     },
                     "shop": {
                         "maps": 9,
                         "occurrences": 58,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0694
                     }
                 }
             },
@@ -1263,20 +1373,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.04,
                 "location_types": {
                     "other": {
                         "maps": 6,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.047
                     },
                     "shop": {
                         "maps": 5,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0317
                     }
                 }
             },
@@ -1292,27 +1405,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0278,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0212
                     },
                     "shop": {
                         "maps": 4,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0423
                     }
                 }
             },
@@ -1329,27 +1446,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0384,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.023
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 14,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     },
                     "shop": {
                         "maps": 8,
                         "occurrences": 16,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0397
                     }
                 }
             },
@@ -1365,27 +1486,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0234,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0271
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0205
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0278
                     }
                 }
             },
@@ -1401,20 +1526,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1013,
                 "location_types": {
                     "other": {
                         "maps": 6,
                         "occurrences": 30,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1065
                     },
                     "shop": {
                         "maps": 2,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0856
                     }
                 }
             },
@@ -1431,20 +1559,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0334,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "shop": {
                         "maps": 6,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0327
                     }
                 }
             },
@@ -1460,20 +1591,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0242,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     },
                     "shop": {
                         "maps": 6,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0261
                     }
                 }
             },
@@ -1490,27 +1624,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0343,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0136
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 37,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0452
                     },
                     "shop": {
                         "maps": 9,
                         "occurrences": 37,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0315
                     }
                 }
             },
@@ -1526,20 +1664,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1555,27 +1696,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 5,
                         "occurrences": 14,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "shop": {
                         "maps": 6,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1592,27 +1737,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0084,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "shop": {
                         "maps": 4,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0094
                     }
                 }
             },
@@ -1628,20 +1777,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0566,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 21,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0866
                     },
                     "shop": {
                         "maps": 7,
                         "occurrences": 42,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.048
                     }
                 }
             },
@@ -1657,20 +1809,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0133,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     },
                     "shop": {
                         "maps": 4,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0162
                     }
                 }
             },
@@ -1686,20 +1841,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0165,
                 "location_types": {
                     "other": {
                         "maps": 6,
                         "occurrences": 17,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0198
                     },
                     "shop": {
                         "maps": 6,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0132
                     }
                 }
             },
@@ -1715,20 +1873,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.011,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0094
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0132
                     }
                 }
             },
@@ -1744,20 +1905,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0162,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0162
                     },
                     "shop": {
                         "maps": 4,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0162
                     }
                 }
             },
@@ -1773,20 +1937,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0762,
                 "location_types": {
                     "other": {
                         "maps": 6,
                         "occurrences": 72,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0877
                     },
                     "shop": {
                         "maps": 4,
                         "occurrences": 31,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.059
                     }
                 }
             },
@@ -1802,20 +1969,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0098,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0115
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0077
                     }
                 }
             },
@@ -1831,20 +2001,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1021,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 41,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1545
                     },
                     "shop": {
                         "maps": 7,
                         "occurrences": 93,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0871
                     }
                 }
             },
@@ -1860,27 +2033,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0372,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0449
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     },
                     "shop": {
                         "maps": 9,
                         "occurrences": 43,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0378
                     }
                 }
             },
@@ -1896,27 +2073,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0447,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 18,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0647
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     },
                     "shop": {
                         "maps": 9,
                         "occurrences": 51,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0441
                     }
                 }
             },
@@ -1933,20 +2114,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0038,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "shop": {
                         "maps": 5,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -1962,20 +2146,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1991,13 +2178,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "shop": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -2014,27 +2203,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1478,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 43,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1628
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 114,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1562
                     },
                     "shop": {
                         "maps": 8,
                         "occurrences": 136,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1378
                     }
                 }
             },
@@ -2051,20 +2244,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0224,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     },
                     "shop": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0157
                     }
                 }
             },
@@ -2081,20 +2277,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0128,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0094
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0174
                     }
                 }
             },
@@ -2111,27 +2310,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0139,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0174
                     }
                 }
             },
@@ -2148,27 +2351,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1175,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0689
                     },
                     "other": {
                         "maps": 5,
                         "occurrences": 47,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1198
                     },
                     "shop": {
                         "maps": 7,
                         "occurrences": 78,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1297
                     }
                 }
             },
@@ -2184,13 +2391,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -2206,20 +2415,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0278,
                 "location_types": {
                     "other": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0348
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -2235,20 +2447,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0262,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     },
                     "shop": {
                         "maps": 5,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0242
                     }
                 }
             },
@@ -2264,27 +2479,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0355,
                 "location_types": {
                     "city": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0383
                     }
                 }
             },
@@ -2300,20 +2519,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0397,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0355
                     },
                     "shop": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0438
                     }
                 }
             },
@@ -2329,13 +2551,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0543,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0543
                     }
                 }
             },
@@ -2351,13 +2575,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -2373,13 +2599,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -2395,13 +2623,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0188,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -2418,27 +2648,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1729,
                 "location_types": {
                     "city": {
                         "maps": 1,
                         "occurrences": 21,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1691
                     },
                     "other": {
                         "maps": 6,
                         "occurrences": 109,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2008
                     },
                     "shop": {
                         "maps": 5,
                         "occurrences": 60,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1403
                     }
                 }
             }

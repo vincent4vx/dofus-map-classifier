@@ -457,13 +457,15 @@
                 "ground_share": 1,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "house": {
                         "maps": 4,
                         "occurrences": 448,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -486,20 +488,23 @@
                 "ground_share": 0.4794,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "house": {
                         "maps": 3,
                         "occurrences": 36,
                         "ground_share": 0.48,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 32,
                         "ground_share": 0.4776,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -521,20 +526,23 @@
                 "ground_share": 0.5206,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "house": {
                         "maps": 3,
                         "occurrences": 39,
                         "ground_share": 0.52,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 35,
                         "ground_share": 0.5224,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -569,34 +577,39 @@
                 "ground_share": null,
                 "bare_share": 0.997,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 7,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": 1,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 9,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": 0.9923,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": 1,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 6,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": 1,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -618,13 +631,15 @@
                 "ground_share": 0.4242,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 14,
                         "ground_share": 0.4242,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -645,13 +660,15 @@
                 "ground_share": 0.1212,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": 0.1212,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -673,13 +690,15 @@
                 "ground_share": 0.0909,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": 0.0909,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -700,13 +719,15 @@
                 "ground_share": 0.0606,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": 0.0606,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -728,13 +749,15 @@
                 "ground_share": 0.303,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 10,
                         "ground_share": 0.303,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             }
@@ -766,27 +789,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1331,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1441
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1127
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1378
                     }
                 }
             },
@@ -808,13 +835,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1649,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1649
                     }
                 }
             },
@@ -835,13 +864,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2568,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2568
                     }
                 }
             },
@@ -862,13 +893,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1211,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1211
                     }
                 }
             },
@@ -893,13 +926,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0835,
                 "location_types": {
                     "house": {
                         "maps": 4,
                         "occurrences": 16,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0835
                     }
                 }
             },
@@ -925,20 +960,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3549,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3445
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3653
                     }
                 }
             },
@@ -960,13 +998,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1399,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1399
                     }
                 }
             },
@@ -988,13 +1028,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0564,
                 "location_types": {
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -1033,34 +1075,39 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3171,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
                         "occurrences": 29,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.245
                     },
                     "road": {
                         "maps": 4,
                         "occurrences": 38,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4833
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2693
                     },
                     "wild": {
                         "maps": 6,
                         "occurrences": 40,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2864
                     }
                 }
             },
@@ -1104,20 +1151,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0059,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "dungeon": {
                         "maps": 6,
                         "occurrences": 13,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0045
                     },
                     "road": {
                         "maps": 9,
@@ -1131,28 +1181,32 @@
                                 "1": 0.75,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0072
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "wild": {
                         "maps": 6,
                         "occurrences": 19,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0066
                     }
                 }
             },
@@ -1180,6 +1234,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.0021,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -1193,7 +1248,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -1214,13 +1270,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0543,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0543
                     }
                 }
             },
@@ -1241,13 +1299,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0668,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0668
                     }
                 }
             },
@@ -1272,13 +1332,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1049,
                 "location_types": {
                     "house": {
                         "maps": 4,
                         "occurrences": 37,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1049
                     }
                 }
             },
@@ -1303,13 +1365,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1023,
                 "location_types": {
                     "house": {
                         "maps": 4,
                         "occurrences": 36,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1023
                     }
                 }
             },
@@ -1334,13 +1398,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0313,
                 "location_types": {
                     "house": {
                         "maps": 4,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     }
                 }
             },
@@ -1366,13 +1432,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0731,
                 "location_types": {
                     "house": {
                         "maps": 4,
                         "occurrences": 16,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0731
                     }
                 }
             },
@@ -1389,13 +1457,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.6889,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.6889
                     }
                 }
             },
@@ -1416,13 +1486,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0313,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     }
                 }
             },
@@ -1447,20 +1519,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0407,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0271
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0543
                     }
                 }
             },
@@ -1481,13 +1556,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0167,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -1508,13 +1585,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0814,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0814
                     }
                 }
             },
@@ -1543,27 +1622,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0422,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0543
                     },
                     "road": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0271
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0511
                     }
                 }
             },
@@ -1588,27 +1671,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1989,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2098
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2693
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1065
                     }
                 }
             },
@@ -1637,20 +1724,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0993,
                 "location_types": {
                     "road": {
                         "maps": 4,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0741
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1329
                     }
                 }
             },
@@ -1675,20 +1765,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0327,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "road": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0365
                     }
                 }
             },
@@ -1709,20 +1802,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0313,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -1743,20 +1839,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0195,
                 "location_types": {
                     "road": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -1777,13 +1876,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0139,
                 "location_types": {
                     "road": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0139
                     }
                 }
             },
@@ -1804,20 +1905,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.02,
                 "location_types": {
                     "road": {
                         "maps": 3,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -1850,27 +1954,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0046,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0056
                     }
                 }
             },
@@ -1891,13 +1999,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -1930,27 +2040,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.031,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     },
                     "road": {
                         "maps": 4,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0219
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     }
                 }
             },
@@ -1971,13 +2085,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0418,
                 "location_types": {
                     "road": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -1998,13 +2114,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -2037,27 +2155,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0232,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0278
                     },
                     "road": {
                         "maps": 4,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -2091,27 +2213,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0719,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.055
                     },
                     "road": {
                         "maps": 4,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0746
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0919
                     }
                 }
             },
@@ -2132,13 +2258,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1284,
                 "location_types": {
                     "road": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1284
                     }
                 }
             },
@@ -2163,27 +2291,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1644,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1065
                     },
                     "road": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.238
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0752
                     }
                 }
             },
@@ -2204,13 +2336,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0522,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0522
                     }
                 }
             },
@@ -2231,20 +2365,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.039,
                 "location_types": {
                     "road": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -2265,13 +2402,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1169,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1169
                     }
                 }
             },
@@ -2292,13 +2431,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -2331,27 +2472,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0383,
                 "location_types": {
                     "dungeon": {
                         "maps": 5,
                         "occurrences": 13,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0355
                     },
                     "road": {
                         "maps": 4,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0412
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.039
                     }
                 }
             },
@@ -2372,13 +2517,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0752,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0752
                     }
                 }
             },
@@ -2399,13 +2546,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0564,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -2430,27 +2579,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1284,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.167
                     },
                     "road": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0929
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1392
                     }
                 }
             },
@@ -2486,6 +2639,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0393,
                 "location_types": {
                     "road": {
                         "maps": 4,
@@ -2499,14 +2653,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0423
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0334
                     }
                 }
             },
@@ -2528,13 +2684,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -2555,13 +2713,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -2582,13 +2742,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -2629,13 +2791,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0334,
                 "location_types": {
                     "dungeon": {
                         "maps": 5,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0301
                     },
                     "road": {
                         "maps": 5,
@@ -2649,21 +2813,24 @@
                                 "1": 0.3333,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0351
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     }
                 }
             },
@@ -2684,13 +2851,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0084,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -2716,27 +2885,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3791,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3111
                     },
                     "road": {
                         "maps": 4,
                         "occurrences": 23,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4191
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.333
                     }
                 }
             },
@@ -2766,27 +2939,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.4672,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.5188
                     },
                     "road": {
                         "maps": 4,
                         "occurrences": 31,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4551
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 20,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4489
                     }
                 }
             },
@@ -2807,13 +2984,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -2835,13 +3014,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0292,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     }
                 }
             },
@@ -2862,13 +3043,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -2889,13 +3072,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3215,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3215
                     }
                 }
             },
@@ -2916,13 +3101,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2255,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2255
                     }
                 }
             },
@@ -2943,20 +3130,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2923,
                 "location_types": {
                     "road": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2923
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2923
                     }
                 }
             },
@@ -2977,13 +3167,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.19,
                 "location_types": {
                     "road": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.19
                     }
                 }
             },
@@ -3008,20 +3200,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "house": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -3046,20 +3241,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -3084,20 +3282,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0195,
                 "location_types": {
                     "house": {
                         "maps": 8,
                         "occurrences": 17,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0175
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -3122,20 +3323,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0084,
                 "location_types": {
                     "house": {
                         "maps": 5,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -3160,20 +3364,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "house": {
                         "maps": 5,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.005
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -3194,13 +3401,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0292,
                 "location_types": {
                     "house": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     }
                 }
             },
@@ -3221,20 +3430,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0626,
                 "location_types": {
                     "house": {
                         "maps": 3,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0438
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.119
                     }
                 }
             },
@@ -3250,13 +3462,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.048,
                 "location_types": {
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.048
                     }
                 }
             },
@@ -3278,20 +3492,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0506,
                 "location_types": {
                     "house": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1273
                     }
                 }
             },
@@ -3312,13 +3529,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "house": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -3339,13 +3558,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0501,
                 "location_types": {
                     "house": {
                         "maps": 3,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0501
                     }
                 }
             },
@@ -3366,20 +3587,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0423,
                 "location_types": {
                     "house": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     }
                 }
             },
@@ -3417,34 +3641,39 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.67,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
                         "occurrences": 34,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.6987
                     },
                     "road": {
                         "maps": 6,
                         "occurrences": 29,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.6225
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.7432
                     },
                     "wild": {
                         "maps": 4,
                         "occurrences": 24,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.6801
                     }
                 }
             },
@@ -3481,13 +3710,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.4672,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4749
                     },
                     "road": {
                         "maps": 4,
@@ -3501,21 +3732,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.4342
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.334
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.5919
                     }
                 }
             },
@@ -3557,13 +3791,15 @@
                         "2": 0.5
                     }
                 },
+                "cover_share": 0.1008,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 16,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0846
                     },
                     "road": {
                         "maps": 6,
@@ -3577,14 +3813,16 @@
                                 "1": 0,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": 0.1106
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1065
                     }
                 }
             },
@@ -3629,13 +3867,15 @@
                         "2": 0.5
                     }
                 },
+                "cover_share": 0.096,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0508
                     },
                     "road": {
                         "maps": 8,
@@ -3649,14 +3889,16 @@
                                 "1": 0,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": 0.1007
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 19,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1157
                     }
                 }
             },
@@ -3698,13 +3940,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2492,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 29,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2025
                     },
                     "road": {
                         "maps": 5,
@@ -3718,21 +3962,24 @@
                                 "1": 0.1667,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2797
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2359
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2965
                     }
                 }
             },
@@ -3766,27 +4013,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.099,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.263
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0532
                     }
                 }
             },
@@ -3831,13 +4082,15 @@
                         "2": 0.2308
                     }
                 },
+                "cover_share": 0.0947,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 13,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1072
                     },
                     "road": {
                         "maps": 6,
@@ -3851,14 +4104,16 @@
                                 "1": 0.2308,
                                 "2": 0.2308
                             }
-                        }
+                        },
+                        "cover_share": 0.0821
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 22,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1023
                     }
                 }
             },
@@ -3883,27 +4138,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0515,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     },
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     }
                 }
             },
@@ -3928,27 +4187,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0355,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "road": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0334
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     }
                 }
             },
@@ -3988,20 +4251,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0239,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     },
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0271
                     },
                     "road": {
                         "maps": 1,
@@ -4015,14 +4281,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0188
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -4047,20 +4315,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0084,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -4104,13 +4375,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.3515,
                 "location_types": {
                     "dungeon": {
                         "maps": 7,
                         "occurrences": 34,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4357
                     },
                     "road": {
                         "maps": 5,
@@ -4124,21 +4397,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.3077
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4154
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2647
                     }
                 }
             },
@@ -4182,20 +4458,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1495,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1059
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1086
                     },
                     "road": {
                         "maps": 7,
@@ -4209,21 +4488,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.176
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0501
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1754
                     }
                 }
             },
@@ -4267,20 +4549,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1202,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.12
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0814
                     },
                     "road": {
                         "maps": 5,
@@ -4294,14 +4579,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1173
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1311
                     }
                 }
             },
@@ -4345,13 +4632,15 @@
                         "2": 0.6667
                     }
                 },
+                "cover_share": 0.0954,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1155
                     },
                     "road": {
                         "maps": 6,
@@ -4365,14 +4654,16 @@
                                 "1": 0,
                                 "2": 0.6667
                             }
-                        }
+                        },
+                        "cover_share": 0.0936
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0856
                     }
                 }
             },
@@ -4409,27 +4700,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0449,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0386
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0543
                     }
                 }
             },
@@ -4473,20 +4768,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0239,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0193
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     },
                     "road": {
                         "maps": 3,
@@ -4500,14 +4798,16 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0292
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -4547,6 +4847,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0355,
                 "location_types": {
                     "road": {
                         "maps": 8,
@@ -4560,14 +4861,16 @@
                                 "1": 0.5,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0371
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     }
                 }
             },
@@ -4596,34 +4899,39 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0298,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     },
                     "road": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.032
                     }
                 }
             },
@@ -4667,20 +4975,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0465,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     },
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0344
                     },
                     "road": {
                         "maps": 6,
@@ -4694,14 +5005,16 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0532
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0424
                     }
                 }
             },
@@ -4726,13 +5039,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0376,
                 "location_types": {
                     "house": {
                         "maps": 7,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     }
                 }
             },
@@ -4757,13 +5072,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0355,
                 "location_types": {
                     "house": {
                         "maps": 7,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0355
                     }
                 }
             },
@@ -4798,20 +5115,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.3458,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.6451
                     },
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3779
                     },
                     "road": {
                         "maps": 3,
@@ -4825,21 +5145,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2262
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.5365
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2641
                     }
                 }
             },
@@ -4886,13 +5209,15 @@
                         "2": 0.1176
                     }
                 },
+                "cover_share": 0.2589,
                 "location_types": {
                     "dungeon": {
                         "maps": 7,
                         "occurrences": 64,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.198
                     },
                     "road": {
                         "maps": 8,
@@ -4906,14 +5231,16 @@
                                 "1": 0.3529,
                                 "2": 0.1176
                             }
-                        }
+                        },
+                        "cover_share": 0.2701
                     },
                     "wild": {
                         "maps": 6,
                         "occurrences": 111,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3149
                     }
                 }
             },
@@ -4947,27 +5274,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0812,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0511
                     },
                     "road": {
                         "maps": 5,
                         "occurrences": 24,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0764
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 16,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1093
                     }
                 }
             },
@@ -4989,13 +5320,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1461,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1461
                     }
                 }
             },
@@ -5028,27 +5361,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0797,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0778
                     },
                     "road": {
                         "maps": 4,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0558
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1315
                     }
                 }
             },
@@ -5073,20 +5410,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1196,
                 "location_types": {
                     "house": {
                         "maps": 8,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.137
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0731
                     }
                 }
             },
@@ -5111,20 +5451,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0438,
                 "location_types": {
                     "house": {
                         "maps": 7,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0358
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1002
                     }
                 }
             },
@@ -5145,13 +5488,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -5196,13 +5541,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1981,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 21,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2291
                     },
                     "road": {
                         "maps": 3,
@@ -5216,21 +5563,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1155
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2463
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2234
                     }
                 }
             },
@@ -5267,27 +5617,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0607,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0501
                     },
                     "road": {
                         "maps": 7,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0632
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0593
                     }
                 }
             },
@@ -5316,27 +5670,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0647,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "road": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0846
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0522
                     }
                 }
             },
@@ -5369,27 +5727,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0505,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.047
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0397
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0595
                     }
                 }
             },
@@ -5429,13 +5791,15 @@
                         "2": 0.5
                     }
                 },
+                "cover_share": 0.0471,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0494
                     },
                     "road": {
                         "maps": 6,
@@ -5449,14 +5813,16 @@
                                 "1": 0,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": 0.0487
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0386
                     }
                 }
             },
@@ -5500,13 +5866,15 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.0498,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0487
                     },
                     "road": {
                         "maps": 8,
@@ -5520,14 +5888,16 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0532
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -5548,13 +5918,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0209,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -5575,13 +5947,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0626,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     }
                 }
             },
@@ -5602,13 +5976,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3257,
                 "location_types": {
                     "temple": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3257
                     }
                 }
             },
@@ -5629,13 +6005,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.167,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.167
                     }
                 }
             },
@@ -5656,13 +6034,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3027,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3027
                     }
                 }
             },
@@ -5688,27 +6068,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.4067,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3549
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 21,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4196
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 63,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4196
                     }
                 }
             },
@@ -5729,20 +6113,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1785,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2317
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1253
                     }
                 }
             },
@@ -5764,20 +6151,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2724,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2359
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.309
                     }
                 }
             },
@@ -5802,27 +6192,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1472,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1211
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1378
                     },
                     "shop": {
                         "maps": 4,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1561
                     }
                 }
             },
@@ -5847,27 +6241,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0717,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1294
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "shop": {
                         "maps": 4,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0658
                     }
                 }
             },
@@ -5893,27 +6291,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0969,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2505
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0585
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0585
                     }
                 }
             },
@@ -5938,27 +6340,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2372,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2004
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2463
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2463
                     }
                 }
             },
@@ -5979,20 +6385,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0376,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     },
                     "shop": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     }
                 }
             },
@@ -6017,27 +6426,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1199,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1148
                     },
                     "house": {
                         "maps": 4,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0804
                     },
                     "shop": {
                         "maps": 4,
                         "occurrences": 31,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1608
                     }
                 }
             },
@@ -6059,13 +6472,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1545,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1545
                     }
                 }
             },
@@ -6101,13 +6516,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1837,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2693
                     },
                     "road": {
                         "maps": 2,
@@ -6121,14 +6538,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1357
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1461
                     }
                 }
             },
@@ -6164,6 +6583,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1514,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -6177,14 +6597,16 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1357
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.167
                     }
                 }
             },
@@ -6209,20 +6631,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1597,
                 "location_types": {
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1879
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1315
                     }
                 }
             },
@@ -6251,27 +6676,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1783,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1768
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1315
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2296
                     }
                 }
             },
@@ -6296,20 +6725,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0136,
                 "location_types": {
                     "arena": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0146
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -6330,13 +6762,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3132,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3132
                     }
                 }
             },
@@ -6357,13 +6791,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -6408,20 +6844,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0021,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "house": {
                         "maps": 8,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "road": {
                         "maps": 4,
@@ -6435,21 +6874,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -6474,20 +6916,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "house": {
                         "maps": 7,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "shop": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -6508,13 +6953,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0209,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -6535,13 +6982,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0334,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0334
                     }
                 }
             },
@@ -6577,13 +7026,15 @@
                         "2": 0.3333
                     }
                 },
+                "cover_share": 0.1235,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1503
                     },
                     "road": {
                         "maps": 3,
@@ -6597,14 +7048,16 @@
                                 "1": 0,
                                 "2": 0.3333
                             }
-                        }
+                        },
+                        "cover_share": 0.1169
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.12
                     }
                 }
             },
@@ -6641,20 +7094,23 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0665,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0772
                     },
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     },
                     "road": {
                         "maps": 2,
@@ -6668,21 +7124,24 @@
                                 "1": 0.3333,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0919
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     }
                 }
             },
@@ -6723,13 +7182,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1238,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0877
                     },
                     "road": {
                         "maps": 3,
@@ -6743,21 +7204,24 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1441
                     },
                     "temple": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1503
                     }
                 }
             }

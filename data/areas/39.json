@@ -162,6 +162,7 @@
                         "2": 0.1921
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 12,
@@ -175,7 +176,8 @@
                                 "1": 0.3342,
                                 "2": 0.1921
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -202,13 +204,15 @@
                 "ground_share": 0.4471,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 160,
                         "ground_share": 0.4471,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -234,13 +238,15 @@
                 "ground_share": 0.4045,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 108,
                         "ground_share": 0.4045,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             }
@@ -275,6 +281,7 @@
                         "2": 0.2
                     }
                 },
+                "cover_share": 0.0689,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
@@ -288,7 +295,8 @@
                                 "1": 0.2,
                                 "2": 0.2
                             }
-                        }
+                        },
+                        "cover_share": 0.0689
                     }
                 }
             },
@@ -317,6 +325,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0313,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
@@ -330,7 +339,8 @@
                                 "1": 0.3333,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0313
                     }
                 }
             },
@@ -364,6 +374,7 @@
                         "2": 0.5
                     }
                 },
+                "cover_share": 0.081,
                 "location_types": {
                     "dungeon": {
                         "maps": 9,
@@ -377,7 +388,8 @@
                                 "1": 0.25,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": 0.081
                     }
                 }
             },
@@ -398,13 +410,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -425,13 +439,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "dungeon": {
                         "maps": 5,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -464,6 +480,7 @@
                         "2": 0.125
                     }
                 },
+                "cover_share": 0.3933,
                 "location_types": {
                     "dungeon": {
                         "maps": 5,
@@ -477,7 +494,8 @@
                                 "1": 0.125,
                                 "2": 0.125
                             }
-                        }
+                        },
+                        "cover_share": 0.3933
                     }
                 }
             },
@@ -510,6 +528,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2019,
                 "location_types": {
                     "dungeon": {
                         "maps": 11,
@@ -523,7 +542,8 @@
                                 "1": 0.6667,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2019
                     }
                 }
             },
@@ -544,13 +564,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0564,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -584,6 +606,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2236,
                 "location_types": {
                     "dungeon": {
                         "maps": 11,
@@ -597,7 +620,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2236
                     }
                 }
             },
@@ -622,13 +646,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -660,6 +686,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0031,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
@@ -673,7 +700,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0031
                     }
                 }
             },
@@ -705,6 +733,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0282,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
@@ -718,7 +747,8 @@
                                 "1": 0.6667,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0282
                     }
                 }
             },
@@ -750,6 +780,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.0028,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
@@ -763,7 +794,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0028
                     }
                 }
             },
@@ -796,6 +828,7 @@
                         "2": 0.3333
                     }
                 },
+                "cover_share": 0.007,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
@@ -809,7 +842,8 @@
                                 "1": 0,
                                 "2": 0.3333
                             }
-                        }
+                        },
+                        "cover_share": 0.007
                     }
                 }
             },
@@ -830,13 +864,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -857,13 +893,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -884,13 +922,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0052,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0052
                     }
                 }
             },
@@ -911,13 +951,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -938,13 +980,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1044,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1044
                     }
                 }
             },
@@ -965,13 +1009,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0266,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 17,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0266
                     }
                 }
             },
@@ -992,13 +1038,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0209,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -1024,13 +1072,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -1064,6 +1114,7 @@
                         "2": 0.2333
                     }
                 },
+                "cover_share": 0.1708,
                 "location_types": {
                     "dungeon": {
                         "maps": 12,
@@ -1077,7 +1128,8 @@
                                 "1": 0.2333,
                                 "2": 0.2333
                             }
-                        }
+                        },
+                        "cover_share": 0.1708
                     }
                 }
             },
@@ -1113,6 +1165,7 @@
                         "2": 0.3438
                     }
                 },
+                "cover_share": 0.0807,
                 "location_types": {
                     "dungeon": {
                         "maps": 11,
@@ -1126,7 +1179,8 @@
                                 "1": 0.2344,
                                 "2": 0.3438
                             }
-                        }
+                        },
+                        "cover_share": 0.0807
                     }
                 }
             },
@@ -1152,13 +1206,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0724,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
                         "occurrences": 63,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0724
                     }
                 }
             },
@@ -1193,6 +1249,7 @@
                         "2": 0.3636
                     }
                 },
+                "cover_share": 0.1528,
                 "location_types": {
                     "dungeon": {
                         "maps": 10,
@@ -1206,7 +1263,8 @@
                                 "1": 0.2273,
                                 "2": 0.3636
                             }
-                        }
+                        },
+                        "cover_share": 0.1528
                     }
                 }
             },
@@ -1240,6 +1298,7 @@
                         "2": 0.1429
                     }
                 },
+                "cover_share": 0.0421,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
@@ -1253,7 +1312,8 @@
                                 "1": 0.5714,
                                 "2": 0.1429
                             }
-                        }
+                        },
+                        "cover_share": 0.0421
                     }
                 }
             },
@@ -1285,6 +1345,7 @@
                         "2": 0.25
                     }
                 },
+                "cover_share": 0.0174,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
@@ -1298,7 +1359,8 @@
                                 "1": 0.75,
                                 "2": 0.25
                             }
-                        }
+                        },
+                        "cover_share": 0.0174
                     }
                 }
             },
@@ -1331,6 +1393,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0149,
                 "location_types": {
                     "dungeon": {
                         "maps": 7,
@@ -1344,7 +1407,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0149
                     }
                 }
             },
@@ -1370,13 +1434,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0518,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
                         "occurrences": 36,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0518
                     }
                 }
             },
@@ -1410,6 +1476,7 @@
                         "2": 0.4483
                     }
                 },
+                "cover_share": 0.0632,
                 "location_types": {
                     "dungeon": {
                         "maps": 12,
@@ -1423,7 +1490,8 @@
                                 "1": 0.3103,
                                 "2": 0.4483
                             }
-                        }
+                        },
+                        "cover_share": 0.0632
                     }
                 }
             },
@@ -1448,13 +1516,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0553,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 13,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0553
                     }
                 }
             },
@@ -1476,13 +1546,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0383,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0383
                     }
                 }
             },
@@ -1507,13 +1579,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0146,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0146
                     }
                 }
             },
@@ -1541,6 +1615,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.0167,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
@@ -1554,7 +1629,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -1575,13 +1651,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0376,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     }
                 }
             },
@@ -1602,13 +1680,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -1640,6 +1720,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2603,
                 "location_types": {
                     "dungeon": {
                         "maps": 9,
@@ -1653,7 +1734,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2603
                     }
                 }
             },
@@ -1686,6 +1768,7 @@
                         "2": 0.5
                     }
                 },
+                "cover_share": 0.1014,
                 "location_types": {
                     "dungeon": {
                         "maps": 7,
@@ -1699,7 +1782,8 @@
                                 "1": 0.25,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": 0.1014
                     }
                 }
             },
@@ -1732,6 +1816,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0775,
                 "location_types": {
                     "dungeon": {
                         "maps": 8,
@@ -1745,7 +1830,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0775
                     }
                 }
             },
@@ -1778,6 +1864,7 @@
                         "2": 0.3333
                     }
                 },
+                "cover_share": 0.0324,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
@@ -1791,7 +1878,8 @@
                                 "1": 0.6667,
                                 "2": 0.3333
                             }
-                        }
+                        },
+                        "cover_share": 0.0324
                     }
                 }
             },
@@ -1823,6 +1911,7 @@
                         "2": 0.5
                     }
                 },
+                "cover_share": 0.0306,
                 "location_types": {
                     "dungeon": {
                         "maps": 9,
@@ -1836,7 +1925,8 @@
                                 "1": 0,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": 0.0306
                     }
                 }
             },
@@ -1868,6 +1958,7 @@
                         "2": 0.5
                     }
                 },
+                "cover_share": 0.037,
                 "location_types": {
                     "dungeon": {
                         "maps": 7,
@@ -1881,7 +1972,8 @@
                                 "1": 0,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": 0.037
                     }
                 }
             },
@@ -1913,6 +2005,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1002,
                 "location_types": {
                     "dungeon": {
                         "maps": 7,
@@ -1926,7 +2019,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1002
                     }
                 }
             },
@@ -1947,13 +2041,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0856,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0856
                     }
                 }
             },
@@ -1981,6 +2077,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.1169,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
@@ -1994,7 +2091,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.1169
                     }
                 }
             },
@@ -2015,13 +2113,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.048,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.048
                     }
                 }
             },
@@ -2047,13 +2147,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0193,
                 "location_types": {
                     "dungeon": {
                         "maps": 4,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0193
                     }
                 }
             },
@@ -2074,13 +2176,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0146,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0146
                     }
                 }
             },
@@ -2112,6 +2216,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1414,
                 "location_types": {
                     "dungeon": {
                         "maps": 8,
@@ -2125,7 +2230,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1414
                     }
                 }
             },
@@ -2153,6 +2259,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.0564,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
@@ -2166,7 +2273,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -2198,6 +2306,7 @@
                         "2": 0.4
                     }
                 },
+                "cover_share": 0.1569,
                 "location_types": {
                     "dungeon": {
                         "maps": 12,
@@ -2211,7 +2320,8 @@
                                 "1": 0,
                                 "2": 0.4
                             }
-                        }
+                        },
+                        "cover_share": 0.1569
                     }
                 }
             },
@@ -2243,6 +2353,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1674,
                 "location_types": {
                     "dungeon": {
                         "maps": 11,
@@ -2256,7 +2367,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1674
                     }
                 }
             },
@@ -2288,6 +2400,7 @@
                         "2": 0.2
                     }
                 },
+                "cover_share": 0.1831,
                 "location_types": {
                     "dungeon": {
                         "maps": 7,
@@ -2301,7 +2414,8 @@
                                 "1": 0.2,
                                 "2": 0.2
                             }
-                        }
+                        },
+                        "cover_share": 0.1831
                     }
                 }
             },
@@ -2333,6 +2447,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0973,
                 "location_types": {
                     "dungeon": {
                         "maps": 12,
@@ -2346,7 +2461,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0973
                     }
                 }
             },
@@ -2367,13 +2483,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0668,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0668
                     }
                 }
             },
@@ -2405,6 +2523,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0651,
                 "location_types": {
                     "dungeon": {
                         "maps": 6,
@@ -2418,7 +2537,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0651
                     }
                 }
             },
@@ -2443,13 +2563,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0313,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     }
                 }
             },
@@ -2477,6 +2599,7 @@
                         "2": 0.5
                     }
                 },
+                "cover_share": 0.0167,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
@@ -2490,7 +2613,8 @@
                                 "1": 0,
                                 "2": 0.5
                             }
-                        }
+                        },
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -2511,13 +2635,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0313,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     }
                 }
             },
@@ -2538,13 +2664,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.048,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.048
                     }
                 }
             },
@@ -2570,13 +2698,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.4697,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4697
                     }
                 }
             },
@@ -2604,6 +2734,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0501,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
@@ -2617,7 +2748,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0501
                     }
                 }
             },
@@ -2650,6 +2782,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1795,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
@@ -2663,7 +2796,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1795
                     }
                 }
             },
@@ -2684,13 +2818,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0188,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -2711,13 +2847,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -2742,13 +2880,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0139,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 20,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0139
                     }
                 }
             },
@@ -2782,6 +2922,7 @@
                         "2": 1
                     }
                 },
+                "cover_share": 0.1809,
                 "location_types": {
                     "dungeon": {
                         "maps": 9,
@@ -2795,7 +2936,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.1809
                     }
                 }
             },
@@ -2823,6 +2965,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2359,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
@@ -2836,7 +2979,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2359
                     }
                 }
             }

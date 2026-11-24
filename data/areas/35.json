@@ -320,13 +320,15 @@
                 "ground_share": 0.2375,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 57,
                         "ground_share": 0.2375,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -356,27 +358,31 @@
                 "ground_share": 0.0511,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 28,
                         "ground_share": 0.0883,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 12,
                         "ground_share": 0.05,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": 0.0149,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -406,27 +412,31 @@
                 "ground_share": 0.01,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": 0.0126,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": 0.0125,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": 0.005,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -456,27 +466,31 @@
                 "ground_share": 0.0147,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": 0.0126,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": 0.0167,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": 0.0149,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -498,13 +512,15 @@
                 "ground_share": 0.4196,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 133,
                         "ground_share": 0.4196,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -542,27 +558,31 @@
                 "ground_share": 0.1811,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 46,
                         "ground_share": 0.1451,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 73,
                         "ground_share": 0.1674,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 284,
                         "ground_share": 0.1891,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -600,27 +620,31 @@
                 "ground_share": 0.0646,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 16,
                         "ground_share": 0.0505,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 26,
                         "ground_share": 0.0606,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 102,
                         "ground_share": 0.0674,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -658,27 +682,31 @@
                 "ground_share": 0.0658,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 12,
                         "ground_share": 0.0379,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 29,
                         "ground_share": 0.0682,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 100,
                         "ground_share": 0.0686,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -704,20 +732,23 @@
                 "ground_share": 0.0068,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": 0.0042,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": 0.0093,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -738,13 +769,15 @@
                 "ground_share": 0.008,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": 0.008,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -775,20 +808,23 @@
                 "ground_share": null,
                 "bare_share": 0.6132,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": 0.5355,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": 0.6305,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -809,13 +845,15 @@
                 "ground_share": 0.0249,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": 0.0249,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -836,13 +874,15 @@
                 "ground_share": 1,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -863,13 +903,15 @@
                 "ground_share": 0.008,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": 0.008,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -903,27 +945,31 @@
                 "ground_share": 0.0615,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": 0.0032,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": 0.0146,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 4,
                         "occurrences": 49,
                         "ground_share": 0.0878,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -962,27 +1008,31 @@
                 "ground_share": 0.3321,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 9,
                         "ground_share": 0.0284,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 127,
                         "ground_share": 0.2859,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 655,
                         "ground_share": 0.3816,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1016,27 +1066,31 @@
                 "ground_share": 0.0459,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 8,
                         "ground_share": 0.0252,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 19,
                         "ground_share": 0.0431,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 7,
                         "occurrences": 70,
                         "ground_share": 0.0496,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1075,27 +1129,31 @@
                 "ground_share": 0.0479,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 10,
                         "ground_share": 0.0315,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 26,
                         "ground_share": 0.0606,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 74,
                         "ground_share": 0.0468,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1134,27 +1192,31 @@
                 "ground_share": 0.1479,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 46,
                         "ground_share": 0.1451,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 65,
                         "ground_share": 0.1464,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 242,
                         "ground_share": 0.1486,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             }
@@ -1177,13 +1239,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.119,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.119
                     }
                 }
             },
@@ -1221,27 +1285,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0115
                     },
                     "wild": {
                         "maps": 7,
                         "occurrences": 46,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0137
                     }
                 }
             },
@@ -1278,27 +1346,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.119,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 17,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1263
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 83,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1236
                     }
                 }
             },
@@ -1319,13 +1391,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "wild": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -1346,13 +1420,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -1382,20 +1458,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1975,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1994
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 18,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.197
                     }
                 }
             },
@@ -1425,20 +1504,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1804,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3695
                     },
                     "wild": {
                         "maps": 6,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1489
                     }
                 }
             },
@@ -1460,13 +1542,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2192,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 23,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2192
                     }
                 }
             },
@@ -1488,13 +1572,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2025,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 18,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2025
                     }
                 }
             },
@@ -1515,13 +1601,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0209,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -1554,27 +1642,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3294,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3706
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.142
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.382
                     }
                 }
             },
@@ -1600,20 +1692,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0804,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1044
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -1639,20 +1734,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1409,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1691
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1127
                     }
                 }
             },
@@ -1686,27 +1784,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.4779,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.334
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 25,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.5104
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 106,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4877
                     }
                 }
             },
@@ -1727,13 +1829,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1002,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1002
                     }
                 }
             },
@@ -1754,13 +1858,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0167,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -1781,13 +1887,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0376,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     }
                 }
             },
@@ -1824,27 +1932,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0079,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 14,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "wild": {
                         "maps": 7,
                         "occurrences": 18,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0054
                     }
                 }
             },
@@ -1878,27 +1990,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1292,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0919
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.095
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 41,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1503
                     }
                 }
             },
@@ -1919,13 +2035,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.8998,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.8998
                     }
                 }
             },
@@ -1951,13 +2069,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0683,
                 "location_types": {
                     "wild": {
                         "maps": 7,
                         "occurrences": 30,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0683
                     }
                 }
             },
@@ -1978,13 +2098,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0689,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0689
                     }
                 }
             },
@@ -2005,13 +2127,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1837,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1837
                     }
                 }
             },
@@ -2032,13 +2156,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.142,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.142
                     }
                 }
             },
@@ -2059,13 +2185,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0522,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0522
                     }
                 }
             },
@@ -2086,13 +2214,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0835,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0835
                     }
                 }
             },
@@ -2113,13 +2243,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -2140,13 +2272,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -2167,13 +2301,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -2194,13 +2330,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -2221,13 +2359,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -2248,13 +2388,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1889,
                 "location_types": {
                     "dungeon": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1889
                     }
                 }
             },
@@ -2276,13 +2418,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0348,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0348
                     }
                 }
             },
@@ -2304,13 +2448,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.016,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.016
                     }
                 }
             },
@@ -2331,13 +2477,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2415,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2415
                     }
                 }
             },
@@ -2358,13 +2506,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2874,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2874
                     }
                 }
             },
@@ -2389,20 +2539,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0553,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 28,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0543
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0585
                     }
                 }
             },
@@ -2427,20 +2580,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0939,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 24,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0919
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1002
                     }
                 }
             },
@@ -2465,20 +2621,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0214,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 31,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0216
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -2499,13 +2658,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0731,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0731
                     }
                 }
             },
@@ -2526,13 +2687,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0188,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -2553,13 +2716,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0626,
                 "location_types": {
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     }
                 }
             },
@@ -2580,13 +2745,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0376,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0376
                     }
                 }
             },
@@ -2607,13 +2774,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0605,
                 "location_types": {
                     "wild": {
                         "maps": 2,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0605
                     }
                 }
             },
@@ -2634,13 +2803,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0585,
                 "location_types": {
                     "wild": {
                         "maps": 3,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0585
                     }
                 }
             },
@@ -2670,20 +2841,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.4525,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1461
                     },
                     "wild": {
                         "maps": 3,
                         "occurrences": 35,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.5546
                     }
                 }
             },
@@ -2705,13 +2879,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1628,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1628
                     }
                 }
             },
@@ -2737,20 +2913,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.6754,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 182,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.8511
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1482
                     }
                 }
             },
@@ -2779,20 +2958,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0906,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     },
                     "wild": {
                         "maps": 4,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0992
                     }
                 }
             },
@@ -2817,20 +2999,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0786,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1127
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0616
                     }
                 }
             },
@@ -2851,13 +3036,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0574,
                 "location_types": {
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0574
                     }
                 }
             },
@@ -2878,13 +3065,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0866,
                 "location_types": {
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0866
                     }
                 }
             },
@@ -2905,13 +3094,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1002,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1002
                     }
                 }
             },
@@ -2932,13 +3123,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1294,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1294
                     }
                 }
             },
@@ -2959,13 +3152,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.096,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.096
                     }
                 }
             },
@@ -2986,13 +3181,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0626,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0626
                     }
                 }
             },
@@ -3022,20 +3219,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0039,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0031
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -3065,20 +3265,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0098,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     },
                     "wild": {
                         "maps": 6,
                         "occurrences": 16,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0101
                     }
                 }
             },
@@ -3115,27 +3318,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0191,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 23,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.019
                     }
                 }
             },
@@ -3172,27 +3379,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0249,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0261
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 23,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0239
                     }
                 }
             },
@@ -3229,27 +3440,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0065,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0052
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 26,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0068
                     }
                 }
             },
@@ -3279,27 +3494,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0036,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "wild": {
                         "maps": 5,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -3336,27 +3555,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.059,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1002
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 21,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0536
                     }
                 }
             },
@@ -3393,27 +3616,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0865,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1472
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 28,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0791
                     }
                 }
             },
@@ -3450,27 +3677,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0769,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0355
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0846
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 20,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0798
                     }
                 }
             },
@@ -3503,20 +3734,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1676,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1608
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1694
                     }
                 }
             },
@@ -3554,27 +3788,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0558,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0324
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 96,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0673
                     }
                 }
             },
@@ -3612,27 +3850,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0829,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 17,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1211
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 28,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1086
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 78,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0718
                     }
                 }
             },
@@ -3653,13 +3895,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0877,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0877
                     }
                 }
             },
@@ -3680,13 +3924,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.2902,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.2902
                     }
                 }
             },
@@ -3719,20 +3965,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0554,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 21,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1524
                     },
                     "wild": {
                         "maps": 7,
                         "occurrences": 13,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0277
                     }
                 }
             },
@@ -3769,27 +4018,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0217,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 36,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.072
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 29,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -3826,27 +4079,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0421,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 14,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1033
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 18,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0313
                     }
                 }
             },
@@ -3883,27 +4140,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0322,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 16,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0814
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 20,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0234
                     }
                 }
             },
@@ -3936,20 +4197,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0445,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 18,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1399
                     },
                     "wild": {
                         "maps": 8,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0206
                     }
                 }
             },
@@ -3974,20 +4238,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1628,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3069
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -4020,20 +4287,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.033,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 8,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0491
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 22,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0295
                     }
                 }
             },
@@ -4070,27 +4340,31 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0541,
                 "location_types": {
                     "dungeon": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0689
                     },
                     "wild": {
                         "maps": 9,
                         "occurrences": 19,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0536
                     }
                 }
             },
@@ -4119,20 +4393,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0028,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0031
                     }
                 }
             },
@@ -4166,20 +4443,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0081,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     },
                     "wild": {
                         "maps": 7,
                         "occurrences": 27,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0081
                     }
                 }
             },
@@ -4200,13 +4480,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.167,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.167
                     }
                 }
             },
@@ -4227,13 +4509,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1722,
                 "location_types": {
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1722
                     }
                 }
             },
@@ -4255,13 +4539,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.12,
                 "location_types": {
                     "wild": {
                         "maps": 2,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.12
                     }
                 }
             },
@@ -4282,13 +4568,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0731,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0731
                     }
                 }
             },
@@ -4309,13 +4597,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1392,
                 "location_types": {
                     "wild": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1392
                     }
                 }
             },
@@ -4340,20 +4630,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0939,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0752
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1127
                     }
                 }
             },
@@ -4379,20 +4672,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.072,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0856
                     },
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0585
                     }
                 }
             },
@@ -4413,13 +4709,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0209,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -4444,13 +4742,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0781,
                 "location_types": {
                     "wild": {
                         "maps": 5,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0781
                     }
                 }
             },
@@ -4476,20 +4776,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.5579,
                 "location_types": {
                     "dungeon": {
                         "maps": 3,
                         "occurrences": 63,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.6792
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1942
                     }
                 }
             },
@@ -4510,13 +4813,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 1,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 1
                     }
                 }
             }

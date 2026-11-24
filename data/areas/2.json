@@ -729,6 +729,7 @@
                         "2": 0.0676
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 6,
@@ -742,7 +743,8 @@
                                 "1": 0.0135,
                                 "2": 0.0676
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -780,6 +782,7 @@
                         "2": 0.0649
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 4,
@@ -793,7 +796,8 @@
                                 "1": 0.15,
                                 "2": 0.05
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 4,
@@ -807,7 +811,8 @@
                                 "1": 0.1351,
                                 "2": 0.0811
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -854,6 +859,7 @@
                         "2": 0.0511
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -867,7 +873,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 26,
@@ -881,7 +888,8 @@
                                 "1": 0.1111,
                                 "2": 0.0533
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -908,20 +916,23 @@
                 "ground_share": 1,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 21,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 30,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -962,6 +973,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -975,7 +987,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 15,
@@ -989,7 +1002,8 @@
                                 "1": 0.0645,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1027,6 +1041,7 @@
                         "2": 0.4212
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 3,
@@ -1040,7 +1055,8 @@
                                 "1": 0.0174,
                                 "2": 0.687
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 14,
@@ -1054,7 +1070,8 @@
                                 "1": 0,
                                 "2": 0.2653
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1091,6 +1108,7 @@
                         "2": 0.3175
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 3,
@@ -1104,7 +1122,8 @@
                                 "1": 0,
                                 "2": 0.5106
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 14,
@@ -1118,7 +1137,8 @@
                                 "1": 0.0253,
                                 "2": 0.2025
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1155,6 +1175,7 @@
                         "2": 0.4862
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 3,
@@ -1168,7 +1189,8 @@
                                 "1": 0.0256,
                                 "2": 0.6923
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 14,
@@ -1182,7 +1204,8 @@
                                 "1": 0.0143,
                                 "2": 0.3714
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1204,13 +1227,15 @@
                 "ground_share": 0.1818,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 20,
                         "ground_share": 0.1818,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1232,13 +1257,15 @@
                 "ground_share": 0.4636,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 51,
                         "ground_share": 0.4636,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1260,13 +1287,15 @@
                 "ground_share": 0.0818,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 9,
                         "ground_share": 0.0818,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1288,13 +1317,15 @@
                 "ground_share": 0.0273,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": 0.0273,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1316,13 +1347,15 @@
                 "ground_share": 0.0455,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 5,
                         "ground_share": 0.0455,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1373,6 +1406,7 @@
                         "2": 0.2144
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -1386,7 +1420,8 @@
                                 "1": 0.05,
                                 "2": 0.15
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 1,
@@ -1400,7 +1435,8 @@
                                 "1": 0.6226,
                                 "2": 0.2453
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 36,
@@ -1414,7 +1450,8 @@
                                 "1": 0.3098,
                                 "2": 0.2141
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1457,6 +1494,7 @@
                         "2": 0.2586
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -1470,7 +1508,8 @@
                                 "1": 0.303,
                                 "2": 0.3939
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 2,
@@ -1484,7 +1523,8 @@
                                 "1": 0.026,
                                 "2": 0.2727
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 35,
@@ -1498,7 +1538,8 @@
                                 "1": 0.034,
                                 "2": 0.2468
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1540,6 +1581,7 @@
                         "2": 0.2542
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -1553,7 +1595,8 @@
                                 "1": 0,
                                 "2": 0.4
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 2,
@@ -1567,7 +1610,8 @@
                                 "1": 0,
                                 "2": 0.15
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 33,
@@ -1581,7 +1625,8 @@
                                 "1": 0.0149,
                                 "2": 0.2537
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1622,6 +1667,7 @@
                         "2": 0.2824
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -1635,7 +1681,8 @@
                                 "1": 0.2941,
                                 "2": 0.2941
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 2,
@@ -1649,7 +1696,8 @@
                                 "1": 0.2353,
                                 "2": 0.2353
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 35,
@@ -1663,7 +1711,8 @@
                                 "1": 0.2033,
                                 "2": 0.2857
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1708,6 +1757,7 @@
                         "2": 0.4545
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 19,
@@ -1721,7 +1771,8 @@
                                 "1": 0.0455,
                                 "2": 0.4545
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1763,6 +1814,7 @@
                         "2": 0.0401
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -1776,7 +1828,8 @@
                                 "1": 0,
                                 "2": 0.0833
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 4,
@@ -1790,7 +1843,8 @@
                                 "1": 0.0393,
                                 "2": 0.0098
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 35,
@@ -1804,7 +1858,8 @@
                                 "1": 0.0469,
                                 "2": 0.0469
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1831,27 +1886,31 @@
                 "ground_share": null,
                 "bare_share": 0.3309,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": 0.2276,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": 0.4676,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 12,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": 0.3281,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1873,13 +1932,15 @@
                 "ground_share": 1,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 3,
                         "occurrences": 54,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -1911,6 +1972,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -1924,7 +1986,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 3,
@@ -1938,7 +2001,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -1970,6 +2034,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -1983,7 +2048,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 3,
@@ -1997,7 +2063,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2020,20 +2087,23 @@
                 "ground_share": 0.703,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 14,
                         "ground_share": 1,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 61,
                         "ground_share": 0.5545,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -2054,13 +2124,15 @@
                 "ground_share": 0.0545,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": 0.0545,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -2082,13 +2154,15 @@
                 "ground_share": 0.0364,
                 "bare_share": null,
                 "path": null,
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": 0.0364,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": null
                     }
                 }
             },
@@ -2121,6 +2195,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -2134,7 +2209,8 @@
                                 "1": 0.0538,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 2,
@@ -2148,7 +2224,8 @@
                                 "1": 0.037,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2194,6 +2271,7 @@
                         "2": 0.1107
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 29,
@@ -2207,7 +2285,8 @@
                                 "1": 0.0161,
                                 "2": 0.1107
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2255,6 +2334,7 @@
                         "2": 0.0064
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 27,
@@ -2268,7 +2348,8 @@
                                 "1": 0.0064,
                                 "2": 0.0064
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2315,6 +2396,7 @@
                         "2": 0.0102
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 27,
@@ -2328,7 +2410,8 @@
                                 "1": 0.0152,
                                 "2": 0.0102
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2374,6 +2457,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 25,
@@ -2387,7 +2471,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2431,6 +2516,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 15,
@@ -2444,7 +2530,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2480,6 +2567,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 11,
@@ -2493,7 +2581,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2523,6 +2612,7 @@
                         "2": 0.2571
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 3,
@@ -2536,7 +2626,8 @@
                                 "1": 0.0571,
                                 "2": 0.2571
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2576,6 +2667,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 21,
@@ -2589,7 +2681,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2634,6 +2727,7 @@
                         "2": 0.0435
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 23,
@@ -2647,7 +2741,8 @@
                                 "1": 0,
                                 "2": 0.0435
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2693,6 +2788,7 @@
                         "2": 0.0055
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 22,
@@ -2706,7 +2802,8 @@
                                 "1": 0,
                                 "2": 0.0055
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2753,6 +2850,7 @@
                         "2": 0.0125
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 24,
@@ -2766,7 +2864,8 @@
                                 "1": 0.0125,
                                 "2": 0.0125
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2811,6 +2910,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 24,
@@ -2824,7 +2924,8 @@
                                 "1": 0.0156,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2861,6 +2962,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 18,
@@ -2874,7 +2976,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2906,6 +3009,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 9,
@@ -2919,7 +3023,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -2966,6 +3071,7 @@
                         "2": 0.039
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 24,
@@ -2979,7 +3085,8 @@
                                 "1": 0.013,
                                 "2": 0.039
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3026,6 +3133,7 @@
                         "2": 0.0147
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 24,
@@ -3039,7 +3147,8 @@
                                 "1": 0.0147,
                                 "2": 0.0147
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3085,6 +3194,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 21,
@@ -3098,7 +3208,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3134,6 +3245,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 10,
@@ -3147,7 +3259,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3190,6 +3303,7 @@
                         "2": 0.0295
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -3203,7 +3317,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 4,
@@ -3217,7 +3332,8 @@
                                 "1": 0,
                                 "2": 0.1728
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 32,
@@ -3231,7 +3347,8 @@
                                 "1": 0.0007,
                                 "2": 0.0237
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3272,6 +3389,7 @@
                         "2": 0.0935
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -3285,7 +3403,8 @@
                                 "1": 0,
                                 "2": 0.2
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 3,
@@ -3299,7 +3418,8 @@
                                 "1": 0.375,
                                 "2": 0.1875
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 25,
@@ -3313,7 +3433,8 @@
                                 "1": 0.0531,
                                 "2": 0.0708
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3354,6 +3475,7 @@
                         "2": 0.0968
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -3367,7 +3489,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 1,
@@ -3381,7 +3504,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 24,
@@ -3395,7 +3519,8 @@
                                 "1": 0.0364,
                                 "2": 0.1091
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3427,6 +3552,7 @@
                         "2": 0.5714
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "wild": {
                         "maps": 2,
@@ -3440,7 +3566,8 @@
                                 "1": 0,
                                 "2": 0.5714
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3481,6 +3608,7 @@
                         "2": 0.1286
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -3494,7 +3622,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 4,
@@ -3508,7 +3637,8 @@
                                 "1": 0.5769,
                                 "2": 0.2308
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 28,
@@ -3522,7 +3652,8 @@
                                 "1": 0.1667,
                                 "2": 0.1
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3564,6 +3695,7 @@
                         "2": 0.0307
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -3577,7 +3709,8 @@
                                 "1": 0,
                                 "2": 0.3
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 4,
@@ -3591,7 +3724,8 @@
                                 "1": 0.7805,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 29,
@@ -3605,7 +3739,8 @@
                                 "1": 0.2373,
                                 "2": 0.0226
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             },
@@ -3647,6 +3782,7 @@
                         "2": 0.069
                     }
                 },
+                "cover_share": null,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -3660,7 +3796,8 @@
                                 "1": 0,
                                 "2": 0.119
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "road": {
                         "maps": 4,
@@ -3674,7 +3811,8 @@
                                 "1": 0.6727,
                                 "2": 0.1
                             }
-                        }
+                        },
+                        "cover_share": null
                     },
                     "wild": {
                         "maps": 32,
@@ -3688,7 +3826,8 @@
                                 "1": 0.1706,
                                 "2": 0.0561
                             }
-                        }
+                        },
+                        "cover_share": null
                     }
                 }
             }
@@ -3711,13 +3850,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -3754,6 +3895,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0167,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -3767,7 +3909,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0104
                     },
                     "wild": {
                         "maps": 3,
@@ -3781,7 +3924,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -3819,6 +3963,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0165,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -3832,7 +3977,8 @@
                                 "1": 0.2,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.023
                     },
                     "wild": {
                         "maps": 11,
@@ -3846,7 +3992,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0154
                     }
                 }
             },
@@ -3891,6 +4038,7 @@
                         "2": 0.025
                     }
                 },
+                "cover_share": 0.0214,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -3904,7 +4052,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0209
                     },
                     "road": {
                         "maps": 2,
@@ -3918,7 +4067,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0157
                     },
                     "wild": {
                         "maps": 21,
@@ -3932,7 +4082,8 @@
                                 "1": 0,
                                 "2": 0.0286
                             }
-                        }
+                        },
+                        "cover_share": 0.022
                     }
                 }
             },
@@ -3969,6 +4120,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0139,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -3982,7 +4134,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0104
                     },
                     "wild": {
                         "maps": 5,
@@ -3996,7 +4149,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0146
                     }
                 }
             },
@@ -4029,6 +4183,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2046,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -4042,7 +4197,8 @@
                                 "1": 0.0882,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1879
                     },
                     "wild": {
                         "maps": 2,
@@ -4056,7 +4212,8 @@
                                 "1": 0.0732,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2213
                     }
                 }
             },
@@ -4089,6 +4246,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0261,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -4102,7 +4260,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0104
                     },
                     "wild": {
                         "maps": 1,
@@ -4116,7 +4275,8 @@
                                 "1": 0.25,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -4149,6 +4309,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1952,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -4162,7 +4323,8 @@
                                 "1": 0.0732,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1733
                     },
                     "wild": {
                         "maps": 2,
@@ -4176,7 +4338,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2171
                     }
                 }
             },
@@ -4212,6 +4375,7 @@
                         "2": 0.1111
                     }
                 },
+                "cover_share": 0.0646,
                 "location_types": {
                     "wild": {
                         "maps": 16,
@@ -4225,7 +4389,8 @@
                                 "1": 0,
                                 "2": 0.1111
                             }
-                        }
+                        },
+                        "cover_share": 0.0646
                     }
                 }
             },
@@ -4253,6 +4418,7 @@
                         "2": 0.2
                     }
                 },
+                "cover_share": 0.0598,
                 "location_types": {
                     "wild": {
                         "maps": 3,
@@ -4266,7 +4432,8 @@
                                 "1": 0,
                                 "2": 0.2
                             }
-                        }
+                        },
+                        "cover_share": 0.0598
                     }
                 }
             },
@@ -4312,6 +4479,7 @@
                         "2": 0.1563
                     }
                 },
+                "cover_share": 0.0631,
                 "location_types": {
                     "wild": {
                         "maps": 21,
@@ -4325,7 +4493,8 @@
                                 "1": 0,
                                 "2": 0.1563
                             }
-                        }
+                        },
+                        "cover_share": 0.0631
                     }
                 }
             },
@@ -4370,6 +4539,7 @@
                         "2": 0.1613
                     }
                 },
+                "cover_share": 0.046,
                 "location_types": {
                     "wild": {
                         "maps": 18,
@@ -4383,7 +4553,8 @@
                                 "1": 0,
                                 "2": 0.1613
                             }
-                        }
+                        },
+                        "cover_share": 0.046
                     }
                 }
             },
@@ -4428,6 +4599,7 @@
                         "2": 0.2727
                     }
                 },
+                "cover_share": 0.0455,
                 "location_types": {
                     "wild": {
                         "maps": 18,
@@ -4441,7 +4613,8 @@
                                 "1": 0,
                                 "2": 0.2727
                             }
-                        }
+                        },
+                        "cover_share": 0.0455
                     }
                 }
             },
@@ -4483,6 +4656,7 @@
                         "2": 0.0976
                     }
                 },
+                "cover_share": 0.0326,
                 "location_types": {
                     "wild": {
                         "maps": 21,
@@ -4496,7 +4670,8 @@
                                 "1": 0,
                                 "2": 0.0976
                             }
-                        }
+                        },
+                        "cover_share": 0.0326
                     }
                 }
             },
@@ -4542,6 +4717,7 @@
                         "2": 0.0678
                     }
                 },
+                "cover_share": 0.0208,
                 "location_types": {
                     "wild": {
                         "maps": 18,
@@ -4555,7 +4731,8 @@
                                 "1": 0,
                                 "2": 0.0678
                             }
-                        }
+                        },
+                        "cover_share": 0.0208
                     }
                 }
             },
@@ -4601,6 +4778,7 @@
                         "2": 0.1931
                     }
                 },
+                "cover_share": 0.15,
                 "location_types": {
                     "wild": {
                         "maps": 24,
@@ -4614,7 +4792,8 @@
                                 "1": 0.069,
                                 "2": 0.1931
                             }
-                        }
+                        },
+                        "cover_share": 0.15
                     }
                 }
             },
@@ -4650,6 +4829,7 @@
                         "2": 0.1667
                     }
                 },
+                "cover_share": 0.0245,
                 "location_types": {
                     "wild": {
                         "maps": 7,
@@ -4663,7 +4843,8 @@
                                 "1": 0,
                                 "2": 0.1667
                             }
-                        }
+                        },
+                        "cover_share": 0.0245
                     }
                 }
             },
@@ -4699,6 +4880,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0256,
                 "location_types": {
                     "wild": {
                         "maps": 4,
@@ -4712,7 +4894,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0256
                     }
                 }
             },
@@ -4744,6 +4927,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.3132,
                 "location_types": {
                     "wild": {
                         "maps": 2,
@@ -4757,7 +4941,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.3132
                     }
                 }
             },
@@ -4803,6 +4988,7 @@
                         "2": 0.0588
                     }
                 },
+                "cover_share": 0.0758,
                 "location_types": {
                     "wild": {
                         "maps": 16,
@@ -4816,7 +5002,8 @@
                                 "1": 0.0588,
                                 "2": 0.0588
                             }
-                        }
+                        },
+                        "cover_share": 0.0758
                     }
                 }
             },
@@ -4862,6 +5049,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0801,
                 "location_types": {
                     "wild": {
                         "maps": 23,
@@ -4875,7 +5063,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0801
                     }
                 }
             },
@@ -4921,6 +5110,7 @@
                         "2": 0.0132
                     }
                 },
+                "cover_share": 0.0503,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -4934,7 +5124,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0104
                     },
                     "road": {
                         "maps": 2,
@@ -4948,7 +5139,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0804
                     },
                     "wild": {
                         "maps": 26,
@@ -4962,7 +5154,8 @@
                                 "1": 0.9225,
                                 "2": 0.0155
                             }
-                        }
+                        },
+                        "cover_share": 0.0495
                     }
                 }
             },
@@ -4995,6 +5188,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0216,
                 "location_types": {
                     "wild": {
                         "maps": 3,
@@ -5008,7 +5202,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0216
                     }
                 }
             },
@@ -5046,6 +5241,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0056,
                 "location_types": {
                     "wild": {
                         "maps": 6,
@@ -5059,7 +5255,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0056
                     }
                 }
             },
@@ -5091,6 +5288,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0021,
                 "location_types": {
                     "wild": {
                         "maps": 2,
@@ -5104,7 +5302,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -5136,6 +5335,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0021,
                 "location_types": {
                     "wild": {
                         "maps": 3,
@@ -5149,7 +5349,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -5170,13 +5371,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -5209,6 +5412,7 @@
                         "2": 0.2143
                     }
                 },
+                "cover_share": 0.0073,
                 "location_types": {
                     "wild": {
                         "maps": 6,
@@ -5222,7 +5426,8 @@
                                 "1": 0.0714,
                                 "2": 0.2143
                             }
-                        }
+                        },
+                        "cover_share": 0.0073
                     }
                 }
             },
@@ -5271,6 +5476,7 @@
                         "2": 0.05
                     }
                 },
+                "cover_share": 0.0723,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -5284,7 +5490,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0605
                     },
                     "road": {
                         "maps": 2,
@@ -5298,7 +5505,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.024
                     },
                     "wild": {
                         "maps": 36,
@@ -5312,7 +5520,8 @@
                                 "1": 0,
                                 "2": 0.0541
                             }
-                        }
+                        },
+                        "cover_share": 0.0753
                     }
                 }
             },
@@ -5362,6 +5571,7 @@
                         "2": 0.0519
                     }
                 },
+                "cover_share": 0.124,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -5375,7 +5585,8 @@
                                 "1": 0,
                                 "2": 0.0476
                             }
-                        }
+                        },
+                        "cover_share": 0.2359
                     },
                     "road": {
                         "maps": 4,
@@ -5389,7 +5600,8 @@
                                 "1": 0.087,
                                 "2": 0.1304
                             }
-                        }
+                        },
+                        "cover_share": 0.1221
                     },
                     "wild": {
                         "maps": 43,
@@ -5403,7 +5615,8 @@
                                 "1": 0.0368,
                                 "2": 0.0401
                             }
-                        }
+                        },
+                        "cover_share": 0.1216
                     }
                 }
             },
@@ -5444,6 +5657,7 @@
                         "2": 0.215
                     }
                 },
+                "cover_share": 0.0448,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -5457,7 +5671,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0271
                     },
                     "road": {
                         "maps": 4,
@@ -5471,7 +5686,8 @@
                                 "1": 0.0698,
                                 "2": 0.3721
                             }
-                        }
+                        },
+                        "cover_share": 0.0678
                     },
                     "wild": {
                         "maps": 29,
@@ -5485,7 +5701,8 @@
                                 "1": 0.045,
                                 "2": 0.155
                             }
-                        }
+                        },
+                        "cover_share": 0.0422
                     }
                 }
             },
@@ -5525,6 +5742,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0042,
                 "location_types": {
                     "wild": {
                         "maps": 7,
@@ -5538,7 +5756,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -5559,13 +5778,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0397,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0397
                     }
                 }
             },
@@ -5593,6 +5814,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0334,
                 "location_types": {
                     "wild": {
                         "maps": 1,
@@ -5606,7 +5828,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0334
                     }
                 }
             },
@@ -5646,6 +5869,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.066,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -5659,7 +5883,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0752
                     },
                     "road": {
                         "maps": 1,
@@ -5673,7 +5898,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.096
                     },
                     "wild": {
                         "maps": 9,
@@ -5687,7 +5913,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0617
                     }
                 }
             },
@@ -5735,6 +5962,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.061,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -5748,7 +5976,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0167
                     },
                     "wild": {
                         "maps": 12,
@@ -5762,7 +5991,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0647
                     }
                 }
             },
@@ -5783,13 +6013,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0418,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0418
                     }
                 }
             },
@@ -5817,6 +6049,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0658,
                 "location_types": {
                     "wild": {
                         "maps": 2,
@@ -5830,7 +6063,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0658
                     }
                 }
             },
@@ -5851,13 +6085,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.023,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.023
                     }
                 }
             },
@@ -5885,6 +6121,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0251,
                 "location_types": {
                     "wild": {
                         "maps": 1,
@@ -5898,7 +6135,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -5919,13 +6157,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1086,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1086
                     }
                 }
             },
@@ -5946,13 +6186,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1879,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1879
                     }
                 }
             },
@@ -5973,20 +6215,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0077,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "other": {
                         "maps": 5,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -6011,20 +6256,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "other": {
                         "maps": 5,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -6045,13 +6293,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0167,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -6072,13 +6322,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -6103,20 +6355,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0084,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -6152,6 +6407,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0056,
                 "location_types": {
                     "wild": {
                         "maps": 3,
@@ -6165,7 +6421,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0056
                     }
                 }
             },
@@ -6186,13 +6443,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0084,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -6217,20 +6476,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -6255,20 +6517,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0184,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     },
                     "other": {
                         "maps": 5,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0196
                     }
                 }
             },
@@ -6289,13 +6554,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -6316,13 +6583,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -6343,13 +6612,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0146,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0146
                     }
                 }
             },
@@ -6399,6 +6670,7 @@
                         "2": 0.1954
                     }
                 },
+                "cover_share": 0.0106,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6412,7 +6684,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     },
                     "road": {
                         "maps": 2,
@@ -6426,7 +6699,8 @@
                                 "1": 0.8333,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0063
                     },
                     "wild": {
                         "maps": 32,
@@ -6440,7 +6714,8 @@
                                 "1": 0.1375,
                                 "2": 0.2
                             }
-                        }
+                        },
+                        "cover_share": 0.0112
                     }
                 }
             },
@@ -6480,6 +6755,7 @@
                         "2": 0.25
                     }
                 },
+                "cover_share": 0.0104,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6493,7 +6769,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0084
                     },
                     "wild": {
                         "maps": 7,
@@ -6507,7 +6784,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0107
                     }
                 }
             },
@@ -6547,6 +6825,7 @@
                         "2": 0.3333
                     }
                 },
+                "cover_share": 0.0198,
                 "location_types": {
                     "wild": {
                         "maps": 6,
@@ -6560,7 +6839,8 @@
                                 "1": 0,
                                 "2": 0.3333
                             }
-                        }
+                        },
+                        "cover_share": 0.0198
                     }
                 }
             },
@@ -6592,6 +6872,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0177,
                 "location_types": {
                     "wild": {
                         "maps": 4,
@@ -6605,7 +6886,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0177
                     }
                 }
             },
@@ -6626,13 +6908,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -6653,13 +6937,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -6680,13 +6966,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -6707,13 +6995,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0104,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     }
                 }
             },
@@ -6741,6 +7031,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1524,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6754,7 +7045,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1524
                     }
                 }
             },
@@ -6775,13 +7067,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -6821,6 +7115,7 @@
                         "2": 0.125
                     }
                 },
+                "cover_share": 0.0401,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6834,7 +7129,8 @@
                                 "1": 0.6667,
                                 "2": 0.3333
                             }
-                        }
+                        },
+                        "cover_share": 0.0334
                     },
                     "road": {
                         "maps": 1,
@@ -6848,7 +7144,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0334
                     },
                     "wild": {
                         "maps": 11,
@@ -6862,7 +7159,8 @@
                                 "1": 0.3333,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0414
                     }
                 }
             },
@@ -6902,6 +7200,7 @@
                         "2": 0.1905
                     }
                 },
+                "cover_share": 0.0249,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -6915,7 +7214,8 @@
                                 "1": 0.8333,
                                 "2": 0.1667
                             }
-                        }
+                        },
+                        "cover_share": 0.0313
                     },
                     "road": {
                         "maps": 1,
@@ -6929,7 +7229,8 @@
                                 "1": 0.5,
                                 "2": 0.25
                             }
-                        }
+                        },
+                        "cover_share": 0.023
                     },
                     "wild": {
                         "maps": 14,
@@ -6943,7 +7244,8 @@
                                 "1": 0.3636,
                                 "2": 0.1818
                             }
-                        }
+                        },
+                        "cover_share": 0.0246
                     }
                 }
             },
@@ -6964,13 +7266,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -6991,13 +7295,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0084,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -7033,6 +7339,7 @@
                         "2": 0.3333
                     }
                 },
+                "cover_share": 0.0518,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -7046,7 +7353,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0188
                     },
                     "wild": {
                         "maps": 4,
@@ -7060,7 +7368,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.06
                     }
                 }
             },
@@ -7096,6 +7405,7 @@
                         "2": 0.0571
                     }
                 },
+                "cover_share": 0.0471,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -7109,7 +7419,8 @@
                                 "1": 0.4615,
                                 "2": 0.1538
                             }
-                        }
+                        },
+                        "cover_share": 0.071
                     },
                     "wild": {
                         "maps": 10,
@@ -7123,7 +7434,8 @@
                                 "1": 0.3636,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0424
                     }
                 }
             },
@@ -7144,13 +7456,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0167,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -7171,13 +7485,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0146,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0146
                     }
                 }
             },
@@ -7214,6 +7530,7 @@
                         "2": 0.1364
                     }
                 },
+                "cover_share": 0.0209,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -7227,7 +7544,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.0063
                     },
                     "road": {
                         "maps": 3,
@@ -7241,7 +7559,8 @@
                                 "1": 0.6667,
                                 "2": 0.2
                             }
-                        }
+                        },
+                        "cover_share": 0.0271
                     },
                     "wild": {
                         "maps": 10,
@@ -7255,7 +7574,8 @@
                                 "1": 0.6071,
                                 "2": 0.0714
                             }
-                        }
+                        },
+                        "cover_share": 0.0205
                     }
                 }
             },
@@ -7283,6 +7603,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0167,
                 "location_types": {
                     "wild": {
                         "maps": 1,
@@ -7296,7 +7617,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -7324,6 +7646,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0084,
                 "location_types": {
                     "wild": {
                         "maps": 1,
@@ -7337,7 +7660,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -7384,6 +7708,7 @@
                         "2": 0.0608
                     }
                 },
+                "cover_share": 0.1065,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -7397,7 +7722,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1106
                     },
                     "road": {
                         "maps": 2,
@@ -7411,7 +7737,8 @@
                                 "1": 0.9167,
                                 "2": 0.0625
                             }
-                        }
+                        },
+                        "cover_share": 0.1608
                     },
                     "wild": {
                         "maps": 27,
@@ -7425,7 +7752,8 @@
                                 "1": 0.8537,
                                 "2": 0.064
                             }
-                        }
+                        },
+                        "cover_share": 0.1024
                     }
                 }
             },
@@ -7446,13 +7774,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.3758,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.3758
                     }
                 }
             },
@@ -7480,6 +7810,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1775,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -7493,7 +7824,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1775
                     }
                 }
             },
@@ -7540,6 +7872,7 @@
                         "2": 0.2756
                     }
                 },
+                "cover_share": 0.0723,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -7553,7 +7886,8 @@
                                 "1": 0,
                                 "2": 0.5714
                             }
-                        }
+                        },
+                        "cover_share": 0.0835
                     },
                     "road": {
                         "maps": 3,
@@ -7567,7 +7901,8 @@
                                 "1": 0.1667,
                                 "2": 0.1667
                             }
-                        }
+                        },
+                        "cover_share": 0.0731
                     },
                     "wild": {
                         "maps": 30,
@@ -7581,7 +7916,8 @@
                                 "1": 0.0196,
                                 "2": 0.2745
                             }
-                        }
+                        },
+                        "cover_share": 0.0718
                     }
                 }
             },
@@ -7614,6 +7950,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0111,
                 "location_types": {
                     "wild": {
                         "maps": 3,
@@ -7627,7 +7964,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0111
                     }
                 }
             },
@@ -7648,13 +7986,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0334,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 12,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0334
                     }
                 }
             },
@@ -7696,6 +8036,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1145,
                 "location_types": {
                     "wild": {
                         "maps": 13,
@@ -7709,7 +8050,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1145
                     }
                 }
             },
@@ -7759,6 +8101,7 @@
                         "2": 0.2128
                     }
                 },
+                "cover_share": 0.1896,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -7772,7 +8115,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0313
                     },
                     "road": {
                         "maps": 1,
@@ -7786,7 +8130,8 @@
                                 "1": 0.3333,
                                 "2": 0.3333
                             }
-                        }
+                        },
+                        "cover_share": 0.0939
                     },
                     "wild": {
                         "maps": 37,
@@ -7800,7 +8145,8 @@
                                 "1": 0.0511,
                                 "2": 0.2117
                             }
-                        }
+                        },
+                        "cover_share": 0.1964
                     }
                 }
             },
@@ -7832,6 +8178,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0188,
                 "location_types": {
                     "wild": {
                         "maps": 2,
@@ -7845,7 +8192,8 @@
                                 "1": 0.5,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0188
                     }
                 }
             },
@@ -7881,6 +8229,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0101,
                 "location_types": {
                     "wild": {
                         "maps": 6,
@@ -7894,7 +8243,8 @@
                                 "1": 0.25,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0101
                     }
                 }
             },
@@ -7930,6 +8280,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0209,
                 "location_types": {
                     "wild": {
                         "maps": 4,
@@ -7943,7 +8294,8 @@
                                 "1": 0.6,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -7979,6 +8331,7 @@
                         "2": 0.0588
                     }
                 },
+                "cover_share": 0.0139,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -7992,7 +8345,8 @@
                                 "1": 0.5,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0094
                     },
                     "wild": {
                         "maps": 13,
@@ -8006,7 +8360,8 @@
                                 "1": 0.2667,
                                 "2": 0.0667
                             }
-                        }
+                        },
+                        "cover_share": 0.0146
                     }
                 }
             },
@@ -8038,6 +8393,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.023,
                 "location_types": {
                     "wild": {
                         "maps": 5,
@@ -8051,7 +8407,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.023
                     }
                 }
             },
@@ -8079,6 +8436,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.01,
                 "location_types": {
                     "wild": {
                         "maps": 5,
@@ -8092,7 +8450,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.01
                     }
                 }
             },
@@ -8128,6 +8487,7 @@
                         "2": 0.1
                     }
                 },
+                "cover_share": 0.0132,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -8141,7 +8501,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0084
                     },
                     "wild": {
                         "maps": 9,
@@ -8155,7 +8516,8 @@
                                 "1": 0.1111,
                                 "2": 0.1111
                             }
-                        }
+                        },
+                        "cover_share": 0.0137
                     }
                 }
             },
@@ -8187,6 +8549,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.015,
                 "location_types": {
                     "wild": {
                         "maps": 5,
@@ -8200,7 +8563,8 @@
                                 "1": 0.3333,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.015
                     }
                 }
             },
@@ -8236,6 +8600,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0063,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -8249,7 +8614,8 @@
                                 "1": 0.5,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     },
                     "wild": {
                         "maps": 6,
@@ -8263,7 +8629,8 @@
                                 "1": 0.375,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.007
                     }
                 }
             },
@@ -8295,6 +8662,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0174,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -8308,7 +8676,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0104
                     },
                     "wild": {
                         "maps": 2,
@@ -8322,7 +8691,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -8354,6 +8724,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0167,
                 "location_types": {
                     "wild": {
                         "maps": 3,
@@ -8367,7 +8738,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0167
                     }
                 }
             },
@@ -8389,13 +8761,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1858,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1858
                     }
                 }
             },
@@ -8416,13 +8790,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -8443,13 +8819,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -8470,13 +8848,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0772,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0772
                     }
                 }
             },
@@ -8497,13 +8877,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -8543,13 +8925,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0104,
                 "location_types": {
                     "other": {
                         "maps": 3,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0153
                     },
                     "wild": {
                         "maps": 3,
@@ -8563,7 +8947,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0056
                     }
                 }
             },
@@ -8595,6 +8980,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0021,
                 "location_types": {
                     "wild": {
                         "maps": 2,
@@ -8608,7 +8994,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -8636,6 +9023,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0042,
                 "location_types": {
                     "wild": {
                         "maps": 1,
@@ -8649,7 +9037,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -8674,20 +9063,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.005,
                 "location_types": {
                     "house": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     },
                     "other": {
                         "maps": 3,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0056
                     }
                 }
             },
@@ -8736,13 +9128,15 @@
                         "2": 0.1045
                     }
                 },
+                "cover_share": 0.0056,
                 "location_types": {
                     "house": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "other": {
                         "maps": 9,
@@ -8756,7 +9150,8 @@
                                 "1": 0,
                                 "2": 0.25
                             }
-                        }
+                        },
+                        "cover_share": 0.0053
                     },
                     "road": {
                         "maps": 4,
@@ -8770,7 +9165,8 @@
                                 "1": 0.5556,
                                 "2": 0.1111
                             }
-                        }
+                        },
+                        "cover_share": 0.0047
                     },
                     "wild": {
                         "maps": 50,
@@ -8784,7 +9180,8 @@
                                 "1": 0.3889,
                                 "2": 0.0926
                             }
-                        }
+                        },
+                        "cover_share": 0.0058
                     }
                 }
             },
@@ -8817,6 +9214,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1185,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -8830,7 +9228,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1441
                     },
                     "wild": {
                         "maps": 3,
@@ -8844,7 +9243,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.11
                     }
                 }
             },
@@ -8877,6 +9277,7 @@
                         "2": 0.0556
                     }
                 },
+                "cover_share": 0.2608,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -8890,7 +9291,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2484
                     },
                     "road": {
                         "maps": 2,
@@ -8904,7 +9306,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.3403
                     },
                     "wild": {
                         "maps": 7,
@@ -8918,7 +9321,8 @@
                                 "1": 0,
                                 "2": 0.0909
                             }
-                        }
+                        },
+                        "cover_share": 0.2398
                     }
                 }
             },
@@ -8950,6 +9354,7 @@
                         "2": 0.0526
                     }
                 },
+                "cover_share": 0.3775,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -8963,7 +9368,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.4342
                     },
                     "road": {
                         "maps": 2,
@@ -8977,7 +9383,8 @@
                                 "1": 0,
                                 "2": 0.1429
                             }
-                        }
+                        },
+                        "cover_share": 0.3946
                     },
                     "wild": {
                         "maps": 7,
@@ -8991,7 +9398,8 @@
                                 "1": 0,
                                 "2": 0.0357
                             }
-                        }
+                        },
+                        "cover_share": 0.3644
                     }
                 }
             },
@@ -9019,6 +9427,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2881,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -9032,7 +9441,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2881
                     }
                 }
             },
@@ -9064,6 +9474,7 @@
                         "2": 0.2
                     }
                 },
+                "cover_share": 0.1749,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -9077,7 +9488,8 @@
                                 "1": 0,
                                 "2": 0.3333
                             }
-                        }
+                        },
+                        "cover_share": 0.3507
                     },
                     "wild": {
                         "maps": 4,
@@ -9091,7 +9503,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.131
                     }
                 }
             },
@@ -9124,6 +9537,7 @@
                         "2": 0.375
                     }
                 },
+                "cover_share": 0.0759,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -9137,14 +9551,16 @@
                                 "1": 0.125,
                                 "2": 0.375
                             }
-                        }
+                        },
+                        "cover_share": 0.1733
                     },
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0271
                     }
                 }
             },
@@ -9185,6 +9601,7 @@
                         "2": 0.1935
                     }
                 },
+                "cover_share": 0.0789,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -9198,7 +9615,8 @@
                                 "1": 0.0909,
                                 "2": 0.2727
                             }
-                        }
+                        },
+                        "cover_share": 0.1461
                     },
                     "wild": {
                         "maps": 13,
@@ -9212,7 +9630,8 @@
                                 "1": 0.025,
                                 "2": 0.15
                             }
-                        }
+                        },
+                        "cover_share": 0.0686
                     }
                 }
             },
@@ -9254,13 +9673,15 @@
                         "2": 0.2
                     }
                 },
+                "cover_share": 0.1593,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 9,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.166
                     },
                     "road": {
                         "maps": 3,
@@ -9274,7 +9695,8 @@
                                 "1": 0.2727,
                                 "2": 0.2727
                             }
-                        }
+                        },
+                        "cover_share": 0.2122
                     },
                     "wild": {
                         "maps": 8,
@@ -9288,7 +9710,8 @@
                                 "1": 0.2222,
                                 "2": 0.1111
                             }
-                        }
+                        },
+                        "cover_share": 0.1378
                     }
                 }
             },
@@ -9329,13 +9752,15 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0225,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0188
                     },
                     "wild": {
                         "maps": 4,
@@ -9349,7 +9774,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0235
                     }
                 }
             },
@@ -9374,13 +9800,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.4071,
                 "location_types": {
                     "wild": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4071
                     }
                 }
             },
@@ -9416,6 +9844,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0703,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -9429,7 +9858,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0522
                     },
                     "road": {
                         "maps": 1,
@@ -9443,7 +9873,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0731
                     },
                     "wild": {
                         "maps": 7,
@@ -9457,7 +9888,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0725
                     }
                 }
             },
@@ -9494,6 +9926,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0861,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -9507,7 +9940,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0877
                     },
                     "wild": {
                         "maps": 7,
@@ -9521,7 +9955,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0859
                     }
                 }
             },
@@ -9557,6 +9992,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0626,
                 "location_types": {
                     "wild": {
                         "maps": 5,
@@ -9570,7 +10006,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0626
                     }
                 }
             },
@@ -9606,6 +10043,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.096,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -9619,7 +10057,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0585
                     },
                     "wild": {
                         "maps": 4,
@@ -9633,7 +10072,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1148
                     }
                 }
             },
@@ -9669,6 +10109,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0489,
                 "location_types": {
                     "wild": {
                         "maps": 5,
@@ -9682,7 +10123,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0489
                     }
                 }
             },
@@ -9719,6 +10161,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.9549,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -9732,7 +10175,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.9645
                     },
                     "road": {
                         "maps": 4,
@@ -9746,7 +10190,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.9489
                     },
                     "wild": {
                         "maps": 18,
@@ -9760,7 +10205,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.9557
                     }
                 }
             },
@@ -9796,6 +10242,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.1061,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -9809,7 +10256,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1253
                     },
                     "road": {
                         "maps": 1,
@@ -9823,7 +10271,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0376
                     },
                     "wild": {
                         "maps": 10,
@@ -9837,7 +10286,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1111
                     }
                 }
             },
@@ -9874,6 +10324,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2605,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -9887,7 +10338,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.3841
                     },
                     "road": {
                         "maps": 2,
@@ -9901,7 +10353,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.3841
                     },
                     "wild": {
                         "maps": 15,
@@ -9915,7 +10368,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2358
                     }
                 }
             },
@@ -9957,6 +10411,7 @@
                         "2": 0.085
                     }
                 },
+                "cover_share": 0.2087,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -9970,7 +10425,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.1273
                     },
                     "road": {
                         "maps": 4,
@@ -9984,7 +10440,8 @@
                                 "1": 0.125,
                                 "2": 0.0208
                             }
-                        }
+                        },
+                        "cover_share": 0.1571
                     },
                     "wild": {
                         "maps": 20,
@@ -9998,7 +10455,8 @@
                                 "1": 0.008,
                                 "2": 0.1
                             }
-                        }
+                        },
+                        "cover_share": 0.2231
                     }
                 }
             },
@@ -10026,6 +10484,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.2255,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -10039,7 +10498,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2317
                     },
                     "wild": {
                         "maps": 1,
@@ -10053,7 +10513,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.2129
                     }
                 }
             },
@@ -10085,6 +10546,7 @@
                         "2": 0.3333
                     }
                 },
+                "cover_share": 0.3998,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -10098,7 +10560,8 @@
                                 "1": 0,
                                 "2": 1
                             }
-                        }
+                        },
+                        "cover_share": 0.3904
                     },
                     "wild": {
                         "maps": 1,
@@ -10112,7 +10575,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.4092
                     }
                 }
             },
@@ -10140,6 +10604,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0021,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -10153,7 +10618,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -10193,6 +10659,7 @@
                         "2": 0.3636
                     }
                 },
+                "cover_share": 0.0025,
                 "location_types": {
                     "other": {
                         "maps": 1,
@@ -10206,7 +10673,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     },
                     "road": {
                         "maps": 2,
@@ -10220,7 +10688,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     },
                     "wild": {
                         "maps": 11,
@@ -10234,7 +10703,8 @@
                                 "1": 0.2857,
                                 "2": 0.5714
                             }
-                        }
+                        },
+                        "cover_share": 0.0025
                     }
                 }
             },
@@ -10262,6 +10732,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0021,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -10275,7 +10746,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -10311,6 +10783,7 @@
                         "2": 0.125
                     }
                 },
+                "cover_share": 0.0052,
                 "location_types": {
                     "road": {
                         "maps": 2,
@@ -10324,7 +10797,8 @@
                                 "1": 0.5,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     },
                     "wild": {
                         "maps": 6,
@@ -10338,7 +10812,8 @@
                                 "1": 0.3333,
                                 "2": 0.1667
                             }
-                        }
+                        },
+                        "cover_share": 0.0056
                     }
                 }
             },
@@ -10366,6 +10841,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0042,
                 "location_types": {
                     "road": {
                         "maps": 1,
@@ -10379,7 +10855,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -10415,6 +10892,7 @@
                         "2": 0.2143
                     }
                 },
+                "cover_share": 0.0061,
                 "location_types": {
                     "road": {
                         "maps": 3,
@@ -10428,7 +10906,8 @@
                                 "1": 0.75,
                                 "2": 0.25
                             }
-                        }
+                        },
+                        "cover_share": 0.0056
                     },
                     "wild": {
                         "maps": 8,
@@ -10442,7 +10921,8 @@
                                 "1": 0.5,
                                 "2": 0.2
                             }
-                        }
+                        },
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -10470,6 +10950,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0689,
                 "location_types": {
                     "wild": {
                         "maps": 1,
@@ -10483,7 +10964,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0689
                     }
                 }
             },
@@ -10504,20 +10986,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0334,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0334
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0334
                     }
                 }
             },
@@ -10538,13 +11023,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0438,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0438
                     }
                 }
             },
@@ -10565,13 +11052,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1023,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 32,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1023
                     }
                 }
             },
@@ -10592,13 +11081,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -10619,13 +11110,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0543,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 6,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0543
                     }
                 }
             },
@@ -10646,13 +11139,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0564,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 10,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -10673,13 +11168,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -10701,13 +11198,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0125,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -10729,13 +11228,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0571,
                 "location_types": {
                     "other": {
                         "maps": 3,
                         "occurrences": 39,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0571
                     }
                 }
             },
@@ -10756,13 +11257,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0731,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0731
                     }
                 }
             },
@@ -10783,13 +11286,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.072,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.072
                     }
                 }
             },
@@ -10810,13 +11315,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1294,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1294
                     }
                 }
             },
@@ -10837,13 +11344,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.4322,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.4322
                     }
                 }
             },
@@ -10864,13 +11373,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0355,
                 "location_types": {
                     "other": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0355
                     }
                 }
             },
@@ -10891,13 +11402,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.5157,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.5157
                     }
                 }
             },
@@ -10918,13 +11431,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1253,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1253
                     }
                 }
             },
@@ -10945,13 +11460,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0564,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -10972,13 +11489,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0689,
                 "location_types": {
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0689
                     }
                 }
             },
@@ -10999,13 +11518,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0042,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0042
                     }
                 }
             },
@@ -11026,20 +11547,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0418,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     },
                     "other": {
                         "maps": 5,
                         "occurrences": 11,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0459
                     }
                 }
             },
@@ -11060,20 +11584,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0428,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -11098,20 +11625,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "house": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -11136,20 +11666,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0689,
                 "location_types": {
                     "house": {
                         "maps": 2,
                         "occurrences": 14,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0647
                     },
                     "other": {
                         "maps": 4,
                         "occurrences": 31,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.071
                     }
                 }
             },
@@ -11170,13 +11703,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.071,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 7,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.071
                     }
                 }
             },
@@ -11201,20 +11736,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1059,
                 "location_types": {
                     "house": {
                         "maps": 2,
                         "occurrences": 16,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0981
                     },
                     "other": {
                         "maps": 2,
                         "occurrences": 19,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1138
                     }
                 }
             },
@@ -11239,13 +11777,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0491,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 16,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0491
                     }
                 }
             },
@@ -11271,20 +11811,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "house": {
                         "maps": 2,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     },
                     "other": {
                         "maps": 3,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -11305,13 +11848,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.023,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.023
                     }
                 }
             },
@@ -11332,13 +11877,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0251,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 2,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0251
                     }
                 }
             },
@@ -11359,13 +11906,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0209,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0209
                     }
                 }
             },
@@ -11386,13 +11935,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -11413,13 +11964,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0731,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0731
                     }
                 }
             },
@@ -11445,13 +11998,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0574,
                 "location_types": {
                     "other": {
                         "maps": 4,
                         "occurrences": 15,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0574
                     }
                 }
             },
@@ -11473,20 +12028,23 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0111,
                 "location_types": {
                     "house": {
                         "maps": 2,
                         "occurrences": 5,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0104
                     },
                     "other": {
                         "maps": 1,
                         "occurrences": 3,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0125
                     }
                 }
             },
@@ -11507,13 +12065,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0063,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0063
                     }
                 }
             },
@@ -11534,13 +12094,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0021,
                 "location_types": {
                     "other": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0021
                     }
                 }
             },
@@ -11561,13 +12123,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1023,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1023
                     }
                 }
             },
@@ -11588,13 +12152,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0564,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0564
                     }
                 }
             },
@@ -11615,13 +12181,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0292,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0292
                     }
                 }
             },
@@ -11642,13 +12210,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.048,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 4,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.048
                     }
                 }
             },
@@ -11669,13 +12239,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.0146,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.0146
                     }
                 }
             },
@@ -11696,13 +12268,15 @@
                 "ground_share": null,
                 "bare_share": null,
                 "path": null,
+                "cover_share": 0.1378,
                 "location_types": {
                     "wild": {
                         "maps": 1,
                         "occurrences": 1,
                         "ground_share": null,
                         "bare_share": null,
-                        "path": null
+                        "path": null,
+                        "cover_share": 0.1378
                     }
                 }
             },
@@ -11730,6 +12304,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0292,
                 "location_types": {
                     "wild": {
                         "maps": 1,
@@ -11743,7 +12318,8 @@
                                 "1": 1,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0292
                     }
                 }
             },
@@ -11771,6 +12347,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0084,
                 "location_types": {
                     "wild": {
                         "maps": 1,
@@ -11784,7 +12361,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0084
                     }
                 }
             },
@@ -11812,6 +12390,7 @@
                         "2": 0
                     }
                 },
+                "cover_share": 0.0084,
                 "location_types": {
                     "wild": {
                         "maps": 1,
@@ -11825,7 +12404,8 @@
                                 "1": 0,
                                 "2": 0
                             }
-                        }
+                        },
+                        "cover_share": 0.0084
                     }
                 }
             }
