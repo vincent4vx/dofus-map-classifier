@@ -49,6 +49,9 @@ final class MapSpriteUsage
     /** @var array<string, int> Number of water cells using the object, indexed by the land around them ({@see Direction::key()}) */
     public private(set) array $shoreLand = [];
 
+    /** @var array<string, int> Number of land cells along the water using the object, indexed by the water around them ({@see Direction::key()}) */
+    public private(set) array $shoreWater = [];
+
     /** @var array<int, true> Cells of the map whose centre lies under the sprite, on any of its uses (see {@see addCover()}) */
     public private(set) array $coveredCells = [];
 
@@ -74,8 +77,9 @@ final class MapSpriteUsage
      *
      * @param int|null $fill Water sprite of the cell, null for a land cell
      * @param list<Direction> $land Directions of the land cells around a water cell
+     * @param list<Direction> $water Directions of the water cells around a land cell
      */
-    public function addShore(?int $fill, array $land = []): void
+    public function addShore(?int $fill, array $land = [], array $water = []): void
     {
         ++$this->shoreCells;
 
@@ -83,6 +87,9 @@ final class MapSpriteUsage
             $this->waterFills[$fill] = ($this->waterFills[$fill] ?? 0) + 1;
             $key = Direction::key($land);
             $this->shoreLand[$key] = ($this->shoreLand[$key] ?? 0) + 1;
+        } elseif ($water !== []) {
+            $key = Direction::key($water);
+            $this->shoreWater[$key] = ($this->shoreWater[$key] ?? 0) + 1;
         }
     }
 

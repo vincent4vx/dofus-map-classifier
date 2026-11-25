@@ -36,6 +36,7 @@ final class WaterCellsTest extends TestCase
         $this->assertSame([Direction::North, Direction::East, Direction::NorthWest], $water->landAround(200));
         $this->assertSame('n e nw', Direction::key($water->landAround(200)));
         $this->assertSame([], $water->landAround(0), 'The cells outside the map are not land');
+        $this->assertSame(Direction::cases(), $water->waterAround(201), 'The land cell 201, alone in the water');
     }
 
     public function testBareCellsShowAWaterBackground(): void

@@ -87,6 +87,9 @@ final class SpriteStats
     /** @var array<string, int> Number of water cells using the object, indexed by the land around them */
     private array $shoreLand = [];
 
+    /** @var array<string, int> Number of land cells along the water using the object, indexed by the water around them */
+    private array $shoreWater = [];
+
     /** Sum, over the maps using the sprite as an object, of the ratio of their cells lying under it */
     private float $coverShares = 0.0;
 
@@ -139,6 +142,10 @@ final class SpriteStats
 
         foreach ($usage->shoreLand as $land => $count) {
             $this->shoreLand[$land] = ($this->shoreLand[$land] ?? 0) + $count;
+        }
+
+        foreach ($usage->shoreWater as $water => $count) {
+            $this->shoreWater[$water] = ($this->shoreWater[$water] ?? 0) + $count;
         }
 
         foreach ($usage->cells as $layer => $count) {
@@ -257,12 +264,13 @@ final class SpriteStats
         }
 
         $water = array_sum($this->waterFills);
-        $frequencies = static function (array $counts) use ($water, $minFrequency): array {
+        $coast = array_sum($this->shoreWater);
+        $frequencies = static function (array $counts, int $total) use ($minFrequency): array {
             $result = [];
 
-            foreach ($counts as $key => $count) {
-                if ($count / $water >= $minFrequency) {
-                    $result[$key] = round($count / $water, 4);
+            foreach ($total > 0 ? $counts : [] as $key => $count) {
+                if ($count / $total >= $minFrequency) {
+                    $result[$key] = round($count / $total, 4);
                 }
             }
 
@@ -274,8 +282,10 @@ final class SpriteStats
         return new ShoreContext(
             $this->shoreCells,
             round($water / $this->shoreCells, 4),
-            $water > 0 ? $frequencies($this->waterFills) : [],
-            $water > 0 ? $frequencies($this->shoreLand) : [],
+            $frequencies($this->waterFills, $water),
+            $frequencies($this->shoreLand, $water),
+            round($coast / $this->shoreCells, 4),
+            $frequencies($this->shoreWater, $coast),
         );
     }
 

@@ -76,7 +76,7 @@ final readonly class MapSpriteExtractor
 
                     if ($layer !== Layer::Ground && $water->exists()) {
                         $fill = $water->fill($cellId);
-                        $sprites->addShore($layer, $object->number, $fill, $fill !== null ? $water->landAround($cellId) : []);
+                        $sprites->addShore($layer, $object->number, $fill, $fill !== null ? $water->landAround($cellId) : [], $fill === null ? $water->waterAround($cellId) : []);
                     }
 
                     // The objects overflow their cell: the cells under them give how much of the map they cover

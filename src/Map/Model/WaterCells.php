@@ -57,6 +57,28 @@ final readonly class WaterCells
     }
 
     /**
+     * Directions of the water cells around the cell. The cells outside the map are unknown: they are not counted as water
+     *
+     * @return list<Direction>
+     */
+    public function waterAround(int $cellId): array
+    {
+        [$x, $y] = $this->grid->coordinates($cellId);
+        $water = [];
+
+        foreach (Direction::cases() as $direction) {
+            [$dx, $dy] = $direction->offset();
+            $neighbor = $this->grid->cellId($x + $dx, $y + $dy);
+
+            if ($neighbor !== null && isset($this->fills[$neighbor])) {
+                $water[] = $direction;
+            }
+        }
+
+        return $water;
+    }
+
+    /**
      * Directions of the land cells around the cell. The cells outside the map are unknown: they are not counted as land
      *
      * @return list<Direction>

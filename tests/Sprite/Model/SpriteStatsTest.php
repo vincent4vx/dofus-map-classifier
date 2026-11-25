@@ -125,7 +125,7 @@ final class SpriteStatsTest extends TestCase
         $usage->addShore(44, [Direction::NorthWest]);
         $usage->addShore(44, [Direction::NorthWest]);
         $usage->addShore(45, [Direction::North, Direction::NorthWest]);
-        $usage->addShore(null);
+        $usage->addShore(null, [], [Direction::South, Direction::SouthEast]);
         $stats->addMap($usage, null, null, null);
 
         $shore = $stats->shore();
@@ -135,6 +135,8 @@ final class SpriteStatsTest extends TestCase
         $this->assertSame([44 => 0.6667, 45 => 0.3333], $shore->fills);
         $this->assertSame(['nw' => 0.6667, 'n nw' => 0.3333], $shore->land);
         $this->assertSame(['nw' => 0.6667], $stats->shore(0.5)?->land, 'Rare land values are removed');
+        $this->assertSame(0.25, $shore->coastShare, 'One cell on the land, along the water');
+        $this->assertSame(['se s' => 1.0], $shore->water);
     }
 
     public function testSlope(): void

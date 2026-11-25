@@ -18,7 +18,10 @@ use function is_array;
  * north west (land "nw"), a grass edge over the land on its south ("s")… The LLM types do not give this: some shore pieces look like
  * grass tufts. Open water has no land around ("").
  *
- * JSON: {"cells": int, "water_share": float, "fills": {id: frequency}, "land": {directions: frequency}}
+ * The native maps anchor some shore pieces on the land cells along the water instead: the cliffs around the lake of Astrub lie on its
+ * last land cells, the water below them. The water around these land cells tells which edge they draw.
+ *
+ * JSON: {"cells": int, "water_share": float, "fills": {id: frequency}, "land": {directions: frequency}, "coast_share": float, "water": {directions: frequency}}
  */
 final readonly class ShoreContext implements JsonSerializable
 {
@@ -34,6 +37,13 @@ final readonly class ShoreContext implements JsonSerializable
          *     The rare values are removed
          */
         public array $land,
+        /** Ratio (0 to 1) of the cells on land with water around: along the water, on the land side */
+        public float $coastShare = 0.0,
+        /**
+         * @var array<string, float> Frequency (0 to 1) of the water around these land cells, indexed by {@see \MapClassifier\Map\Model\Direction::key()}.
+         *     The rare values are removed
+         */
+        public array $water = [],
     ) {}
 
     /**
@@ -46,6 +56,8 @@ final readonly class ShoreContext implements JsonSerializable
             (float) ($data['water_share'] ?? 0.0),
             array_map(floatval(...), is_array($data['fills'] ?? null) ? $data['fills'] : []),
             array_map(floatval(...), is_array($data['land'] ?? null) ? $data['land'] : []),
+            (float) ($data['coast_share'] ?? 0.0),
+            array_map(floatval(...), is_array($data['water'] ?? null) ? $data['water'] : []),
         );
     }
 
@@ -55,6 +67,13 @@ final readonly class ShoreContext implements JsonSerializable
     #[Override]
     public function jsonSerialize(): array
     {
-        return ['cells' => $this->cells, 'water_share' => $this->waterShare, 'fills' => (object) $this->fills, 'land' => (object) $this->land];
+        return [
+            'cells' => $this->cells,
+            'water_share' => $this->waterShare,
+            'fills' => (object) $this->fills,
+            'land' => (object) $this->land,
+            'coast_share' => $this->coastShare,
+            'water' => (object) $this->water,
+        ];
     }
 }

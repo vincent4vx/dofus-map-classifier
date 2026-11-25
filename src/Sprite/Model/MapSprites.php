@@ -91,12 +91,13 @@ final class MapSprites implements IteratorAggregate, Countable
      * Count a cell using an object on a map with water (see {@see MapSpriteUsage::addShore()})
      *
      * @param list<\MapClassifier\Map\Model\Direction> $land
+     * @param list<\MapClassifier\Map\Model\Direction> $water
      */
-    public function addShore(Layer $layer, int $id, ?int $fill, array $land = []): void
+    public function addShore(Layer $layer, int $id, ?int $fill, array $land = [], array $water = []): void
     {
         $set = $layer->spriteSet();
         $this->usages[$set->value][$id] ??= new MapSpriteUsage($set, $id);
-        $this->usages[$set->value][$id]->addShore($fill, $land);
+        $this->usages[$set->value][$id]->addShore($fill, $land, $water);
     }
 
     /**
