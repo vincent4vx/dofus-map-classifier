@@ -30,6 +30,11 @@ use MapClassifier\Map\Service\MapKeyDownloader;
 use MapClassifier\Map\Service\MapRenderService;
 use MapClassifier\Sprite\Classification\Command\SpritesClassifyCommand;
 use MapClassifier\Sprite\Classification\Command\AreasExportCommand;
+use MapClassifier\Sprite\Command\ShoresClassifyCommand;
+use MapClassifier\Sprite\Command\ShoresExamplesCommand;
+use MapClassifier\Sprite\Service\ShoreExampleRenderer;
+use MapClassifier\Sprite\Shore\ShoreRoleClassifier;
+use MapClassifier\Sprite\Shore\ShoreRolePrompt;
 use MapClassifier\Sprite\Classification\Command\SpritesExportCommand;
 use MapClassifier\Sprite\Classification\Export\HtmlSpriteExportFormat;
 use MapClassifier\Sprite\Classification\Export\JsonSpriteExportFormat;
@@ -202,6 +207,15 @@ final class Kernel
         $app->addCommand(new MapsRenderCommand($this->maps, $this->locations, new MapRenderService($this->renderer, new ResultRenderErrorRepository($this->results), $this->config->rendersDir)));
         $app->addCommand(new ClassifyRunCommand($this->mapsToClassify, $this->locations, $this->mapClassifier(), $this->config->openAiModel));
         $app->addCommand(new SpritesAnalyzeCommand($this->maps, $this->locations, new SpriteAnalysis(new MapSpriteExtractor($this->renderer), $this->locations, $this->results, $this->interactiveObjects, $this->sprites, types: $this->spriteTypes), $this->spriteProfiles, $this->areaProfiles));
+        $app->addCommand(new ShoresExamplesCommand($this->maps, $this->locations, new ShoreExampleRenderer($this->renderer), $this->spriteProfiles, $this->spriteTypes, $this->config->shoreExamplesDir));
+        $app->addCommand(new ShoresClassifyCommand($this->spriteProfiles, new ShoreRoleClassifier(
+            $this->responsesClient(),
+            new ShoreRolePrompt($this->config->openAiModel, $this->config->openAiReasoningEffort),
+            $this->sprites,
+            $this->config->openAiModel,
+            $this->config->shoreExamplesDir,
+            $this->config->shoreRolesDir,
+        )));
         $app->addCommand(new SpritesImagesCommand(new SpriteImageExporter($this->sprites), $this->spriteProfiles, $this->config->spritesDir));
         $app->addCommand(new SpritesExamplesCommand(new SpriteExampleRenderer($this->maps, $this->renderer, $this->spriteExamples, $this->config->rendersDir), $this->spriteProfiles, $this->config->spriteExamplesDir));
         $app->addCommand(new SpritesClassifyCommand($this->spriteProfiles, $this->spritesToClassify, $this->spriteTypeClassifier(), $this->spriteExporter(), $this->spriteExportFormats(), $this->config->openAiModel));

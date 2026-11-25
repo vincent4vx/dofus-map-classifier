@@ -10,12 +10,16 @@ use Arakne\MapParser\Loader\MapStructure;
 use Arakne\MapParser\Parser\GroundObject;
 use Arakne\MapParser\Parser\LayerObjectInterface;
 use Arakne\MapParser\Renderer\CellShape;
+use Arakne\MapParser\Renderer\Layer\BackgroundLayerRenderer;
+use Arakne\MapParser\Renderer\Layer\LayerObjectRenderer;
+use Arakne\MapParser\Renderer\MapRenderer;
 use Arakne\MapParser\Renderer\MapScale;
 use Arakne\MapParser\Sprite\Cache\SqliteSpriteCache;
 use Arakne\Swf\SwfFile;
 use GdImage;
 use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Model\MapFile;
+use MapClassifier\Map\Model\NoLayerObject;
 use MapClassifier\Map\Model\Rectangle;
 use MapClassifier\Map\Model\RenderError;
 use MapClassifier\Map\Repository\MapKeyRepository;
@@ -95,6 +99,29 @@ final class MapImageRenderer
     {
         try {
             return $this->parser->renderer->render($map);
+        } catch (Throwable $e) {
+            throw new RenderException(RenderError::RenderFailed, $e->getMessage(), $e);
+        }
+    }
+
+    /**
+     * Render the background, the ground, and only the layer 1 objects kept: the shores of a map without the trees, buildings and
+     * objects standing over them
+     *
+     * @param callable(int): bool $keep Whether to draw a layer 1 object, by id
+     *
+     * @throws RenderException When the map cannot be rendered
+     */
+    public function renderGroundLayers(Map $map, callable $keep): GdImage
+    {
+        $renderer = new MapRenderer([
+            new BackgroundLayerRenderer($this->parser->grounds),
+            new LayerObjectRenderer($this->parser->grounds, static fn (CellShape $cell) => $cell->data->ground),
+            new LayerObjectRenderer($this->parser->objects, static fn (CellShape $cell) => $keep($cell->data->layer1->number) ? $cell->data->layer1 : new NoLayerObject()),
+        ]);
+
+        try {
+            return $renderer->render($map);
         } catch (Throwable $e) {
             throw new RenderException(RenderError::RenderFailed, $e->getMessage(), $e);
         }

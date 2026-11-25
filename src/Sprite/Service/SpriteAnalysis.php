@@ -9,7 +9,6 @@ use MapClassifier\Map\Classification\Repository\MapResultRepository;
 use MapClassifier\Map\Classification\Service\SubAreaBiomeResolver;
 use MapClassifier\Map\Exception\RenderException;
 use MapClassifier\Map\Model\MapFile;
-use MapClassifier\Sprite\Classification\Model\SpriteCategory;
 use MapClassifier\Sprite\Classification\Model\SpriteUsage;
 use MapClassifier\Sprite\Classification\Repository\SpriteTypeRepository;
 use MapClassifier\Sprite\Model\SpriteAnalysisReport;
@@ -82,15 +81,7 @@ final readonly class SpriteAnalysis
      */
     private function waterGrounds(): array
     {
-        $grounds = [];
-
-        foreach ($this->types?->all(SpriteSet::Grounds) ?? [] as $id => $result) {
-            if ($result->classification?->category === SpriteCategory::Water) {
-                $grounds[$id] = true;
-            }
-        }
-
-        return $grounds;
+        return $this->types?->waterGrounds() ?? [];
     }
 
     /**

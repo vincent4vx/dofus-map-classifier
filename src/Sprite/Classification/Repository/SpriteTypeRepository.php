@@ -6,6 +6,7 @@ namespace MapClassifier\Sprite\Classification\Repository;
 
 use InvalidArgumentException;
 use MapClassifier\Infrastructure\Json\JsonFile;
+use MapClassifier\Sprite\Classification\Model\SpriteCategory;
 use MapClassifier\Sprite\Classification\Model\SpriteTypeResult;
 use MapClassifier\Sprite\Model\SpriteSet;
 
@@ -47,6 +48,24 @@ final readonly class SpriteTypeRepository
     public function save(SpriteTypeResult $result): void
     {
         JsonFile::write($this->file($result->set, $result->id), $result);
+    }
+
+    /**
+     * Ground sprites (and backgrounds) classified as water
+     *
+     * @return array<int, true>
+     */
+    public function waterGrounds(): array
+    {
+        $grounds = [];
+
+        foreach ($this->all(SpriteSet::Grounds) as $id => $result) {
+            if ($result->classification?->category === SpriteCategory::Water) {
+                $grounds[$id] = true;
+            }
+        }
+
+        return $grounds;
     }
 
     /**

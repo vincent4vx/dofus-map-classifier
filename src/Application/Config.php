@@ -54,6 +54,12 @@ final class Config
 
     public string $areasDir { get => $this->varDir . '/areas'; }
 
+    /** Examples of the shore pieces along the water (shores:examples) */
+    public string $shoreExamplesDir { get => $this->varDir . '/shore_examples'; }
+
+    /** Roles of the shore pieces in the shores (shores:classify) */
+    public string $shoreRolesDir { get => $this->varDir . '/shore_roles'; }
+
     public static function fromEnv(string $projectDir): self
     {
         $env = static fn (string $name): ?string => ($value = getenv($name)) === false || $value === '' ? null : $value;
